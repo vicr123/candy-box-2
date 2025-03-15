@@ -593,6 +593,8 @@ export class QuestEntity{
     
     public setCbc(cbc: CollisionBoxCollection): void{
         this.cbc = cbc;
+        if (this.cbc != null)
+            this.cbc.setOwner(this);
     }
     
     public setDead(dead: boolean): void{

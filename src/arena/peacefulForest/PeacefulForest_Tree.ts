@@ -18,8 +18,7 @@ export class PeacefulForest_Tree extends QuestEntity{
               new Naming("A tree", "a tree"), // The name of the entity as it will appear in the quest log. Two parameters : the first one ("A tree") is used at the beginning of a sentence, and the second one ("a tree") is used inside a sentence
               new RenderArea(3, 1), // The tree render area : 3 characters width and 1 character height
               new Pos(0, 0), // The position of where the render area is drawn relatively to the global position (see three lines above)
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(3, 1))), // The collision box collection of the tree, made of one collision box (position 0, 0, size 3, 1)
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(3, 1))), // The collision box collection of the tree, made of one collision box (position 0, 0, size 3, 1)
               new QuestEntityMovement() // The tree's movement. We don't give any parameter because the tree isn't actually moving.
              );
         
@@ -37,7 +36,7 @@ export class PeacefulForest_Tree extends QuestEntity{
         // Add the tree's weapon. It will be attacking with its leaves.
         this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, // Nothing important here
                                                         new Naming("Its leaves", "its leaves"), // The weapon's name
-                                                        new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(5, 2))), // The tree collision box collection, made of one collision box (position -1, -1, size 5, 2)
+                                                        new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(5, 2))), // The tree collision box collection, made of one collision box (position -1, -1, size 5, 2)
                                                         1)); // The weapon's damage (1)
         
         // Set the weapon's delay

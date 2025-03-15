@@ -22,8 +22,7 @@ export class Rat extends QuestEntity{
               new Naming("A rat", "a rat"),
               new RenderArea(3, 1),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(3, 1))),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(3, 1))),
               new QuestEntityMovement()
              );
         
@@ -39,7 +38,7 @@ export class Rat extends QuestEntity{
         this.getRenderArea().drawArray(Database.getAscii("places/quests/cellar/rat"));
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its teeth", "its teeth"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(5, 2))), 1));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its teeth", "its teeth"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(5, 2))), 1));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(3);
     }
     

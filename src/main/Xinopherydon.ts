@@ -23,23 +23,15 @@ export class Xinopherydon extends QuestEntity{
               new Naming("A xinopherydon", "a xinopherydon"),
               new RenderArea(17, 6),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 1), new Pos(5, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(0, 2), new Pos(9, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(12, 2), new Pos(5, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(3, 3), new Pos(14, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(4, 4), new Pos(5, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(10, 4), new Pos(5, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(5, 5), new Pos(3, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(11, 5), new Pos(3, 1))
-                                        ),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 1), new Pos(5, 1)),
+                                         new CollisionBox(new Pos(0, 2), new Pos(9, 1)),
+                                         new CollisionBox(new Pos(12, 2), new Pos(5, 1)),
+                                         new CollisionBox(new Pos(3, 3), new Pos(14, 1)),
+                                         new CollisionBox(new Pos(4, 4), new Pos(5, 1)),
+                                         new CollisionBox(new Pos(10, 4), new Pos(5, 1)),
+                                         new CollisionBox(new Pos(5, 5), new Pos(3, 1)),
+                                         new CollisionBox(new Pos(11, 5), new Pos(3, 1))
+              ),
               new QuestEntityMovement()
              );
         
@@ -57,7 +49,7 @@ export class Xinopherydon extends QuestEntity{
         this.setTransparency(new RenderTransparency(" "));
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its huge body", "its huge body"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(19, 8))), 800));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its huge body", "its huge body"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(19, 8))), 800));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(20);
     }
     

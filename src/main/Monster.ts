@@ -24,14 +24,10 @@ export class Monster extends QuestEntity{
               new Naming("The monster", "the monster"),
               new RenderArea(13, 4),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(13, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(1, 0), new Pos(11, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(2, 0), new Pos(9, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(3, 0), new Pos(7, 1))),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(13, 1)),
+                                         new CollisionBox(new Pos(1, 0), new Pos(11, 1)),
+                                         new CollisionBox(new Pos(2, 0), new Pos(9, 1)),
+                                         new CollisionBox(new Pos(3, 0), new Pos(7, 1))),
               new QuestEntityMovement()
              );
         
@@ -43,7 +39,7 @@ export class Monster extends QuestEntity{
         this.setTransparency(new RenderTransparency(" ", "%"));
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("??", "??"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(15, 6))), 10000));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("??", "??"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(15, 6))), 10000));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(0);
     }
     

@@ -40,49 +40,28 @@ export class DeveloperEntity extends QuestEntity{
               new Naming("The developer", "the developer"),
               new RenderArea(43, 34),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(20, 0), new Pos(6, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(16, 1), new Pos(12, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(15, 2), new Pos(14, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(12, 3), new Pos(18, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(11, 4), new Pos(20, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(10, 5), new Pos(22, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(9, 6), new Pos(24, 2)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(9, 8), new Pos(25, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(9, 9), new Pos(26, 2)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(9, 11), new Pos(27, 3)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(9, 14), new Pos(28, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(8, 15), new Pos(29, 3)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(7, 18), new Pos(30, 4)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(7, 22), new Pos(31, 2)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(6, 24), new Pos(32, 4)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(5, 28), new Pos(33, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(5, 29), new Pos(34, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(4, 30), new Pos(35, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(2, 31), new Pos(38, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(1, 32), new Pos(40, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(0, 33), new Pos(43, 1))
-                                        ),
+              new CollisionBoxCollection(new CollisionBox(new Pos(20, 0), new Pos(6, 1)),
+                                         new CollisionBox(new Pos(16, 1), new Pos(12, 1)),
+                                         new CollisionBox(new Pos(15, 2), new Pos(14, 1)),
+                                         new CollisionBox(new Pos(12, 3), new Pos(18, 1)),
+                                         new CollisionBox(new Pos(11, 4), new Pos(20, 1)),
+                                         new CollisionBox(new Pos(10, 5), new Pos(22, 1)),
+                                         new CollisionBox(new Pos(9, 6), new Pos(24, 2)),
+                                         new CollisionBox(new Pos(9, 8), new Pos(25, 1)),
+                                         new CollisionBox(new Pos(9, 9), new Pos(26, 2)),
+                                         new CollisionBox(new Pos(9, 11), new Pos(27, 3)),
+                                         new CollisionBox(new Pos(9, 14), new Pos(28, 1)),
+                                         new CollisionBox(new Pos(8, 15), new Pos(29, 3)),
+                                         new CollisionBox(new Pos(7, 18), new Pos(30, 4)),
+                                         new CollisionBox(new Pos(7, 22), new Pos(31, 2)),
+                                         new CollisionBox(new Pos(6, 24), new Pos(32, 4)),
+                                         new CollisionBox(new Pos(5, 28), new Pos(33, 1)),
+                                         new CollisionBox(new Pos(5, 29), new Pos(34, 1)),
+                                         new CollisionBox(new Pos(4, 30), new Pos(35, 1)),
+                                         new CollisionBox(new Pos(2, 31), new Pos(38, 1)),
+                                         new CollisionBox(new Pos(1, 32), new Pos(40, 1)),
+                                         new CollisionBox(new Pos(0, 33), new Pos(43, 1))
+              ),
               new QuestEntityMovement()
              );
         

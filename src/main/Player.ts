@@ -92,16 +92,16 @@ export class Player extends QuestEntity{
     public getClassicCollisionBoxCollection(): CollisionBoxCollection{
         switch(this.characterType){
             case PlayerCharacterType.CANDYBOX:
-                return new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(5, 3)));
+                return new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(5, 3)));
             break;
             case PlayerCharacterType.MEDIUM:
-                return new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(13, 6)));
+                return new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(13, 6)));
             break;
             case PlayerCharacterType.CANDYBOX_SQUEEZED:
-                return new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(3, 3)));
+                return new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(3, 3)));
             break;
             case PlayerCharacterType.MEDIUM_SQUEEZED:
-                return new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(8, 5)));
+                return new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(8, 5)));
             break;
         }
     }
@@ -219,7 +219,7 @@ export class Player extends QuestEntity{
         this.drawOnRenderArea();
 
         // Set the collision boxes
-        this.setCbc(new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(3, 1))));
+        this.setCbc(new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(3, 1))));
         
         // Transparency
         this.setTransparency(null);
@@ -237,7 +237,7 @@ export class Player extends QuestEntity{
         this.drawOnRenderArea();
 
         // Set the collision boxes
-        this.setCbc(new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(1, 1))));
+        this.setCbc(new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(1, 1))));
         
         // Transparency
         this.setTransparency(null);
@@ -266,11 +266,11 @@ export class Player extends QuestEntity{
         this.drawOnRenderArea();
 
         // Set the collision boxes
-        this.setCbc(new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(11, 1)),
-                                               new CollisionBox(this, new Pos(1, 1), new Pos(9, 1)),
-                                               new CollisionBox(this, new Pos(2, 2), new Pos(7, 1)),
-                                               new CollisionBox(this, new Pos(4, 3), new Pos(3, 1))
-                                              ));
+        this.setCbc(new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(11, 1)),
+                                               new CollisionBox(new Pos(1, 1), new Pos(9, 1)),
+                                               new CollisionBox(new Pos(2, 2), new Pos(7, 1)),
+                                               new CollisionBox(new Pos(4, 3), new Pos(3, 1))
+        ));
         
         // Transparent character
         this.setTransparency(new RenderTransparency(" ", "%"));
@@ -288,10 +288,10 @@ export class Player extends QuestEntity{
         this.drawOnRenderArea();
 
         // Set the collision boxes
-        this.setCbc(new CollisionBoxCollection(new CollisionBox(this, new Pos(2, 0), new Pos(2, 1)),
-                                               new CollisionBox(this, new Pos(0, 1), new Pos(6, 1)),
-                                               new CollisionBox(this, new Pos(2, 2), new Pos(2, 1))
-                                              ));
+        this.setCbc(new CollisionBoxCollection(new CollisionBox(new Pos(2, 0), new Pos(2, 1)),
+                                               new CollisionBox(new Pos(0, 1), new Pos(6, 1)),
+                                               new CollisionBox(new Pos(2, 2), new Pos(2, 1))
+        ));
         
         // Transparent character
         this.setTransparency(new RenderTransparency(" ", "%"));

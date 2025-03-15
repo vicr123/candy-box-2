@@ -151,7 +151,9 @@ export class Desert extends Quest{
         
         // We check if we could collide with another bird using this y position
         for(var i = 0; i < this.getEntities().length; i++){
-            if(this.getEntities()[i].getCbc() != null && this.getEntities()[i].getCbc().collidesWith(new CollisionBoxCollection(new CollisionBox(new QuestEntity(this, new Pos(0, 0)), new Pos(0, yPos), new Pos(149, 4)))))
+            const birdCbc = new CollisionBoxCollection(new CollisionBox(new Pos(0, yPos), new Pos(149, 4)));
+            birdCbc.setOwner(new QuestEntity(this, new Pos(0, 0)));
+            if(this.getEntities()[i].getCbc() != null && this.getEntities()[i].getCbc().collidesWith(birdCbc))
                 return;
         }
         

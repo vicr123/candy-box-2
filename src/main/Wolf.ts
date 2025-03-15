@@ -32,8 +32,7 @@ export class Wolf extends QuestEntity{
               new Naming("A wolf", "a wolf"),
               new RenderArea(7, 3),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 1), new Pos(7, 2))),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 1), new Pos(7, 2))),
               new QuestEntityMovement()
              );
         
@@ -56,7 +55,7 @@ export class Wolf extends QuestEntity{
         this.setHp(45);
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its fangs", "its fangs"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, 0), new Pos(9, 3))), 10));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its fangs", "its fangs"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, 0), new Pos(9, 3))), 10));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(2);
     }
     

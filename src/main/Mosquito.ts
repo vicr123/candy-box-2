@@ -25,8 +25,7 @@ export class Mosquito extends QuestEntity{
               new Naming("A forest mosquito", "a forest mosquito"),
               new RenderArea(1, 1),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(1, 1))),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(1, 1))),
               new QuestEntityMovement()
              );
         
@@ -48,7 +47,7 @@ export class Mosquito extends QuestEntity{
         this.getRenderArea().drawString(".");
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("A proboscis", "a proboscis"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(3, 3))), 12));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("A proboscis", "a proboscis"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(3, 3))), 12));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setOnceThenWaitDelay(20);
     }
     

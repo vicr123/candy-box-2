@@ -19,15 +19,14 @@ export class Spikes extends QuestEntity{
               new Naming("Some spikes", "some spikes"),
               new RenderArea(),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(width, 1)))
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(width, 1)))
              );
         
         // Set the team (nature)
         this.setTeam(QuestEntityTeam.NATURE);
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its spikes", "its spikes"), new CollisionBoxCollection(new CollisionBox(this, new Pos(0, (inverted? 1: -1)), new Pos(width, 1))), damage));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its spikes", "its spikes"), new CollisionBoxCollection(new CollisionBox(new Pos(0, (inverted ? 1 : -1)), new Pos(width, 1))), damage));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(0);
         
         // Draw the ascii art

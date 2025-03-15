@@ -37,8 +37,7 @@ export class TreeSpirit extends QuestEntity{
               new Naming("A tree spirit", "a tree spirit"),
               new RenderArea(5, 5),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 1), new Pos(5, 2)), new CollisionBox(this, new Pos(1, 3), new Pos(3, 2))),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 1), new Pos(5, 2)), new CollisionBox(new Pos(1, 3), new Pos(3, 2))),
               new QuestEntityMovement()
              );
         
@@ -66,7 +65,7 @@ export class TreeSpirit extends QuestEntity{
         this.setHp(100);
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Spines", "spines"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, 0), new Pos(7, 6))), 2));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Spines", "spines"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, 0), new Pos(7, 6))), 2));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(1);
     }
     

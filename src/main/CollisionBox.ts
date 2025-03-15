@@ -12,10 +12,14 @@ export class CollisionBox{
     private size: Pos;
     
     // Constructor
-    constructor(questEntity: QuestEntity, position: Pos, size: Pos){
-        this.questEntity = questEntity;
+    constructor(position: Pos, size: Pos){
+        this.questEntity = null;
         this.position = position;
         this.size = size;
+    }
+
+    public setQuestEntity(questEntity: QuestEntity) {
+        this.questEntity = questEntity;
     }
     
     // Public methods

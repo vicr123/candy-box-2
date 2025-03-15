@@ -21,7 +21,7 @@ export class Wall extends QuestEntity{
     
     // Public method
     public addBox(pos: Pos, size: Pos): void{
-        this.getCbc().addCollisionBox(new CollisionBox(this, pos, size));
+        this.getCbc().addCollisionBox(new CollisionBox(pos, size));
     }
     
     public removeBoxes(): void{

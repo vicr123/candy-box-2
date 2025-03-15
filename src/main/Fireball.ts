@@ -54,7 +54,7 @@ export class Fireball extends QuestEntitySpell{
         this.questEntityDamageReason = questEntityDamageReason;
         
         // Create the damage collision box collection
-        this.damageCollisionBoxCollection = new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), this.size));
+        this.damageCollisionBoxCollection = new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), this.size));
         
         // Add the color
         this.addColor(new QuestEntitySpellColor(this.getQuest(), new Pos(0, 0), this.size, color));

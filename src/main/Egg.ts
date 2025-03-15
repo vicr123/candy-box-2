@@ -24,8 +24,7 @@ export class Egg extends QuestEntity{
               new Naming("An egg", "an egg"),
               new RenderArea(2, 1),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(2, 1))),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(2, 1))),
               new QuestEntityMovement()
              );
         

@@ -36,15 +36,11 @@ export class MonkeyWizard extends QuestEntity{
               new Naming("A monkey wizard", "a monkey wizard"),
               new RenderArea(4, 4),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(3, 0), new Pos(1, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(1, 1), new Pos(3, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(0, 2), new Pos(4, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(0, 3), new Pos(4, 1))
-                                        ),
+              new CollisionBoxCollection(new CollisionBox(new Pos(3, 0), new Pos(1, 1)),
+                                         new CollisionBox(new Pos(1, 1), new Pos(3, 1)),
+                                         new CollisionBox(new Pos(0, 2), new Pos(4, 1)),
+                                         new CollisionBox(new Pos(0, 3), new Pos(4, 1))
+              ),
               new QuestEntityMovement()
              );
         
@@ -69,7 +65,7 @@ export class MonkeyWizard extends QuestEntity{
         this.setTransparency(new RenderTransparency(" "));
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its staff", "its staff"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(6, 6))), 3));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its staff", "its staff"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(6, 6))), 3));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(1);
     }
     

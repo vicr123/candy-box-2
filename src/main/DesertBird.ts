@@ -20,8 +20,7 @@ export class DesertBird extends QuestEntity{
               new Naming("A desert bird", "a desert bird"),
               new RenderArea(9, 4),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(9, 4)))
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(9, 4)))
              );
         
         // If we're heading to right

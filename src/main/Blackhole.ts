@@ -35,13 +35,13 @@ export class Blackhole extends QuestEntitySpell{
         this.questEntityDamageReason = questEntityDamageReason;
         
         // Create the collision box collection
-        this.cbcDamage = new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -3), new Pos(2, 1)),
-                                              new CollisionBox(this, new Pos(-3, -2), new Pos(6, 1)),
-                                              new CollisionBox(this, new Pos(-4, -1), new Pos(8, 1)),
-                                              new CollisionBox(this, new Pos(-5, 0), new Pos(10, 1)),
-                                              new CollisionBox(this, new Pos(-4, 1), new Pos(8, 1)),
-                                              new CollisionBox(this, new Pos(-3, 2), new Pos(6, 1)),
-                                              new CollisionBox(this, new Pos(-1, 3), new Pos(2, 1)));
+        this.cbcDamage = new CollisionBoxCollection(new CollisionBox(new Pos(-1, -3), new Pos(2, 1)),
+                                              new CollisionBox(new Pos(-3, -2), new Pos(6, 1)),
+                                              new CollisionBox(new Pos(-4, -1), new Pos(8, 1)),
+                                              new CollisionBox(new Pos(-5, 0), new Pos(10, 1)),
+                                              new CollisionBox(new Pos(-4, 1), new Pos(8, 1)),
+                                              new CollisionBox(new Pos(-3, 2), new Pos(6, 1)),
+                                              new CollisionBox(new Pos(-1, 3), new Pos(2, 1)));
         
         // Set the timer
         this.timer = 30;

@@ -34,19 +34,13 @@ export class Camazotz extends QuestEntity{
               new Naming("Camazotz, the bat god", "Camazotz, the bat god"),
               new RenderArea(22, 8),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(8, 1), new Pos(6, 2)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(2, 3), new Pos(18, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(1, 4), new Pos(20, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(0, 5), new Pos(22, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(9, 6), new Pos(4, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(10, 7), new Pos(2, 1))
-                                        ),
+              new CollisionBoxCollection(new CollisionBox(new Pos(8, 1), new Pos(6, 2)),
+                                         new CollisionBox(new Pos(2, 3), new Pos(18, 1)),
+                                         new CollisionBox(new Pos(1, 4), new Pos(20, 1)),
+                                         new CollisionBox(new Pos(0, 5), new Pos(22, 1)),
+                                         new CollisionBox(new Pos(9, 6), new Pos(4, 1)),
+                                         new CollisionBox(new Pos(10, 7), new Pos(2, 1))
+              ),
               new QuestEntityMovement()
              );
         
@@ -72,7 +66,7 @@ export class Camazotz extends QuestEntity{
         this.setTransparency(new RenderTransparency(" ", "%"));
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its claws", "its claws"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, 0), new Pos(24, 9))), 300));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its claws", "its claws"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, 0), new Pos(24, 9))), 300));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setBetweenDelay(20, 100); // This delay because Camazotz is quite busy throwing enemies to the player
     }
     

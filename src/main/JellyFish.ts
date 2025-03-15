@@ -22,15 +22,11 @@ export class JellyFish extends QuestEntity{
               new Naming("A jellyfish", "a jellyfish"),
               new RenderArea(6, 5),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 1), new Pos(6, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(1, 2), new Pos(4, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(0, 3), new Pos(4, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(1, 4), new Pos(4, 1))
-                                        ),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 1), new Pos(6, 1)),
+                                         new CollisionBox(new Pos(1, 2), new Pos(4, 1)),
+                                         new CollisionBox(new Pos(0, 3), new Pos(4, 1)),
+                                         new CollisionBox(new Pos(1, 4), new Pos(4, 1))
+              ),
               new QuestEntityMovement(new Pos(-1, 0))
              );
         
@@ -46,7 +42,7 @@ export class JellyFish extends QuestEntity{
         this.setTransparency(new RenderTransparency(" ", "%"));
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Poisoned tentacles", "poisoned tentacles"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(8, 7))), 2));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Poisoned tentacles", "poisoned tentacles"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(8, 7))), 2));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(0);
     }
     

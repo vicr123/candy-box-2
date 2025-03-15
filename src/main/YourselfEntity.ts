@@ -21,8 +21,7 @@ export class YourselfEntity extends QuestEntity{
               new Naming("Yourself", "yourself"),
               new RenderArea(3, 1),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(3, 1))),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(3, 1))),
               new QuestEntityMovement(new Pos(-1, 0))
              );
         
@@ -38,7 +37,7 @@ export class YourselfEntity extends QuestEntity{
         this.getRenderArea().drawString("\\o/");
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("The same weapon as yours", "the same weapon as yours"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(5, 3))), 0));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("The same weapon as yours", "the same weapon as yours"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(5, 3))), 0));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay();
     }
     

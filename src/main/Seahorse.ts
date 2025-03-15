@@ -30,15 +30,11 @@ export class Seahorse extends QuestEntity{
               new Naming("A magical seahorse", "a magical seahorse"),
               new RenderArea(4, 4),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(3, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(1, 1), new Pos(3, 1)),
-        // @ts-expect-error
-                                         new CollisionBox(this, new Pos(2, 2), new Pos(1, 1)),
-                                             // @ts-expect-error
-                                         new CollisionBox(this, new Pos(2, 3), new Pos(1, 1))
-                                        ),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(3, 1)),
+                                         new CollisionBox(new Pos(1, 1), new Pos(3, 1)),
+                                         new CollisionBox(new Pos(2, 2), new Pos(1, 1)),
+                                         new CollisionBox(new Pos(2, 3), new Pos(1, 1))
+              ),
               new QuestEntityMovement(new Pos(-1, 0))
              );
         

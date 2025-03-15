@@ -19,8 +19,7 @@ export class ObsidianBrick extends QuestEntitySpell{
               new Naming("An obsidian brick", "an obsidian brick"),
               null,
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(2, 1))),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(2, 1))),
               new QuestEntityMovement()
              );
               

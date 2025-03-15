@@ -42,7 +42,7 @@ export class PlayerSummonedDemon extends QuestEntitySpell{
         this.damageReason.setSpellNaming(this.getRandomNaming());
         
         // Create the collision box collection
-        this.damageCollisionBoxCollection = new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(8, 4)));
+        this.damageCollisionBoxCollection = new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(8, 4)));
         
         // Add the demon colors randomly
         this.addRandomQuestEntitySpellColors();

@@ -22,7 +22,7 @@ export class Lava extends QuestEntity{
         this.setTeam(QuestEntityTeam.NATURE);
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Fire", "fire"), new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), size)), 1000));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Fire", "fire"), new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), size)), 1000));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(0);
     }
 }

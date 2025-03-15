@@ -39,8 +39,7 @@ export class Devil extends QuestEntity{
               new Naming("The devil", "the devil"),
               new RenderArea(16, 16),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(4, 0), new Pos(8, 5))),
+              new CollisionBoxCollection(new CollisionBox(new Pos(4, 0), new Pos(8, 5))),
               new QuestEntityMovement()
              );
         
@@ -67,7 +66,7 @@ export class Devil extends QuestEntity{
         this.reDraw();
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Evilness", "evilness"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(18, 18))), 500));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Evilness", "evilness"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(18, 18))), 500));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setBetweenDelay(0, 5);
     }
     

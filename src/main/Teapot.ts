@@ -21,19 +21,13 @@ export class Teapot extends QuestEntity{
               new Naming("A teapot", "a teapot"),
               new RenderArea(19, 6),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 1), new Pos(3, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(6, 1), new Pos(8, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(1, 2), new Pos(18, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(2, 3), new Pos(17, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(3, 4), new Pos(16, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(5, 5), new Pos(12, 1))
-                                        ),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 1), new Pos(3, 1)),
+                                         new CollisionBox(new Pos(6, 1), new Pos(8, 1)),
+                                         new CollisionBox(new Pos(1, 2), new Pos(18, 1)),
+                                         new CollisionBox(new Pos(2, 3), new Pos(17, 1)),
+                                         new CollisionBox(new Pos(3, 4), new Pos(16, 1)),
+                                         new CollisionBox(new Pos(5, 5), new Pos(12, 1))
+              ),
               new QuestEntityMovement()
              );
         

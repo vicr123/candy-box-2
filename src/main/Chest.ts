@@ -33,8 +33,7 @@ export class Chest extends QuestEntity{
               new Naming("A chest", "a chest"),
               new RenderArea(),
               new Pos(0, -1),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, -1), new Pos(3, 2)))
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, -1), new Pos(3, 2)))
              );
         
         // Set the parameters
@@ -45,7 +44,7 @@ export class Chest extends QuestEntity{
         this.isOpened = isOpened;
         
         // Create the opening collision box collection
-        this.openingCollisionBoxCollection = new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(5, 3)));
+        this.openingCollisionBoxCollection = new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(5, 3)));
         
         // Set the team (nature)
         this.setTeam(QuestEntityTeam.NATURE);

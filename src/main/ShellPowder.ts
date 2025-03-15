@@ -24,8 +24,7 @@ export class ShellPowder extends QuestEntity{
               new Naming("Shell powder", "shell powder"),
               new RenderArea(),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(6, 3)))
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(6, 3)))
              );
         
         // Set destructible

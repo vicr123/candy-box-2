@@ -23,19 +23,13 @@ export class MiniShark extends QuestEntity{
               new Naming("A dangerous fish", "a dangerous fish"),
               new RenderArea(19, 5),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(8, 1), new Pos(2, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(17, 1), new Pos(2, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(5, 2), new Pos(14, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(2, 3), new Pos(17, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(0, 4), new Pos(12, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(18, 4), new Pos(1, 1))
-                                        ),
+              new CollisionBoxCollection(new CollisionBox(new Pos(8, 1), new Pos(2, 1)),
+                                         new CollisionBox(new Pos(17, 1), new Pos(2, 1)),
+                                         new CollisionBox(new Pos(5, 2), new Pos(14, 1)),
+                                         new CollisionBox(new Pos(2, 3), new Pos(17, 1)),
+                                         new CollisionBox(new Pos(0, 4), new Pos(12, 1)),
+                                         new CollisionBox(new Pos(18, 4), new Pos(1, 1))
+              ),
               new QuestEntityMovement(new Pos(-1, 0))
              );
         
@@ -51,7 +45,7 @@ export class MiniShark extends QuestEntity{
         this.setTransparency(new RenderTransparency(" ", "%"));
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its teeth", "its teeth"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(21, 7))), 8));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its teeth", "its teeth"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(21, 7))), 8));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(2);
     }
     

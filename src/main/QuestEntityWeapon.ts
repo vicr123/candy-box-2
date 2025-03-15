@@ -78,6 +78,7 @@ export class QuestEntityWeapon{
     // Private methods
     private collidesWith(questEntity: QuestEntity): boolean{
         // If we both have a collision box collection, we return the result of the collision test
+        this.cbc.setOwner(this.questEntity);
         if(this.cbc != null && questEntity.getCbc() != null)
            return this.cbc.collidesWith(questEntity.getCbc());
         

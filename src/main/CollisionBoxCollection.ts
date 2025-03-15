@@ -1,17 +1,21 @@
 import {CollisionBox} from "./CollisionBox";
 import {Pos} from "./Pos";
+import {QuestEntity} from "./QuestEntity";
 
 export class CollisionBoxCollection{
     // Array of collision boxes
     boxes: CollisionBox[];
+    currentOwner: QuestEntity;
     
     // Constructor
     constructor(...boxes: CollisionBox[]){
         this.boxes = boxes;
+        this.currentOwner = null;
     }
     
     // Public method
     public addCollisionBox(collisionBox: CollisionBox): void{
+        collisionBox.setQuestEntity(this.currentOwner);
         this.boxes.push(collisionBox);
     }
     
@@ -43,5 +47,12 @@ export class CollisionBoxCollection{
     // Public getters
     public getBoxes(): CollisionBox[]{
         return this.boxes;
+    }
+
+    public setOwner(ent: QuestEntity) {
+        this.currentOwner = ent;
+        for (const box of this.boxes) {
+            box.setQuestEntity(ent);
+        }
     }
 }

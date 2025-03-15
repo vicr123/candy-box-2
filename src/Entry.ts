@@ -1,3 +1,5 @@
+/// <reference path="./types.d.ts" />
+
 import {Main} from "./main/main";
 import "./main/string_prototype"
 

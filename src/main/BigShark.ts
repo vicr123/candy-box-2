@@ -30,31 +30,19 @@ export class BigShark extends QuestEntity{
               new Naming("A shark", "a shark"),
               new RenderArea(47, 10),
               new Pos(0, 0),
-              // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(14, 0), new Pos(2, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(13, 1), new Pos(2, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(12, 2), new Pos(4, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(41, 2), new Pos(5, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(11, 3), new Pos(7, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(35, 3), new Pos(11, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(2, 4), new Pos(40, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(0, 5), new Pos(40, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(1, 6), new Pos(44, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(3, 7), new Pos(43, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(15, 8), new Pos(3, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(16, 9), new Pos(1, 1))
-                                        ),
+              new CollisionBoxCollection(new CollisionBox(new Pos(14, 0), new Pos(2, 1)),
+                                         new CollisionBox(new Pos(13, 1), new Pos(2, 1)),
+                                         new CollisionBox(new Pos(12, 2), new Pos(4, 1)),
+                                         new CollisionBox(new Pos(41, 2), new Pos(5, 1)),
+                                         new CollisionBox(new Pos(11, 3), new Pos(7, 1)),
+                                         new CollisionBox(new Pos(35, 3), new Pos(11, 1)),
+                                         new CollisionBox(new Pos(2, 4), new Pos(40, 1)),
+                                         new CollisionBox(new Pos(0, 5), new Pos(40, 1)),
+                                         new CollisionBox(new Pos(1, 6), new Pos(44, 1)),
+                                         new CollisionBox(new Pos(3, 7), new Pos(43, 1)),
+                                         new CollisionBox(new Pos(15, 8), new Pos(3, 1)),
+                                         new CollisionBox(new Pos(16, 9), new Pos(1, 1))
+              ),
               new QuestEntityMovement(new Pos(-1, 0))
              );
         
@@ -73,7 +61,7 @@ export class BigShark extends QuestEntity{
         this.setTransparency(new RenderTransparency(" ", "%"));
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its sharp teeth", "its sharp teeth"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(49, 12))), Random.between(30, 42)));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its sharp teeth", "its sharp teeth"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(49, 12))), Random.between(30, 42)));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(1);
     }
     

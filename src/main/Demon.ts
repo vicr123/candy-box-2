@@ -48,26 +48,26 @@ export class Demon extends QuestEntity{
         switch(this.type){
             case DemonType.CUBE:
                 this.getRenderArea().resize(5, 3);
-                this.getCbc().addCollisionBox(new CollisionBox(this, new Pos(0, 0), new Pos(5, 3)));
+                this.getCbc().addCollisionBox(new CollisionBox(new Pos(0, 0), new Pos(5, 3)));
                 this.getRenderArea().drawArray(Database.getAscii("places/quests/hell/demonCube"));
                 this.setTransparency(new RenderTransparency(" ", "%"));
-                this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its huge body", "its huge body"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, 2), new Pos(7, 2))), 50));
+                this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its huge body", "its huge body"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, 2), new Pos(7, 2))), 50));
                 this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(10);
             break;
             case DemonType.EYES:
                 this.getRenderArea().resize(5, 4);
-                this.getCbc().addCollisionBox(new CollisionBox(this, new Pos(0, 1), new Pos(5, 3)));
+                this.getCbc().addCollisionBox(new CollisionBox(new Pos(0, 1), new Pos(5, 3)));
                 this.getRenderArea().drawArray(Database.getAscii("places/quests/hell/demonEyes"));
                 this.setTransparency(new RenderTransparency(" ", "%"));
-                this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Demonish eyes", "demonish eyes"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(7, 6))), 10));
+                this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Demonish eyes", "demonish eyes"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(7, 6))), 10));
                 this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(0);
             break;
             case DemonType.BUBBLES:
                 this.getRenderArea().resize(5, 3);
-                this.getCbc().addCollisionBox(new CollisionBox(this, new Pos(0, 0), new Pos(5, 3)));
+                this.getCbc().addCollisionBox(new CollisionBox(new Pos(0, 0), new Pos(5, 3)));
                 this.getRenderArea().drawArray(Database.getAscii("places/quests/hell/demonBubbles" + Random.between(0, 6).toString()));
                 this.setTransparency(new RenderTransparency(" "));
-                this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Fire bubbles", "fire bubbles"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(7, 5))), 15));
+                this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Fire bubbles", "fire bubbles"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(7, 5))), 15));
                 this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(1);
             break;
         }

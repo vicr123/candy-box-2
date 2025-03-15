@@ -27,8 +27,7 @@ export class GiantNougatMonster extends QuestEntity{
               new Naming("The giant nougat monster", "the giant nougat monster"),
               new RenderArea(15, 4),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(1, 0), new Pos(12, 1)), new CollisionBox(this, new Pos(0, 1), new Pos(15, 2)), new CollisionBox(this, new Pos(1, 3), new Pos(12, 1))),
+              new CollisionBoxCollection(new CollisionBox(new Pos(1, 0), new Pos(12, 1)), new CollisionBox(new Pos(0, 1), new Pos(15, 2)), new CollisionBox(new Pos(1, 3), new Pos(12, 1))),
               new QuestEntityMovement()
              );
         
@@ -88,7 +87,7 @@ export class GiantNougatMonster extends QuestEntity{
     
     // Private methods
     private addWeapon(): void{
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Nougat", "nougat"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(17, 6))), 3000));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Nougat", "nougat"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(17, 6))), 3000));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setBetweenDelay(20, 40);
     }
     

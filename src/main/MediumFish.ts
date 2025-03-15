@@ -22,13 +22,10 @@ export class MediumFish extends QuestEntity{
               new Naming("A fish", "a fish"),
               new RenderArea(8, 4),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(1, 1), new Pos(7, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(0, 2), new Pos(8, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(1, 3), new Pos(7, 1))
-                                        ),
+              new CollisionBoxCollection(new CollisionBox(new Pos(1, 1), new Pos(7, 1)),
+                                         new CollisionBox(new Pos(0, 2), new Pos(8, 1)),
+                                         new CollisionBox(new Pos(1, 3), new Pos(7, 1))
+              ),
               new QuestEntityMovement(new Pos(-1, 0))
              );
         
@@ -44,7 +41,7 @@ export class MediumFish extends QuestEntity{
         this.setTransparency(new RenderTransparency(" ", "%"));
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its fins", "its fins"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(10, 6))), 3));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its fins", "its fins"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(10, 6))), 3));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(4);
     }
     

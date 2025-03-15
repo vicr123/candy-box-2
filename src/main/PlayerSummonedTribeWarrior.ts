@@ -21,8 +21,7 @@ export class PlayerSummonedTribeWarrior extends QuestEntity{
               new Naming("A tribe warrior", "a tribe warrior"),
               new RenderArea(4, 4),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(0, 0), new Pos(1, 1)), new CollisionBox(this, new Pos(0, 1), new Pos(4, 3))),
+              new CollisionBoxCollection(new CollisionBox(new Pos(0, 0), new Pos(1, 1)), new CollisionBox(new Pos(0, 1), new Pos(4, 3))),
               new QuestEntityMovement()
              );
 
@@ -44,7 +43,7 @@ export class PlayerSummonedTribeWarrior extends QuestEntity{
         this.setTransparency(new RenderTransparency(" "));
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("A tribal spear", "a tribal spear"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(6, 6))), 8));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("A tribal spear", "a tribal spear"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(6, 6))), 8));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(2);
     }
     

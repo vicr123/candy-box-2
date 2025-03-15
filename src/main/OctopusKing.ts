@@ -23,15 +23,11 @@ export class OctopusKing extends QuestEntity{
               new Naming("The Octopus King", "the Octopus King"),
               new RenderArea(6, 4),
               new Pos(0, 0),
-            // @ts-expect-error
-              new CollisionBoxCollection(new CollisionBox(this, new Pos(2, 0), new Pos(2, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(1, 1), new Pos(4, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(1, 2), new Pos(4, 1)),
-                  // @ts-expect-error
-                                         new CollisionBox(this, new Pos(0, 3), new Pos(6, 1))
-                                        ),
+              new CollisionBoxCollection(new CollisionBox(new Pos(2, 0), new Pos(2, 1)),
+                                         new CollisionBox(new Pos(1, 1), new Pos(4, 1)),
+                                         new CollisionBox(new Pos(1, 2), new Pos(4, 1)),
+                                         new CollisionBox(new Pos(0, 3), new Pos(6, 1))
+              ),
               new QuestEntityMovement()
              );
         
@@ -49,7 +45,7 @@ export class OctopusKing extends QuestEntity{
         this.setTransparency(new RenderTransparency(" "));
         
         // Set the weapon and its delay
-        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its tentacles", "its tentacles"), new CollisionBoxCollection(new CollisionBox(this, new Pos(-1, -1), new Pos(8, 6))), 16));
+        this.addQuestEntityWeapon(new QuestEntityWeapon(this.getQuest(), this, new Naming("Its tentacles", "its tentacles"), new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(8, 6))), 16));
         this.getLastQuestEntityWeapon().getCloseCombatDelay().setFixedDelay(3);
     }
     
