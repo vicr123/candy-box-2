@@ -7,6 +7,7 @@ import {Database} from "./Database";
 import {Algo} from "./Algo";
 import {CallbackCollection} from "./CallbackCollection";
 import {Saving} from "./Saving";
+import {i18n} from "../i18n";
 
 export class Cfg extends Place{
     // The render area
@@ -146,13 +147,14 @@ export class Cfg extends Place{
         this.setInvertedColors(false);
     }
     
-    private languageSelected(): void{
+    private async languageSelected(): Promise<void>{
         // Get the selected language id
         var id: string = $("#cfgLanguageList").find(":selected").attr("id");
         
         // Set the new language
         if(this.languageSelectionMap[id] != null){
             Saving.saveString("gameLanguage", this.languageSelectionMap[id]);
+            await i18n.changeLanguage(Saving.loadString("gameLanguage"));
         }
         
         // Update Cfg

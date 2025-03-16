@@ -12,12 +12,15 @@
   },
   "keywords": [],
   "dependencies": {
-    "archipelago.js": "^2.0.4"
+    "archipelago.js": "^2.0.4",
+    "i18next": "^24.2.3",
+    "i18next-http-backend": "^3.0.2"
   },
   "devDependencies": {
     "typescript": "^5.8.2",
     "yuicompressor": "^2.4.8",
-    "vite": "^6.2.2"
+    "vite": "^6.2.2",
+    "@types/jquery": "^3.5.32"
   },
   "author": "",
   "license": "ISC",

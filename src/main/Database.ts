@@ -2,6 +2,7 @@
 
 import {Pos} from "./Pos";
 import {Saving} from "./Saving";
+import {i18n} from "../i18n";
 
 export module Database{
     // Variables
@@ -46,24 +47,20 @@ export module Database{
     }
     
     export function getText(key: string): string{
-        if(textMap["en." + key] == null)
-            console.log("Error : trying to access the unknown text \"" + key + "\"");
-        
-        return textMap["en." + key];
+        return i18n.t(key, {
+            lng: "en"
+        });
     }
     
     export function getTranslatedText(key: string): string{
         // If we have a language (other than english) selected
         if(Saving.loadString("gameLanguage") != "en"){
-            // If the translated text can't be found
-            if(textMap[Saving.loadString("gameLanguage") + "." + key] == null)
-                console.log("Error : trying to access the unknown translated text \"" + key + "\" for language " + Saving.loadString("gameLanguage") + "."); // Error
             // If the translated text isn't chinese
             if(Saving.loadString("gameLanguage") != "zh")
-                return textMap[Saving.loadString("gameLanguage") + "." + key]; // We just return the text
+                return i18n.t(key);
             // Else, the translated text is chinese
             else
-                return textMap[Saving.loadString("gameLanguage") + "." + key].addChineseSpaces(); // We return the text after adding spaces
+                return i18n.t(key).addChineseSpaces(); // We return the text after adding spaces
         }
         
         // Else, we return an empty string

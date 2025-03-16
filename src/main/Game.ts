@@ -71,6 +71,7 @@ import {UnicornHorn} from "./UnicornHorn";
 import {XinopherydonClaw} from "./XinopherydonClaw";
 import {RenderArea} from "./RenderArea";
 import {MainLoadingType} from "./MainLoadingType";
+import {i18n} from "../i18n";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerString("gameLanguage", "en");
@@ -356,7 +357,10 @@ export class Game{
         return false;
     }
     
-    public load(): void{
+    public async load(): Promise<void>{
+        // Translations
+        await i18n.changeLanguage(Saving.loadString("gameLanguage"));
+
         // Resources
         this.candies.load();
         this.lollipops.load();

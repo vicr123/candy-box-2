@@ -3,7 +3,7 @@
 import {Main} from "./main/main";
 import "./main/string_prototype"
 
-import "./gen/genText"
+// import "./gen/genText"
 import "./gen/genAscii"
 
 $(document).ready(function(){

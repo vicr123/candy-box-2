@@ -14,7 +14,7 @@ export module Saving {
     export var canRegister: boolean = true;
     
     // Special public functions : used to load or the actual save
-    export function load(game: Game, loadingType: MainLoadingType, loadingString: string): void{
+    export async function load(game: Game, loadingType: MainLoadingType, loadingString: string): Promise<void>{
         // Depending on the loading type, do different things
         switch(loadingType){
             // We don't load anything
@@ -175,7 +175,7 @@ export module Saving {
         }
         
         // Apply the loaded variables to various things by calling the load() methods of various objects
-        game.load(); // Various variables owned by the game object
+        await game.load(); // Various variables owned by the game object
         game.getPlayer().load(); // The player
     }
     

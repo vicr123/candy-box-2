@@ -65,11 +65,11 @@ export module Main{
         }
     }
     
-    function start(): void{
+    async function start(): Promise<void> {
         game = new Game(gameMode);
         window.game = game;
         Keyboard.setGame(game);
-        Saving.load(game, loadingType, loadingString);
+        await Saving.load(game, loadingType, loadingString);
         game.postLoad();
     }
 }
