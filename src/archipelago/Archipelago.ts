@@ -1,8 +1,14 @@
-import { Client } from "archipelago.js";
+import {Client, Item} from "archipelago.js";
 import EventEmitter from "eventemitter3";
 import {QuestLog} from "../main/QuestLog";
 import {QuestLogMessage} from "../main/QuestLogMessage";
 import {ArchipelagoPlace} from "./ArchipelagoPlace";
+import {
+    ArchipelagoItem,
+    ArchipelagoItemBaseId,
+    ArchipelagoLocation,
+    ArchipelagoLocationRegion
+} from "./ArchipelagoLocation";
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
 type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated";
@@ -25,8 +31,8 @@ function createObservable<T>(initialValue: T, eventEmitter: EventEmitter<Archipe
 }
 
 export namespace Archipelago {
-    export let apLink = "";
-    export let apSlot = "";
+    export let apLink = localStorage.getItem("apLink") ?? "";
+    export let apSlot = localStorage.getItem("apSlot") ?? "";
     export let apPassword = "";
 
     export const client = new Client();
@@ -38,7 +44,7 @@ export namespace Archipelago {
     export async function connect() {
         try {
             connectionStatus.current = "connecting";
-            await client.login(apLink, apSlot, undefined, {
+            await client.login(apLink, apSlot, "Candy Box 2", {
                 password: apPassword,
                 tags: ["DeathLink"]
             });
@@ -51,6 +57,39 @@ export namespace Archipelago {
     export function sendMessage(message) {
         client.messages.say(message);
     }
+
+    export function isChecked(location: keyof typeof ArchipelagoLocation) {
+        return client.room.checkedLocations.includes(ArchipelagoLocation[location]);
+    }
+
+    export function itemCount(item: keyof typeof ArchipelagoItem) {
+        return client.items.received.filter(x => x.id == ArchipelagoItem[item] + ArchipelagoItemBaseId).length;
+    }
+
+    export function check(check: keyof typeof ArchipelagoLocation) {
+        client.check(ArchipelagoLocation[check]);
+    }
+
+    export async function scoutRoom(item: keyof typeof ArchipelagoLocationRegion) {
+        const scoutIds: number[] = [];
+        for (let i = ArchipelagoLocationRegion[item]; Object.values(ArchipelagoLocation).includes(i); i++) {
+            scoutIds.push(i);
+        }
+
+        return new ScoutResults(await client.scout(scoutIds, 0));
+    }
+}
+
+export class ScoutResults {
+    private items: Item[];
+
+    constructor(items: Item[]) {
+        this.items = items;
+    }
+
+    findItem(location: keyof typeof ArchipelagoLocation) {
+        return this.items.find(x => x.locationId == ArchipelagoLocation[location]);
+    }
 }
 
 Archipelago.client.messages.on("message", content => {
@@ -60,3 +99,5 @@ Archipelago.client.messages.on("message", content => {
     }
     Archipelago.events.emit("apLogUpdated");
 })
+
+window.archipelago = Archipelago;

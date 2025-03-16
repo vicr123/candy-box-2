@@ -2,6 +2,9 @@ import {Game} from "./Game";
 import {RenderArea} from "./RenderArea";
 import {CallbackCollection} from "./CallbackCollection";
 import {Database} from "./Database";
+import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
+import { Item } from "archipelago.js";
+import { ScoutResults } from "../archipelago/Archipelago";
 
 export class Place{
     private game: Game;
@@ -59,5 +62,13 @@ export class Place{
 
     public isArchipelagoPlace() {
         return false;
+    }
+
+    public scoutKey(): keyof typeof ArchipelagoLocationRegion | null {
+        return null;
+    }
+
+    public scoutResults(items: ScoutResults) {
+
     }
 }

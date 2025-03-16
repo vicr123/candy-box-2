@@ -12,6 +12,9 @@ import {Forge} from "./Forge";
 import {FourthHouse} from "./FourthHouse";
 import {FifthHouse} from "./FifthHouse";
 import {CallbackCollection} from "./CallbackCollection";
+import {Archipelago} from "../archipelago/Archipelago";
+import client = Archipelago.client;
+import {ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
 
 export class Village extends Place{
     // Render areas

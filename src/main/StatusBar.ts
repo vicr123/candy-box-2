@@ -9,6 +9,8 @@ import {StatusBarTabType} from "./StatusBarTabType";
 import {CallbackCollection} from "./CallbackCollection";
 import {Hotkey} from "./Hotkey";
 import {ArchipelagoNotificationTray} from "../archipelago/ArchipelagoNotificationTray";
+import {ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerBool("statusBarUnlocked", false);
 
@@ -25,7 +27,7 @@ Saving.registerBool("statusBarUnlockedTheArena", false);
 Saving.registerBool("statusBarUnlockedAp", false);
 
 // Saving stuff for the unlocked health bar
-Saving.registerBool("statusBarUnlockedHealthBar", false);
+Saving.registerApLocation("statusBarUnlockedHealthBar", "HP_BAR_UNLOCK");
 
 // The corner step
 Saving.registerNumber("statusBarCornerStep", 0);
@@ -71,7 +73,7 @@ export class StatusBar{
         this.playerHealthBar = null;
         
         // Add the player health bar
-        if(Saving.loadBool("statusBarUnlockedHealthBar")){
+        if(Archipelago.itemCount("HP_BAR") > 0){
             this.playerHealthBar = new Bar(BarType.HEALTH);
             this.playerHealthBar.resize(72, 1);
         }

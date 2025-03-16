@@ -425,7 +425,12 @@ export class Game{
         this.lollipopsInCauldron.save();
     }
     
-    public setPlace(place: Place): void{
+    public async setPlace(place: Place): Promise<void>{
+        if (place.scoutKey() !== null) {
+            const scoutResults = await Archipelago.scoutRoom(place.scoutKey());
+            place.scoutResults(scoutResults);
+        }
+
         // If the current place isn't null, we warn it that we're going to stop displaying it
         if(this.place != null){
             this.place.willStopBeingDisplayed();

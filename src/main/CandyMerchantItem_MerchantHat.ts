@@ -7,7 +7,7 @@ export class CandyMerchantItem_MerchantHat extends CandyMerchantItem{
     // When we buy, we get the merchant hat
     public buy(): void{
         super.buy();
-        this.getGame().gainItem("eqItemHatMerchantHat");
+        // this.getGame().gainItem("eqItemHatMerchantHat");
     }
     
     // The item can't be clicked if the inventory isn't shown yet

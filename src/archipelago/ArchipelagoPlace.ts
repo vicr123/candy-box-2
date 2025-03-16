@@ -102,13 +102,17 @@ export class ArchipelagoPlace extends Place {
     }
 
     private changeApUrl(): void{
-        if($(".apUrl").length) // If the element exists
+        if($(".apUrl").length) {
             Archipelago.apLink = $(".apUrl").val() as string;
+            localStorage.setItem("apUrl", Archipelago.apLink);
+        }
     }
 
     private changeApSlot(): void {
-        if ($(".apSlot").length) // If the element exists
+        if ($(".apSlot").length) {
             Archipelago.apSlot = $(".apSlot").val() as string;
+            localStorage.setItem("apSlot", Archipelago.apSlot);
+        }
     }
 
     private changeApPassword(): void{

@@ -1,6 +1,7 @@
 import {Pos} from "./Pos";
 import {Game} from "./Game";
 import {Saving} from "./Saving";
+import {Item} from "archipelago.js";
 
 export class CandyMerchantItem{
     // The game
@@ -14,7 +15,7 @@ export class CandyMerchantItem{
     private asciiPosition: Pos; // Position of the ascii art in the scene
     
     // The database name of the speech the merchant should deliver when we click on the item
-    private merchantSpeech: string;
+    private merchantSpeech: Item;
     
     // The price of the item
     private price: number;
@@ -26,7 +27,7 @@ export class CandyMerchantItem{
     private buttonName: string;
     
     // Constructor
-    constructor(game: Game, savingBool: string, asciiName: string, asciiPosition: Pos, merchantSpeech: string, price: number, buttonText: string, buttonName: string){
+    constructor(game: Game, savingBool: string, asciiName: string, asciiPosition: Pos, merchantSpeech: Item, price: number, buttonText: string, buttonName: string){
         this.game = game;
         this.savingBool = savingBool;
         this.asciiName = asciiName;
@@ -85,7 +86,7 @@ export class CandyMerchantItem{
     }
     
     public getButtonText(): string{
-        return this.buttonText;
+        return `Buy ${this.merchantSpeech.receiver.name}'s ${this.merchantSpeech.name} (${this.price} candies)`;
     }
     
     public getGame(): Game{
@@ -93,7 +94,7 @@ export class CandyMerchantItem{
     }
     
     public getMerchantSpeech(): string{
-        return this.merchantSpeech;
+        return `This is ${this.merchantSpeech.receiver.name}'s ${this.merchantSpeech.name}. I'll send it straight to ${this.merchantSpeech.receiver.game} with free express shipping for ${this.price} candies!`;
     }
     
     public getPrice(): number{

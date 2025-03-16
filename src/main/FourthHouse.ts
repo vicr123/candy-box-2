@@ -6,10 +6,11 @@ import {RenderArea} from "./RenderArea";
 import {Game} from "./Game";
 import {Database} from "./Database";
 import {CallbackCollection} from "./CallbackCollection";
+import {Archipelago} from "../archipelago/Archipelago";
 
-Saving.registerBool("fourthHouseFoundLollipopOnCupboard", false);
 Saving.registerNumber("fourthHouseCupboardStep", 0); // 0 : closed ; 1 : opened ; 2 : lollipop taken
 Saving.registerNumber("fourthHouseCarpetStep", 0); // 0 : lollipop still under the carpet ; 1 : lollipop outside ; 2 : lollipop taken
+Saving.registerBool("fourthHouseFoundLollipopOnCupboard", false);
 
 export class FourthHouse extends House{
     private renderArea: RenderArea = new RenderArea();
@@ -133,7 +134,8 @@ export class FourthHouse extends House{
             // Set the step
             Saving.saveNumber("fourthHouseCarpetStep", 2);
             // Add one lollipop
-            this.getGame().getLollipops().add(1);
+            //this.getGame().getLollipops().add(1);
+            Archipelago.check("VILLAGE_HOUSE_1_LOLLIPOP_UNDER_RUG");
             // Update
             this.update();
             this.getGame().updatePlace();
@@ -146,7 +148,8 @@ export class FourthHouse extends House{
             // Set the step
             Saving.saveNumber("fourthHouseCupboardStep", 2);
             // Add one lollipop
-            this.getGame().getLollipops().add(1);
+            //this.getGame().getLollipops().add(1);
+            Archipelago.check("VILLAGE_HOUSE_1_LOLLIPOP_IN_BOOKSHELF");
             // Update
             this.update();
             this.getGame().updatePlace();
@@ -157,7 +160,8 @@ export class FourthHouse extends House{
         // If we didn't get the lollipop yet
         if(Saving.loadBool("fourthHouseFoundLollipopOnCupboard") == false){
             // Add one lollipop
-            this.getGame().getLollipops().add(1);
+            //this.getGame().getLollipops().add(1);
+            Archipelago.check("VILLAGE_HOUSE_1_LOLLIPOP_ON_BOOKSHELF");
             // Set the bool
             Saving.saveBool("fourthHouseFoundLollipopOnCupboard", true);
             // Update

@@ -7,7 +7,7 @@ export class CandyMerchantItem_TimeRing extends CandyMerchantItem{
     // When we buy, we get the time ring
     public buy(): void{
         super.buy();
-        this.getGame().gainItem("gridItemPossessedTimeRing");
+        // this.getGame().gainItem("gridItemPossessedTimeRing");
     }
     
     // The item can't be shown if the inventory isn't shown yet

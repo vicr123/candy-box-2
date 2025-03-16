@@ -17,6 +17,7 @@ import {QuestEntityTeam} from "./QuestEntityTeam";
 import {RenderTransparency} from "./RenderTransparency";
 import {QuestLogMessage} from "./QuestLogMessage";
 import {Database} from "./Database";
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerNumber("playerHp", 100);
 
@@ -36,6 +37,11 @@ export class Player extends QuestEntity{
         
         // Set destructible
         this.setDestructible(true);
+
+        // Subscribe to DeathLink
+        Archipelago.client.deathLink.on("deathReceived", ([source, time, cause]) => {
+            this.setHp(0);
+        })
     }
     
     // Public methods
