@@ -1,5 +1,3 @@
-///<reference path="./../../libs/jquery.d.ts"/>
-
 import {Pos} from "./Pos";
 import {Saving} from "./Saving";
 import {i18n} from "../i18n";

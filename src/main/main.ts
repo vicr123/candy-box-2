@@ -1,6 +1,3 @@
-///<reference path="Game.ts"/>
-///<reference path="./../../libs/jquery.d.ts"/>
-
 import {MainLoadingType} from "./MainLoadingType";
 import {Game} from "./Game";
 import {Keyboard} from "./Keyboard";

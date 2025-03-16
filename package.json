@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "vite",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./compile.sh"
+    "build": "vite build"
   },
   "keywords": [],
   "dependencies": {

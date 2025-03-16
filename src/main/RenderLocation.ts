@@ -1,5 +1,3 @@
-///<reference path="./../../libs/jquery.d.ts"/>
-
 import {RenderArea} from "./RenderArea";
 
 export class RenderLocation{

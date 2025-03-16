@@ -9,7 +9,7 @@
     "moduleResolution": "bundler"
   },
   "include": [
-    "./libs/*.ts",
+    "./public/libs/*.ts",
     "./code/main/*.ts",
     "./code/gen/*.ts",
     "./code/arena/*/*"
