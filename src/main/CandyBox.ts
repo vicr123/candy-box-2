@@ -121,13 +121,13 @@ export class CandyBox extends Place{
                 this.renderArea.drawString(Database.getTranslatedText("candyBoxRequestStatusBarUnlockedCfgComment1"), 0, 16 + yGapForEverythingBelowTheThrowingCandiesStuff, true);
                 this.renderArea.drawString(Database.getTranslatedText("candyBoxRequestStatusBarUnlockedCfgComment2"), 0, 17 + yGapForEverythingBelowTheThrowingCandiesStuff, true);
             }
-            // else if(Saving.loadBool("statusBarUnlockedHealthBar") == false){
-            //     this.renderArea.addAsciiRealButton(Database.getText("candyBoxRequestStatusBarUnlockedHealthBar"), 0, 11 + yGapForEverythingBelowTheThrowingCandiesStuff, "candyBoxRequestStatusBarUnlockedHealthBarButton", Database.getTranslatedText("candyBoxRequestStatusBarUnlockedHealthBar"), true);
-            //     this.renderArea.addLinkCall(".candyBoxRequestStatusBarUnlockedHealthBarButton", new CallbackCollection(this.requestStatusBarUnlockedHealthBar.bind(this)));
-            //     this.renderArea.drawString(Database.getText("candyBoxRequestStatusBarUnlockedSaveComment"), 0, 14 + yGapForEverythingBelowTheThrowingCandiesStuff);
-            //     this.renderArea.drawString(Database.getTranslatedText("candyBoxRequestStatusBarUnlockedSaveComment"), 0, 15 + yGapForEverythingBelowTheThrowingCandiesStuff, true);
-            // }
             else if(Saving.loadBool("statusBarUnlockedHealthBar") == false){
+                this.renderArea.addAsciiRealButton(Database.getText("candyBoxRequestStatusBarUnlockedHealthBar"), 0, 11 + yGapForEverythingBelowTheThrowingCandiesStuff, "candyBoxRequestStatusBarUnlockedHealthBarButton", Database.getTranslatedText("candyBoxRequestStatusBarUnlockedHealthBar"), true);
+                this.renderArea.addLinkCall(".candyBoxRequestStatusBarUnlockedHealthBarButton", new CallbackCollection(this.requestStatusBarUnlockedHealthBar.bind(this)));
+                this.renderArea.drawString(Database.getText("candyBoxRequestStatusBarUnlockedSaveComment"), 0, 14 + yGapForEverythingBelowTheThrowingCandiesStuff);
+                this.renderArea.drawString(Database.getTranslatedText("candyBoxRequestStatusBarUnlockedSaveComment"), 0, 15 + yGapForEverythingBelowTheThrowingCandiesStuff, true);
+            }
+            else if(Saving.loadBool("statusBarUnlockedMap") == false){
                 this.renderArea.addAsciiRealButton(Database.getText("candyBoxRequestStatusBarUnlockedMap"), 0, 11 + yGapForEverythingBelowTheThrowingCandiesStuff, "candyBoxRequestStatusBarUnlockedMapButton", Database.getTranslatedText("candyBoxRequestStatusBarUnlockedMap"), true);
                 this.renderArea.addLinkCall(".candyBoxRequestStatusBarUnlockedMapButton", new CallbackCollection(this.requestStatusBarUnlockedMap.bind(this)));
                 this.renderArea.drawString(Database.getText("candyBoxRequestStatusBarUnlockedHealthBarComment"), 0, 14 + yGapForEverythingBelowTheThrowingCandiesStuff);
@@ -247,6 +247,7 @@ export class CandyBox extends Place{
         if(this.getGame().getCandies().getCurrent() >= 5){
             this.getGame().getCandies().transferTo(this.getGame().getCandiesUsedToRequestFeatures(), 5);
             Saving.saveBool("statusBarUnlockedSave", true);
+            Saving.saveBool("statusBarUnlockedAp", true);
             this.getGame().updateStatusBar(true);
             this.update();
             this.getGame().updatePlace();

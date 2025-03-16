@@ -4,7 +4,7 @@ from jsFormat import *
 
 tupleList = []
 rootdir = "./../ascii/"
-finalFileName = "./../code/gen/genAscii.ts"
+finalFileName = "./../src/gen/genAscii.ts"
 
 # We get the list of files in each subdirectory
 for root, subFolders, files in os.walk(rootdir):
@@ -14,6 +14,9 @@ for root, subFolders, files in os.walk(rootdir):
         
 # We open the output file
 outfile = open(finalFileName, mode='w', encoding="utf-8")
+
+# We reference the Database file
+outfile.write("import {Database} from \"../main/Database\"\n")
         
 # We copy the content of each file in a big "genAscii.ts" file
 for tup in tupleList:

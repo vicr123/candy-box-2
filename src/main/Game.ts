@@ -72,6 +72,7 @@ import {XinopherydonClaw} from "./XinopherydonClaw";
 import {RenderArea} from "./RenderArea";
 import {MainLoadingType} from "./MainLoadingType";
 import {i18n} from "../i18n";
+import {ArchipelagoPlace} from "../archipelago/ArchipelagoPlace";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerString("gameLanguage", "en");
@@ -167,7 +168,7 @@ export class Game{
     private selectedEqItems: { [s: string]: EqItem; } = {};
     
     // The quest log
-    private questLog: QuestLog = new QuestLog();
+    private questLog: QuestLog = new QuestLog(10, true);
     
     // Locations
     private place: Place = null;
@@ -532,9 +533,14 @@ export class Game{
         this.setPlace(new SorceressHut(this));
     }
     
-    public goToTheArena(): void{
+    // public goToTheArena(): void{
+    //     this.saveCurrentMapPlace();
+    //     this.setPlace(new TheArena(this));
+    // }
+
+    public goToArchipelago(): void{
         this.saveCurrentMapPlace();
-        this.setPlace(new TheArena(this));
+        this.setPlace(new ArchipelagoPlace(this));
     }
     
     public goToTheCave(): void{

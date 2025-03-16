@@ -8,5 +8,6 @@ export enum StatusBarTabType{
     THE_COMPUTER,
     THE_ARENA,
     SAVE,
-    CFG
+    CFG,
+    ARCHIPELAGO
 }

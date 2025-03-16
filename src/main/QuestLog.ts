@@ -5,10 +5,13 @@ import {Pos} from "./Pos";
 export class QuestLog{
     // Array of messages contained in the quest log
     private messages: QuestLogMessage[] = [];
+    private readonly size: number;
+    reversed: boolean;
     
     // Constructor
-    constructor(){
-
+    constructor(size: number, reversed: boolean){
+        this.size = size;
+        this.reversed = reversed;
     }
     
     // Public method
@@ -28,18 +31,22 @@ export class QuestLog{
     public draw(renderArea: RenderArea, pos: Pos): void{
         // We draw the lines
         renderArea.drawHorizontalLine("-", pos.x, pos.x+100, pos.y);
-        renderArea.drawHorizontalLine("-", pos.x, pos.x+100, pos.y+11);
+        renderArea.drawHorizontalLine("-", pos.x, pos.x+100, pos.y+ this.size + 1);
         
         // We draw the messages
         for(var i = 0; i < this.messages.length; i++){
-            this.messages[i].draw(renderArea, new Pos(pos.x, 1 + pos.y + this.messages.length-1-i), 100);
+            if (this.reversed) {
+                this.messages[i].draw(renderArea, new Pos(pos.x, 1 + pos.y + this.messages.length-1-i), 100);
+            } else {
+                this.messages[i].draw(renderArea, new Pos(pos.x, 1 + pos.y + i), 100);
+            }
         }
     }
     
     // Private methods
     private checkLogSize(): void{
-        if(this.messages.length > 10){
-            this.messages.splice(0, this.messages.length - 10);
+        if(this.messages.length > this.size){
+            this.messages.splice(0, this.messages.length - this.size);
         }
     }
 }

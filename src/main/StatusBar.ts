@@ -21,6 +21,7 @@ Saving.registerBool("statusBarUnlockedCauldron", false);
 Saving.registerBool("statusBarUnlockedInsideYourBox", false);
 Saving.registerBool("statusBarUnlockedTheComputer", false);
 Saving.registerBool("statusBarUnlockedTheArena", false);
+Saving.registerBool("statusBarUnlockedAp", false);
 
 // Saving stuff for the unlocked health bar
 Saving.registerBool("statusBarUnlockedHealthBar", false);
@@ -79,7 +80,8 @@ export class StatusBar{
         if(Saving.loadBool("statusBarUnlockedCauldron")) this.addTab(StatusBarTabType.CAULDRON, 28, "", "CLDR", "", new CallbackCollection(this.game.goToCauldron.bind(this.game)));
         if(Saving.loadBool("statusBarUnlockedInsideYourBox")) this.addTab(StatusBarTabType.INSIDE_YOUR_BOX, 35, "INSIDE", " YOUR", " BOX!", new CallbackCollection(this.game.goToInsideYourBox.bind(this.game)));
         if(Saving.loadBool("statusBarUnlockedTheComputer")) this.addTab(StatusBarTabType.THE_COMPUTER, 44, " THE", " COM", "PUTER", new CallbackCollection(this.game.goToTheComputer.bind(this.game)));
-        if(Saving.loadBool("statusBarUnlockedTheArena")) this.addTab(StatusBarTabType.THE_ARENA, 52, " THE", "ARENA", " /!\\", new CallbackCollection(this.game.goToTheArena.bind(this.game)));
+        // if(Saving.loadBool("statusBarUnlockedTheArena")) this.addTab(StatusBarTabType.THE_ARENA, 52, " THE", "ARENA", " /!\\", new CallbackCollection(this.game.goToTheArena.bind(this.game)));
+        if(Saving.loadBool("statusBarUnlockedAp")) this.addTab(StatusBarTabType.ARCHIPELAGO, 52, " ARC", "HIPEL", " AGO", new CallbackCollection(this.game.goToArchipelago.bind(this.game)));
         if(Saving.loadBool("statusBarUnlockedSave")) this.addTab(StatusBarTabType.SAVE, 60, "", "SAVE", "", new CallbackCollection(this.game.goToSave.bind(this.game)));
         if(Saving.loadBool("statusBarUnlockedCfg")) this.addTab(StatusBarTabType.CFG, 67, "C", "F", "G", new CallbackCollection(this.game.goToCfg.bind(this.game)));
         

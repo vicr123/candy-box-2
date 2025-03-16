@@ -1,6 +1,5 @@
-import {Database} from "../main/Database";
-
-Database.addAscii("arena/hardcorePlatformer/background", 240, 12,
+import {Database} from "../main/Database"
+Database.addAscii("arena/hardcorePlatformer/background", 240, 12, 
 [
 "",
 "",
@@ -4418,4 +4417,13 @@ Database.addAscii("text/Saving", 34, 6,
 "  ___) | (_| |\\ V /| | | | | (_| |",
 " |____/ \\__,_| \\_/ |_|_| |_|\\__, |",
 "                            |___/"
+]);
+Database.addAscii("text/Archipelago", 57, 6, 
+[
+"    _             _     _            _",
+"   / \\   _ __ ___| |__ (_)_ __   ___| | __ _  __ _  ___",
+"  / _ \\ | '__/ __| '_ \\| | '_ \\ / _ \\ |/ _` |/ _` |/ _ \\",
+" / ___ \\| | | (__| | | | | |_) |  __/ | (_| | (_| | (_) |",
+"/_/   \\_\\_|  \\___|_| |_|_| .__/ \\___|_|\\__,_|\\__, |\\___/",
+"                         |_|                 |___/"
 ]);

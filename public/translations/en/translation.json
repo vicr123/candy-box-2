@@ -343,5 +343,12 @@
     "talkingCandySpeech1": "Hey! I'm the talking candy. Congratulations, you won the game! I will open your candy box for you, this is your reward. Should I proceed?",
     "talkingCandySpeech2": "Done! You can now enter it. I hope you liked the game :)",
     "talkingCandyButton": "Yes!!",
-    "lighthousePuzzleResetButton": "Reset"
+    "lighthousePuzzleResetButton": "Reset",
+    "apUrl": "Archipelago Server and port",
+    "apSlot": "Archipelago Slot Name",
+    "apPassword": "Archipelago Password (Optional)",
+    "apConnect": "Connect to Archipelago",
+    "apStatusConnecting": "Connecting to Archipelago...",
+    "apDisconnect": "Disconnect from Archipelago",
+    "apSend": "Send"
 }
