@@ -83,7 +83,7 @@ export class ArchipelagoPlace extends Place {
         Archipelago.apLog.draw(this.renderArea, new Pos(0, 30));
 
         if (Archipelago.connectionStatus.current == "connected") {
-            this.renderArea.addSimpleInput(0, 95, 52, new CallbackCollection(this.changeApPassword.bind(this)), "apMessage", "", false);
+            this.renderArea.addSimpleInputOnEnter(0, 95, 52, new CallbackCollection(this.sendApMessage.bind(this)), "apMessage", "", true);
             this.renderArea.addAsciiRealButton(Database.getText("apSend"), 95, 54, "apSend");
             this.renderArea.addLinkCall(".apSend", new CallbackCollection(this.sendApMessage.bind(this)));
         }

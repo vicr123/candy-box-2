@@ -19,6 +19,7 @@ import {RenderLinkSimpleInput} from "./RenderLinkSimpleInput";
 import {Bugs} from "./Bugs";
 import {Random} from "./Random";
 import {RenderTransparency} from "./RenderTransparency";
+import {RenderLinkSimpleInputOnEnter} from "./RenderLinkSimpleInputOnEnter";
 
 export class RenderArea{
     private area: string[] = []; // Array of strings
@@ -167,8 +168,12 @@ export class RenderArea{
         this.links.push(new RenderLinkOver(e1, e2));
     }
     
-    public addLinkSimpleInput(e: string, callbackCollection: CallbackCollection, defaultValue: string, hasFocus: boolean): void{
+    public addLinkSimpleInput(e: string, callbackCollection: CallbackCollection, defaultValue: string, hasFocus: boolean): void {
         this.links.push(new RenderLinkSimpleInput(e, callbackCollection, defaultValue, hasFocus));
+    }
+
+    public addLinkSimpleInputOnEnter(e: string, callbackCollection: CallbackCollection, defaultValue: string, hasFocus: boolean): void{
+        this.links.push(new RenderLinkSimpleInputOnEnter(e, callbackCollection, defaultValue, hasFocus));
     }
     
     public addList(x1: number, x2: number, y: number, id: string, callbackCollection: CallbackCollection, optionsArray: string[] = []): void{
@@ -220,6 +225,12 @@ export class RenderArea{
         this.addTag(new RenderTag(x1, "<span class=\"aroundTextInput\"><input type=\"text\" class=\"asciiTextInput noHotkeys " + otherClass + "\" style=\"width:" + (x2 - x1).toString() + "ex\"></span>"), y);
         
         this.addLinkSimpleInput("." + otherClass, callbackCollection, defaultValue, hasFocus);
+    }
+
+    public addSimpleInputOnEnter(x1: number, x2: number, y: number, callbackCollection: CallbackCollection, otherClass: string, defaultValue: string = null, hasFocus: boolean = false): void{
+        this.addTag(new RenderTag(x1, "<span class=\"aroundTextInput\"><input type=\"text\" class=\"asciiTextInput noHotkeys " + otherClass + "\" style=\"width:" + (x2 - x1).toString() + "ex\"></span>"), y);
+
+        this.addLinkSimpleInputOnEnter("." + otherClass, callbackCollection, defaultValue, hasFocus);
     }
     
     public addTag(tag: RenderTag, y: number): boolean{
