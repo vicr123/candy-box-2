@@ -1,4 +1,4 @@
-import {Client, Item} from "archipelago.js";
+import {Client, Item, itemsHandlingFlags} from "archipelago.js";
 import EventEmitter from "eventemitter3";
 import {QuestLog} from "../main/QuestLog";
 import {QuestLogMessage} from "../main/QuestLogMessage";
@@ -46,7 +46,8 @@ export namespace Archipelago {
             connectionStatus.current = "connecting";
             await client.login(apLink, apSlot, "Candy Box 2", {
                 password: apPassword,
-                tags: ["DeathLink"]
+                tags: ["DeathLink"],
+                items: itemsHandlingFlags.all
             });
             localSaveSlot = `${client.package.findPackage("Candy Box 2").checksum}.${apSlot}`;
             connectionStatus.current = "connected";

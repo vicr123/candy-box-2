@@ -333,6 +333,9 @@ export class Game{
     
     public gainItem(itemSavingName): void{
         Saving.saveBool(itemSavingName, true);
+
+        // Ensure the inventory is unlocked just in case
+        Saving.saveBool("statusBarUnlockedInventory", true);
         
         this.player.reCalcMaxHp(); // We re calc the player max hp just in case
         this.calcLollipopFarmProduction(); // Idem for the farm production

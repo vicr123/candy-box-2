@@ -361,5 +361,6 @@
     "loadPrompt": "The game is loaded automatically when you connect to Archipelago.",
     "loadPrompt2": "Different worlds are saved separately, so there is no need to choose a slot to load.",
     "eraseDialog": "Are you sure you want to erase the current save slot?",
-    "eraseAllDialog": "Are you sure you want to erase all save slots?"
+    "eraseAllDialog": "Are you sure you want to erase all save slots?",
+    "loadSaveImportantNote": "It is important to note that these text saves are not compatible with vanilla Candy Box 2."
 }

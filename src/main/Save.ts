@@ -286,7 +286,11 @@ export class Save extends Place{
         this.renderArea.drawString(Database.getTranslatedText("saveFileLoadPaste"), x, y+yAdd+3, true);
         
         // Add the text area
-        this.renderArea.addTextarea(x + 2, y+yAdd+5, 96, 6, "saveFileLoadTextarea");
+        this.renderArea.addTextarea(x + 2, y+yAdd+7, 96, 6, "saveFileLoadTextarea");
+
+        this.renderArea.drawString(Database.getText("loadSaveImportantNote"), x, y+yAdd+5);
+        this.renderArea.addBold(x, x + Database.getText("loadSaveImportantNote").length, y+yAdd+5);
+        yAdd += 2;
         
         // Add the load button
         this.renderArea.addAsciiRealButton(Database.getText("saveFileLoadButton"), 48, y+yAdd+13, "saveFileLoadButton", Database.getTranslatedText("saveFileLoadButton"), true);
@@ -319,6 +323,10 @@ export class Save extends Place{
             this.renderArea.drawString("   " + Database.getTranslatedText("saveFileSaveWhy4"), x, y+yAdd+12, true);
             yAdd += 6; // We increase yAdd by 6 because the translations took 6 lines
         }
+
+        this.renderArea.drawString(Database.getText("loadSaveImportantNote"), x, y+yAdd+8);
+        this.renderArea.addBold(x, x + Database.getText("loadSaveImportantNote").length, y+yAdd+8);
+        yAdd += 2;
         
         // Add the button
         this.renderArea.addAsciiRealButton(Database.getText("saveFileSaveButton"), 35, y+yAdd+8, "saveFileSaveButton", Database.getTranslatedText("saveFileSaveButton"), true);
@@ -404,7 +412,7 @@ export class Save extends Place{
         // Loading
         this.renderArea.drawArray(Database.getAscii("text/Loading"), 50 - Math.floor((Database.getAsciiWidth("text/Loading")/2)), yPosition+40);
         yPosition += this.drawLocalLoad(0, yPosition+47);
-        yPosition += this.drawFileLoad(0, yPosition+59);
+        yPosition += this.drawFileLoad(0, yPosition+53);
         
         // Add the link which will call the selectRightSlot method after the html dom is created
         this.renderArea.addLinkCallbackCollection(new CallbackCollection(this.selectRightSlot.bind(this)));

@@ -21,6 +21,8 @@ Archipelago.client.items.on("itemsReceived", async (items, startingIndex) => {
 export class ArchipelagoItemProcessing {
     constructor(game: Game) {
         Archipelago.events.on("itemToBeProcessed", (item: Item) => {
+            if (item.receiver.name != Archipelago.client.name) return;
+
             switch (item.id - ArchipelagoItemBaseId) {
                 case ArchipelagoItem.CANDY:
                     game.getCandies().add(1);
