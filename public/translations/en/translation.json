@@ -349,6 +349,7 @@
     "apPassword": "Archipelago Password (Optional)",
     "apConnect": "Connect to Archipelago",
     "apStatusConnecting": "Connecting to Archipelago...",
-    "apDisconnect": "Disconnect from Archipelago",
+    "apDisconnect": "Disconnect from Archipelago and Reload",
+    "apDisconnectWarning": "You should save your game before you disconnect, otherwise you'll lose it.",
     "apSend": "Send"
 }

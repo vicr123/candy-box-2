@@ -6,6 +6,7 @@ import {RenderTag} from "../main/RenderTag";
 import {Archipelago} from "./Archipelago";
 import {CallbackCollection} from "../main/CallbackCollection";
 import {Pos} from "../main/Pos";
+import {Saving} from "../main/Saving";
 
 export class ArchipelagoPlace extends Place {
     // The render area
@@ -22,6 +23,13 @@ export class ArchipelagoPlace extends Place {
         this.update();
 
         Archipelago.events.on("connectionStatusChanged", this.externalUpdate.bind(this));
+        Archipelago.events.on("connectionStatusChanged", () => {
+            if (Archipelago.connectionStatus.current == "connected" && !Saving.loadBool("statusBarUnlockedAp")) {
+                // Initial setup complete - start the game by going to the candy box
+                game.goToCandyBox();
+            }
+            game.updateStatusBar(true);
+        });
         Archipelago.events.on("apLogUpdated", this.externalUpdate.bind(this));
     }
 
@@ -32,6 +40,10 @@ export class ArchipelagoPlace extends Place {
 
     public getRenderArea(): RenderArea{
         return this.renderArea;
+    }
+
+    public isArchipelagoPlace() {
+        return true;
     }
 
     private resize(): void{
@@ -71,7 +83,7 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.drawString(Database.getText("apStatusConnecting"), 7, 25);
                 break;
             case "connected":
-                this.renderArea.addAsciiRealButton(Database.getText("apDisconnect"), 7, 25, "apDisconnect");
+                this.renderArea.addAsciiRealButton(Database.getText("apDisconnect"), 7, 25, "apDisconnect", Database.getText("apDisconnectWarning"), true);
                 this.renderArea.addLinkCall(".apDisconnect", new CallbackCollection(this.disconnectFromAp.bind(this)));
                 break;
         }
@@ -115,6 +127,6 @@ export class ArchipelagoPlace extends Place {
     }
 
     private disconnectFromAp() {
-
+        window.location.reload();
     }
 }

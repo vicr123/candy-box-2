@@ -56,4 +56,8 @@ export class Place{
     public willBeDisplayed(): void{}
     
     public willStopBeingDisplayed(): void{}
+
+    public isArchipelagoPlace() {
+        return false;
+    }
 }

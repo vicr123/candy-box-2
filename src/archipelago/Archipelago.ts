@@ -39,7 +39,8 @@ export namespace Archipelago {
         try {
             connectionStatus.current = "connecting";
             await client.login(apLink, apSlot, undefined, {
-                password: apPassword
+                password: apPassword,
+                tags: ["DeathLink"]
             });
             connectionStatus.current = "connected";
         } catch {

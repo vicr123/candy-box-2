@@ -73,6 +73,7 @@ import {RenderArea} from "./RenderArea";
 import {MainLoadingType} from "./MainLoadingType";
 import {i18n} from "../i18n";
 import {ArchipelagoPlace} from "../archipelago/ArchipelagoPlace";
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerString("gameLanguage", "en");
@@ -387,8 +388,8 @@ export class Game{
         // Select correct items
         this.emptyAndFillSelectedEqItemsArray();
         
-        // We go to the candy box
-        this.goToCandyBox();
+        // We go to Archipelago configuration
+        this.goToArchipelago();
         
         // And we set the saved place (the village)
         this.savedPlace = new Village(this);
@@ -464,6 +465,11 @@ export class Game{
     }
     
     public updateStatusBar(reAdd: boolean = false): void{
+        if (Archipelago.connectionStatus.current != "connected" && (!this.place || this.place.isArchipelagoPlace())) {
+            // Don't show the status bar right now
+            return;
+        }
+
         if(reAdd) this.statusBar.deleteAndReAddEverything();
         this.statusBar.updateAll();
         this.statusBarLocation.render(this.statusBar.getRenderArea());
