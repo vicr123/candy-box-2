@@ -18,7 +18,12 @@ export const ArchipelagoLocationRegion = {
 } satisfies Record<string, number>
 
 export const ArchipelagoItem = {
+    CANDY: 0,
+    LOLLIPOP: 1,
+    CHOCOLATE_BAR: 2,
     HP_BAR: 3,
+    TIME_RING: 4,
+    CANDY_MERCHANTS_HAT: 5,
     LEATHER_GLOVES: 6,
     LEATHER_BOOTS: 7
 } satisfies Record<string, number>

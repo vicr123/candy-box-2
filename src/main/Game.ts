@@ -73,6 +73,7 @@ import {MainLoadingType} from "./MainLoadingType";
 import {i18n} from "../i18n";
 import {ArchipelagoPlace} from "../archipelago/ArchipelagoPlace";
 import {Archipelago} from "../archipelago/Archipelago";
+import {ArchipelagoItemProcessing} from "../archipelago/ArchipelagoItemProcessing";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerString("gameLanguage", "en");
@@ -236,6 +237,8 @@ export class Game{
         // We launch timeouts & intervals methods
         this.oneSecondIntervalId = window.setInterval(this.oneSecondMethod.bind(this), 1000);
         window.setTimeout(this.questMethod.bind(this), 100);
+
+        new ArchipelagoItemProcessing(this);
 
         Saving.game = this;
     }
