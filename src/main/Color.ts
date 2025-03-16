@@ -111,6 +111,10 @@ export class Color{
             case ColorType.DEVELOPER_BLUE: this.setRGB(20, 20, 213); break;
             case ColorType.DEVELOPER_YELLOW: this.setRGB(227, 194, 11); break;
             case ColorType.DEVELOPER_ORANGE: this.setRGB(201, 77, 9); break;
+            // Useful colours
+            case ColorType.ARCHIPELAGO_NOTIFICATION: this.setRGB(0, 0, 255); break;
+            case ColorType.ARCHIPELAGO_NOTIFICATION_FOREGROUND: this.setRGB(255, 255, 255); break;
+            case ColorType.ARCHIPELAGO_DEATHLINK: this.setRGB(255, 0, 0); break;
         }
     }
     

@@ -734,6 +734,12 @@ Database.addAscii("general/translaCAT", 19, 16,
 "      | |_____/ /",
 "       \\_______/"
 ]);
+Database.addAscii("general/archipelagoNotification", 49, 3, 
+[
+"                                               \\",
+"                                                >",
+"                                               /"
+]);
 Database.addAscii("general/insideYourBox/0", 5, 2, 
 [
 "\\.-./",

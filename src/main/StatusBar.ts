@@ -8,6 +8,7 @@ import {BarType} from "./BarType";
 import {StatusBarTabType} from "./StatusBarTabType";
 import {CallbackCollection} from "./CallbackCollection";
 import {Hotkey} from "./Hotkey";
+import {ArchipelagoNotificationTray} from "../archipelago/ArchipelagoNotificationTray";
 
 Saving.registerBool("statusBarUnlocked", false);
 
@@ -33,6 +34,7 @@ export class StatusBar{
     // Render areas
     private playerHealthBar: Bar = null;
     private renderArea: RenderArea = new RenderArea(100, 6, " ");
+    private apNotificationTray: ArchipelagoNotificationTray;
     
     // The game
     private game: Game;
@@ -50,6 +52,8 @@ export class StatusBar{
         
         // Set the default selected tab index
         this.selectedTabIndex = selectedTabIndex;
+
+        this.apNotificationTray = new ArchipelagoNotificationTray(this, game)
         
         // Add everything for the first time
         this.deleteAndReAddEverything();
@@ -81,7 +85,7 @@ export class StatusBar{
         if(Saving.loadBool("statusBarUnlockedInsideYourBox")) this.addTab(StatusBarTabType.INSIDE_YOUR_BOX, 35, "INSIDE", " YOUR", " BOX!", new CallbackCollection(this.game.goToInsideYourBox.bind(this.game)));
         if(Saving.loadBool("statusBarUnlockedTheComputer")) this.addTab(StatusBarTabType.THE_COMPUTER, 44, " THE", " COM", "PUTER", new CallbackCollection(this.game.goToTheComputer.bind(this.game)));
         // if(Saving.loadBool("statusBarUnlockedTheArena")) this.addTab(StatusBarTabType.THE_ARENA, 52, " THE", "ARENA", " /!\\", new CallbackCollection(this.game.goToTheArena.bind(this.game)));
-        if(Saving.loadBool("statusBarUnlockedAp")) this.addTab(StatusBarTabType.ARCHIPELAGO, 52, " ARC", "HIPEL", " AGO", new CallbackCollection(this.game.goToArchipelago.bind(this.game)));
+        if(Saving.loadBool("statusBarUnlockedAp")) this.addTab(StatusBarTabType.ARCHIPELAGO, 52, "ARCH", " IPEL", "  AGO", new CallbackCollection(this.game.goToArchipelago.bind(this.game)));
         if(Saving.loadBool("statusBarUnlockedSave")) this.addTab(StatusBarTabType.SAVE, 60, "", "SAVE", "", new CallbackCollection(this.game.goToSave.bind(this.game)));
         if(Saving.loadBool("statusBarUnlockedCfg")) this.addTab(StatusBarTabType.CFG, 67, "C", "F", "G", new CallbackCollection(this.game.goToCfg.bind(this.game)));
         
@@ -143,6 +147,8 @@ export class StatusBar{
         
         // We draw the stuff about the status bar's corners
         this.drawStatusBarCornersStuff();
+
+        this.apNotificationTray.render(this.renderArea);
     }
     
     public updateHealthBar(): void{
@@ -232,7 +238,10 @@ export class StatusBar{
             this.renderArea.drawVerticalLine("|", 28, 1, 4);
             
             for(var i = 0; i < this.tabs.length; i++){
-                this.tabs[i].render(this.renderArea, 29, 1, (this.selectedTabIndex == i? true:false));
+                const tab = this.tabs[i];
+                if (this.apNotificationTray.currentlyDisplayingNotification && tab.getType() != StatusBarTabType.ARCHIPELAGO) continue;
+
+                tab.render(this.renderArea, 29, 1, this.selectedTabIndex == i);
             }
         }
     }

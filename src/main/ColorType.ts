@@ -70,5 +70,9 @@ export enum ColorType{
     // Special colors for the developer quest
     DEVELOPER_BLUE,
     DEVELOPER_YELLOW,
-    DEVELOPER_ORANGE
+    DEVELOPER_ORANGE,
+    // Archipelago
+    ARCHIPELAGO_NOTIFICATION,
+    ARCHIPELAGO_NOTIFICATION_FOREGROUND,
+    ARCHIPELAGO_DEATHLINK
 }
