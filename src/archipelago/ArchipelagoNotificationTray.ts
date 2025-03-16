@@ -7,6 +7,7 @@ import {StatusBar} from "../main/StatusBar";
 import {CallbackCollection} from "../main/CallbackCollection";
 import {Game} from "../main/Game";
 import {Archipelago} from "./Archipelago";
+import {Item} from "archipelago.js";
 
 export class ArchipelagoNotificationTray {
     private statusBar: StatusBar;
@@ -21,17 +22,15 @@ export class ArchipelagoNotificationTray {
         Archipelago.client.deathLink.on("deathReceived", (source, time, cause) => {
             this.queueNotification(new ArchipelagoNotification("deathlink", cause ?? "", source));
         })
-        Archipelago.client.items.on("itemsReceived", (items, startingIndex) => {
-            for (const item of items) {
-                if (item.sender.name == Archipelago.client.name && item.receiver.name == Archipelago.client.name) {
-                    this.queueNotification(new ArchipelagoNotification("selfgive", item.name, item.receiver.name));
-                } else if (item.sender.name == Archipelago.client.name) {
-                    this.queueNotification(new ArchipelagoNotification("give", item.name, item.receiver.name));
-                } else if (item.receiver.name == Archipelago.client.name) {
-                    this.queueNotification(new ArchipelagoNotification("get", item.name, item.sender.name));
-                }
+        Archipelago.events.on("itemToBeProcessed",(item: Item) => {
+            if (item.sender.name == Archipelago.client.name && item.receiver.name == Archipelago.client.name) {
+                this.queueNotification(new ArchipelagoNotification("selfgive", item.name, item.receiver.name));
+            } else if (item.sender.name == Archipelago.client.name) {
+                this.queueNotification(new ArchipelagoNotification("give", item.name, item.receiver.name));
+            } else if (item.receiver.name == Archipelago.client.name) {
+                this.queueNotification(new ArchipelagoNotification("get", item.name, item.sender.name));
             }
-        });
+        })
 
         setInterval(this.countdown.bind(this), 1000);
     }

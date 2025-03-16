@@ -4,11 +4,9 @@ import {LocalSaving} from "./LocalSaving";
 import {Bugs} from "./Bugs";
 import {Random} from "./Random";
 import {Archipelago} from "../archipelago/Archipelago";
-import {ArchipelagoItem, ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
+import {ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
 
 export module Saving {
-    // Saving maps
-    import apLink = Archipelago.apLink;
     var bools: { [s: string]: boolean; } = {};
     var numbers: { [s: string]: number; } = {};
     var strings: { [s: string]: string; } = {};
@@ -16,186 +14,195 @@ export module Saving {
 
     // Can we register?
     export var canRegister: boolean = true;
-    
+
+    export var game: Game;
+
+    let saving = false;
+
+    let triggerFirstLoadDone: (value: unknown) => void;
+    export let awaitFirstLoad = new Promise((res) => {
+        triggerFirstLoadDone = res;
+    });
+
     // Special public functions : used to load or the actual save
-    export async function load(game: Game, loadingType: MainLoadingType, loadingString: string): Promise<void>{
-        // Depending on the loading type, do different things
-        switch(loadingType){
-            // We don't load anything
-            case MainLoadingType.NONE:
-                // You can uncomment the lines below to start your game with everything unlocked (useful for testing purposes)
-                /*
-                Saving.saveNumber("aTreeStep", 2);
-                
-                Saving.saveBool("mainMapDoneDesert", true);
-                Saving.saveBool("mainMapDoneBridge", true);
-                Saving.saveBool("mainMapDoneCaveEntrance", true);
-                Saving.saveBool("mainMapDonePier", true);
-                Saving.saveBool("mainMapDoneForest", true);
-                Saving.saveBool("mainMapDoneCastleEntrance", true);
-                
-                Saving.saveBool("gridItemPossessedMainMap", true);
-                Saving.saveBool("gridItemPossessedTimeRing", true);
-                Saving.saveBool("gridItemPossessedThirdHouseKey", true);
-                Saving.saveBool("gridItemPossessedBeginnersGrimoire", true);
-                
-                Saving.saveBool("gridItemPossessedFeather", true);
-                Saving.saveBool("gridItemPossessedPogoStick", true);
-                Saving.saveBool("gridItemPossessedHeartPlug", true);
-                Saving.saveBool("gridItemPossessedAdvancedGrimoire", true);
-                
-                Saving.saveBool("gridItemPossessedSponge", true);
-                Saving.saveBool("gridItemPossessedShellPowder", true);
-                Saving.saveBool("gridItemPossessedHeartPendant", true);
-                Saving.saveBool("gridItemPossessedBlackMagicGrimoire", true);
-                
-                Saving.saveBool("gridItemPossessedFortressKey", true);
-                Saving.saveBool("gridItemPossessedUnicornHorn", true);
-                Saving.saveBool("gridItemPossessedXinopherydonClaw", true);
-                Saving.saveBool("gridItemPossessedPitchfork", true);
-                
-                Saving.saveBool("gridItemPossessedRedSharkFin", true);
-                Saving.saveBool("gridItemPossessedGreenSharkFin", true);
-                Saving.saveBool("gridItemPossessedPurpleSharkFin", true);
-                
-                Saving.saveBool("gridItemPossessedTalkingCandy", true);
-                
-                Saving.saveBool("gridItemPossessedP", true);
-                Saving.saveBool("gridItemPossessedL", true);
-                Saving.saveBool("gridItemPossessedA", true);
-                Saving.saveBool("gridItemPossessedY", true);
-                
-                Saving.saveBool("eqItemGlovesRedEnchantedGloves", true);
-                Saving.saveBool("eqItemGlovesPinkEnchantedGloves", true);
-                //Saving.saveBool("eqItemWeaponWoodenSword", true);
-                Saving.saveBool("eqItemWeaponTrollBludgeon", true);
-                Saving.saveBool("eqItemWeaponTribalSpear", true);
-                Saving.saveBool("eqItemWeaponSummoningTribalSpear", true);
-                Saving.saveBool("eqItemWeaponMonkeyWizardStaff", true);
-                Saving.saveBool("eqItemWeaponGiantSpoon", true);
-                Saving.saveBool("eqItemHatOctopusKingCrown", true);
-                
-                Saving.saveBool("eqItemBootsBootsOfIntrospection", true);
-                
-                Saving.saveBool("eqItemBootsRocketBoots", true);
-                
-                Saving.saveBool("eqItemWeaponGiantSpoonOfDoom", true);
-                
-                Saving.saveBool("eqItemBodyArmoursEnchantedKnightBodyArmour", true);
-                
-                Saving.saveNumber("gameCandiesEatenCurrent", 500000000);
-                Saving.saveNumber("gameCandiesEatenMax", 500000000);
-                
-                Saving.saveNumber("playerHp", 1000);
-                
-                Saving.saveBool("questPlayerSpellHealthPotionHasSpell", true);
-                Saving.saveBool("questPlayerSpellTurtlePotionHasSpell", true);
-                Saving.saveBool("questPlayerSpellAntiGravityPotionHasSpell", true);
-                Saving.saveBool("questPlayerSpellBerserkPotionHasSpell", true);
-                Saving.saveBool("questPlayerSpellCloningPotionHasSpell", true);
-                Saving.saveBool("questPlayerSpellPPotionHasSpell", true);
-                Saving.saveBool("questPlayerSpellXPotionHasSpell", true);
-                
-                Saving.saveNumber("questPlayerSpellHealthPotionQuantity", 0);
-                Saving.saveNumber("questPlayerSpellTurtlePotionQuantity", 64084);
-                Saving.saveNumber("questPlayerSpellAntiGravityPotionQuantity", 47542);
-                Saving.saveNumber("questPlayerSpellBerserkPotionQuantity", 99549);
-                Saving.saveNumber("questPlayerSpellCloningPotionQuantity", 10050);
-                Saving.saveNumber("questPlayerSpellPPotionQuantity", 10085250);
-                Saving.saveNumber("questPlayerSpellXPotionQuantity", 10050999);
-                
-                //Saving.saveBool("gameDebug", true);
-                
-                Saving.saveNumber("gameCandiesCurrent", 5000000);
-                Saving.saveNumber("gameCandiesMax", 5000000);
-                
-                Saving.saveNumber("gameLollipopsCurrent", 5000000000);
-                Saving.saveNumber("gameLollipopsMax", 500000000000);
-                
-                Saving.saveNumber("gameChocolateBarsCurrent", 7);
-                Saving.saveNumber("gameChocolateBarsMax", 7);
-                
-                Saving.saveNumber("gamePainsAuChocolatCurrent", 7);
-                Saving.saveNumber("gamePainsAuChocolatMax", 7);
-                
-                Saving.saveBool("lonelyHouseTakeTheBoxDone", true);
-                
-                Saving.saveNumber("lollipopFarmPondHowManyLolligators", 0);
-                
-                Saving.saveBool("statusBarUnlocked", true);
-                Saving.saveBool("statusBarUnlockedCfg", true);
-                Saving.saveBool("statusBarUnlockedSave", true);
-                Saving.saveBool("statusBarUnlockedMap", true);
-                Saving.saveBool("statusBarUnlockedInventory", true);
-                Saving.saveBool("statusBarUnlockedLollipopFarm", true);
-                Saving.saveBool("statusBarUnlockedCauldron", true);
-                Saving.saveBool("statusBarUnlockedHealthBar", true);
-                Saving.saveBool("statusBarUnlockedInsideYourBox", true);
-                Saving.saveBool("statusBarUnlockedTheComputer", true);
-                Saving.saveBool("statusBarUnlockedTheArena", true);
-                
-                Saving.saveBool("castleKilledNougatMonster", true);
-                
-                Saving.saveBool("dragonDone", true);
-                Saving.saveBool("dragonUnlockedCyclops", true);
-                
-                Saving.saveBool("castleTowerFirstVisitDone", true);
-                
-                Saving.saveString("gameLanguage", "fr");
-                */
-            break;
-            case MainLoadingType.LOCAL:
-                LocalSaving.load(loadingString);
-            break;
-            case MainLoadingType.FILE:
-                var fileBools: string[] = loadingString.match(/bool +[a-zA-Z0-9_]+ *= *[a-zA-Z0-9_]+/g);
-                var fileNumbers: string[] = loadingString.match(/number +[a-zA-Z0-9_]+ *= *[a-zA-Z0-9_]+/g);
-                var fileStrings: string[] = loadingString.match(/string +[a-zA-Z0-9_]+ *= *[a-zA-Z0-9_]+/g);
-                
-                // Load the bools
-                if(fileBools != null){
-                    for(var i = 0; i < fileBools.length; i++){
-                        Saving.saveBool(fileBools[i].match(/[a-zA-Z0-9_]+=/)[0].replace("=", ""),
-                                        Saving.stringToBool(fileBools[i].match(/=[a-zA-Z0-9_]+/)[0].replace("=", "")));
-                    }
-                }
-                
-                // Load the numbers
-                if(fileNumbers != null){
-                    for(var i = 0; i < fileNumbers.length; i++){
-                        Saving.saveNumber(fileNumbers[i].match(/[a-zA-Z0-9_]+=/)[0].replace("=", ""),
-                                        Saving.stringToNumber(fileNumbers[i].match(/=[a-zA-Z0-9_]+/)[0].replace("=", "")));
-                    }
-                }
-                
-                // Load the strings
-                if(fileStrings != null){
-                    for(var i = 0; i < fileStrings.length; i++){
-                        Saving.saveString(fileStrings[i].match(/[a-zA-Z0-9_]+=/)[0].replace("=", ""),
-                                        fileStrings[i].match(/=[a-zA-Z0-9_]+/)[0].replace("=", ""));
-                    }
-                }
-            break;
+    export async function load(game: Game, loadingType: MainLoadingType): Promise<void>{
+        if (saving) return;
+        saving = true;
+
+        try {
+            // Depending on the loading type, do different things
+            switch (loadingType) {
+                // We don't load anything
+                case MainLoadingType.NONE:
+                    // You can uncomment the lines below to start your game with everything unlocked (useful for testing purposes)
+                    /*
+                    Saving.saveNumber("aTreeStep", 2);
+
+                    Saving.saveBool("mainMapDoneDesert", true);
+                    Saving.saveBool("mainMapDoneBridge", true);
+                    Saving.saveBool("mainMapDoneCaveEntrance", true);
+                    Saving.saveBool("mainMapDonePier", true);
+                    Saving.saveBool("mainMapDoneForest", true);
+                    Saving.saveBool("mainMapDoneCastleEntrance", true);
+
+                    Saving.saveBool("gridItemPossessedMainMap", true);
+                    Saving.saveBool("gridItemPossessedTimeRing", true);
+                    Saving.saveBool("gridItemPossessedThirdHouseKey", true);
+                    Saving.saveBool("gridItemPossessedBeginnersGrimoire", true);
+
+                    Saving.saveBool("gridItemPossessedFeather", true);
+                    Saving.saveBool("gridItemPossessedPogoStick", true);
+                    Saving.saveBool("gridItemPossessedHeartPlug", true);
+                    Saving.saveBool("gridItemPossessedAdvancedGrimoire", true);
+
+                    Saving.saveBool("gridItemPossessedSponge", true);
+                    Saving.saveBool("gridItemPossessedShellPowder", true);
+                    Saving.saveBool("gridItemPossessedHeartPendant", true);
+                    Saving.saveBool("gridItemPossessedBlackMagicGrimoire", true);
+
+                    Saving.saveBool("gridItemPossessedFortressKey", true);
+                    Saving.saveBool("gridItemPossessedUnicornHorn", true);
+                    Saving.saveBool("gridItemPossessedXinopherydonClaw", true);
+                    Saving.saveBool("gridItemPossessedPitchfork", true);
+
+                    Saving.saveBool("gridItemPossessedRedSharkFin", true);
+                    Saving.saveBool("gridItemPossessedGreenSharkFin", true);
+                    Saving.saveBool("gridItemPossessedPurpleSharkFin", true);
+
+                    Saving.saveBool("gridItemPossessedTalkingCandy", true);
+
+                    Saving.saveBool("gridItemPossessedP", true);
+                    Saving.saveBool("gridItemPossessedL", true);
+                    Saving.saveBool("gridItemPossessedA", true);
+                    Saving.saveBool("gridItemPossessedY", true);
+
+                    Saving.saveBool("eqItemGlovesRedEnchantedGloves", true);
+                    Saving.saveBool("eqItemGlovesPinkEnchantedGloves", true);
+                    //Saving.saveBool("eqItemWeaponWoodenSword", true);
+                    Saving.saveBool("eqItemWeaponTrollBludgeon", true);
+                    Saving.saveBool("eqItemWeaponTribalSpear", true);
+                    Saving.saveBool("eqItemWeaponSummoningTribalSpear", true);
+                    Saving.saveBool("eqItemWeaponMonkeyWizardStaff", true);
+                    Saving.saveBool("eqItemWeaponGiantSpoon", true);
+                    Saving.saveBool("eqItemHatOctopusKingCrown", true);
+
+                    Saving.saveBool("eqItemBootsBootsOfIntrospection", true);
+
+                    Saving.saveBool("eqItemBootsRocketBoots", true);
+
+                    Saving.saveBool("eqItemWeaponGiantSpoonOfDoom", true);
+
+                    Saving.saveBool("eqItemBodyArmoursEnchantedKnightBodyArmour", true);
+
+                    Saving.saveNumber("gameCandiesEatenCurrent", 500000000);
+                    Saving.saveNumber("gameCandiesEatenMax", 500000000);
+
+                    Saving.saveNumber("playerHp", 1000);
+
+                    Saving.saveBool("questPlayerSpellHealthPotionHasSpell", true);
+                    Saving.saveBool("questPlayerSpellTurtlePotionHasSpell", true);
+                    Saving.saveBool("questPlayerSpellAntiGravityPotionHasSpell", true);
+                    Saving.saveBool("questPlayerSpellBerserkPotionHasSpell", true);
+                    Saving.saveBool("questPlayerSpellCloningPotionHasSpell", true);
+                    Saving.saveBool("questPlayerSpellPPotionHasSpell", true);
+                    Saving.saveBool("questPlayerSpellXPotionHasSpell", true);
+
+                    Saving.saveNumber("questPlayerSpellHealthPotionQuantity", 0);
+                    Saving.saveNumber("questPlayerSpellTurtlePotionQuantity", 64084);
+                    Saving.saveNumber("questPlayerSpellAntiGravityPotionQuantity", 47542);
+                    Saving.saveNumber("questPlayerSpellBerserkPotionQuantity", 99549);
+                    Saving.saveNumber("questPlayerSpellCloningPotionQuantity", 10050);
+                    Saving.saveNumber("questPlayerSpellPPotionQuantity", 10085250);
+                    Saving.saveNumber("questPlayerSpellXPotionQuantity", 10050999);
+
+                    //Saving.saveBool("gameDebug", true);
+
+                    Saving.saveNumber("gameCandiesCurrent", 5000000);
+                    Saving.saveNumber("gameCandiesMax", 5000000);
+
+                    Saving.saveNumber("gameLollipopsCurrent", 5000000000);
+                    Saving.saveNumber("gameLollipopsMax", 500000000000);
+
+                    Saving.saveNumber("gameChocolateBarsCurrent", 7);
+                    Saving.saveNumber("gameChocolateBarsMax", 7);
+
+                    Saving.saveNumber("gamePainsAuChocolatCurrent", 7);
+                    Saving.saveNumber("gamePainsAuChocolatMax", 7);
+
+                    Saving.saveBool("lonelyHouseTakeTheBoxDone", true);
+
+                    Saving.saveNumber("lollipopFarmPondHowManyLolligators", 0);
+
+                    Saving.saveBool("statusBarUnlocked", true);
+                    Saving.saveBool("statusBarUnlockedCfg", true);
+                    Saving.saveBool("statusBarUnlockedSave", true);
+                    Saving.saveBool("statusBarUnlockedMap", true);
+                    Saving.saveBool("statusBarUnlockedInventory", true);
+                    Saving.saveBool("statusBarUnlockedLollipopFarm", true);
+                    Saving.saveBool("statusBarUnlockedCauldron", true);
+                    Saving.saveBool("statusBarUnlockedHealthBar", true);
+                    Saving.saveBool("statusBarUnlockedInsideYourBox", true);
+                    Saving.saveBool("statusBarUnlockedTheComputer", true);
+                    Saving.saveBool("statusBarUnlockedTheArena", true);
+
+                    Saving.saveBool("castleKilledNougatMonster", true);
+
+                    Saving.saveBool("dragonDone", true);
+                    Saving.saveBool("dragonUnlockedCyclops", true);
+
+                    Saving.saveBool("castleTowerFirstVisitDone", true);
+
+                    Saving.saveString("gameLanguage", "fr");
+                    */
+                    break;
+                case MainLoadingType.LOCAL:
+                    LocalSaving.load();
+                    break;
+                case MainLoadingType.FILE:
+                    break;
+            }
+
+            // Apply the loaded variables to various things by calling the load() methods of various objects
+            await game.load(); // Various variables owned by the game object
+            game.getPlayer().load(); // The player
+
+            triggerFirstLoadDone("");
+        } finally {
+            saving = false;
         }
-        
-        // Apply the loaded variables to various things by calling the load() methods of various objects
-        await game.load(); // Various variables owned by the game object
-        game.getPlayer().load(); // The player
+    }
+
+    export function erase() {
+        saving = true; // Stop saving anything from here on out
+        return LocalSaving.erase();
+    }
+
+    export function eraseAll() {
+        saving = true; // Stop saving anything from here on out
+        return LocalSaving.eraseAll();
     }
     
-    export function save(game: Game, savingType: MainLoadingType, savingString: string): boolean{
-        // Save some special variables by calling the save() methods of various objects
-        game.save(); // Various variables owned by the game object
-        game.getPlayer().save(); // The player
-        
-        // Do different things depending on the saving type
-        switch(savingType){
-            case MainLoadingType.LOCAL:
-                return LocalSaving.save(savingString);
-            break;
-            case MainLoadingType.FILE:
-                return false;
-            break;
+    export function save(game: Game, savingType: MainLoadingType): boolean{
+        if (saving) return true;
+        if (Archipelago.localSaveSlot == "") return false;
+        saving = true;
+
+        try {
+            // Save some special variables by calling the save() methods of various objects
+            game.save(); // Various variables owned by the game object
+            game.getPlayer().save(); // The player
+
+            // Do different things depending on the saving type
+            switch (savingType) {
+                case MainLoadingType.LOCAL:
+                    return LocalSaving.save();
+                    break;
+                case MainLoadingType.FILE:
+                    return false;
+                    break;
+            }
+        } finally {
+            saving = false;
         }
     }
     
@@ -311,6 +318,8 @@ export module Saving {
 
         if(key in bools || registering){
             bools[key] = b;
+            if (Saving.game)
+                Saving.save(Saving.game, MainLoadingType.LOCAL);
             return;
         }
         console.log("Error : trying to save the unknown bool " + key + ".");
@@ -319,6 +328,8 @@ export module Saving {
     export function saveNumber(key: string, n: number, registering: boolean = false): void{
         if(key in numbers || registering){
             numbers[key] = n;
+            if (Saving.game)
+                Saving.save(Saving.game, MainLoadingType.LOCAL);
             return;
         }
         console.log("Error : trying to save the unknown number " + key + ".");
@@ -327,6 +338,8 @@ export module Saving {
     export function saveString(key: string, s: string, registering: boolean = false): void{
         if(key in strings || registering){
             strings[key] = s;
+            if (Saving.game)
+                Saving.save(Saving.game, MainLoadingType.LOCAL);
             return;
         }
         console.log("Error : trying to save the unknown string " + key + ".");

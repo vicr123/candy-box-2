@@ -1,4 +1,5 @@
 import {Saving} from "./Saving";
+import {Archipelago} from "../archipelago/Archipelago";
 
 export module LocalSaving{
     // Public functions
@@ -13,7 +14,11 @@ export module LocalSaving{
         }
     }
     
-    export function load(slotId: string): boolean{
+    export function load(): boolean{
+        if (!Archipelago.localSaveSlot) return;
+
+        const slotId = Archipelago.localSaveSlot;
+
         // If this sot doesn't seem to exist, we return false
         if(loadString(slotId) == null)
             return false;
@@ -36,22 +41,24 @@ export module LocalSaving{
         // No error, return true
         return true;
     }
-    
-    export function save(slotId: string): boolean{
+
+
+    export function save(): boolean{
+        const slotId = Archipelago.localSaveSlot;
         try{
             // Set the date on the slotId localStorage item
             localStorage.setItem(slotId, getDateAsString());
-            
+
             // Save bools
             for(var str in Saving.getAllBools()){
                 localStorage.setItem(slotId + "." + str, Saving.boolToString(Saving.getAllBools()[str]));
             }
-            
+
             // Save numbers
             for(var str in Saving.getAllNumbers()){
                 localStorage.setItem(slotId + "." + str, Saving.numberToString(Saving.getAllNumbers()[str]));
             }
-            
+
             // Save strings
             for(var str in Saving.getAllStrings()){
                 localStorage.setItem(slotId + "." + str, Saving.getAllStrings()[str]);
@@ -61,13 +68,42 @@ export module LocalSaving{
             if(e == DOMException.QUOTA_EXCEEDED_ERR){
                  console.log("Quota exceeded error : we're trying to save some data through HTML5's web storage, but we don't have enough space to save what we want.");
             }
-            
+
             // We return false, since there was an error
             return false;
         }
-        
+
         // No error, return true
         return true;
+    }
+
+    export function erase() {
+        const slotId = Archipelago.localSaveSlot;
+
+        // Set the date on the slotId localStorage item
+        localStorage.removeItem(slotId);
+
+        // Save bools
+        for(var str in Saving.getAllBools()){
+            localStorage.removeItem(slotId + "." + str);
+        }
+
+        // Save numbers
+        for(var str in Saving.getAllNumbers()){
+            localStorage.removeItem(slotId + "." + str);
+        }
+
+        // Save strings
+        for(var str in Saving.getAllStrings()){
+            localStorage.removeItem(slotId + "." + str);
+        }
+
+        window.location.reload();
+    }
+
+    export function eraseAll() {
+        localStorage.clear();
+        window.location.reload();
     }
     
     export function supportsLocalSaving(): boolean{

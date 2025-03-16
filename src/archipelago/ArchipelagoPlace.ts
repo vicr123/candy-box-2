@@ -2,11 +2,11 @@ import {Place} from "../main/Place";
 import {Game} from "../main/Game";
 import {Database} from "../main/Database";
 import {RenderArea} from "../main/RenderArea";
-import {RenderTag} from "../main/RenderTag";
 import {Archipelago} from "./Archipelago";
 import {CallbackCollection} from "../main/CallbackCollection";
 import {Pos} from "../main/Pos";
 import {Saving} from "../main/Saving";
+import {MainLoadingType} from "../main/MainLoadingType";
 
 export class ArchipelagoPlace extends Place {
     // The render area
@@ -128,6 +128,8 @@ export class ArchipelagoPlace extends Place {
 
     private async connectToAp() {
         await Archipelago.connect();
+        await Saving.load(this.getGame(), MainLoadingType.LOCAL);
+        this.getGame().postLoad();
     }
 
     private disconnectFromAp() {

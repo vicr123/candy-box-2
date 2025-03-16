@@ -36,7 +36,6 @@ import {LollipopFarm} from "./LollipopFarm";
 import {MainMap} from "./MainMap";
 import {Save} from "./Save";
 import {SorceressHut} from "./SorceressHut";
-import {TheArena} from "./TheArena";
 import {TheCave} from "./TheCave";
 import {TheComputer} from "./TheComputer";
 import {Yourself} from "./Yourself";
@@ -237,6 +236,8 @@ export class Game{
         // We launch timeouts & intervals methods
         this.oneSecondIntervalId = window.setInterval(this.oneSecondMethod.bind(this), 1000);
         window.setTimeout(this.questMethod.bind(this), 100);
+
+        Saving.game = this;
     }
     
     // Public methods
@@ -387,9 +388,6 @@ export class Game{
         
         // Select correct items
         this.emptyAndFillSelectedEqItemsArray();
-        
-        // We go to Archipelago configuration
-        this.goToArchipelago();
         
         // And we set the saved place (the village)
         this.savedPlace = new Village(this);
@@ -862,7 +860,7 @@ export class Game{
             // If it's time to save
             if(this.localAutosaveTime <= 0){
                 // We save
-                Saving.save(this, MainLoadingType.LOCAL, this.localAutosaveSlot);
+                Saving.save(this, MainLoadingType.LOCAL);
                 // We reset the time
                 this.setDefaultLocalAutosaveTime();
             }
@@ -888,6 +886,9 @@ export class Game{
         this.handleLollipopProduction();
         this.handlePondConversion();
         this.localAutosave();
+
+        // Save the game
+        Saving.save(this, MainLoadingType.LOCAL);
         
         // Special place callbacks
         this.oneSecondCallbackCollection.fire();

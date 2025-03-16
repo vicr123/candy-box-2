@@ -2,7 +2,6 @@ import {Client, Item} from "archipelago.js";
 import EventEmitter from "eventemitter3";
 import {QuestLog} from "../main/QuestLog";
 import {QuestLogMessage} from "../main/QuestLogMessage";
-import {ArchipelagoPlace} from "./ArchipelagoPlace";
 import {
     ArchipelagoItem,
     ArchipelagoItemBaseId,
@@ -11,7 +10,7 @@ import {
 } from "./ArchipelagoLocation";
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
-type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated";
+type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed";
 
 function createObservable<T>(initialValue: T, eventEmitter: EventEmitter<ArchipelagoEventTypes>, event: ArchipelagoEventTypes) {
     let observable = {
@@ -31,9 +30,10 @@ function createObservable<T>(initialValue: T, eventEmitter: EventEmitter<Archipe
 }
 
 export namespace Archipelago {
-    export let apLink = localStorage.getItem("apLink") ?? "";
+    export let apLink = localStorage.getItem("apUrl") ?? "";
     export let apSlot = localStorage.getItem("apSlot") ?? "";
     export let apPassword = "";
+    export let localSaveSlot = "";
 
     export const client = new Client();
     export const events = new EventEmitter<ArchipelagoEventTypes>();
@@ -48,6 +48,7 @@ export namespace Archipelago {
                 password: apPassword,
                 tags: ["DeathLink"]
             });
+            localSaveSlot = `${client.package.findPackage("Candy Box 2").checksum}.${apSlot}`;
             connectionStatus.current = "connected";
         } catch {
             connectionStatus.current = "disconnected";

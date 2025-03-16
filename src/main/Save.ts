@@ -64,7 +64,7 @@ export class Save extends Place{
     // Private methods
     private clickedAutosave(): void{
         // Save on the selected slot
-        Saving.save(this.getGame(), MainLoadingType.LOCAL, this.selectedSlot);
+        Saving.save(this.getGame(), MainLoadingType.LOCAL);
         
         // Enable autosaving
         this.getGame().enableLocalAutosave(this.selectedSlot);
@@ -126,7 +126,7 @@ export class Save extends Place{
     
     private clickedSave(): void{
         // Save on the selected slot
-        Saving.save(this.getGame(), MainLoadingType.LOCAL, this.selectedSlot);
+        Saving.save(this.getGame(), MainLoadingType.LOCAL);
         
         // Re-create the slots array
         this.createSlotsArray();
@@ -163,30 +163,32 @@ export class Save extends Place{
         this.drawTitle("saveLocalLoadTitle", y+yAdd);
         
         // If we support local saving
-        if(LocalSaving.supportsLocalSaving()){
-            // "You can load.."
-            this.drawPoint("saveLocalLoadYouCan", x, y+yAdd+2);
-            if(Database.isTranslated()) yAdd += 1;
-            
-            // The links
-            for(var i = 1; i <= 5; i++){
-                link = "http://candybox2.github.io/?slot=" + i.toString();
-                this.renderArea.addHtmlLink(x+2, y+yAdd+3+i, link, link);
-                this.renderArea.drawString("(slot " + i.toString() + ")", x + link.length + 4, y+yAdd+3+i);
-            }
-            
-            // "Thanks to.."
-            this.drawPoint("saveLocalLoadThanksTo", x, y+yAdd+10);
-            if(Database.isTranslated()) yAdd += 1;
-        }
-        else{
-            // Warning messages
-            this.drawWarning(Database.getText("saveLocalSaveWarning0") + " (local storage and application cache)", x, y+yAdd+2);
-            this.drawWarning(Database.getText("saveLocalSaveWarning1"), x, y+yAdd+3);
-            
-            this.drawWarning(Database.getTranslatedText("saveLocalSaveWarning0"), x, y+yAdd+5, true);
-            this.drawWarning(Database.getTranslatedText("saveLocalSaveWarning1"), x, y+yAdd+6, true);
-        }
+        // if(LocalSaving.supportsLocalSaving()){
+        //     // "You can load.."
+        //     this.drawPoint("saveLocalLoadYouCan", x, y+yAdd+2);
+        //     if(Database.isTranslated()) yAdd += 1;
+        //
+        //     // The links
+        //     for(var i = 1; i <= 5; i++){
+        //         link = "http://candybox2.github.io/?slot=" + i.toString();
+        //         this.renderArea.addHtmlLink(x+2, y+yAdd+3+i, link, link);
+        //         this.renderArea.drawString("(slot " + i.toString() + ")", x + link.length + 4, y+yAdd+3+i);
+        //     }
+        //
+        //     // "Thanks to.."
+        //     this.drawPoint("saveLocalLoadThanksTo", x, y+yAdd+10);
+        //     if(Database.isTranslated()) yAdd += 1;
+        // }
+        // else{
+        //     // Warning messages
+        //     this.drawWarning(Database.getText("saveLocalSaveWarning0") + " (local storage and application cache)", x, y+yAdd+2);
+        //     this.drawWarning(Database.getText("saveLocalSaveWarning1"), x, y+yAdd+3);
+        //
+        //     this.drawWarning(Database.getTranslatedText("saveLocalSaveWarning0"), x, y+yAdd+5, true);
+        //     this.drawWarning(Database.getTranslatedText("saveLocalSaveWarning1"), x, y+yAdd+6, true);
+        // }
+        this.renderArea.drawString(Database.getText("loadPrompt"), x, y+yAdd+3);
+        this.renderArea.drawString(Database.getText("loadPrompt2"), x, y+yAdd+4);
         
         // Return yAdd
         return yAdd;
@@ -202,51 +204,74 @@ export class Save extends Place{
         if(Database.isTranslated()) yAdd += 1;
         
         // If we support local saving
-        if(LocalSaving.supportsLocalSaving()){
-            // Choose a slot text
-            this.drawPoint("saveLocalSaveChooseSlot", x, y+yAdd+4);
-            // Slots list
-            this.renderArea.addList(x+5, x+45, y+yAdd+7, "saveLocalSaveSlotsList", new CallbackCollection(this.slotSelected.bind(this)), this.slotsArray);
-            // Autosave enabled ?
-            if(this.getGame().getLocalAutosaveEnabled()){
-                this.drawGreen(Database.getText("saveLocalSaveAutosaveEnabled"), x, y+yAdd+9);
-                if(Database.getTranslatedText("saveLocalSaveAutosaveEnabled") != "") this.drawGreen("(" + Database.getTranslatedText("saveLocalSaveAutosaveEnabled") + ")", x, y+yAdd+10, true);
-                this.drawGreen("Next save in " + Algo.pluralFormat(Math.ceil(this.getGame().getLocalAutosaveTime()/60), " minute", " minutes") + " on slot " + this.getGame().getLocalAutosaveSlot().substr(4, 1) + ".", x, y+yAdd+11);
-            }
-            // Separation lines
-            this.renderArea.drawVerticalLine("|", x+50, y+yAdd+5, y+yAdd+11);
-            this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+3);
-            this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+12);
-            // Choose what to do text
-            this.drawPoint("saveLocalSaveChooseWhatToDo", x+51, y+yAdd+4);
-            // Add save button
-            this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveSaveButton") + " on slot " + this.selectedSlot.substr(4, 1), x+51, y+yAdd+7, "saveLocalSaveSaveButton", Database.getTranslatedText("saveLocalSaveSaveButton"), true, -1, null, false);
-            this.renderArea.addLinkCall(".saveLocalSaveSaveButton", new CallbackCollection(this.clickedSave.bind(this)));
-            // If autosave is disabled or it's not enabled on the currently selected slot
-            if(this.getGame().getLocalAutosaveEnabled() == false){
-                // Add autosave button
-                this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveAutosaveButton") + " on slot " + this.selectedSlot.substr(4, 1), x+51, y+yAdd+10, "saveLocalSaveAutosaveButton", Database.getTranslatedText("saveLocalSaveAutosaveButton"), true, -1, null, false);
-                this.renderArea.addLinkCall(".saveLocalSaveAutosaveButton", new CallbackCollection(this.clickedAutosave.bind(this)));
-            }
-            // Else
-            else{
-                // Add disable autosave button
-                this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveDisableAutosaveButton"), x+51, y+yAdd+10, "saveLocalSaveDisableAutosaveButton", Database.getTranslatedText("saveLocalSaveDisableAutosaveButton"), true, -1, null, false);
-                this.renderArea.addLinkCall(".saveLocalSaveDisableAutosaveButton", new CallbackCollection(this.clickedDisableAutosave.bind(this)));
-            }
-        }
-        // If we don't
-        else{
-            // Warning messages
-            this.drawWarning(Database.getText("saveLocalSaveWarning0") + " (local storage and application cache)", x, y+yAdd+4);
-            this.drawWarning(Database.getText("saveLocalSaveWarning1"), x, y+yAdd+5);
-            
-            this.drawWarning(Database.getTranslatedText("saveLocalSaveWarning0"), x, y+yAdd+7, true);
-            this.drawWarning(Database.getTranslatedText("saveLocalSaveWarning1"), x, y+yAdd+8, true);
-        }
-        
+        // if(LocalSaving.supportsLocalSaving()){
+        //     // Choose a slot text
+        //     this.drawPoint("saveLocalSaveChooseSlot", x, y+yAdd+4);
+        //     // Slots list
+        //     this.renderArea.addList(x+5, x+45, y+yAdd+7, "saveLocalSaveSlotsList", new CallbackCollection(this.slotSelected.bind(this)), this.slotsArray);
+        //     // Autosave enabled ?
+        //     if(this.getGame().getLocalAutosaveEnabled()){
+        //         this.drawGreen(Database.getText("saveLocalSaveAutosaveEnabled"), x, y+yAdd+9);
+        //         if(Database.getTranslatedText("saveLocalSaveAutosaveEnabled") != "") this.drawGreen("(" + Database.getTranslatedText("saveLocalSaveAutosaveEnabled") + ")", x, y+yAdd+10, true);
+        //         this.drawGreen("Next save in " + Algo.pluralFormat(Math.ceil(this.getGame().getLocalAutosaveTime()/60), " minute", " minutes") + " on slot " + this.getGame().getLocalAutosaveSlot().substr(4, 1) + ".", x, y+yAdd+11);
+        //     }
+        //     // Separation lines
+        //     this.renderArea.drawVerticalLine("|", x+50, y+yAdd+5, y+yAdd+11);
+        //     this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+3);
+        //     this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+12);
+        //     // Choose what to do text
+        //     this.drawPoint("saveLocalSaveChooseWhatToDo", x+51, y+yAdd+4);
+        //     // Add save button
+        //     this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveSaveButton") + " on slot " + this.selectedSlot.substr(4, 1), x+51, y+yAdd+7, "saveLocalSaveSaveButton", Database.getTranslatedText("saveLocalSaveSaveButton"), true, -1, null, false);
+        //     this.renderArea.addLinkCall(".saveLocalSaveSaveButton", new CallbackCollection(this.clickedSave.bind(this)));
+        //     // If autosave is disabled or it's not enabled on the currently selected slot
+        //     if(this.getGame().getLocalAutosaveEnabled() == false){
+        //         // Add autosave button
+        //         this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveAutosaveButton") + " on slot " + this.selectedSlot.substr(4, 1), x+51, y+yAdd+10, "saveLocalSaveAutosaveButton", Database.getTranslatedText("saveLocalSaveAutosaveButton"), true, -1, null, false);
+        //         this.renderArea.addLinkCall(".saveLocalSaveAutosaveButton", new CallbackCollection(this.clickedAutosave.bind(this)));
+        //     }
+        //     // Else
+        //     else{
+        //         // Add disable autosave button
+        //         this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveDisableAutosaveButton"), x+51, y+yAdd+10, "saveLocalSaveDisableAutosaveButton", Database.getTranslatedText("saveLocalSaveDisableAutosaveButton"), true, -1, null, false);
+        //         this.renderArea.addLinkCall(".saveLocalSaveDisableAutosaveButton", new CallbackCollection(this.clickedDisableAutosave.bind(this)));
+        //     }
+        // }
+        // // If we don't
+        // else{
+        //     // Warning messages
+        //     this.drawWarning(Database.getText("saveLocalSaveWarning0") + " (local storage and application cache)", x, y+yAdd+4);
+        //     this.drawWarning(Database.getText("saveLocalSaveWarning1"), x, y+yAdd+5);
+        //
+        //     this.drawWarning(Database.getTranslatedText("saveLocalSaveWarning0"), x, y+yAdd+7, true);
+        //     this.drawWarning(Database.getTranslatedText("saveLocalSaveWarning1"), x, y+yAdd+8, true);
+        // }
+
+        this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+3);
+        this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+12);
+        this.renderArea.drawString(Database.getText("savePrompt"), x, y+yAdd+5);
+        this.renderArea.drawString(Database.getText("savePrompt2"), x, y+yAdd+6);
+        this.renderArea.drawString(Database.getText("savePrompt3"), x, y+yAdd+7);
+        this.renderArea.drawString(Database.getText("savePrompt4"), x, y+yAdd+8);
+        this.renderArea.addAsciiRealButton(Database.getText("eraseSaveButton"), 7, y+yAdd+10, "eraseSave");
+        this.renderArea.addLinkCall(".eraseSave", new CallbackCollection(this.eraseSave.bind(this)));
+        this.renderArea.addAsciiRealButton(Database.getText("eraseAllSavesButton"), 35, y+yAdd+10, "eraseAllSave");
+        this.renderArea.addLinkCall(".eraseAllSave", new CallbackCollection(this.eraseAllSave.bind(this)));
+
         // Return yAdd
         return yAdd;
+    }
+
+    private eraseSave() {
+        if (confirm(Database.getText("eraseDialog"))) {
+            Saving.erase();
+        }
+    }
+
+    private eraseAllSave() {
+        if (confirm(Database.getText("eraseAllDialog"))) {
+            Saving.eraseAll();
+        }
     }
     
     private drawFileLoad(x: number, y: number): number{

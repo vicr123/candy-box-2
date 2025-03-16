@@ -66,7 +66,9 @@ export module Main{
         game = new Game(gameMode);
         window.game = game;
         Keyboard.setGame(game);
-        await Saving.load(game, loadingType, loadingString);
         game.postLoad();
+
+        // We go to Archipelago configuration
+        game.goToArchipelago();
     }
 }

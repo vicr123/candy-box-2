@@ -2,6 +2,7 @@
 
 import {Main} from "./main/main";
 import "./main/string_prototype"
+import "./archipelago/ArchipelagoItemProcessing"
 
 // import "./gen/genText"
 import "./gen/genAscii"

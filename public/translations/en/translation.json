@@ -351,5 +351,15 @@
     "apStatusConnecting": "Connecting to Archipelago...",
     "apDisconnect": "Disconnect from Archipelago and Reload",
     "apDisconnectWarning": "You should save your game before you disconnect, otherwise you'll lose it.",
-    "apSend": "Send"
+    "apSend": "Send",
+    "savePrompt": "This version of Candy Box 2 saves automatically every second.",
+    "savePrompt2": "If, however, you are having problems, you can erase your local save here.",
+    "savePrompt3": "You will lose some of your progress, for example, the number of candies you have.",
+    "savePrompt4": "However, any items discovered on the Archipelago server will be retained.",
+    "eraseSaveButton": "Erase this save and reload",
+    "eraseAllSavesButton": "Erase all saves and reload",
+    "loadPrompt": "The game is loaded automatically when you connect to Archipelago.",
+    "loadPrompt2": "Different worlds are saved separately, so there is no need to choose a slot to load.",
+    "eraseDialog": "Are you sure you want to erase the current save slot?",
+    "eraseAllDialog": "Are you sure you want to erase all save slots?"
 }
