@@ -1,3 +1,5 @@
+import {Archipelago} from "./Archipelago";
+
 export const ArchipelagoLocation = {
     HP_BAR_UNLOCK: 1,
     VILLAGE_SHOP_TOP_LOLLIPOP: 100,
@@ -33,13 +35,24 @@ export const ArchipelagoLocation = {
     EGG_ROOM_CHEST: 2100,
     KILL_THE_DEVIL: 2300,
     KILL_THE_DEVELOPER: 2400,
-    SOLVE_CYCLOPS_PUZZLE: 2500
+    SOLVE_CYCLOPS_PUZZLE: 2500,
+    FORGE_LOLLIPOP: 2600,
+    FORGE_WOODEN_SWORD: 2601,
+    FORGE_IRON_AXE: 2700,
+    FORGE_POLISHED_SILVER_SWORD: 2800,
+    FORGE_LIGHTWEIGHT_BODY_ARMOUR: 2900,
+    FORGE_SCYTHE: 3000
 } satisfies Record<string, number>
 
 export const ArchipelagoLocationRegion = {
     VILLAGE_SHOP: ArchipelagoLocation.VILLAGE_SHOP_TOP_LOLLIPOP,
     MOUNTAINS: ArchipelagoLocation.POGO_STICK,
-    SORCERESS_HUT: ArchipelagoLocation.SORCERESS_HUT_LOLLIPOP
+    SORCERESS_HUT: ArchipelagoLocation.SORCERESS_HUT_LOLLIPOP,
+    FORGE_1: ArchipelagoLocation.FORGE_LOLLIPOP,
+    FORGE_2: ArchipelagoLocation.FORGE_IRON_AXE,
+    FORGE_3: ArchipelagoLocation.FORGE_POLISHED_SILVER_SWORD,
+    FORGE_4: ArchipelagoLocation.FORGE_LIGHTWEIGHT_BODY_ARMOUR,
+    FORGE_5: ArchipelagoLocation.FORGE_SCYTHE,
 } satisfies Record<string, number>
 
 export const ArchipelagoItem = {
@@ -65,7 +78,12 @@ export const ArchipelagoItem = {
     P_STONE: 19,
     L_STONE: 20,
     A_STONE: 21,
-    Y_STONE: 22
+    Y_STONE: 22,
+    WOODEN_SWORD: 23,
+    IRON_AXE: 24,
+    POLISHED_SILVER_SWORD: 25,
+    LIGHTWEIGHT_BODY_ARMOUR: 26,
+    SCYTHE: 27
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000

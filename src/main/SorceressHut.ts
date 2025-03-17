@@ -108,44 +108,44 @@ export class SorceressHut extends Place{
     private clickedCauldron(): void{
         const item = this.itemScoutResults.findItem("SORCERESS_HUT_CAULDRON");
         // Set the new speech
-        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 100000 lollipops!`;
+        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 100 000 lollipops!`;
         
         // Update
         this.update();
-        this.drawBuyingButton("sorceressHutBuyCauldronButton", new CallbackCollection(this.buyCauldron.bind(this)));
+        this.drawBuyingButton(Database.getBuyText(item, 100000, "lollipops"), new CallbackCollection(this.buyCauldron.bind(this)));
         this.getGame().updatePlace();
     }
     
     private clickedGrimoire(): void{
         const item = this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNER_GRIMOIRE");
         // Set the new speech
-        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 5000 lollipops!`;
+        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 5 000 lollipops!`;
         
         // Update
         this.update();
-        this.drawBuyingButton("sorceressHutBuyGrimoireButton", new CallbackCollection(this.buyGrimoire.bind(this)));
+        this.drawBuyingButton(Database.getBuyText(item, 5000, "lollipops"), new CallbackCollection(this.buyGrimoire.bind(this)));
         this.getGame().updatePlace();
     }
     
     private clickedGrimoire2(): void{
         const item = this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE");
         // Set the new speech
-        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 20000 lollipops!`;
+        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 20 000 lollipops!`;
         
         // Update
         this.update();
-        this.drawBuyingButton("sorceressHutBuyGrimoire2Button", new CallbackCollection(this.buyGrimoire2.bind(this)));
+        this.drawBuyingButton(Database.getBuyText(item, 20000, "lollipops"), new CallbackCollection(this.buyGrimoire2.bind(this)));
         this.getGame().updatePlace();
     }
     
     private clickedHat(): void{
         const item = this.itemScoutResults.findItem("SORCERESS_HUT_HAT");
         // Set the new speech
-        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 1000000000 lollipops!`;
+        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 1 000 000 000 lollipops!`;
         
         // Update
         this.update();
-        this.drawBuyingButton("sorceressHutBuyHatButton", new CallbackCollection(this.buyHat.bind(this)));
+        this.drawBuyingButton(Database.getBuyText(item, 1000000000, "lollipops"), new CallbackCollection(this.buyHat.bind(this)));
         this.getGame().updatePlace();
     }
     
@@ -157,8 +157,8 @@ export class SorceressHut extends Place{
         this.renderArea.drawArray(Database.getAscii("places/sorceressHut/broom"), x, y);
     }
     
-    private drawBuyingButton(textName: string, callbackCollection : CallbackCollection): void{
-        this.renderArea.addAsciiRealButton(Database.getText(textName), 73, 22, "sorceressHutBuyingButton", Database.getTranslatedText(textName), true, -1, null, false);
+    private drawBuyingButton(text: string, callbackCollection : CallbackCollection): void{
+        this.renderArea.addAsciiRealButton(text, 73, 22, "sorceressHutBuyingButton");
         this.renderArea.addLinkCall(".sorceressHutBuyingButton", callbackCollection);
     }
     

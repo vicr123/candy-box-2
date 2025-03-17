@@ -2,6 +2,7 @@ import {Pos} from "./Pos";
 import {Game} from "./Game";
 import {Saving} from "./Saving";
 import {Item} from "archipelago.js";
+import {Database} from "./Database";
 
 export class CandyMerchantItem{
     // The game
@@ -86,7 +87,7 @@ export class CandyMerchantItem{
     }
     
     public getButtonText(): string{
-        return `Buy ${this.merchantSpeech.receiver.name}'s ${this.merchantSpeech.name} (${this.price} candies)`;
+        return Database.getBuyText(this.merchantSpeech, this.price, "candies");
     }
     
     public getGame(): Game{

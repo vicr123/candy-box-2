@@ -8,15 +8,18 @@ import {Game} from "./Game";
 import {Database} from "./Database";
 import {StatusBarTabType} from "./StatusBarTabType";
 import {CallbackCollection} from "./CallbackCollection";
+import {Archipelago, ScoutResults} from "../archipelago/Archipelago";
+import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
+import { Item } from "archipelago.js";
 
-Saving.registerBool("forgeFoundLollipop", false);
+Saving.registerApLocation("forgeFoundLollipop", "FORGE_LOLLIPOP");
 
 // Items sold
-Saving.registerBool("forgeBoughtWoodenSword", false);
-Saving.registerBool("forgeBoughtIronAxe", false);
-Saving.registerBool("forgeBoughtPolishedSilverSword", false);
-Saving.registerBool("forgeBoughtLightweightBodyArmour", false);
-Saving.registerBool("forgeBoughtScythe", false);
+Saving.registerApLocation("forgeBoughtWoodenSword", "FORGE_WOODEN_SWORD");
+Saving.registerApLocation("forgeBoughtIronAxe", "FORGE_IRON_AXE");
+Saving.registerApLocation("forgeBoughtPolishedSilverSword", "FORGE_POLISHED_SILVER_SWORD");
+Saving.registerApLocation("forgeBoughtLightweightBodyArmour", "FORGE_LIGHTWEIGHT_BODY_ARMOUR");
+Saving.registerApLocation("forgeBoughtScythe", "FORGE_SCYTHE");
 
 export class Forge extends House{
     // The render area
@@ -24,6 +27,8 @@ export class Forge extends House{
     
     // The speech, comes back to its default value each time we enter the forge
     private currentSpeech: string;
+
+    private scoutedItems: ScoutResults;
     
     // Constructor
     constructor(game: Game){
@@ -47,11 +52,24 @@ export class Forge extends House{
             // We set the no more to sell introduction speech
             this.currentSpeech = "mapVillageForgeIntroductionSpeechNoMoreToSell";
         }
+
+        Archipelago.client.room.on("locationsChecked", () => {
+            this.update();
+            this.getGame().updatePlace();
+        });
         
         this.renderArea.resizeFromArray(Database.getAscii("places/village/forge"), 0, 3);
+    }
+
+    scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
+        return ["FORGE_1", "FORGE_2", "FORGE_3", "FORGE_4", "FORGE_5"];
+    }
+
+    scoutResults(items: ScoutResults) {
+        this.scoutedItems = items;
         this.update();
     }
-    
+
     // getRenderArea()
     public getRenderArea(): RenderArea{
         return this.renderArea;
@@ -60,10 +78,11 @@ export class Forge extends House{
     // Private methods
     private clickedBuyIronAxeButton(): void{
         if(this.getGame().getCandies().getCurrent() >= 400){
+            const item = this.scoutedItems.findItem("FORGE_IRON_AXE");
             this.getGame().getCandies().add(-400); // -400 candies
             Saving.saveBool("forgeBoughtIronAxe", true); // We bought the axe
             this.getGame().gainItem("eqItemWeaponIronAxe"); // We now own the axe
-            this.currentSpeech = "mapVillageForgeBuyIronAxeSpeech"; // New speech
+            this.updateSpeechBuy(item);
             // We update
             this.update();
             this.getGame().updatePlace();
@@ -72,10 +91,11 @@ export class Forge extends House{
     
     private clickedBuyLightweightBodyArmourButton(): void{
         if(this.getGame().getCandies().getCurrent() >= 15000){
+            const item = this.scoutedItems.findItem("FORGE_LIGHTWEIGHT_BODY_ARMOUR");
             this.getGame().getCandies().add(-15000); // -15000 candies
             Saving.saveBool("forgeBoughtLightweightBodyArmour", true); // We bought the armour
             this.getGame().gainItem("eqItemBodyArmoursLightweightBodyArmour"); // We now own the armour
-            this.currentSpeech = "mapVillageForgeBuyLightweightBodyArmourSpeech"; // New speech
+            this.updateSpeechBuy(item);
             // We update
             this.update();
             this.getGame().updatePlace();
@@ -84,10 +104,11 @@ export class Forge extends House{
     
     private clickedBuyPolishedSilverSwordButton(): void{
         if(this.getGame().getCandies().getCurrent() >= 2000){
+            const item = this.scoutedItems.findItem("FORGE_POLISHED_SILVER_SWORD");
             this.getGame().getCandies().add(-2000); // -2000 candies
             Saving.saveBool("forgeBoughtPolishedSilverSword", true); // We bought the sword
             this.getGame().gainItem("eqItemWeaponPolishedSilverSword"); // We now own the sword
-            this.currentSpeech = "mapVillageForgeBuyPolishedSilverSwordSpeech"; // New speech
+            this.updateSpeechBuy(item);
             // We update
             this.update();
             this.getGame().updatePlace();
@@ -96,10 +117,11 @@ export class Forge extends House{
     
     private clickedBuyScytheButton(): void{
         if(this.getGame().getCandies().getCurrent() >= 5000000){
+            const item = this.scoutedItems.findItem("FORGE_SCYTHE");
             this.getGame().getCandies().add(-5000000); // -5000000 candies
             Saving.saveBool("forgeBoughtScythe", true); // We bought the scythe
             this.getGame().gainItem("eqItemWeaponScythe"); // We now own the scythe
-            this.currentSpeech = "mapVillageForgeBuyScytheSpeech"; // New speech
+            this.updateSpeechBuy(item);
             // We update
             this.update();
             this.getGame().updatePlace();
@@ -108,10 +130,11 @@ export class Forge extends House{
     
     private clickedBuyWoodenSwordButton(): void{
         if(this.getGame().getCandies().getCurrent() >= 150){
+            const item = this.scoutedItems.findItem("FORGE_WOODEN_SWORD");
             this.getGame().getCandies().add(-150); // -150 candies
             Saving.saveBool("forgeBoughtWoodenSword", true); // We bought the sword
             this.getGame().gainItem("eqItemWeaponWoodenSword"); // We now own the sword
-            this.currentSpeech = "mapVillageForgeBuyWoodenSwordSpeech"; // New speech
+            this.updateSpeechBuy(item);
             Saving.saveBool("statusBarUnlockedInventory", true); // We unlock the inventory
             this.getGame().updateStatusBar(true); // We update the status bar
             this.getGame().getStatusBar().selectTabByType(StatusBarTabType.MAP); // We re-select the map tab (because adding the inventory tab created a gap in tab selection..)
@@ -119,6 +142,17 @@ export class Forge extends House{
             this.update();
             this.getGame().updatePlace();
         }
+    }
+
+    private updateSpeechBuy(item: Item) {
+        let sentence = "";
+        if (item.useful || item.progression) {
+            sentence = `I'm sure ${item.receiver.name} will find it very useful.`;
+        } else if (item.trap) {
+            sentence = `I'm sure ${item.receiver.name} will have lots of fun with it(!)`;
+        }
+
+        this.currentSpeech = `Thanks for the candies! I've just sent ${item.name} straight to ${item.game} - free of charge! ${sentence}`
     }
     
     private drawLollipopStuff(x: number, y: number): void{
@@ -139,8 +173,6 @@ export class Forge extends House{
     private takeLollipop(): void{
         // If we didn't get the lollipop yet
         if(Saving.loadBool("forgeFoundLollipop") == false){
-            // Add one lollipop
-            this.getGame().getLollipops().add(1);
             // Set the bool
             Saving.saveBool("forgeFoundLollipop", true);
             // Update
@@ -168,27 +200,32 @@ export class Forge extends House{
         // Draw the buttons
             // If we never bought the wooden sword and we don't have one
             if(Saving.loadBool("forgeBoughtWoodenSword") == false && Saving.loadBool("eqItemWeaponWoodenSword") == false){
-                this.renderArea.addAsciiRealButton(Database.getText("mapVillageForgeBuyWoodenSwordButton"), 8, 35, "mapVillageForgeBuyWoodenSwordButton", Database.getTranslatedText("mapVillageForgeBuyWoodenSwordButton"), true, -1, null, false);
+                const item = this.scoutedItems.findItem("FORGE_WOODEN_SWORD");
+                this.renderArea.addAsciiRealButton(Database.getBuyText(item, 150, "candies"), 8, 35, "mapVillageForgeBuyWoodenSwordButton");
                 this.renderArea.addLinkCall(".mapVillageForgeBuyWoodenSwordButton", new CallbackCollection(this.clickedBuyWoodenSwordButton.bind(this)));
             }
             // If we bought the wooden sword, never bought the iron axe and we don't have one
             else if(Saving.loadBool("forgeBoughtWoodenSword") == true && Saving.loadBool("forgeBoughtIronAxe") == false && Saving.loadBool("eqItemWeaponIronAxe") == false){
-                this.renderArea.addAsciiRealButton(Database.getText("mapVillageForgeBuyIronAxeButton"), 8, 35, "mapVillageForgeBuyIronAxeButton", Database.getTranslatedText("mapVillageForgeBuyIronAxeButton"), true, -1, null, false);
+                const item = this.scoutedItems.findItem("FORGE_IRON_AXE");
+                this.renderArea.addAsciiRealButton(Database.getBuyText(item, 400, "candies"), 8, 35, "mapVillageForgeBuyIronAxeButton");
                 this.renderArea.addLinkCall(".mapVillageForgeBuyIronAxeButton", new CallbackCollection(this.clickedBuyIronAxeButton.bind(this)));
             }
             // If we bought the iron axe, never bought the polished silver sword and we don't have one
             else if(Saving.loadBool("forgeBoughtIronAxe") == true && Saving.loadBool("forgeBoughtPolishedSilverSword") == false && Saving.loadBool("eqItemWeaponPolishedSilverSword") == false){
-                this.renderArea.addAsciiRealButton(Database.getText("mapVillageForgeBuyPolishedSilverSwordButton"), 8, 35, "mapVillageForgeBuyPolishedSilverSwordButton", Database.getTranslatedText("mapVillageForgeBuyPolishedSilverSwordButton"), true, -1, null, false);
+                const item = this.scoutedItems.findItem("FORGE_POLISHED_SILVER_SWORD");
+                this.renderArea.addAsciiRealButton(Database.getBuyText(item, 2_000, "candies"), 8, 35, "mapVillageForgeBuyPolishedSilverSwordButton");
                 this.renderArea.addLinkCall(".mapVillageForgeBuyPolishedSilverSwordButton", new CallbackCollection(this.clickedBuyPolishedSilverSwordButton.bind(this)));
             }
             // If we bought the polished silver sword, never bought the lightweight body armour and we don't have one and we made the cave entrance
             else if(Saving.loadBool("forgeBoughtPolishedSilverSword") == true && Saving.loadBool("forgeBoughtLightweightBodyArmour") == false && Saving.loadBool("eqItemBodyArmoursLightweightBodyArmour") == false && Saving.loadBool("mainMapDoneCaveEntrance")){
-                this.renderArea.addAsciiRealButton(Database.getText("mapVillageForgeBuyLightweightBodyArmourButton"), 8, 35, "mapVillageForgeBuyLightweightBodyArmourButton", Database.getTranslatedText("mapVillageForgeBuyLightweightBodyArmourButton"), true, -1, null, false);
+                const item = this.scoutedItems.findItem("FORGE_LIGHTWEIGHT_BODY_ARMOUR");
+                this.renderArea.addAsciiRealButton(Database.getBuyText(item, 15_000, "candies"), 8, 35, "mapVillageForgeBuyLightweightBodyArmourButton");
                 this.renderArea.addLinkCall(".mapVillageForgeBuyLightweightBodyArmourButton", new CallbackCollection(this.clickedBuyLightweightBodyArmourButton.bind(this)));
             }
             // If we bought the lightweight body armour, never bought the scythe and we don't have one and the dragon is done
             else if(Saving.loadBool("forgeBoughtLightweightBodyArmour") == true && Saving.loadBool("forgeBoughtScythe") == false && Saving.loadBool("eqItemWeaponScythe") == false && Saving.loadBool("dragonDone")){
-                this.renderArea.addAsciiRealButton(Database.getText("mapVillageForgeBuyScytheButton"), 8, 35, "mapVillageForgeBuyScytheButton", Database.getTranslatedText("mapVillageForgeBuyScytheButton"), true, -1, null, false);
+                const item = this.scoutedItems.findItem("FORGE_SCYTHE");
+                this.renderArea.addAsciiRealButton(Database.getBuyText(item, 5_000_000, "candies"), 8, 35, "mapVillageForgeBuyScytheButton", Database.getTranslatedText("mapVillageForgeBuyScytheButton"), true, -1, null, false);
                 this.renderArea.addLinkCall(".mapVillageForgeBuyScytheButton", new CallbackCollection(this.clickedBuyScytheButton.bind(this)));
             }
     }

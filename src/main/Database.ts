@@ -1,6 +1,7 @@
 import {Pos} from "./Pos";
 import {Saving} from "./Saving";
 import {i18n} from "../i18n";
+import {Item} from "archipelago.js";
 
 export module Database{
     // Variables
@@ -63,5 +64,9 @@ export module Database{
         
         // Else, we return an empty string
         return "";
+    }
+
+    export function getBuyText(item: Item, price: number, currency: "candies" | "lollipops") {
+        return `Buy ${item.receiver.name}'s ${item.name} (${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ${currency})`;
     }
 }

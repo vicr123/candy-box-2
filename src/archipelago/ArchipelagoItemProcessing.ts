@@ -23,72 +23,88 @@ export class ArchipelagoItemProcessing {
         Archipelago.events.on("itemToBeProcessed", (item: Item) => {
             if (item.receiver.name != Archipelago.client.name) return;
 
-            switch (item.id - ArchipelagoItemBaseId) {
-                case ArchipelagoItem.CANDY:
+            const itemKey = Object.keys(ArchipelagoItem).find(x => ArchipelagoItem[x] == item.id - ArchipelagoItemBaseId) as keyof typeof ArchipelagoItem;
+            switch (itemKey) {
+                case "CANDY":
                     game.getCandies().add(1);
                     break;
-                case ArchipelagoItem.LOLLIPOP:
+                case "LOLLIPOP":
                     game.getLollipops().add(1);
                     break;
-                case ArchipelagoItem.CHOCOLATE_BAR:
+                case "CHOCOLATE_BAR":
                     game.getChocolateBars().add(1);
                     break;
-                case ArchipelagoItem.TIME_RING:
+                case "TIME_RING":
                     game.gainItem("gridItemPossessedTimeRing");
                     break;
-                case ArchipelagoItem.CANDY_MERCHANTS_HAT:
+                case "CANDY_MERCHANTS_HAT":
                     game.gainItem("eqItemHatMerchantHat");
                     break;
-                case ArchipelagoItem.LEATHER_BOOTS:
+                case "LEATHER_BOOTS":
                     game.gainItem("eqItemBootsLeatherBoots");
                     break;
-                case ArchipelagoItem.LEATHER_GLOVES:
+                case "LEATHER_GLOVES":
                     game.gainItem("eqItemGlovesLeatherGloves");
                     break;
-                case ArchipelagoItem.PROGRESSIVE_WORLD_MAP:
+                case "PROGRESSIVE_WORLD_MAP":
                     // The world map is the first thing to be unlocked anyway
                     game.gainItem("gridItemPossessedMainMap");
                     break;
-                case ArchipelagoItem.TROLLS_BLUDGEON:
+                case "TROLLS_BLUDGEON":
                     game.gainItem("eqItemWeaponTrollBludgeon");
                     break;
-                case ArchipelagoItem.DESERT_BIRD_FEATHER:
+                case "DESERT_BIRD_FEATHER":
                     game.gainItem("eqItemWeaponTrollBludgeon");
                     break;
-                case ArchipelagoItem.BEGINNER_GRIMOIRE:
+                case "BEGINNER_GRIMOIRE":
                     game.gainItem("gridItemPossessedBeginnersGrimoire");
                     break;
-                case ArchipelagoItem.ADVANCED_GRIMOIRE:
+                case "ADVANCED_GRIMOIRE":
                     game.gainItem("gridItemPossessedAdvancedGrimoire");
                     break;
-                case ArchipelagoItem.CAULDRON:
+                case "CAULDRON":
                     break;
-                case ArchipelagoItem.SORCERESS_HAT:
+                case "SORCERESS_HAT":
                     game.gainItem("eqItemHatSorceressHat");
                     break;
-                case ArchipelagoItem.OCTOPUS_KING_CROWN:
+                case "OCTOPUS_KING_CROWN":
                     game.gainItem("eqItemHatOctopusKingCrown")
                     break;
-                case ArchipelagoItem.MONKEY_WIZARD_STAFF:
+                case "MONKEY_WIZARD_STAFF":
                     game.gainItem("eqItemWeaponMonkeyWizardStaff")
                     break;
-                case ArchipelagoItem.HEART_PLUG:
+                case "HEART_PLUG":
                     game.gainItem("gridItemPossessedHeartPlug");
                     break;
-                case ArchipelagoItem.POGO_STICK:
+                case "POGO_STICK":
                     game.gainItem("gridItemPossessedPogoStick");
                     break;
-                case ArchipelagoItem.P_STONE:
+                case "P_STONE":
                     game.gainItem("gridItemPossessedP");
                     break;
-                case ArchipelagoItem.L_STONE:
+                case "L_STONE":
                     game.gainItem("gridItemPossessedL");
                     break;
-                case ArchipelagoItem.A_STONE:
+                case "A_STONE":
                     game.gainItem("gridItemPossessedA");
                     break;
-                case ArchipelagoItem.Y_STONE:
+                case "Y_STONE":
                     game.gainItem("gridItemPossessedY");
+                    break;
+                case "WOODEN_SWORD":
+                    game.gainItem("eqItemWeaponWoodenSword");
+                    break;
+                case "IRON_AXE":
+                    game.gainItem("eqItemWeaponIronAxe");
+                    break;
+                case "POLISHED_SILVER_SWORD":
+                    game.gainItem("eqItemWeaponPolishedSilverSword");
+                    break;
+                case "LIGHTWEIGHT_BODY_ARMOUR":
+                    game.gainItem("eqItemBodyArmoursLightweightBodyArmour");
+                    break;
+                case "SCYTHE":
+                    game.gainItem("eqItemWeaponScythe");
                     break;
             }
         })
