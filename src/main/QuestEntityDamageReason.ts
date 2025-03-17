@@ -23,6 +23,8 @@ export class QuestEntityDamageReason{
         private questEntityWeapon: QuestEntityWeapon = null;
         // SPELL
         private spellNaming: Naming = null;
+
+        public isDeathLink: boolean = false;
     
     // Constructor
     constructor(whoType: QuestEntityDamageReasonWhoType, whatType: QuestEntityDamageReasonWhatType){

@@ -413,6 +413,7 @@ export class Game{
         var maxHp: number = this.player.getMaxHp();
         
         // Re-create the player
+        this.player.cleanup();
         this.player = new Player(this);
         
         // Restore the important things saved

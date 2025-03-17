@@ -18,6 +18,8 @@ import {RenderTransparency} from "./RenderTransparency";
 import {QuestLogMessage} from "./QuestLogMessage";
 import {Database} from "./Database";
 import {Archipelago} from "../archipelago/Archipelago";
+import {QuestEntityDamageReasonWhoType} from "./QuestEntityDamageReasonWhoType";
+import {QuestEntityDamageReasonWhatType} from "./QuestEntityDamageReasonWhatType";
 
 Saving.registerNumber("playerHp", 100);
 
@@ -27,6 +29,8 @@ export class Player extends QuestEntity{
     
     // Character type
     private characterType: PlayerCharacterType;
+
+    cleanup: () => void;
     
     // Constructor
     constructor(game: Game){
@@ -39,11 +43,31 @@ export class Player extends QuestEntity{
         this.setDestructible(true);
 
         // Subscribe to DeathLink
-        Archipelago.client.deathLink.on("deathReceived", ([source, time, cause]) => {
-            this.setHp(0);
-        })
+        const dlHandler = this.deathlinkHandler.bind(this);
+        Archipelago.client.deathLink.on("deathReceived", dlHandler);
+        this.cleanup = () => {
+            Archipelago.client.deathLink.off("deathReceived", dlHandler);
+        }
     }
-    
+
+    deathlinkHandler(source: string, time: number, cause: string) {
+        const damageReason = new QuestEntityDamageReason(QuestEntityDamageReasonWhoType.ENTITY, QuestEntityDamageReasonWhatType.SPELL);
+        damageReason.setQuestEntity(new QuestEntity(null, null, new Naming(source, source)));
+        damageReason.setSpellNaming(new Naming("the power of the Internet", "the power of the Internet"));
+        damageReason.isDeathLink = true;
+        this.inflictDamage(0, damageReason)
+        this.setHp(0);
+        this.willDie();
+    }
+
+    willDie() {
+        super.willDie();
+
+        if (!this.getLastDamageReason().isDeathLink) {
+            Archipelago.client.deathLink.sendDeathLink(Archipelago.client.name, this.getDeathMessage(Archipelago.client.name));
+        }
+    }
+
     // Public methods
     public beginBerserk(duration: number): boolean{
         // Call the mother class method

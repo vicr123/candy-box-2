@@ -581,10 +581,6 @@ export class Quest extends Place{
         
         // The quest ended !
         this.questEnded = true;
-
-        if (!win) {
-            Archipelago.client.deathLink.sendDeathLink(Archipelago.client.name, "Failed a quest!");
-        }
     }
     
     public foundCandies(howMany: number): number{

@@ -245,10 +245,10 @@ export class QuestEntity{
         return this.spellCastingDamageReason;
     }
     
-    public getDeathMessage(): string{
+    public getDeathMessage(slotName?: string): string{
         // If there's a last damage reason
         if(this.getLastDamageReason() != null){
-            return this.getLastDamageReason().getWhoNaming().getBeginning() + " killed " + this.naming.getAnywhere() + " with " + this.getLastDamageReason().getWhatNaming().getAnywhere() + ".";
+            return this.getLastDamageReason().getWhoNaming().getBeginning() + " killed " + (slotName ?? this.naming.getAnywhere()) + " with " + this.getLastDamageReason().getWhatNaming().getAnywhere() + ".";
         }
         
         // Else
@@ -486,7 +486,7 @@ export class QuestEntity{
     
     // Default behaviour of this function : displaying a simple death message in the quest log
     public willDie(): void{
-        this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage()));
+        this.getQuest()?.getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage()));
     }
     
     // Public getters
