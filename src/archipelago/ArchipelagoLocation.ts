@@ -34,7 +34,8 @@ export const ArchipelagoLocation = {
 
 export const ArchipelagoLocationRegion = {
     VILLAGE_SHOP: ArchipelagoLocation.VILLAGE_SHOP_TOP_LOLLIPOP,
-    MOUNTAINS: 500
+    MOUNTAINS: ArchipelagoLocation.POGO_STICK,
+    SORCERESS_HUT: ArchipelagoLocation.SORCERESS_HUT_LOLLIPOP
 } satisfies Record<string, number>
 
 export const ArchipelagoItem = {

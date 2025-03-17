@@ -7,7 +7,8 @@ import {Game} from "./Game";
 import {CallbackCollection} from "./CallbackCollection";
 import {Database} from "./Database";
 import {RenderTransparency} from "./RenderTransparency";
-import {Archipelago} from "../archipelago/Archipelago";
+import {Archipelago, ScoutResults} from "../archipelago/Archipelago";
+import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
 
 Saving.registerApLocation("sorceressHutTookLollipop", "SORCERESS_HUT_LOLLIPOP");
 Saving.registerApLocation("sorceressHutBoughtGrimoire", "SORCERESS_HUT_BEGINNER_GRIMOIRE");
@@ -21,13 +22,15 @@ export class SorceressHut extends Place{
     
     // Current speech
     private currentSpeech: string;
+
+    private itemScoutResults: ScoutResults;
     
     // Constructor
     constructor(game: Game){
         super(game);
         
         // Set the default speech
-        this.currentSpeech = "sorceressHutHello";
+        this.currentSpeech = "Hello, I'm the sorceress. I can give you some interesting things that I've found from the whole multiworld. But everything has a price! And this price will be lollipops. A lot of them.";
         
         // Resize & update
         this.renderArea.resize(144, 48);
@@ -38,7 +41,15 @@ export class SorceressHut extends Place{
             this.getGame().updatePlace();
         });
     }
-    
+
+    scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
+        return ["SORCERESS_HUT"];
+    }
+
+    scoutResults(items: ScoutResults) {
+        this.itemScoutResults = items;
+    }
+
     // getRenderArea()
     public getRenderArea(): RenderArea{
         return this.renderArea;
@@ -51,7 +62,7 @@ export class SorceressHut extends Place{
             this.getGame().getLollipops().add(-100000); // We spend the lollipops
             Saving.saveBool("sorceressHutBoughtCauldron", true); // We now bought the cauldron
             this.getGame().updateStatusBar(true); // We update the status bar
-            this.currentSpeech = "sorceressHutBuyCauldronSpeech"; // We set the speech
+            this.currentSpeech = ""; // We set the speech
             // We update
             this.update();
             this.getGame().updatePlace();
@@ -63,7 +74,7 @@ export class SorceressHut extends Place{
         if(this.getGame().getLollipops().getCurrent() >= 5000){
             this.getGame().getLollipops().add(-5000); // We spend the lollipops
             Saving.saveBool("sorceressHutBoughtGrimoire", true); // We now bought the grimoire
-            this.currentSpeech = "sorceressHutBuyGrimoireSpeech"; // We set the speech
+            this.currentSpeech = ""; // We set the speech
             // We update
             this.update();
             this.getGame().updatePlace();
@@ -75,7 +86,7 @@ export class SorceressHut extends Place{
         if(this.getGame().getLollipops().getCurrent() >= 20000){
             this.getGame().getLollipops().add(-20000); // We spend the lollipops
             Saving.saveBool("sorceressHutBoughtGrimoire2", true); // We now bought the grimoire
-            this.currentSpeech = "sorceressHutBuyGrimoire2Speech"; // We set the speech
+            this.currentSpeech = ""; // We set the speech
             // We update
             this.update();
             this.getGame().updatePlace();
@@ -87,7 +98,7 @@ export class SorceressHut extends Place{
         if(this.getGame().getLollipops().getCurrent() >= 1000000000){
             this.getGame().getLollipops().add(-1000000000); // We spend the lollipops
             Saving.saveBool("sorceressHutBoughtHat", true); // We now bought the hat
-            this.currentSpeech = "sorceressHutBuyHatSpeech"; // We set the speech
+            this.currentSpeech = ""; // We set the speech
             // We update
             this.update();
             this.getGame().updatePlace();
@@ -95,8 +106,9 @@ export class SorceressHut extends Place{
     }
     
     private clickedCauldron(): void{
+        const item = this.itemScoutResults.findItem("SORCERESS_HUT_CAULDRON");
         // Set the new speech
-        this.currentSpeech = "sorceressHutClickedCauldron";
+        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 100000 lollipops!`;
         
         // Update
         this.update();
@@ -105,8 +117,9 @@ export class SorceressHut extends Place{
     }
     
     private clickedGrimoire(): void{
+        const item = this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNER_GRIMOIRE");
         // Set the new speech
-        this.currentSpeech = "sorceressHutClickedGrimoire";
+        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 5000 lollipops!`;
         
         // Update
         this.update();
@@ -115,8 +128,9 @@ export class SorceressHut extends Place{
     }
     
     private clickedGrimoire2(): void{
+        const item = this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE");
         // Set the new speech
-        this.currentSpeech = "sorceressHutClickedGrimoire2";
+        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 20000 lollipops!`;
         
         // Update
         this.update();
@@ -125,8 +139,9 @@ export class SorceressHut extends Place{
     }
     
     private clickedHat(): void{
+        const item = this.itemScoutResults.findItem("SORCERESS_HUT_HAT");
         // Set the new speech
-        this.currentSpeech = "sorceressHutClickedHat";
+        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 1000000000 lollipops!`;
         
         // Update
         this.update();
@@ -174,7 +189,9 @@ export class SorceressHut extends Place{
     }
     
     private drawCurrentSpeech(x: number, y: number): void{
-        this.renderArea.drawSpeech(Database.getText(this.currentSpeech), y, x, x + 27, "sorceressHutSpeech", Database.getTranslatedText(this.currentSpeech));
+        if (this.currentSpeech) {
+            this.renderArea.drawSpeech(this.currentSpeech, y, x, x + 27, "sorceressHutSpeech", Database.getTranslatedText(this.currentSpeech));
+        }
     }
     
     private drawHat(x: number, y: number): void{
