@@ -12,6 +12,16 @@ import {
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
 type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed";
 
+export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Click" | "The Bridge Click" | "The Forest Click" | "Castle Entrance Click" | "Giant Nougat Monster Click";
+export type ArchipelagoExit = "Village Cellar" | "The Desert" | "The Bridge" | "The Forest" | "The Castle Entrance" | "The Giant Nougat Monster";
+
+type EntrancePairing = [ArchipelagoEntrance, ArchipelagoExit];
+
+interface ArchipelagoSlotData {
+    uuid: string;
+    entranceInformation: EntrancePairing[]
+}
+
 function createObservable<T>(initialValue: T, eventEmitter: EventEmitter<ArchipelagoEventTypes>, event: ArchipelagoEventTypes) {
     let observable = {
         current: initialValue
@@ -34,6 +44,7 @@ export namespace Archipelago {
     export let apSlot = localStorage.getItem("apSlot") ?? "";
     export let apPassword = "";
     export let localSaveSlot = "";
+    let slotData: ArchipelagoSlotData;
 
     export const client = new Client();
     export const events = new EventEmitter<ArchipelagoEventTypes>();
@@ -44,12 +55,13 @@ export namespace Archipelago {
     export async function connect() {
         try {
             connectionStatus.current = "connecting";
-            await client.login(apLink, apSlot, "Candy Box 2", {
+            // @ts-expect-error Slot data type is correct here
+            slotData = await client.login<ArchipelagoSlotData>(apLink, apSlot, "Candy Box 2", {
                 password: apPassword,
                 tags: ["DeathLink"],
                 items: itemsHandlingFlags.all
             });
-            localSaveSlot = `${client.package.findPackage("Candy Box 2").checksum}.${apSlot}`;
+            localSaveSlot = slotData.uuid;
             connectionStatus.current = "connected";
         } catch {
             connectionStatus.current = "disconnected";
@@ -79,6 +91,10 @@ export namespace Archipelago {
         }
 
         return new ScoutResults(await client.scout(scoutIds, 0));
+    }
+
+    export function findExit(entrance: ArchipelagoEntrance) {
+        return slotData.entranceInformation.find(([transitionEntrance]) => transitionEntrance == entrance)[1];
     }
 }
 

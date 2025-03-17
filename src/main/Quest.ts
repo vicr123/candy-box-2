@@ -141,7 +141,7 @@ export class Quest extends Place{
     
     public addExitQuestButton(callbackCollection: CallbackCollection, buttonText: string): void{
         this.addBackToButton(this.renderArea,
-                             callbackCollection,
+                             new CallbackCollection(() => this.getGame().quitQuest(callbackCollection)),
                              Database.getText(buttonText),
                              Database.getTranslatedText(buttonText),
                              buttonText,
@@ -582,7 +582,9 @@ export class Quest extends Place{
         // The quest ended !
         this.questEnded = true;
 
-        Archipelago.client.deathLink.sendDeathLink(Archipelago.client.name, "Failed a quest!");
+        if (!win) {
+            Archipelago.client.deathLink.sendDeathLink(Archipelago.client.name, "Failed a quest!");
+        }
     }
     
     public foundCandies(howMany: number): number{

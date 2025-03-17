@@ -35,7 +35,7 @@ export class FifthHouse extends House{
     
     // Private methods
     private beginQuest(): void{
-        this.getGame().setPlace(new Cellar(this.getGame()));
+        void this.getGame().loadRandomisedEntrance("Village House Enter Cellar");
     }
     
     private update(): void{

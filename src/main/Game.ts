@@ -72,8 +72,13 @@ import {RenderArea} from "./RenderArea";
 import {MainLoadingType} from "./MainLoadingType";
 import {i18n} from "../i18n";
 import {ArchipelagoPlace} from "../archipelago/ArchipelagoPlace";
-import {Archipelago} from "../archipelago/Archipelago";
+import {Archipelago, ArchipelagoEntrance, ArchipelagoExit} from "../archipelago/Archipelago";
 import {ArchipelagoItemProcessing} from "../archipelago/ArchipelagoItemProcessing";
+import {Cellar} from "./Cellar";
+import {Desert} from "./Desert";
+import {Bridge} from "./Bridge";
+import {Forest} from "./Forest";
+import {GiantNougatMonsterQuest} from "./GiantNougatMonsterQuest";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerString("gameLanguage", "en");
@@ -170,6 +175,7 @@ export class Game{
     
     // The quest log
     private questLog: QuestLog = new QuestLog(10, true);
+    private questEntry: Place | undefined;
     
     // Locations
     private place: Place = null;
@@ -455,6 +461,42 @@ export class Game{
         
         // Display the place for the first time
         this.displayPlace();
+    }
+
+    public async loadRandomisedEntrance(entrance: ArchipelagoEntrance) {
+        // Save the current place for later
+        this.questEntry = this.place;
+
+        switch (Archipelago.findExit(entrance)) {
+            case "Village Cellar":
+                await this.setPlace(new Cellar(this));
+                break;
+            case "The Desert":
+                await this.setPlace(new Desert(this));
+                break;
+            case "The Bridge":
+                await this.setPlace(new Bridge(this));
+                break;
+            case "The Forest":
+                await this.setPlace(new Forest(this));
+                break;
+            case "The Castle Entrance":
+                await this.setPlace(new CastleEntrance(this));
+                break;
+            case "The Giant Nougat Monster":
+                await this.setPlace(new GiantNougatMonsterQuest(this));
+                break;
+
+        }
+    }
+
+    public quitQuest(backupCallback: CallbackCollection) {
+        if (this.questEntry) {
+            this.setPlace(this.questEntry);
+            this.questEntry = undefined;
+        } else {
+            backupCallback.fire();
+        }
     }
     
     public unequipIfEquipped(savingName: string, type: EqItemType): void{

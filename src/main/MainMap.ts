@@ -20,6 +20,8 @@ import {Treasure} from "./Treasure";
 import {WishingWell} from "./WishingWell";
 import {CallbackCollection} from "./CallbackCollection";
 import {Archipelago} from "../archipelago/Archipelago";
+import {Item} from "archipelago.js";
+import {ArchipelagoItem, ArchipelagoItemBaseId} from "../archipelago/ArchipelagoLocation";
 
 Saving.registerNumber("mainMapDefaultScroll", 400);
 
@@ -38,6 +40,15 @@ export class MainMap extends Place{
     constructor(game: Game){
         super(game);
         this.load();
+
+        Archipelago.events.on("itemToBeProcessed", (item: Item) => {
+            if (item.receiver.name != Archipelago.client.name) return;
+
+            // Reload the map if given an update
+            if (item.id - ArchipelagoItemBaseId == ArchipelagoItem.PROGRESSIVE_WORLD_MAP) {
+                this.load();
+            }
+        })
     }
     
     // willStopBeingDisplayed()
@@ -109,7 +120,7 @@ export class MainMap extends Place{
     
     private goToBridge(): void{
         if(this.getGame().canStartQuest())
-            this.getGame().setPlace(new Bridge(this.getGame()));
+            void this.getGame().loadRandomisedEntrance("The Bridge Click");
     }
     
     private goToCastle(): void{
@@ -128,7 +139,7 @@ export class MainMap extends Place{
     }
     
     private goToForest(): void{
-        this.getGame().setPlace(new Forest(this.getGame()));
+        void this.getGame().loadRandomisedEntrance("The Forest Click");
     }
     
     private goToFortress(): void{
@@ -161,7 +172,7 @@ export class MainMap extends Place{
     
     private goToTheDesert(): void{
         if(this.getGame().canStartQuest())
-            this.getGame().setPlace(new Desert(this.getGame()));
+            void this.getGame().loadRandomisedEntrance("The Desert Click");
     }
     
     private goToTheHole(): void{
@@ -173,8 +184,13 @@ export class MainMap extends Place{
         this.getGame().setPlace(new Treasure(this.getGame()));
     }
     
-    private goToWishingWell(): void{
+    private goToWishingWell(): void {
         this.getGame().setPlace(new WishingWell(this.getGame()));
+    }
+
+    private goToCastleEntrance(): void{
+        if(this.getGame().canStartQuest())
+            void this.getGame().loadRandomisedEntrance("Castle Entrance Click");
     }
     
     // Private "load" methods
@@ -241,7 +257,7 @@ export class MainMap extends Place{
         this.renderArea.addFullComment(x + 9, y + 4, Database.getText("mapCastleEntranceComment"), Database.getTranslatedText("mapCastleEntranceComment"), "mapCastleEntranceComment");
         // Interactions
         this.renderArea.addLinkOver(".mapCastleEntranceButton, .mapCastleEntranceComment", ".mapCastleEntranceComment");
-        this.renderArea.addLinkCall(".mapCastleEntranceButton, .mapCastleEntranceComment", new CallbackCollection(this.getGame().goToCastleEntrance.bind(this.getGame())));
+        this.renderArea.addLinkCall(".mapCastleEntranceButton, .mapCastleEntranceComment", new CallbackCollection(this.goToCastleEntrance.bind(this)));
     }
     
     private loadCaveEntrance(x: number, y: number): void{
