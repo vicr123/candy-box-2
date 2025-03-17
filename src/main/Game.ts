@@ -72,13 +72,15 @@ import {RenderArea} from "./RenderArea";
 import {MainLoadingType} from "./MainLoadingType";
 import {i18n} from "../i18n";
 import {ArchipelagoPlace} from "../archipelago/ArchipelagoPlace";
-import {Archipelago, ArchipelagoEntrance, ArchipelagoExit} from "../archipelago/Archipelago";
+import {Archipelago, ArchipelagoEntrance} from "../archipelago/Archipelago";
 import {ArchipelagoItemProcessing} from "../archipelago/ArchipelagoItemProcessing";
 import {Cellar} from "./Cellar";
 import {Desert} from "./Desert";
 import {Bridge} from "./Bridge";
 import {Forest} from "./Forest";
 import {GiantNougatMonsterQuest} from "./GiantNougatMonsterQuest";
+import {OctopusKingQuest} from "./OctopusKingQuest";
+import {MonkeyWizardQuest} from "./MonkeyWizardQuest";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerString("gameLanguage", "en");
@@ -436,10 +438,7 @@ export class Game{
     }
     
     public async setPlace(place: Place): Promise<void>{
-        if (place.scoutKey() !== null) {
-            const scoutResults = await Archipelago.scoutRoom(place.scoutKey());
-            place.scoutResults(scoutResults);
-        }
+        place.scoutResults(await Archipelago.scoutRoom(place.scoutKeys()));
 
         // If the current place isn't null, we warn it that we're going to stop displaying it
         if(this.place != null){
@@ -476,6 +475,12 @@ export class Game{
                 break;
             case "The Bridge":
                 await this.setPlace(new Bridge(this));
+                break;
+            case "The Octopus King Quest":
+                await this.setPlace(new OctopusKingQuest(this));
+                break;
+            case "The Naked Monkey Wizard":
+                await this.setPlace(new MonkeyWizardQuest(this));
                 break;
             case "The Forest":
                 await this.setPlace(new Forest(this));

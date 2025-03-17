@@ -64,8 +64,8 @@ export class Place{
         return false;
     }
 
-    public scoutKey(): keyof typeof ArchipelagoLocationRegion | null {
-        return null;
+    public scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
+        return [];
     }
 
     public scoutResults(items: ScoutResults) {

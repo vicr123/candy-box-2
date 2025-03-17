@@ -52,6 +52,32 @@ export class ArchipelagoItemProcessing {
                 case ArchipelagoItem.TROLLS_BLUDGEON:
                     game.gainItem("eqItemWeaponTrollBludgeon");
                     break;
+                case ArchipelagoItem.DESERT_BIRD_FEATHER:
+                    game.gainItem("eqItemWeaponTrollBludgeon");
+                    break;
+                case ArchipelagoItem.BEGINNER_GRIMOIRE:
+                    game.gainItem("gridItemBeginnersGrimoire");
+                    break;
+                case ArchipelagoItem.ADVANCED_GRIMOIRE:
+                    game.gainItem("gridItemAdvancedGrimoire");
+                    break;
+                case ArchipelagoItem.CAULDRON:
+                    break;
+                case ArchipelagoItem.SORCERESS_HAT:
+                    game.gainItem("eqItemHatSorceressHat");
+                    break;
+                case ArchipelagoItem.OCTOPUS_KING_CROWN:
+                    game.gainItem("eqItemHatOctopusKingCrown")
+                    break;
+                case ArchipelagoItem.MONKEY_WIZARD_STAFF:
+                    game.gainItem("eqItemWeaponMonkeyWizardStaff")
+                    break;
+                case ArchipelagoItem.HEART_PLUG:
+                    game.gainItem("gridItemPossessedHeartPlug");
+                    break;
+                case ArchipelagoItem.POGO_STICK:
+                    game.gainItem("gridItemPossessedPogoStick");
+                    break;
             }
         })
     }

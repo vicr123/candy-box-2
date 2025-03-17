@@ -12,8 +12,8 @@ import {
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
 type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed";
 
-export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Click" | "The Bridge Click" | "The Forest Click" | "Castle Entrance Click" | "Giant Nougat Monster Click";
-export type ArchipelagoExit = "Village Cellar" | "The Desert" | "The Bridge" | "The Forest" | "The Castle Entrance" | "The Giant Nougat Monster";
+export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Click" | "The Bridge Click" | "The Octopus King Click" | "Naked Monkey Wizard Click" | "The Forest Click" | "Castle Entrance Click" | "Giant Nougat Monster Click";
+export type ArchipelagoExit = "Village Cellar" | "The Desert" | "The Bridge" | "The Octopus King Quest" | "The Naked Monkey Wizard" | "The Forest" | "The Castle Entrance" | "The Giant Nougat Monster";
 
 type EntrancePairing = [ArchipelagoEntrance, ArchipelagoExit];
 
@@ -84,10 +84,16 @@ export namespace Archipelago {
         client.check(ArchipelagoLocation[check]);
     }
 
-    export async function scoutRoom(item: keyof typeof ArchipelagoLocationRegion) {
+    export async function scoutRoom(item: (keyof typeof ArchipelagoLocationRegion)[]) {
+        if (connectionStatus.current != "connected") {
+            return new ScoutResults([]);
+        }
+
         const scoutIds: number[] = [];
-        for (let i = ArchipelagoLocationRegion[item]; Object.values(ArchipelagoLocation).includes(i); i++) {
-            scoutIds.push(i);
+        for (const room of item) {
+            for (let i = ArchipelagoLocationRegion[room]; Object.values(ArchipelagoLocation).includes(i); i++) {
+                scoutIds.push(i);
+            }
         }
 
         return new ScoutResults(await client.scout(scoutIds, 0));

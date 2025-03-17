@@ -139,7 +139,6 @@ export module Saving {
                     Saving.saveBool("statusBarUnlockedMap", true);
                     Saving.saveBool("statusBarUnlockedInventory", true);
                     Saving.saveBool("statusBarUnlockedLollipopFarm", true);
-                    Saving.saveBool("statusBarUnlockedCauldron", true);
                     Saving.saveBool("statusBarUnlockedHealthBar", true);
                     Saving.saveBool("statusBarUnlockedInsideYourBox", true);
                     Saving.saveBool("statusBarUnlockedTheComputer", true);

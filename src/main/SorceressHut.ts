@@ -7,12 +7,13 @@ import {Game} from "./Game";
 import {CallbackCollection} from "./CallbackCollection";
 import {Database} from "./Database";
 import {RenderTransparency} from "./RenderTransparency";
+import {Archipelago} from "../archipelago/Archipelago";
 
-Saving.registerBool("sorceressHutTookLollipop", false);
-Saving.registerBool("sorceressHutBoughtGrimoire", false);
-Saving.registerBool("sorceressHutBoughtGrimoire2", false);
-Saving.registerBool("sorceressHutBoughtCauldron", false);
-Saving.registerBool("sorceressHutBoughtHat", false);
+Saving.registerApLocation("sorceressHutTookLollipop", "SORCERESS_HUT_LOLLIPOP");
+Saving.registerApLocation("sorceressHutBoughtGrimoire", "SORCERESS_HUT_BEGINNER_GRIMOIRE");
+Saving.registerApLocation("sorceressHutBoughtGrimoire2", "SORCERESS_HUT_ADVANCED_GRIMOIRE");
+Saving.registerApLocation("sorceressHutBoughtCauldron", "SORCERESS_HUT_CAULDRON");
+Saving.registerApLocation("sorceressHutBoughtHat", "SORCERESS_HUT_HAT");
 
 export class SorceressHut extends Place{
     // The render area
@@ -31,6 +32,11 @@ export class SorceressHut extends Place{
         // Resize & update
         this.renderArea.resize(144, 48);
         this.update();
+
+        Archipelago.client.room.on("locationsChecked", () => {
+            this.update();
+            this.getGame().updatePlace();
+        });
     }
     
     // getRenderArea()
@@ -43,7 +49,6 @@ export class SorceressHut extends Place{
         // If we have enough lollipops
         if(this.getGame().getLollipops().getCurrent() >= 100000){
             this.getGame().getLollipops().add(-100000); // We spend the lollipops
-            Saving.saveBool("statusBarUnlockedCauldron", true); // We unlock the cauldron
             Saving.saveBool("sorceressHutBoughtCauldron", true); // We now bought the cauldron
             this.getGame().updateStatusBar(true); // We update the status bar
             this.currentSpeech = "sorceressHutBuyCauldronSpeech"; // We set the speech
@@ -57,7 +62,6 @@ export class SorceressHut extends Place{
         // If we have enough lollipops
         if(this.getGame().getLollipops().getCurrent() >= 5000){
             this.getGame().getLollipops().add(-5000); // We spend the lollipops
-            this.getGame().gainItem("gridItemPossessedBeginnersGrimoire"); // We gain the grimoire
             Saving.saveBool("sorceressHutBoughtGrimoire", true); // We now bought the grimoire
             this.currentSpeech = "sorceressHutBuyGrimoireSpeech"; // We set the speech
             // We update
@@ -70,7 +74,6 @@ export class SorceressHut extends Place{
         // If we have enough lollipops
         if(this.getGame().getLollipops().getCurrent() >= 20000){
             this.getGame().getLollipops().add(-20000); // We spend the lollipops
-            this.getGame().gainItem("gridItemPossessedAdvancedGrimoire"); // We gain the grimoire
             Saving.saveBool("sorceressHutBoughtGrimoire2", true); // We now bought the grimoire
             this.currentSpeech = "sorceressHutBuyGrimoire2Speech"; // We set the speech
             // We update
@@ -84,7 +87,6 @@ export class SorceressHut extends Place{
         if(this.getGame().getLollipops().getCurrent() >= 1000000000){
             this.getGame().getLollipops().add(-1000000000); // We spend the lollipops
             Saving.saveBool("sorceressHutBoughtHat", true); // We now bought the hat
-            this.getGame().gainItem("eqItemHatSorceressHat"); // We have the hat!
             this.currentSpeech = "sorceressHutBuyHatSpeech"; // We set the speech
             // We update
             this.update();

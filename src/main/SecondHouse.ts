@@ -18,7 +18,7 @@ import {RenderTransparency} from "./RenderTransparency";
 import {CallbackCollection} from "./CallbackCollection";
 import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
 import { Item } from "archipelago.js";
-import {ScoutResults} from "../archipelago/Archipelago";
+import {Archipelago, ScoutResults} from "../archipelago/Archipelago";
 
 Saving.registerApLocation("secondHouseLollipop1Bought", "VILLAGE_SHOP_TOP_LOLLIPOP");
 Saving.registerApLocation("secondHouseLollipop2Bought", "VILLAGE_SHOP_CENTRE_LOLLIPOP");
@@ -53,11 +53,13 @@ export class SecondHouse extends House{
         // House constructor
         super(game);
 
-        // Initialise the room once the scout results come back!
+        Archipelago.client.room.on("locationsChecked", () => {
+            this.update();
+            this.getGame().updatePlace();
+        });
     }
 
     scoutResults(items: ScoutResults) {
-
         // We add all the items
         // Lollipops
         this.addItem(new CandyMerchantItem_Lollipop(this.getGame(), "secondHouseLollipop1Bought", "places/village/candyMerchantItems/lollipopRight", new Pos(14, 22), items.findItem("VILLAGE_SHOP_TOP_LOLLIPOP"), 60, "secondHouseLollipopButtonText", "secondHouseLollipop1Button"));
@@ -190,7 +192,7 @@ export class SecondHouse extends House{
         }
     }
 
-    scoutKey(): keyof typeof ArchipelagoLocationRegion | null {
-        return "VILLAGE_SHOP";
+    scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
+        return ["VILLAGE_SHOP"];
     }
 }

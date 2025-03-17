@@ -6,19 +6,34 @@ import {Game} from "./Game";
 import {Database} from "./Database";
 import {Saving} from "./Saving";
 import {CallbackCollection} from "./CallbackCollection";
+import {Archipelago, ScoutResults} from "../archipelago/Archipelago";
+import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
+import {i18n} from "../i18n";
+import {Item} from "archipelago.js";
 
 export class Moutains extends Place{
     // The render area
     private renderArea: RenderArea = new RenderArea();
+
+    private scoutItem: Item;
     
     // Constructor
     constructor(game: Game){
         super(game);
         
         this.renderArea.resizeFromArray(Database.getAscii("places/mountains"), 0, 10);
+
+        Archipelago.client.room.on("locationsChecked", () => {
+            this.update();
+            this.getGame().updatePlace();
+        });
+    }
+
+    scoutResults(items: ScoutResults) {
+        this.scoutItem = items.findItem("POGO_STICK");
         this.update();
     }
-    
+
     // getRenderArea()
     public getRenderArea(): RenderArea{
         return this.renderArea;
@@ -27,7 +42,7 @@ export class Moutains extends Place{
     // Private methods
     private getPogoStick(): void{
         // Get the pogo stick
-        this.getGame().gainItem("gridItemPossessedPogoStick");
+        Archipelago.check("POGO_STICK");
         
         // Update
         this.update();
@@ -45,7 +60,7 @@ export class Moutains extends Place{
         this.renderArea.drawArray(Database.getAscii("places/mountains"), 0, 3);
         
         // If we didn't get the pogo stick yet
-        if(Saving.loadBool("gridItemPossessedPogoStick") == false){
+        if(!Archipelago.isChecked("POGO_STICK")){
             // Add the "*" showing that there's a pogo stick here
             this.renderArea.drawString("*", 52, 11);
             
@@ -63,9 +78,22 @@ export class Moutains extends Place{
         }
         // Else, we already found it
         else{
-            this.renderArea.drawString(Database.getText("mountainsTextAfter"), 19, 22);
-            
-            this.renderArea.drawString(Database.getTranslatedText("mountainsTextAfter"), 19, 24, true);
+            this.renderArea.drawString(i18n.t("mountainsTextAfter", {
+                lng: "en",
+                player: this.scoutItem.receiver.name,
+                item: this.scoutItem.name
+            }), 19, 22);
+
+            if (Saving.loadString("gameLanguage") != "en") {
+                this.renderArea.drawString(i18n.t("mountainsTextAfter", {
+                    player: this.scoutItem.receiver.name,
+                    item: this.scoutItem.name
+                }), 19, 24, true);
+            }
         }
+    }
+
+    scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
+        return ["MOUNTAINS"]
     }
 }

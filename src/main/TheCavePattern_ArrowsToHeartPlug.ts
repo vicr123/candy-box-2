@@ -7,6 +7,7 @@ import {RenderArea} from "./RenderArea";
 import {Database} from "./Database";
 import {CallbackCollection} from "./CallbackCollection";
 import {TheCaveMoveType} from "./TheCaveMoveType";
+import {Archipelago} from "../archipelago/Archipelago";
 
 export class TheCavePattern_ArrowsToHeartPlug extends TheCavePattern{
     // Is the pattern stopped?
@@ -103,7 +104,8 @@ export class TheCavePattern_ArrowsToHeartPlug extends TheCavePattern{
     // Private methods
     private getPlug(): void{
         // Get the plug
-        this.getTheCave().getGame().gainItem("gridItemPossessedHeartPlug");
+        // this.getTheCave().getGame().gainItem("gridItemPossessedHeartPlug");
+        Archipelago.check("HEART_PLUG");
         this.gotPlug = true;
         
         // Ask the cave for an update

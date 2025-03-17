@@ -9,8 +9,9 @@ import {StatusBarTabType} from "./StatusBarTabType";
 import {CallbackCollection} from "./CallbackCollection";
 import {Hotkey} from "./Hotkey";
 import {ArchipelagoNotificationTray} from "../archipelago/ArchipelagoNotificationTray";
-import {ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
+import {ArchipelagoItem, ArchipelagoItemBaseId, ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
 import {Archipelago} from "../archipelago/Archipelago";
+import {Item} from "archipelago.js";
 
 Saving.registerBool("statusBarUnlocked", false);
 
@@ -20,7 +21,6 @@ Saving.registerBool("statusBarUnlockedSave", false);
 Saving.registerBool("statusBarUnlockedMap", false);
 Saving.registerBool("statusBarUnlockedInventory", false);
 Saving.registerBool("statusBarUnlockedLollipopFarm", false);
-Saving.registerBool("statusBarUnlockedCauldron", false);
 Saving.registerBool("statusBarUnlockedInsideYourBox", false);
 Saving.registerBool("statusBarUnlockedTheComputer", false);
 Saving.registerBool("statusBarUnlockedTheArena", false);
@@ -59,6 +59,13 @@ export class StatusBar{
         
         // Add everything for the first time
         this.deleteAndReAddEverything();
+
+        Archipelago.events.on("itemToBeProcessed", (item: Item) => {
+            if (item.receiver.name != Archipelago.client.name) return;
+
+            // Reload the status bar if given an update
+            this.deleteAndReAddEverything();
+        })
     }
     
     // Public methods
@@ -83,7 +90,7 @@ export class StatusBar{
         if(Saving.loadBool("statusBarUnlockedInventory")) this.addTab(StatusBarTabType.INVENTORY, 8, "INV", " ENT", "ORY", new CallbackCollection(this.game.goToInventory.bind(this.game)));
         if(Saving.loadBool("statusBarUnlockedMap")) this.addTab(StatusBarTabType.MAP, 15, "", "MAP", "", new CallbackCollection(this.game.goToMap.bind(this.game)));
         if(Saving.loadBool("statusBarUnlockedLollipopFarm")) this.addTab(StatusBarTabType.FARM, 21, "LOLL", "IPOP", "FARM", new CallbackCollection(this.game.goToLollipopFarm.bind(this.game)));
-        if(Saving.loadBool("statusBarUnlockedCauldron")) this.addTab(StatusBarTabType.CAULDRON, 28, "", "CLDR", "", new CallbackCollection(this.game.goToCauldron.bind(this.game)));
+        if(Archipelago.itemCount("CAULDRON") > 0) this.addTab(StatusBarTabType.CAULDRON, 28, "", "CLDR", "", new CallbackCollection(this.game.goToCauldron.bind(this.game)));
         if(Saving.loadBool("statusBarUnlockedInsideYourBox")) this.addTab(StatusBarTabType.INSIDE_YOUR_BOX, 35, "INSIDE", " YOUR", " BOX!", new CallbackCollection(this.game.goToInsideYourBox.bind(this.game)));
         if(Saving.loadBool("statusBarUnlockedTheComputer")) this.addTab(StatusBarTabType.THE_COMPUTER, 44, " THE", " COM", "PUTER", new CallbackCollection(this.game.goToTheComputer.bind(this.game)));
         // if(Saving.loadBool("statusBarUnlockedTheArena")) this.addTab(StatusBarTabType.THE_ARENA, 52, " THE", "ARENA", " /!\\", new CallbackCollection(this.game.goToTheArena.bind(this.game)));

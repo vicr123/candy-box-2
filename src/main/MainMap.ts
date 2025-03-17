@@ -91,7 +91,7 @@ export class MainMap extends Place{
             this.loadBridge(99, 61);
             this.loadCaveEntrance(52, 57);
             this.loadWishingWell(55, 66);
-            if(Saving.loadBool("gridItemPossessedPogoStick") == false) this.loadMoutains(71, 52);
+            if(!Archipelago.isChecked("POGO_STICK")) this.loadMoutains(71, 52);
         }
         if(mapState >= 3) this.loadSorceressHut(95, 68);
         if(mapState >= 4){

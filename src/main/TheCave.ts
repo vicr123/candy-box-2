@@ -19,6 +19,7 @@ import {Color} from "./Color";
 import {ColorType} from "./ColorType";
 import {CallbackCollection} from "./CallbackCollection";
 import {TheCaveExit} from "./TheCaveExit";
+import {Archipelago} from "../archipelago/Archipelago";
 
 export class TheCave extends Place{
     // The render area
@@ -156,7 +157,7 @@ export class TheCave extends Place{
                     cont -= 1;
                     switch(Random.upTo(4)){
                         case 0:
-                            if(Saving.loadBool("gridItemPossessedHeartPlug") == false)
+                            if(!Archipelago.isChecked("HEART_PLUG"))
                                 this.pattern = new TheCavePattern_ArrowsToHeartPlug(this);
                         break;
                         case 1:

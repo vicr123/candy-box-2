@@ -7,7 +7,7 @@ import {RenderArea} from "./RenderArea";
 import {Database} from "./Database";
 import {CallbackCollection} from "./CallbackCollection";
 
-Saving.registerBool("TheCavePattern_ChocolateBarNowGotTheBar", false);
+Saving.registerApLocation("TheCavePattern_ChocolateBarNowGotTheBar", "CAVE_CHOCOLATE_BAR");
 
 export class TheCavePattern_ChocolateBarNow extends TheCavePattern{
     // Did we clicked to get the bar?
@@ -48,7 +48,6 @@ export class TheCavePattern_ChocolateBarNow extends TheCavePattern{
     // Private methods
     private getTheBar(): void{
         // Get the bar
-        this.getTheCave().getGame().getChocolateBars().add(1);
         this.gotTheBar = true;
         
         // We can't get the bar anymore (we can't start this pattern)
