@@ -56,10 +56,10 @@ export class ArchipelagoItemProcessing {
                     game.gainItem("eqItemWeaponTrollBludgeon");
                     break;
                 case ArchipelagoItem.BEGINNER_GRIMOIRE:
-                    game.gainItem("gridItemBeginnersGrimoire");
+                    game.gainItem("gridItemPossessedBeginnersGrimoire");
                     break;
                 case ArchipelagoItem.ADVANCED_GRIMOIRE:
-                    game.gainItem("gridItemAdvancedGrimoire");
+                    game.gainItem("gridItemPossessedAdvancedGrimoire");
                     break;
                 case ArchipelagoItem.CAULDRON:
                     break;
