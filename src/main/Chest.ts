@@ -45,6 +45,7 @@ export class Chest extends QuestEntity{
         
         // Create the opening collision box collection
         this.openingCollisionBoxCollection = new CollisionBoxCollection(new CollisionBox(new Pos(-1, -1), new Pos(5, 3)));
+        this.openingCollisionBoxCollection.setOwner(this);
         
         // Set the team (nature)
         this.setTeam(QuestEntityTeam.NATURE);

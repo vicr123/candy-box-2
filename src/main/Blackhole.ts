@@ -42,6 +42,7 @@ export class Blackhole extends QuestEntitySpell{
                                               new CollisionBox(new Pos(-4, 1), new Pos(8, 1)),
                                               new CollisionBox(new Pos(-3, 2), new Pos(6, 1)),
                                               new CollisionBox(new Pos(-1, 3), new Pos(2, 1)));
+        this.cbcDamage.setOwner(this);
         
         // Set the timer
         this.timer = 30;

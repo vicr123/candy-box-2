@@ -29,6 +29,7 @@ export class QuestEntityWeapon{
         this.naming = naming;
         this.damage = damage;
         this.cbc = cbc;
+        this.cbc.setOwner(questEntity)
     }
     
     // Public methods
