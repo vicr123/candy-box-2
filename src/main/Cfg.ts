@@ -62,6 +62,7 @@ export class Cfg extends Place{
         // Who...
         this.renderArea.drawString("Ideas, game design & code by aniwey.", x + 4, y + 9);
         this.renderArea.drawString("Ascii art by Tobias Nordqvist, GodsTurf, dixsept, Dani \"Deinol\" Gómez and aniwey.", x + 4, y + 10);
+        this.renderArea.drawString("Archipelago fork by Victor Tran.", x + 4, y + 11);
         
         // License?
         this.renderArea.drawString("License?", x + 2, y + 13);
@@ -81,7 +82,8 @@ export class Cfg extends Place{
         this.renderArea.addBold(x+2, x+16, y+22);
         
         // Contact
-        this.renderArea.drawString("Feel free to contact me at aniwey@gmail.com if you have any comments or questions :)", x + 4, y + 24);
+        this.renderArea.drawString("Feel free to contact me at vicr123@gmail.com if you have any comments or questions :)", x + 4, y + 24);
+        this.renderArea.addHtmlLink(x + 4, y + 25, "https://candybox2.github.io/", "Play the original Candy Box 2.");
     }
     
     private drawCfgInvertColors(x: number, y: number): void{        
