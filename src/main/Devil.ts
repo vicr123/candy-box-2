@@ -20,6 +20,9 @@ import {Color} from "./Color";
 import {ColorType} from "./ColorType";
 import {Random} from "./Random";
 import {Database} from "./Database";
+import {Saving} from "./Saving";
+
+Saving.registerApLocation("apAStone", "KILL_THE_DEVIL")
 
 export class Devil extends QuestEntity{
     // Array containing the flames we can see when heating up the cauldron
@@ -96,7 +99,7 @@ export class Devil extends QuestEntity{
     // willDie()
     public willDie(): void{
         this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage() + " (and found " + Algo.pluralFormat(this.getQuest().foundCandies(1000000), " candy", " candies") + ")", this.getQuest().getCandiesFoundMessage()));
-        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "gridItemPossessedA", "You found a strange stone.", "You gain a strange stone."));
+        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apAStone", "You found a strange stone.", "You gain a strange stone."));
     }
     
     // Private methods

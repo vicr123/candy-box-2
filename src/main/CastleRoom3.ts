@@ -15,6 +15,8 @@ import {Egg} from "./Egg";
 import {Wall} from "./Wall";
 import {QuestItemFound} from "./QuestItemFound";
 
+Saving.registerApLocation("apLStone", "EGG_ROOM_CHEST")
+
 export class CastleRoom3 extends Quest{
     // The monster
     private monster: Monster;
@@ -95,7 +97,7 @@ export class CastleRoom3 extends Quest{
     
     // Private methods
     private addChest(): void{
-        this.addEntity(new Chest(this, new Pos(7, 23), true, new CallbackCollection(this.openChest.bind(this)), Saving.loadBool("gridItemPossessedL")));
+        this.addEntity(new Chest(this, new Pos(7, 23), true, new CallbackCollection(this.openChest.bind(this)), Saving.loadBool("apLStone")));
     }
     
     private addEggs(): void{
@@ -142,6 +144,6 @@ export class CastleRoom3 extends Quest{
     }
     
     private openChest(): void{
-        this.foundGridOrEqItem(new QuestItemFound(this, "gridItemPossessedL", "You opened a chest and found a strange stone.", "You gain a strange stone."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "apLStone", "You opened a chest and found a strange stone.", "You gain a strange stone."));
     }
 }

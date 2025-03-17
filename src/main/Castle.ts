@@ -167,7 +167,7 @@ export class Castle extends Place{
     }
     
     private goToRoom3(): void{
-        this.getGame().setPlace(new CastleRoom3(this.getGame()));
+        this.getGame().loadRandomisedEntrance("Castle Egg Room Click");
     }
     
     private goToStairs(): void{

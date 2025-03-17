@@ -5,6 +5,7 @@ import {RenderArea} from "./RenderArea";
 import {Database} from "./Database";
 import {CallbackCollection} from "./CallbackCollection";
 import {Saving} from "./Saving";
+import {Archipelago} from "../archipelago/Archipelago";
 
 export class LighthousePuzzlePart{
     // The lighthouse
@@ -190,9 +191,9 @@ export class LighthousePuzzlePart{
                 this.type = LighthousePuzzlePartType.STONE;
                 
                 // If we didn't have the stone before
-                if(Saving.loadBool("gridItemPossessedP") == false){
-                    // Get the stone
-                    this.lighthouse.getGame().gainItem("gridItemPossessedP");
+                if(!Archipelago.isChecked("SOLVE_CYCLOPS_PUZZLE")){
+                    // Clear the check
+                    Archipelago.check("SOLVE_CYCLOPS_PUZZLE");
                     
                     // Change the speech
                     this.lighthouse.setSpeechId("lighthouseFoundStone");

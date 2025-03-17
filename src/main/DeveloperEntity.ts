@@ -22,6 +22,9 @@ import {Color} from "./Color";
 import {Blackhole} from "./Blackhole";
 import {QuestEntityDamageReasonWhoType} from "./QuestEntityDamageReasonWhoType";
 import {QuestEntityDamageReasonWhatType} from "./QuestEntityDamageReasonWhatType";
+import { Saving } from "./Saving";
+
+Saving.registerApLocation("apYStone", "KILL_THE_DEVELOPER")
 
 export class DeveloperEntity extends QuestEntity{
     // Create the texts
@@ -108,7 +111,7 @@ export class DeveloperEntity extends QuestEntity{
     // willDie()
     public willDie(): void{
         this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage() + " (and found " + Algo.pluralFormat(this.getQuest().foundCandies(6000000), " candy", " candies") + ")", this.getQuest().getCandiesFoundMessage()));
-        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "gridItemPossessedY", "You found a strange stone.", "You gain a strange stone."));
+        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apYStone", "You found a strange stone.", "You gain a strange stone."));
     }
     
     // Public methods

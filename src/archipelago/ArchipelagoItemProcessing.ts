@@ -78,6 +78,18 @@ export class ArchipelagoItemProcessing {
                 case ArchipelagoItem.POGO_STICK:
                     game.gainItem("gridItemPossessedPogoStick");
                     break;
+                case ArchipelagoItem.P_STONE:
+                    game.gainItem("gridItemPossessedP");
+                    break;
+                case ArchipelagoItem.L_STONE:
+                    game.gainItem("gridItemPossessedL");
+                    break;
+                case ArchipelagoItem.A_STONE:
+                    game.gainItem("gridItemPossessedA");
+                    break;
+                case ArchipelagoItem.Y_STONE:
+                    game.gainItem("gridItemPossessedY");
+                    break;
             }
         })
     }

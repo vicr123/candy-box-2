@@ -81,6 +81,9 @@ import {Forest} from "./Forest";
 import {GiantNougatMonsterQuest} from "./GiantNougatMonsterQuest";
 import {OctopusKingQuest} from "./OctopusKingQuest";
 import {MonkeyWizardQuest} from "./MonkeyWizardQuest";
+import {CastleRoom3} from "./CastleRoom3";
+import {Hell} from "./Hell";
+import {Developer} from "./Developer";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerString("gameLanguage", "en");
@@ -491,6 +494,15 @@ export class Game{
                 break;
             case "The Giant Nougat Monster":
                 await this.setPlace(new GiantNougatMonsterQuest(this));
+                break;
+            case "The Castle Egg Room":
+                await this.setPlace(new CastleRoom3(this));
+                break;
+            case "Hell":
+                await this.setPlace(new Hell(this));
+                break;
+            case "The Developer Quest":
+                await this.setPlace(new Developer(this));
                 break;
 
         }

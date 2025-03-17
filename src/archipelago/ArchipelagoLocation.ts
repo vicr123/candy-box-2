@@ -30,6 +30,10 @@ export const ArchipelagoLocation = {
     SORCERESS_HUT_HAT: 1804,
     OCTOPUS_KING_QUEST: 1900,
     MONKEY_WIZARD_QUEST: 2000,
+    EGG_ROOM_CHEST: 2100,
+    KILL_THE_DEVIL: 2300,
+    KILL_THE_DEVELOPER: 2400,
+    SOLVE_CYCLOPS_PUZZLE: 2500
 } satisfies Record<string, number>
 
 export const ArchipelagoLocationRegion = {
@@ -57,7 +61,11 @@ export const ArchipelagoItem = {
     OCTOPUS_KING_CROWN: 15,
     MONKEY_WIZARD_STAFF: 16,
     HEART_PLUG: 17,
-    POGO_STICK: 18
+    POGO_STICK: 18,
+    P_STONE: 19,
+    L_STONE: 20,
+    A_STONE: 21,
+    Y_STONE: 22
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000

@@ -7,6 +7,7 @@ import {Game} from "./Game";
 import {Database} from "./Database";
 import {CallbackCollection} from "./CallbackCollection";
 import {Pos} from "./Pos";
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerBool("castleTowerFirstVisitDone", false); // True if we already visited the tower at least once
 
@@ -144,6 +145,9 @@ export class CastleTower extends CastleRoom{
     private takeTalkingCandy(): void{
         // We take the candy
         Saving.saveBool("castleTowerTookTalkingCandy", true);
+
+        // We win the game
+        Archipelago.client.goal();
         
         // We gain the corresponding item
         this.getGame().gainItem("gridItemPossessedTalkingCandy")
