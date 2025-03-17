@@ -10,7 +10,15 @@ export const ArchipelagoLocation = {
     VILLAGE_SHOP_LEATHER_BOOTS: 107,
     VILLAGE_HOUSE_1_LOLLIPOP_ON_BOOKSHELF: 200,
     VILLAGE_HOUSE_1_LOLLIPOP_IN_BOOKSHELF: 201,
-    VILLAGE_HOUSE_1_LOLLIPOP_UNDER_RUG: 202
+    VILLAGE_HOUSE_1_LOLLIPOP_UNDER_RUG: 202,
+    CELLAR_QUEST: 300,
+    DESERT_QUEST: 1100,
+    BRIDGE_QUEST: 1200,
+    THE_TROLLS_BLUDGEON_ACQUIRED: 1201,
+    CAVE_EXIT: 1300,
+    FOREST_QUEST: 1400,
+    CASTLE_ENTRANCE_QUEST: 1500,
+    THE_GIANT_NOUGAT_MONSTER_QUEST: 1600,
 } satisfies Record<string, number>
 
 export const ArchipelagoLocationRegion = {
@@ -25,7 +33,9 @@ export const ArchipelagoItem = {
     TIME_RING: 4,
     CANDY_MERCHANTS_HAT: 5,
     LEATHER_GLOVES: 6,
-    LEATHER_BOOTS: 7
+    LEATHER_BOOTS: 7,
+    PROGRESSIVE_WORLD_MAP: 8,
+    TROLLS_BLUDGEON: 9
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000

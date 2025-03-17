@@ -13,8 +13,9 @@ import {CastleRoom2} from "./CastleRoom2";
 import {CastleRoom3} from "./CastleRoom3";
 import {Dragon} from "./Dragon";
 import {CastleTower} from "./CastleTower";
+import {Archipelago} from "../archipelago/Archipelago";
 
-Saving.registerBool("castleKilledNougatMonster", false);
+Saving.registerApLocation("castleKilledNougatMonster", "THE_GIANT_NOUGAT_MONSTER_QUEST");
 
 export class Castle extends Place{
     // The render area
@@ -188,6 +189,7 @@ export class Castle extends Place{
         this.renderArea.drawArray(Database.getAscii("places/castle/map"), 0, 3);
         
         // Draw various stuff
+        const mapState = Archipelago.itemCount("PROGRESSIVE_WORLD_MAP");
         this.drawCastleEntrance(43, 36);
         this.drawBigRoom(57, 19);
         this.drawRoom1(15, 27);
@@ -195,7 +197,7 @@ export class Castle extends Place{
         this.drawRoom3(15, 15);
         this.drawNougatMonster(68, 15);
         this.drawStairs(32, 3);
-        if(Saving.loadBool("castleKilledNougatMonster")){
+        if(mapState >= 7){
             this.drawTowerEntrance(84, 16);
         }
     }

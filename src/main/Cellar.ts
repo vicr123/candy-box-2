@@ -13,7 +13,7 @@ import {QuestEntityHealthBar} from "./QuestEntityHealthBar";
 import {Random} from "./Random";
 import {FifthHouse} from "./FifthHouse";
 
-Saving.registerBool("cellarDone", false);
+Saving.registerApLocation("cellarDone", "CELLAR_QUEST");
 
 export class Cellar extends Quest{
     // Constructor
@@ -50,9 +50,6 @@ export class Cellar extends Quest{
         if(win){
             this.getGame().getQuestLog().addMessage(new QuestLogMessage("You managed to kill all the rats!"));
             Saving.saveBool("cellarDone", true);
-            
-            // We gain the main map
-            this.getGame().gainItem("gridItemPossessedMainMap");
         }
         else{
             this.getGame().getQuestLog().addMessage(new QuestLogMessage("You died in the cellar. Rats are probably going to eat your body."));

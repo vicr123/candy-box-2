@@ -45,6 +45,13 @@ export class ArchipelagoItemProcessing {
                 case ArchipelagoItem.LEATHER_GLOVES:
                     game.gainItem("eqItemGlovesLeatherGloves");
                     break;
+                case ArchipelagoItem.PROGRESSIVE_WORLD_MAP:
+                    // The world map is the first thing to be unlocked anyway
+                    game.gainItem("gridItemPossessedMainMap");
+                    break;
+                case ArchipelagoItem.TROLLS_BLUDGEON:
+                    game.gainItem("eqItemWeaponTrollBludgeon");
+                    break;
             }
         })
     }

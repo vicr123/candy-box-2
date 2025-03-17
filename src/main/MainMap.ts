@@ -19,16 +19,17 @@ import {OutsideTheHole} from "./OutsideTheHole";
 import {Treasure} from "./Treasure";
 import {WishingWell} from "./WishingWell";
 import {CallbackCollection} from "./CallbackCollection";
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerNumber("mainMapDefaultScroll", 400);
 
 // Various steps
-Saving.registerBool("mainMapDoneDesert", false);
-Saving.registerBool("mainMapDoneBridge", false);
-Saving.registerBool("mainMapDoneCaveEntrance", false);
+Saving.registerApLocation("mainMapDoneDesert", "DESERT_QUEST");
+Saving.registerApLocation("mainMapDoneBridge", "BRIDGE_QUEST");
+Saving.registerApLocation("mainMapDoneCaveEntrance", "CAVE_EXIT");
 Saving.registerBool("mainMapDonePier", false);
-Saving.registerBool("mainMapDoneForest", false);
-Saving.registerBool("mainMapDoneCastleEntrance", false);
+Saving.registerApLocation("mainMapDoneForest", "FOREST_QUEST");
+Saving.registerApLocation("mainMapDoneCastleEntrance", "CASTLE_ENTRANCE_QUEST");
 
 export class MainMap extends Place{
     private renderArea: RenderArea = new RenderArea();
@@ -67,32 +68,33 @@ export class MainMap extends Place{
         this.renderArea.drawArray(Database.getAscii("maps/map"));
         
         // We add various locations
+        const mapState = Archipelago.itemCount("PROGRESSIVE_WORLD_MAP");
         this.loadATree(143, 26);
         if(Saving.loadBool("gridItemPossessedFortressKey")) this.loadFortress(117, 39);
         this.loadTheDesert(114, 42);
         this.loadVillage(150, 36);
         this.loadLonelyHouse(159, 23);
         if(Saving.loadBool("TheCavePattern_TreasureMapSawMap") == true && Saving.loadBool("TheCavePattern_TreasureMapFoundTreasure") == false) this.loadTreasure(163, 29);
-        if(Saving.loadBool("mainMapDoneDesert")){
+        if(mapState >= 2){
             this.loadFarm(115, 57);
             this.loadBridge(99, 61);
             this.loadCaveEntrance(52, 57);
             this.loadWishingWell(55, 66);
             if(Saving.loadBool("gridItemPossessedPogoStick") == false) this.loadMoutains(71, 52);
         }
-        if(Saving.loadBool("mainMapDoneBridge")) this.loadSorceressHut(95, 68);
-        if(Saving.loadBool("mainMapDoneCaveEntrance")){
+        if(mapState >= 3) this.loadSorceressHut(95, 68);
+        if(mapState >= 4){
             this.loadPier(44, 33);
             this.loadForest(58, 30);
         }
-        if(Saving.loadBool("mainMapDonePier")){
+        if(Saving.loadBool("mainMapDonePier")){ // Doesn't make sense to put this in Archipelago
             this.loadLighthouse(38, 16);
         }
-        if(Saving.loadBool("mainMapDoneForest")){
+        if(mapState >= 5){
             this.loadCastleEntrance(88, 25);
             this.loadTheHole(126, 25);
         }
-        if(Saving.loadBool("mainMapDoneCastleEntrance")){
+        if(mapState >= 6){
             this.loadCastle(87, 17);
         }
         if(Saving.loadBool("dragonDone")){
