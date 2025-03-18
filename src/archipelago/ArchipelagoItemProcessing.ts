@@ -54,7 +54,7 @@ export class ArchipelagoItemProcessing {
                     game.gainItem("eqItemWeaponTrollBludgeon");
                     break;
                 case "DESERT_BIRD_FEATHER":
-                    game.gainItem("eqItemWeaponTrollBludgeon");
+                    game.gainItem("gridItemPossessedFeather");
                     break;
                 case "BEGINNER_GRIMOIRE":
                     game.gainItem("gridItemPossessedBeginnersGrimoire");
