@@ -532,13 +532,15 @@ export class Game{
     }
 
     public quitQuest(backupCallback: CallbackCollection) {
-        this.blockRoomTransitions = true;
-        backupCallback.fire();
-        this.blockRoomTransitions = false;
-
         if (this.questEntry) {
+            this.blockRoomTransitions = true;
+            backupCallback.fire();
+            this.blockRoomTransitions = false;
+
             this.setPlace(this.questEntry);
             this.questEntry = undefined;
+        } else {
+            backupCallback.fire();
         }
     }
     
