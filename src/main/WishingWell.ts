@@ -11,6 +11,9 @@ import {EnchantmentItem} from "./EnchantmentItem";
 import {EqItemType} from "./EqItemType";
 import {CallbackCollection} from "./CallbackCollection";
 import {Algo} from "./Algo";
+import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
+import {Archipelago, ScoutResults} from "../archipelago/Archipelago";
+import {san} from "../utils";
 
 Saving.registerBool("wishingWellFirstCandyThrown", false);
 Saving.registerNumber("wishingWellPreviousCandyWishPrice", 1);
@@ -28,8 +31,15 @@ Saving.registerNumber("wishingWellHowManyChocolateBarsThrown", 0);
 Saving.registerBool("wishingWellWeArePainAuChocolating", false); // If true, it means a pain au chocolat was thrown and we're waiting for the player to choose its reward
 Saving.registerNumber("wishingWellHowManyPainsAuChocolatThrown", 0);
 
-// Chocolate bars stuff
-Saving.registerBool
+// Enchantments
+Saving.registerApLocation("apRedGloves", "ENCHANT_RED_ENCHANTED_GLOVES");
+Saving.registerApLocation("apPinkGloves", "ENCHANT_PINK_ENCHANTED_GLOVES");
+Saving.registerApLocation("apSummoningTribalSpear", "ENCHANT_SUMMONING_TRIBAL_SPEAR");
+Saving.registerApLocation("apEnchantedMonkeyWizardStaff", "ENCHANT_ENCHANTED_MONKEY_WIZARD_STAFF");
+Saving.registerApLocation("apEnchantedKnightBodyArmour", "ENCHANT_ENCHANTED_KNIGHT_BODY_ARMOUR");
+Saving.registerApLocation("apOctopusKingCrownJaspers", "ENCHANT_OCTOPUS_KING_CROWN_WITH_JASPERS");
+Saving.registerApLocation("apOctopusKingCrownObsidian", "ENCHANT_OCTOPUS_KING_CROWN_WITH_OBSIDIAN");
+Saving.registerApLocation("apGiantSpoonOfDoom", "ENCHANT_GIANT_SPOON_OF_DOOM");
 
 export class WishingWell extends Place{
     // The render area
@@ -45,17 +55,33 @@ export class WishingWell extends Place{
     
     // Gifts
     private selectedGiftId: string = "wishingWellGiftPower";
+
+    private itemScoutResults: ScoutResults;
     
     // Constructor
     constructor(game: Game){
         super(game);
-        
+
+        Archipelago.client.room.on("locationsChecked", () => {
+            this.createPossibleEnchantments();
+            this.update();
+            this.getGame().updatePlace();
+        });
+    }
+
+    scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
+        return ["WISHING_WELL_1", "WISHING_WELL_2", "WISHING_WELL_3", "WISHING_WELL_4", "WISHING_WELL_5", "WISHING_WELL_6"];
+    }
+
+    scoutResults(items: ScoutResults) {
+        this.itemScoutResults = items;
+
         this.createPossibleEnchantments();
-        
+
         this.renderArea.resizeFromArray(Database.getAscii("places/wishingWell"), 62, 3);
         this.update();
     }
-    
+
     // getRenderArea()
     public getRenderArea(): RenderArea{
         return this.renderArea;
@@ -99,25 +125,27 @@ export class WishingWell extends Place{
         this.possibleEnchantments = [];
         
         // We add the echantments
-        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemGlovesLeatherGloves", EqItemType.GLOVES), new EnchantmentItem(this.getGame(), "eqItemGlovesRedEnchantedGloves", EqItemType.GLOVES)));
-        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemGlovesLeatherGloves", EqItemType.GLOVES), new EnchantmentItem(this.getGame(), "eqItemGlovesPinkEnchantedGloves", EqItemType.GLOVES)));
-        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemWeaponTribalSpear", EqItemType.WEAPON), new EnchantmentItem(this.getGame(), "eqItemWeaponSummoningTribalSpear", EqItemType.WEAPON)));
-        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemWeaponMonkeyWizardStaff", EqItemType.WEAPON), new EnchantmentItem(this.getGame(), "eqItemWeaponEnchantedMonkeyWizardStaff", EqItemType.WEAPON)));
-        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemBodyArmoursKnightBodyArmour", EqItemType.BODYARMOUR), new EnchantmentItem(this.getGame(), "eqItemBodyArmoursEnchantedKnightBodyArmour", EqItemType.BODYARMOUR)));
-        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemHatOctopusKingCrown", EqItemType.HAT), new EnchantmentItem(this.getGame(), "eqItemHatOctopusKingCrownWithJaspers", EqItemType.HAT)));
-        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemHatOctopusKingCrown", EqItemType.HAT), new EnchantmentItem(this.getGame(), "eqItemHatOctopusKingCrownWithObsidian", EqItemType.HAT)));
-        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemWeaponGiantSpoon", EqItemType.WEAPON), new EnchantmentItem(this.getGame(), "eqItemWeaponGiantSpoonOfDoom", EqItemType.WEAPON)));
+        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemGlovesLeatherGloves", EqItemType.GLOVES), "ENCHANT_RED_ENCHANTED_GLOVES", new EnchantmentItem(this.getGame(), "apRedGloves", EqItemType.GLOVES)));
+        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemGlovesLeatherGloves", EqItemType.GLOVES), "ENCHANT_PINK_ENCHANTED_GLOVES", new EnchantmentItem(this.getGame(), "apPinkGloves", EqItemType.GLOVES)));
+        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemWeaponTribalSpear", EqItemType.WEAPON), "ENCHANT_SUMMONING_TRIBAL_SPEAR", new EnchantmentItem(this.getGame(), "apSummoningTribalSpear", EqItemType.WEAPON)));
+        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemWeaponMonkeyWizardStaff", EqItemType.WEAPON), "ENCHANT_ENCHANTED_MONKEY_WIZARD_STAFF", new EnchantmentItem(this.getGame(), "apEnchantedMonkeyWizardStaff", EqItemType.WEAPON)));
+        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemBodyArmoursKnightBodyArmour", EqItemType.BODYARMOUR), "ENCHANT_ENCHANTED_KNIGHT_BODY_ARMOUR", new EnchantmentItem(this.getGame(), "apEnchantedKnightBodyArmour", EqItemType.BODYARMOUR)));
+        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemHatOctopusKingCrown", EqItemType.HAT), "ENCHANT_OCTOPUS_KING_CROWN_WITH_JASPERS", new EnchantmentItem(this.getGame(), "apOctopusKingCrownJaspers", EqItemType.HAT)));
+        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemHatOctopusKingCrown", EqItemType.HAT), "ENCHANT_OCTOPUS_KING_CROWN_WITH_OBSIDIAN", new EnchantmentItem(this.getGame(), "apOctopusKingCrownObsidian", EqItemType.HAT)));
+        this.addEnchantmentIfPossible(new Enchantment(new EnchantmentItem(this.getGame(), "eqItemWeaponGiantSpoon", EqItemType.WEAPON), "ENCHANT_GIANT_SPOON_OF_DOOM", new EnchantmentItem(this.getGame(), "apGiantSpoonOfDoom", EqItemType.WEAPON)));
 
         // We create the list array
         this.createPossibleEnchantmentsArrayForTheList();
     }
     
     private createPossibleEnchantmentsArrayForTheList(): void{
-        this.possibleEnchantmentsArrayForTheList = [];
-        
-        for(var i = 0; i < this.possibleEnchantments.length; i++){
-            this.possibleEnchantmentsArrayForTheList.push("wishingWellPossibleEnchantment" + i, this.possibleEnchantments[i].getBeforeItem().getText() + " -> " + this.possibleEnchantments[i].getAfterItem().getText());
-        }
+        this.possibleEnchantmentsArrayForTheList = this.possibleEnchantments.flatMap((enchant, i) => {
+            const item = this.itemScoutResults.findItem(enchant.getBeforeApName());
+            return [
+                "wishingWellPossibleEnchantment" + i,
+                san`${item.receiver.name}'s ${item.name}`
+            ];
+        });
     }
     
     private drawCandiesStuff(x: number, y: number): void{

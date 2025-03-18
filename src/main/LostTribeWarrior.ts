@@ -14,6 +14,9 @@ import {QuestEntityWeapon} from "./QuestEntityWeapon";
 import {QuestLogMessage} from "./QuestLogMessage";
 import {Algo} from "./Algo";
 import {QuestItemFound} from "./QuestItemFound";
+import {Saving} from "./Saving";
+
+Saving.registerApLocation("apTribalSpearFound", "TRIBAL_SPEAR_ACQUIRED")
 
 export class LostTribeWarrior extends QuestEntity{
     // Area watched by the warrior
@@ -74,7 +77,7 @@ export class LostTribeWarrior extends QuestEntity{
         // Candies
         this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage() + " (and found " + Algo.pluralFormat(this.getQuest().foundCandies(3000), " candy", " candies") + ")", this.getQuest().getCandiesFoundMessage()));
         // The tribal spear
-        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "eqItemWeaponTribalSpear", "You found a tribal spear.", "You gain a tribal spear."));
+        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apTribalSpearFound", "You found a tribal spear.", "You gain a tribal spear."));
     }
     
     // Private methods

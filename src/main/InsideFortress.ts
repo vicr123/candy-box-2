@@ -123,7 +123,7 @@ export class InsideFortress extends Place{
     
     private goToSecondRoom(): void{
         if(this.getGame().canStartQuest())
-            this.getGame().setPlace(new FortressRoom2(this.getGame()));
+            this.getGame().loadRandomisedEntrance("The Teapot Quest Click")
     }
     
     private goToThirdRoom(): void{

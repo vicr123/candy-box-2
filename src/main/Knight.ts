@@ -15,6 +15,9 @@ import {Algo} from "./Algo";
 import {Random} from "./Random";
 import {QuestItemFound} from "./QuestItemFound";
 import {Database} from "./Database";
+import {Saving} from "./Saving";
+
+Saving.registerApLocation("apKnightBodyArmourFound", "KNIGHT_BODY_ARMOUR_ACQUIRED")
 
 export class Knight extends QuestEntity{
     // Movement
@@ -95,7 +98,7 @@ export class Knight extends QuestEntity{
     // willDie()
     public willDie(): void{
         this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage() + " (and found " + Algo.pluralFormat(this.getQuest().foundCandies(800 + Random.upTo(15)*100), " candy", " candies") + ")", this.getQuest().getCandiesFoundMessage()));
-        if(Random.oneChanceOutOf(5)) this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "eqItemBodyArmoursKnightBodyArmour", "You found a body armour on a knight", "You gain a knight body armour"));
+        if(Random.oneChanceOutOf(5)) this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apKnightBodyArmourFound", "You found a body armour on a knight", "You gain a knight body armour"));
     }
     
     // Private methods

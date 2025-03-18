@@ -106,6 +106,42 @@ export class ArchipelagoItemProcessing {
                 case "SCYTHE":
                     game.gainItem("eqItemWeaponScythe");
                     break;
+                case "RED_ENCHANTED_GLOVES":
+                    game.gainItem("eqItemGlovesRedEnchantedGloves");
+                    break;
+                case "PINK_ENCHANTED_GLOVES":
+                    game.gainItem("eqItemGlovesPinkEnchantedGloves");
+                    break;
+                case "SUMMONING_TRIBAL_SPEAR":
+                    game.gainItem("eqItemWeaponSummoningTribalSpear");
+                    break;
+                case "ENCHANTED_MONKEY_WIZARD_STAFF":
+                    game.gainItem("eqItemWeaponEnchantedMonkeyWizardStaff");
+                    break;
+                case "ENCHANTED_KNIGHT_BODY_ARMOUR":
+                    game.gainItem("eqItemBodyArmoursEnchantedKnightBodyArmour");
+                    break;
+                case "OCTOPUS_KING_CROWN_WITH_JASPERS":
+                    game.gainItem("eqItemHatOctopusKingCrownWithJaspers");
+                    break;
+                case "OCTOPUS_KING_CROWN_WITH_OBSIDIAN":
+                    game.gainItem("eqItemHatOctopusKingCrownWithObsidian");
+                    break;
+                case "GIANT_SPOON_OF_DOOM":
+                    game.gainItem("eqItemWeaponGiantSpoonOfDoom");
+                    break;
+                case "TRIBAL_SPEAR":
+                    game.gainItem("eqItemWeaponTribalSpear");
+                    break;
+                case "GIANT_SPOON":
+                    game.gainItem("eqItemWeaponGiantSpoon")
+                    break;
+                case "DESERT_FORTRESS_KEY":
+                    game.gainItem("gridItemPossessedFortressKey");
+                    break;
+                case "KNIGHT_BODY_ARMOUR":
+                    game.gainItem("eqItemBodyArmoursKnightBodyArmour");
+                    break;
             }
         })
     }

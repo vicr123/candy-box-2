@@ -1,24 +1,23 @@
 import {EnchantmentItem} from "./EnchantmentItem";
 import {Saving} from "./Saving";
+import {ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
 
 export class Enchantment{
     // Two items : before (the enchanted item) and after (the result of the enchantment)
     private beforeItem: EnchantmentItem;
+    private beforeApName: keyof typeof ArchipelagoLocation;
     private afterItem: EnchantmentItem;
     
     // Constructor
-    constructor(beforeItem: EnchantmentItem, afterItem: EnchantmentItem){
+    constructor(beforeItem: EnchantmentItem, beforeApName: keyof typeof ArchipelagoLocation, afterItem: EnchantmentItem){
+        this.beforeApName = beforeApName;
         this.beforeItem = beforeItem;
         this.afterItem = afterItem;
     }
     
     // Public methods
     public enchant(): void{
-        // We check if we're currently wearing the before item. If so, we must stop wearing it !
-        this.beforeItem.unequipIfEquipped();
-        
-        // We lose the before item and gain the after item
-        Saving.saveBool(this.beforeItem.getSavingName(), false);
+        // We lose gain the after item
         Saving.saveBool(this.afterItem.getSavingName(), true);
     }
     
@@ -38,5 +37,9 @@ export class Enchantment{
     
     public getBeforeItem(): EnchantmentItem{
         return this.beforeItem;
+    }
+
+    public getBeforeApName() {
+        return this.beforeApName;
     }
 }

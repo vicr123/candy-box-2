@@ -31,7 +31,7 @@ export class ArchipelagoNotificationTray {
             }
         })
         Archipelago.client.messages.on("itemSent", (_, item) => {
-            if (item.sender.name == Archipelago.client.name) {
+            if (item.sender.name == Archipelago.client.name && item.receiver.name != Archipelago.client.name) {
                 this.queueNotification(new ArchipelagoNotification("give", item.name, item.receiver.name));
             }
         })

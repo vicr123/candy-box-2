@@ -84,6 +84,7 @@ import {MonkeyWizardQuest} from "./MonkeyWizardQuest";
 import {CastleRoom3} from "./CastleRoom3";
 import {Hell} from "./Hell";
 import {Developer} from "./Developer";
+import {FortressRoom2} from "./FortressRoom2";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerString("gameLanguage", "en");
@@ -503,6 +504,9 @@ export class Game{
                 break;
             case "The Developer Quest":
                 await this.setPlace(new Developer(this));
+                break;
+            case "The Teapot Quest":
+                await this.setPlace(new FortressRoom2(this));
                 break;
 
         }

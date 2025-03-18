@@ -36,6 +36,9 @@ Saving.registerApLocation("secondHouseMerchantHatBought", "VILLAGE_SHOP_CANDY_ME
 // The time ring
 Saving.registerApLocation("secondHouseTimeRingBought", "VILLAGE_SHOP_TIME_RING");
 
+// The gloves
+Saving.registerApLocation("secondHouseGlovesBought", "VILLAGE_SHOP_LEATHER_GLOVES")
+
 export class SecondHouse extends House{
     private renderArea: RenderArea = new RenderArea();
     
@@ -66,7 +69,7 @@ export class SecondHouse extends House{
         this.addItem(new CandyMerchantItem_Lollipop(this.getGame(), "secondHouseLollipop2Bought", "places/village/candyMerchantItems/lollipopLeft", new Pos(12, 23), items.findItem("VILLAGE_SHOP_CENTRE_LOLLIPOP"), 60, "secondHouseLollipopButtonText", "secondHouseLollipop2Button"));
         this.addItem(new CandyMerchantItem_Lollipop(this.getGame(), "secondHouseLollipop3Bought", "places/village/candyMerchantItems/lollipopRight", new Pos(18, 24), items.findItem("VILLAGE_SHOP_BOTTOM_LOLLIPOP"), 60, "secondHouseLollipopButtonText", "secondHouseLollipop3Button"));
         // The leather boots
-        this.addItem(new CandyMerchantItem_LeatherBoots(this.getGame(), "eqItemBootsLeatherBoots", "places/village/candyMerchantItems/boots", new Pos(5, 25), items.findItem("VILLAGE_SHOP_LEATHER_BOOTS"), 300, "secondHouseLeatherBootsButtonText", "secondHouseLeatherBootsButton"));
+        this.addItem(new CandyMerchantItem_LeatherBoots(this.getGame(), "secondHouseLeatherBootsBought", "places/village/candyMerchantItems/boots", new Pos(5, 25), items.findItem("VILLAGE_SHOP_LEATHER_BOOTS"), 300, "secondHouseLeatherBootsButtonText", "secondHouseLeatherBootsButton"));
         // The chocolate bar
         this.addItem(new CandyMerchantItem_ChocolateBar(this.getGame(), "secondHouseChocolateBarBought", "places/village/candyMerchantItems/chocolateBar", new Pos(62, 27), items.findItem("VILLAGE_SHOP_CHOCOLATE_BAR"), 800, "secondHouseChocolateBarButtonText", "secondHouseChocolateBarButton"));
         // The merchant hat
@@ -74,7 +77,7 @@ export class SecondHouse extends House{
         // The time ring
         this.addItem(new CandyMerchantItem_TimeRing(this.getGame(), "secondHouseTimeRingBought", "places/village/candyMerchantItems/timeRing", new Pos(43, 28), items.findItem("VILLAGE_SHOP_TIME_RING"), 500, "secondHouseTimeRingButtonText", "secondHouseTimeRingButton"));
         // Leather gloves
-        this.addItem(new CandyMerchantItem_LeatherGloves(this.getGame(), "eqItemGlovesLeatherGloves", "places/village/candyMerchantItems/leatherGloves", new Pos(82, 27), items.findItem("VILLAGE_SHOP_LEATHER_GLOVES"), 300, "secondHouseLeatherGlovesButtonText", "secondHouseLeatherGlovesButton"));
+        this.addItem(new CandyMerchantItem_LeatherGloves(this.getGame(), "secondHouseGlovesBought", "places/village/candyMerchantItems/leatherGloves", new Pos(82, 27), items.findItem("VILLAGE_SHOP_LEATHER_GLOVES"), 300, "secondHouseLeatherGlovesButtonText", "secondHouseLeatherGlovesButton"));
 
         // We resize the render area and update it
         this.renderArea.resizeFromArray(Database.getAscii("places/village/secondHouse"), 0, 3);

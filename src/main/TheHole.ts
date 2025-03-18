@@ -20,7 +20,7 @@ import {QuestItemFound} from "./QuestItemFound";
 import {Keyboard} from "./Keyboard";
 
 Saving.registerBool("theHoleFirstChestFound", false);
-Saving.registerBool("theHoleSecondChestFound", false);
+Saving.registerApLocation("theHoleSecondChestFound", "DESERT_FORTRESS_KEY_ACQUIRED");
 Saving.registerBool("theHoleThirdChestFound", false);
 Saving.registerBool("theHoleFourthChestFound", false);
 
@@ -136,7 +136,6 @@ export class TheHole extends Quest{
         // If we won, we possibly confirm the opening of some of the chests, depending on our variables
         if(win){
             if(this.firstChestOpened) Saving.saveBool("theHoleFirstChestFound", true);
-            if(this.secondChestOpened) Saving.saveBool("theHoleSecondChestFound", true);
             if(this.thirdChestOpened) Saving.saveBool("theHoleThirdChestFound", true);
             if(this.fourthChestOpened) Saving.saveBool("theHoleFourthChestFound", true);
         }
@@ -432,7 +431,7 @@ export class TheHole extends Quest{
     
     private openSecondChest(): void{
         this.secondChestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "gridItemPossessedFortressKey", "You opened a chest and found the desert fortress key!", "You gain the desert fortress key."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleSecondChestFound", "You opened a chest and found the desert fortress key!", "You gain the desert fortress key."));
     }
     
     private openThirdChest(): void{
