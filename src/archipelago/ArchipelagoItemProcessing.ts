@@ -178,6 +178,9 @@ export class ArchipelagoItemProcessing {
                 case "CHOCOLATE_BAR_3":
                     game.getChocolateBars().add(3);
                     break;
+                case "THIRD_HOUSE_KEY":
+                    game.gainItem("gridItemPossessedThirdHouseKey");
+                    break;
             }
         })
     }
