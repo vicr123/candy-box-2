@@ -151,6 +151,15 @@ export class ArchipelagoItemProcessing {
                 case "ROCKET_BOOTS":
                     game.gainItem("eqItemBootsRocketBoots");
                     break;
+                case "HEART_PENDANT":
+                    game.gainItem("gridItemPossessedHeartPendant");
+                    break;
+                case "BLACK_MAGIC_GRIMOIRE":
+                    game.gainItem("gridItemPossessedBlackMagicGrimoire");
+                    break;
+                case "CHOCOLATE_BAR_4":
+                    game.getChocolateBars().add(4);
+                    break;
             }
         })
     }

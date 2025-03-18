@@ -19,10 +19,10 @@ import {Wall} from "./Wall";
 import {QuestItemFound} from "./QuestItemFound";
 import {Keyboard} from "./Keyboard";
 
-Saving.registerBool("theHoleFirstChestFound", false);
+Saving.registerApLocation("theHoleFirstChestFound", "HEART_PENDANT_ACQUIRED");
 Saving.registerApLocation("theHoleSecondChestFound", "DESERT_FORTRESS_KEY_ACQUIRED");
-Saving.registerBool("theHoleThirdChestFound", false);
-Saving.registerBool("theHoleFourthChestFound", false);
+Saving.registerApLocation("theHoleThirdChestFound", "BLACK_MAGIC_GRIMOIRE_ACQUIRED");
+Saving.registerApLocation("theHoleFourthChestFound", "HOLE_CHOCOLATE_BAR_4");
 
 export class TheHole extends Quest{
     // Variables which store the open states of the chests for the current quest
@@ -132,7 +132,7 @@ export class TheHole extends Quest{
         
         // We call the endQuest method of our mother class
         super.endQuest(win);
-        
+
         // If we won, we possibly confirm the opening of some of the chests, depending on our variables
         if(win){
             if(this.firstChestOpened) Saving.saveBool("theHoleFirstChestFound", true);
@@ -420,13 +420,12 @@ export class TheHole extends Quest{
 
     private openFirstChest(): void{
         this.firstChestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "gridItemPossessedHeartPendant", "You opened a chest and found a heart pendant!", "You gain a heart pendant."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleFirstChestFound", "You opened a chest and found a heart pendant!", "You gain a heart pendant."));
     }
     
     private openFourthChest(): void{
         this.fourthChestOpened = true;
-        this.foundChocolateBars(4);
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You opened a chest and found four chocolate bars!", null, true));
+        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleFourthChestFound", "You opened a chest and found 4 chocolate bars!", "You gain 4 chocolate bars."));
     }
     
     private openSecondChest(): void{
@@ -436,7 +435,7 @@ export class TheHole extends Quest{
     
     private openThirdChest(): void{
         this.thirdChestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "gridItemPossessedBlackMagicGrimoire", "You opened a chest and found a grimoire!", "You gain a black magic grimoire."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleThirdChestFound", "You opened a chest and found a grimoire!", "You gain a black magic grimoire."));
     }
     
     private moveHorizontally(): void{
