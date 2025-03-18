@@ -56,7 +56,7 @@ export class CandyBox extends Place{
         this.renderArea.resetAllButSize();
         
         // Draw the box
-        if(Saving.loadBool("lonelyHouseTakeTheBoxDone")){
+        if(Archipelago.itemCount("LOCKED_CANDY_BOX") != 0){
             if(Saving.loadBool("candyBoxBoxOpened") == true)
                 this.renderArea.drawArray(Database.getAscii("general/openBox"), 68, 4);
             else
@@ -69,7 +69,7 @@ export class CandyBox extends Place{
             this.renderArea.drawArray(Database.getAscii("gridItems/talkingCandy"), 68, 37);
             
             // If we don't have the box yet
-            if(Saving.loadBool("lonelyHouseTakeTheBoxDone") == false){
+            if(Archipelago.itemCount("LOCKED_CANDY_BOX") == 0){
                 // Draw the speech
                 this.renderArea.drawSpeech(Database.getText("talkingCandySpeechNoBox"), 30, 72, 98, "candyBoxTalkingCandySpeech", Database.getTranslatedText("talkingCandySpeechNoBox"));
             }
@@ -197,6 +197,9 @@ export class CandyBox extends Place{
     private openBox(): void{
         // The box is now opened
         Saving.saveBool("candyBoxBoxOpened", true);
+
+        // We win the game
+        Archipelago.client.goal();
         
         // The tabs are unlocked
         Saving.saveBool("statusBarUnlockedInsideYourBox", true);

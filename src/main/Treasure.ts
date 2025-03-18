@@ -28,10 +28,7 @@ export class Treasure extends Place{
     private dig(): void{
         // We found the treasure
         Saving.saveBool("TheCavePattern_TreasureMapFoundTreasure", true);
-        
-        // Get it
-        this.getGame().getChocolateBars().add(3);
-        
+
         // Update
         this.update();
         this.getGame().updatePlace();

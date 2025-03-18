@@ -7,6 +7,7 @@ import {Game} from "./Game";
 import {Database} from "./Database";
 import {StatusBarTabType} from "./StatusBarTabType";
 import {CallbackCollection} from "./CallbackCollection";
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerBool("lonelyHouseOpenBoxDone", false);
 Saving.registerBool("lonelyHouseShakeBoxDone", false);
@@ -14,7 +15,7 @@ Saving.registerBool("lonelyHouseBreakLockDone", false);
 Saving.registerBool("lonelyHouseKickBoxDone", false);
 Saving.registerBool("lonelyHouseAskTheBoxToOpenItselfDone", false);
 Saving.registerBool("lonelyHouseLureTheBoxWithACandyDone", false);
-Saving.registerBool("lonelyHouseTakeTheBoxDone", false);
+Saving.registerApLocation("lonelyHouseTakeTheBoxDone", "LOCKED_CANDY_BOX_ACQUIRED");
 
 export class LonelyHouse extends Place{
     private renderArea: RenderArea = new RenderArea();
@@ -25,6 +26,11 @@ export class LonelyHouse extends Place{
         
         this.renderArea.resizeFromArray(Database.getAscii("places/village/fifthHouse"), 0, 3);
         this.update();
+
+        Archipelago.client.room.on("locationsChecked", () => {
+            this.update();
+            this.getGame().updatePlace();
+        });
     }
     
     // getRenderArea()
@@ -75,12 +81,7 @@ export class LonelyHouse extends Place{
         
         // We update
         this.update();
-        
-        // Select the candy box tab
-        this.getGame().getStatusBar().selectTabByType(StatusBarTabType.CANDY_BOX);
-        
-        // Go to the candy box
-        this.getGame().goToCandyBox();
+        this.getGame().updatePlace();
     }
     
     private update(): void{

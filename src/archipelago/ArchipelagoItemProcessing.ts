@@ -196,6 +196,9 @@ export class ArchipelagoItemProcessing {
                 case "PURPLE_FIN":
                     game.gainItem("gridItemPossessedPurpleSharkFin");
                     break;
+                case "LOCKED_CANDY_BOX":
+                    game.gainItem("gridItemPossessedPurpleSharkFin");
+                    break;
             }
         })
     }

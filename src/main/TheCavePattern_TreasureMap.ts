@@ -7,7 +7,7 @@ import {RenderArea} from "./RenderArea";
 import {Database} from "./Database";
 
 Saving.registerBool("TheCavePattern_TreasureMapSawMap", false);
-Saving.registerBool("TheCavePattern_TreasureMapFoundTreasure", false);
+Saving.registerApLocation("TheCavePattern_TreasureMapFoundTreasure", "X_MARKS_THE_SPOT");
 
 export class TheCavePattern_TreasureMap extends TheCavePattern{
     // Constructor

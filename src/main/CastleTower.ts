@@ -145,9 +145,6 @@ export class CastleTower extends CastleRoom{
     private takeTalkingCandy(): void{
         // We take the candy
         Saving.saveBool("castleTowerTookTalkingCandy", true);
-
-        // We win the game
-        Archipelago.client.goal();
         
         // We gain the corresponding item
         this.getGame().gainItem("gridItemPossessedTalkingCandy")
