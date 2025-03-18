@@ -9,6 +9,7 @@ import {
     ArchipelagoLocationRegion
 } from "./ArchipelagoLocation";
 import {san, sanitiseText} from "../utils";
+import {ArchipelagoNotification} from "./ArchipelagoNotificationTray";
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
 type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed";
@@ -156,6 +157,9 @@ Archipelago.client.messages.on("adminCommand", (message) => {
         Archipelago.apLog.addMessage(new QuestLogMessage(sanitiseText(line)));
     }
     Archipelago.events.emit("apLogUpdated");
+})
+Archipelago.client.messages.on("itemSent", (_, item) => {
+    Archipelago.apLog.addMessage(new QuestLogMessage(san`${item.sender.name} sent ${item.name} to ${item.receiver.name} (found at ${item.locationName})`));
 })
 
 window.archipelago = Archipelago;

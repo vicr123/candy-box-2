@@ -221,6 +221,8 @@ export class Game{
     
     // Is the status bar allowed to use the n key to go to the next tab? (this is set to false when using the computer...)
     private isStatusBarAllowedToUseTheNKey: boolean = true;
+
+    private blockRoomTransitions: boolean = false;
     
     // Constructor
     constructor(gameMode: string){
@@ -447,6 +449,8 @@ export class Game{
     }
     
     public async setPlace(place: Place): Promise<void>{
+        if (this.blockRoomTransitions) return;
+
         place.scoutResults(await Archipelago.scoutRoom(place.scoutKeys()));
 
         // If the current place isn't null, we warn it that we're going to stop displaying it
@@ -528,11 +532,13 @@ export class Game{
     }
 
     public quitQuest(backupCallback: CallbackCollection) {
+        this.blockRoomTransitions = true;
+        backupCallback.fire();
+        this.blockRoomTransitions = false;
+
         if (this.questEntry) {
             this.setPlace(this.questEntry);
             this.questEntry = undefined;
-        } else {
-            backupCallback.fire();
         }
     }
     

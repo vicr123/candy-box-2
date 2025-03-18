@@ -7,6 +7,7 @@ import {Game} from "./Game";
 import {Hotkey} from "./Hotkey";
 import {CallbackCollection} from "./CallbackCollection";
 import {Database} from "./Database";
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerBool("candyBoxBoxOpened", false);
 
@@ -26,6 +27,11 @@ export class CandyBox extends Place{
         
         // Update
         this.update();
+
+        Archipelago.client.room.on("locationsChecked", () => {
+            this.update();
+            this.getGame().updatePlace();
+        });
     }
     
     // willBeDisplayed()
