@@ -148,6 +148,9 @@ export class ArchipelagoItemProcessing {
                 case "UNICORN_HORN":
                     game.gainItem("gridItemPossessedUnicornHorn")
                     break;
+                case "ROCKET_BOOTS":
+                    game.gainItem("eqItemBootsRocketBoots");
+                    break;
             }
         })
     }

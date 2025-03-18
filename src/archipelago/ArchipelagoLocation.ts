@@ -55,7 +55,8 @@ export const ArchipelagoLocation = {
     DESERT_FORTRESS_KEY_ACQUIRED: 3701,
     GIANT_SPOON_ACQUIRED: 3900,
     XINOPHERYDON_CLAW_ACQUIRED: 4000,
-    UNICORN_HORN_ACQUIRED: 4001
+    UNICORN_HORN_ACQUIRED: 4001,
+    ROCKET_BOOTS_ACQUIRED: 4100
 } satisfies Record<string, number>
 
 export const ArchipelagoLocationRegion = {
@@ -117,7 +118,8 @@ export const ArchipelagoItem = {
     DESERT_FORTRESS_KEY: 38,
     KNIGHT_BODY_ARMOUR: 39,
     XINOPHERYDON_CLAW: 40,
-    UNICORN_HORN: 41
+    UNICORN_HORN: 41,
+    ROCKET_BOOTS: 42
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000

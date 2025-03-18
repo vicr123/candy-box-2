@@ -13,7 +13,7 @@ import {Database} from "./Database";
 import {Wall} from "./Wall";
 import {QuestItemFound} from "./QuestItemFound";
 
-Saving.registerBool("fortressRoom3ChestFound", false);
+Saving.registerApLocation("apRocketBootsFound", "ROCKET_BOOTS_ACQUIRED");
 
 export class FortressRoom3 extends Quest{
     // Did we open the chest?
@@ -39,7 +39,7 @@ export class FortressRoom3 extends Quest{
         this.addWalls();
         
         // Add the chest
-        this.addEntity(new Chest(this, new Pos(87, 6), false, new CallbackCollection(this.openChest.bind(this)), Saving.loadBool("fortressRoom3ChestFound")));
+        this.addEntity(new Chest(this, new Pos(87, 6), false, new CallbackCollection(this.openChest.bind(this)), Saving.loadBool("apRocketBootsFound")));
         
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter the third room. There's a chest up there. How to reach it?!"));
@@ -64,11 +64,6 @@ export class FortressRoom3 extends Quest{
         
         // We call the endQuest method of our mother class
         super.endQuest(win);
-        
-        // If we won and we opened the chest, we confirm that we found it
-        if(win && this.chestOpened){
-            Saving.saveBool("fortressRoom3ChestFound", true);
-        }
     }
     
     public update(): void{
@@ -112,6 +107,6 @@ export class FortressRoom3 extends Quest{
     
     private openChest(): void{
         this.chestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "eqItemBootsRocketBoots", "You opened a chest and found rocket boots!", "You gain rocket boots."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "apRocketBootsFound", "You opened a chest and found rocket boots!", "You gain rocket boots."));
     }
 }

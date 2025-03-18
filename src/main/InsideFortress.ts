@@ -128,7 +128,7 @@ export class InsideFortress extends Place{
     
     private goToThirdRoom(): void{
         if(this.getGame().canStartQuest())
-            this.getGame().setPlace(new FortressRoom3(this.getGame()));
+            this.getGame().loadRandomisedEntrance("The Ledge Room Quest Click")
     }
     
     private update(): void{
