@@ -8,9 +8,12 @@ import {Database} from "./Database";
 import {CallbackCollection} from "./CallbackCollection";
 import {Archipelago} from "../archipelago/Archipelago";
 
-Saving.registerNumber("fourthHouseCupboardStep", 0); // 0 : closed ; 1 : opened ; 2 : lollipop taken
-Saving.registerNumber("fourthHouseCarpetStep", 0); // 0 : lollipop still under the carpet ; 1 : lollipop outside ; 2 : lollipop taken
-Saving.registerBool("fourthHouseFoundLollipopOnCupboard", false);
+Saving.registerBool("fourthHouseCupboardStep", false); // false : closed ; true : opened
+Saving.registerBool("fourthHouseCarpetStep", false); // false : lollipop still under the carpet ; true : lollipop outside
+
+Saving.registerApLocation("fourthHouseFoundLollipopInCupboard", "VILLAGE_HOUSE_1_LOLLIPOP_IN_BOOKSHELF");
+Saving.registerApLocation("fourthHouseFoundLollipopUnderCarpet", "VILLAGE_HOUSE_1_LOLLIPOP_UNDER_RUG");
+Saving.registerApLocation("fourthHouseFoundLollipopOnCupboard", "VILLAGE_HOUSE_1_LOLLIPOP_ON_BOOKSHELF");
 
 export class FourthHouse extends House{
     private renderArea: RenderArea = new RenderArea();
@@ -21,6 +24,11 @@ export class FourthHouse extends House{
         
         this.renderArea.resizeFromArray(Database.getAscii("places/village/fourthHouse"), 0, 3);
         this.update();
+        
+        Archipelago.client.room.on("locationsChecked", () => {
+            this.update();
+            this.getGame().updatePlace();
+        });
     }
     
     // getRenderArea()
@@ -31,9 +39,9 @@ export class FourthHouse extends House{
     // Private methods
     private clickOnCarpet(): void{
         // If we never clicked on the carpet
-        if(Saving.loadNumber("fourthHouseCarpetStep") == 0){
+        if(Saving.loadBool("fourthHouseCarpetStep") == false){
             // Set the step
-            Saving.saveNumber("fourthHouseCarpetStep", 1);
+            Saving.saveBool("fourthHouseCarpetStep", true);
             // Update
             this.update();
             this.getGame().updatePlace();
@@ -41,9 +49,13 @@ export class FourthHouse extends House{
     }
     
     private drawCarpetStuff(x: number, y: number): void{
+
+        if (Saving.loadBool("fourthHouseFoundLollipopUnderCarpet"))
+            return;
+
         // We do different things depending on the step
-        switch(Saving.loadNumber("fourthHouseCarpetStep")){
-            case 0: // The lollipop is still under the carpet
+        switch(Saving.loadBool("fourthHouseCarpetStep")){
+            case false: // The lollipop is still under the carpet
                 // We add a button on the area of the carpet around the lollipop
                 this.renderArea.addMultipleAsciiButtons("fourthHouseCarpetButton",
                                                         x-2, x+2, y-1,
@@ -52,15 +64,13 @@ export class FourthHouse extends House{
                 // We add the link
                 this.renderArea.addLinkCall(".fourthHouseCarpetButton", new CallbackCollection(this.clickOnCarpet.bind(this)));
             break;
-            case 1: // The lollipop is outside the carpet, ready to be clicked
+            case true: // The lollipop is outside the carpet, ready to be clicked
                 // We draw the lollipop
                 this.renderArea.drawArray(Database.getAscii("places/village/fourthHouseLollipopUnderCarpet"), x, y);
                 // We add a button on the lollipop
                 this.renderArea.addAsciiButton(x, x+4, y, "fourthHouseLollipopUnderCarpetButton");
                 // We add the link
                 this.renderArea.addLinkCall(".fourthHouseLollipopUnderCarpetButton", new CallbackCollection(this.pickCarpetLollipop.bind(this)));
-            break;
-            case 2: // The lollipop is taken, nothing to do here
             break;
         }
     }
@@ -81,9 +91,13 @@ export class FourthHouse extends House{
     }
     
     private drawOpenCupboardStuff(x: number, y: number): void{
+        if (Saving.loadBool("fourthHouseFoundLollipopInCupboard")) {
+            this.renderArea.drawArray(Database.getAscii("places/village/fourthHouseCupboardOpenedWithoutLollipop"), x-2, y);
+            return;
+        }
         // We do different things depending on the step
-        switch(Saving.loadNumber("fourthHouseCupboardStep")){
-            case 0: // The cupboard is closed
+        switch(Saving.loadBool("fourthHouseCupboardStep")){
+            case false: // The cupboard is closed
                 // We add a button on the cupboard's door
                 this.renderArea.addMultipleAsciiButtons("fourthHouseCupboardDoorButton",
                                                         x, x+7, y,
@@ -102,7 +116,7 @@ export class FourthHouse extends House{
                 // We add the link
                 this.renderArea.addLinkCall(".fourthHouseCupboardDoorButton", new CallbackCollection(this.openCupboard.bind(this)));
             break;
-            case 1: // The cupboard is opened with the lollipop in it
+            case true: // The cupboard is opened with the lollipop in it
                 // We draw the opened cupboard with the lollipop in it
                 this.renderArea.drawArray(Database.getAscii("places/village/fourthHouseCupboardOpenedWithLollipop"), x-2, y);
                 // We add a button on the lollipop
@@ -110,18 +124,14 @@ export class FourthHouse extends House{
                 // We add the link
                 this.renderArea.addLinkCall(".fourthHouseLollipopInsideCupboardButton", new CallbackCollection(this.takeLollipopInsideCupboard.bind(this)));
             break;
-            case 2: // The cupboard is opened and the lollipop taken
-                // We draw the opened cupboard without lollipop
-                this.renderArea.drawArray(Database.getAscii("places/village/fourthHouseCupboardOpenedWithoutLollipop"), x-2, y);
-            break;
         }
     }
     
     private openCupboard(): void{
         // If the cupboard isn't opened yet
-        if(Saving.loadNumber("fourthHouseCupboardStep") == 0){
+        if(Saving.loadBool("fourthHouseCupboardStep") == false){
             // Set the step
-            Saving.saveNumber("fourthHouseCupboardStep", 1);
+            Saving.saveBool("fourthHouseCupboardStep", true);
             // Update
             this.update();
             this.getGame().updatePlace();
@@ -130,12 +140,11 @@ export class FourthHouse extends House{
     
     private pickCarpetLollipop(): void{
         // If the lollipop is outside the carpet
-        if(Saving.loadNumber("fourthHouseCarpetStep") == 1){
+        if(Saving.loadBool("fourthHouseCarpetStep") == true){
             // Set the step
-            Saving.saveNumber("fourthHouseCarpetStep", 2);
+            Saving.saveBool("fourthHouseFoundLollipopUnderCarpet", true);
             // Add one lollipop
             //this.getGame().getLollipops().add(1);
-            Archipelago.check("VILLAGE_HOUSE_1_LOLLIPOP_UNDER_RUG");
             // Update
             this.update();
             this.getGame().updatePlace();
@@ -144,12 +153,11 @@ export class FourthHouse extends House{
     
     private takeLollipopInsideCupboard(): void{
         // If the cupboard is opened with the lollipop inside it
-        if(Saving.loadNumber("fourthHouseCupboardStep") == 1){
+        if(Saving.loadBool("fourthHouseCupboardStep") == true){
             // Set the step
-            Saving.saveNumber("fourthHouseCupboardStep", 2);
+            Saving.saveBool("fourthHouseFoundLollipopInCupboard", true);
             // Add one lollipop
             //this.getGame().getLollipops().add(1);
-            Archipelago.check("VILLAGE_HOUSE_1_LOLLIPOP_IN_BOOKSHELF");
             // Update
             this.update();
             this.getGame().updatePlace();
@@ -161,7 +169,6 @@ export class FourthHouse extends House{
         if(Saving.loadBool("fourthHouseFoundLollipopOnCupboard") == false){
             // Add one lollipop
             //this.getGame().getLollipops().add(1);
-            Archipelago.check("VILLAGE_HOUSE_1_LOLLIPOP_ON_BOOKSHELF");
             // Set the bool
             Saving.saveBool("fourthHouseFoundLollipopOnCupboard", true);
             // Update
