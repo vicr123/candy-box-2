@@ -15,7 +15,16 @@ import {Pos} from "./Pos";
 import {EnigmaAnswerStrings} from "./EnigmaAnswerStrings";
 import {EnigmaAnswerCandies} from "./EnigmaAnswerCandies";
 
-Saving.registerNumber("aTreeStep", 0);
+Saving.registerBool("aTreeFinishedIntroduction", false);
+Saving.registerBool("aTreeFinishedTicTacToeIntro", false);
+Saving.registerBool("aTreeWonTicTacToe", false)
+
+Saving.registerApLocation("aTreeAnsweredQuestion1", "TREE_SQUIRREL_QUESTION_1");
+Saving.registerApLocation("aTreeAnsweredQuestion2", "TREE_SQUIRREL_QUESTION_2");
+Saving.registerApLocation("aTreeAnsweredQuestion3", "TREE_SQUIRREL_QUESTION_3");
+Saving.registerApLocation("aTreeAnsweredQuestion4", "TREE_SQUIRREL_QUESTION_4");
+Saving.registerApLocation("aTreeAnsweredQuestion5", "TREE_SQUIRREL_QUESTION_5");
+Saving.registerApLocation("aTreeFinishedTicTacToe", "TREE_SQUIRREL_TIC_TAC_TOE");
 
 export class ATree extends Place{
     // Render area
@@ -30,12 +39,12 @@ export class ATree extends Place{
         super(game);
         
         // If we're going to play tic tac toe
-        if(Saving.loadNumber("aTreeStep") == 7){
+        if(Saving.loadBool("aTreeFinishedTicTacToeIntro") && !Saving.loadBool("aTreeWonTicTacToe")){
             this.startTicTacToe();
         }
         
         // If we're at step 8 (just won the tic tac toe game), go on to step 9
-        if(Saving.loadNumber("aTreeStep") == 8)
+        if(Saving.loadBool("aTreeWonTicTacToe") && !Saving.loadBool("aTreeFinishedTicTacToe"))
             this.nextStep();
         
         // Resize & update
@@ -100,15 +109,21 @@ export class ATree extends Place{
     }
     
     private nextStep(): void{
-        // We change the step
-        Saving.saveNumber("aTreeStep", Saving.loadNumber("aTreeStep") + 1);
-        
+        for (let step of ["aTreeFinishedIntroduction", "aTreeAnsweredQuestion1", "aTreeAnsweredQuestion2", "aTreeAnsweredQuestion3", "aTreeAnsweredQuestion4", "aTreeAnsweredQuestion5", "aTreeFinishedTicTacToeIntro", "aTreeWonTicTacToe", "aTreeFinishedTicTacToe"]) {
+            console.log(step)
+            if (!Saving.loadBool(step)) {
+                Saving.saveBool(step, true);
+                console.log("Saved " + step)
+                break;
+            }
+            
+        }
         // We possibly do some action depending on the new step
-        if(Saving.loadNumber("aTreeStep") == 7){ // If we're going to play tic tac toe
+        if(Saving.loadBool("aTreeFinishedTicTacToeIntro") && !Saving.loadBool("aTreeWonTicTacToe")){ // If we're going to play tic tac toe
             this.startTicTacToe();
         }
-        if(Saving.loadNumber("aTreeStep") == 9){ // If we won the tic tac toe game
-            this.getGame().gainItem("gridItemPossessedThirdHouseKey");
+        if(Saving.loadBool("aTreeFinishedTicTacToe")){ // If we won the tic tac toe game
+            //this.getGame().gainItem("gridItemPossessedThirdHouseKey");
         }
         
         // We update
@@ -380,23 +395,23 @@ export class ATree extends Place{
     }
     
     private reward1(): void{
-        this.getGame().getCandies().add(20);
+        //this.getGame().getCandies().add(20);
     }
     
     private reward2(): void{
-        this.getGame().getCandies().add(100);
+        //this.getGame().getCandies().add(100);
     }
     
     private reward3(): void{
-        this.getGame().getCandies().add(500);
+        //this.getGame().getCandies().add(500);
     }
     
     private reward4(): void{
-        this.getGame().getLollipops().add(3);
+        //this.getGame().getLollipops().add(3);
     }
     
     private reward5(): void{
-        this.getGame().getChocolateBars().add(3);
+        //this.getGame().getChocolateBars().add(3);
     }
     
     private startTicTacToe(): void{
@@ -425,80 +440,93 @@ export class ATree extends Place{
         // Draw the tree with the squirrel
         this.renderArea.drawArray(Database.getAscii("places/aTree/background"), 0, 3);
         
-        // Draw the speech
-        switch(Saving.loadNumber("aTreeStep")){
-            // Introduction speech
-            case 0:
-                this.drawSpeech(Database.getText("mapATreeIntroductionSpeech"), Database.getTranslatedText("mapATreeIntroductionSpeech"));
-                this.renderArea.addAsciiRealButton(Database.getText("mapATreeIntroductionButton"), 21, 24, "aTreeIntroductionButton", Database.getTranslatedText("mapATreeIntroductionButton"));
-                this.renderArea.addLinkCall(".aTreeIntroductionButton", new CallbackCollection(this.nextStep.bind(this)));
-            break;
-            // First question (do you like candies)
-            case 1:
-                this.drawSpeech(Database.getText("mapATreeFirstQuestion"), Database.getTranslatedText("mapATreeFirstQuestion"));
-                this.addEnigma(new EnigmaAnswerStrings(["yes", "y", "yeah", "yeap", "yep"]), new CallbackCollection(this.nextStep.bind(this), this.reward1.bind(this)), "aTreeFirstQuestionEnigma", "aTreeFirstQuestionWrong");
-            break;
-            // Second question (S E I D N A ?)
-            case 2:
-                this.drawSpeech(Database.getText("mapATreeSecondQuestion"), Database.getTranslatedText("mapATreeSecondQuestion"));
-                this.addEnigma(new EnigmaAnswerStrings(["c", "letterc", "theletterc"]), new CallbackCollection(this.nextStep.bind(this), this.reward2.bind(this)), "aTreeSecondQuestionEnigma", "aTreeSecondQuestionWrong");
-            break;
-            // Third question (how many candies does the candiest man in the world possess?)
-            case 3:
-                this.drawSpeech(Database.getText("mapATreeThirdQuestion"), Database.getTranslatedText("mapATreeThirdQuestion"));
-                this.addEnigma(new EnigmaAnswerCandies(this.getGame()), new CallbackCollection(this.nextStep.bind(this), this.reward3.bind(this)), "aTreeThirdQuestionEnigma", "aTreeThirdQuestionWrong");
-            break;
-            // Fourth question (number of marks on the tree)
-            case 4:
-                this.drawSpeech(Database.getText("mapATreeFourthQuestion"), Database.getTranslatedText("mapATreeFourthQuestion"), 75);
-                this.addEnigma(new EnigmaAnswerStrings(["10", "ten", "10marks", "tenmarks"]), new CallbackCollection(this.nextStep.bind(this), this.reward4.bind(this)), "aTreeFourthQuestionEnigma", "aTreeFourthQuestionWrong");
-            break;
-            // Fifth question (yellow hat in the red sea)
-            case 5:
-                this.drawSpeech(Database.getText("mapATreeFifthQuestion"), Database.getTranslatedText("mapATreeFifthQuestion"), 75);
-                this.addEnigma(new EnigmaAnswerStrings(["wet", "itbecomeswet", "itbecomewet", "becomeswet", "becomewet", "itgetswet", "itgetwet", "itswet", "itgotwet", "itiswet", "itiswetnow", "itswetnow", "float", "floats", "itfloats", "itsfloating", "itisfloating", "floating", "itfloat"]), new CallbackCollection(this.nextStep.bind(this), this.reward5.bind(this)), "aTreeFifthQuestionEnigma", "aTreeFifthQuestionWrong");
-            break;
-            // Sixth question (tic-tac-toe) : intro speech
-            case 6:
-                // Draw the speech
-                this.drawSpeech(Database.getText("mapATreeTicTacToeIntro"), Database.getTranslatedText("mapATreeTicTacToeIntro"), 75);
-                // Add the button to go to the next step
-                this.renderArea.addAsciiRealButton(Database.getText("mapATreeTicTacToeIntroButton"), 21, 24, "mapATreeTicTacToeIntroButton", Database.getTranslatedText("mapATreeTicTacToeIntroButton"));
-                this.renderArea.addLinkCall(".mapATreeTicTacToeIntroButton", new CallbackCollection(this.nextStep.bind(this)));
-            break;
-            case 7: // Tic-tac-toe : let's play!
-                // Draw different things depending on the tic-tac-toa step
-                switch(this.ticTacToeStep){
-                    case ATreeTicTacToeStep.PLAYING:
-                        this.drawSpeech(Database.getText("mapATreeTicTacToeLetsPlay"), Database.getTranslatedText("mapATreeTicTacToeLetsPlay"), 75); // Speech
-                        this.drawTicTacToeBoard(); // Board
-                    break;
-                    case ATreeTicTacToeStep.NOBODY_WINS:
-                        this.drawSpeech(Database.getText("mapATreeTicTacToeNobodyWins"), Database.getTranslatedText("mapATreeTicTacToeNobodyWins"), 75); // Speech
-                        this.drawTicTacToeBoard(false); // Board
-                    break;
-                    case ATreeTicTacToeStep.YOU_LOSE:
-                        this.drawSpeech(Database.getText("mapATreeTicTacToeYouLose"), Database.getTranslatedText("mapATreeTicTacToeYouLose"), 75); // Speech
-                        this.drawTicTacToeBoard(false); // Board
-                    break;
-                }
-                // If was just had a draw / lose, add the button to try again
-                if(this.ticTacToeStep == ATreeTicTacToeStep.NOBODY_WINS || this.ticTacToeStep == ATreeTicTacToeStep.YOU_LOSE){
-                    this.renderArea.addAsciiRealButton(Database.getText("mapATreeTicTacToeTryAgainButton"), 21, 24, "mapATreeTicTacToeTryAgainButton", Database.getTranslatedText("mapATreeTicTacToeTryAgainButton"));
-                    this.renderArea.addLinkCall(".mapATreeTicTacToeTryAgainButton", new CallbackCollection(this.playTicTacToe_tryAgain.bind(this)));
-                }
-            break;
-            case 8:
-                this.drawSpeech(Database.getText("mapATreeTicTacToeYouWin"), Database.getTranslatedText("mapATreeTicTacToeYouWin"), 75); // Speech
-                this.drawTicTacToeBoard(false); // Board
-                // Button
-                this.renderArea.addAsciiRealButton(Database.getText("mapATreeTicTacToeAnymoreSweet"), 21, 24, "mapATreeTicTacToeAnymoreSweet", Database.getTranslatedText("mapATreeTicTacToeAnymoreSweet"), true);
-                this.renderArea.addLinkCall(".mapATreeTicTacToeAnymoreSweet", new CallbackCollection(this.nextStep.bind(this)));
-            break;
-            case 9:
-                this.drawSpeech(Database.getText("mapATreeNoMoreChallenge"), Database.getTranslatedText("mapATreeNoMoreChallenge"));
-            break;
+        // Introduction
+        if (!Saving.loadBool("aTreeFinishedIntroduction")) {
+            this.drawSpeech(Database.getText("mapATreeIntroductionSpeech"), Database.getTranslatedText("mapATreeIntroductionSpeech"));
+            this.renderArea.addAsciiRealButton(Database.getText("mapATreeIntroductionButton"), 21, 24, "aTreeIntroductionButton", Database.getTranslatedText("mapATreeIntroductionButton"));
+            this.renderArea.addLinkCall(".aTreeIntroductionButton", new CallbackCollection(this.nextStep.bind(this)));
+            return;
         }
-            
+        
+        // First question (do you like candies)
+        if (!Saving.loadBool("aTreeAnsweredQuestion1")) {
+            this.drawSpeech(Database.getText("mapATreeFirstQuestion"), Database.getTranslatedText("mapATreeFirstQuestion"));
+            this.addEnigma(new EnigmaAnswerStrings(["yes", "y", "yeah", "yeap", "yep"]), new CallbackCollection(this.nextStep.bind(this), this.reward1.bind(this)), "aTreeFirstQuestionEnigma", "aTreeFirstQuestionWrong");
+            return;
+        }
+
+        // Second question (S E I D N A ?)
+        if (!Saving.loadBool("aTreeAnsweredQuestion2")) {
+            this.drawSpeech(Database.getText("mapATreeSecondQuestion"), Database.getTranslatedText("mapATreeSecondQuestion"));
+            this.addEnigma(new EnigmaAnswerStrings(["c", "letterc", "theletterc"]), new CallbackCollection(this.nextStep.bind(this), this.reward2.bind(this)), "aTreeSecondQuestionEnigma", "aTreeSecondQuestionWrong");
+            return;
+        }
+
+        // Third question (how many candies does the candiest man in the world possess?)
+        if (!Saving.loadBool("aTreeAnsweredQuestion3")) {
+            this.drawSpeech(Database.getText("mapATreeThirdQuestion"), Database.getTranslatedText("mapATreeThirdQuestion"));
+            this.addEnigma(new EnigmaAnswerCandies(this.getGame()), new CallbackCollection(this.nextStep.bind(this), this.reward3.bind(this)), "aTreeThirdQuestionEnigma", "aTreeThirdQuestionWrong");
+            return;
+        }
+
+        // Fourth question (number of marks on the tree)
+        if (!Saving.loadBool("aTreeAnsweredQuestion4")) {
+            this.drawSpeech(Database.getText("mapATreeFourthQuestion"), Database.getTranslatedText("mapATreeFourthQuestion"), 75);
+            this.addEnigma(new EnigmaAnswerStrings(["10", "ten", "10marks", "tenmarks"]), new CallbackCollection(this.nextStep.bind(this), this.reward4.bind(this)), "aTreeFourthQuestionEnigma", "aTreeFourthQuestionWrong");
+            return;
+        }
+
+        // Fifth question (yellow hat in the red sea)
+        if (!Saving.loadBool("aTreeAnsweredQuestion5")) {
+            this.drawSpeech(Database.getText("mapATreeFifthQuestion"), Database.getTranslatedText("mapATreeFifthQuestion"), 75);
+            this.addEnigma(new EnigmaAnswerStrings(["wet", "itbecomeswet", "itbecomewet", "becomeswet", "becomewet", "itgetswet", "itgetwet", "itswet", "itgotwet", "itiswet", "itiswetnow", "itswetnow", "float", "floats", "itfloats", "itsfloating", "itisfloating", "floating", "itfloat"]), new CallbackCollection(this.nextStep.bind(this), this.reward5.bind(this)), "aTreeFifthQuestionEnigma", "aTreeFifthQuestionWrong");
+            return;
+        }
+
+        // We're finished with everything
+        if (Saving.loadBool("aTreeFinishedTicTacToe")) {
+            this.drawSpeech(Database.getText("mapATreeNoMoreChallenge"), Database.getTranslatedText("mapATreeNoMoreChallenge"));
+            return;
+        }
+
+        // Sixth question (tic-tac-toe) : intro speech
+        if (!Saving.loadBool("aTreeFinishedTicTacToeIntro")) {
+            // Draw the speech
+            this.drawSpeech(Database.getText("mapATreeTicTacToeIntro"), Database.getTranslatedText("mapATreeTicTacToeIntro"), 75);
+            // Add the button to go to the next step
+            this.renderArea.addAsciiRealButton(Database.getText("mapATreeTicTacToeIntroButton"), 21, 24, "mapATreeTicTacToeIntroButton", Database.getTranslatedText("mapATreeTicTacToeIntroButton"));
+            this.renderArea.addLinkCall(".mapATreeTicTacToeIntroButton", new CallbackCollection(this.nextStep.bind(this)));
+            return;
+        }
+
+        if (Saving.loadBool("aTreeWonTicTacToe")) {
+            this.drawSpeech(Database.getText("mapATreeTicTacToeYouWin"), Database.getTranslatedText("mapATreeTicTacToeYouWin"), 75); // Speech
+            this.drawTicTacToeBoard(false); // Board
+            // Button
+            this.renderArea.addAsciiRealButton(Database.getText("mapATreeTicTacToeAnymoreSweet"), 21, 24, "mapATreeTicTacToeAnymoreSweet", Database.getTranslatedText("mapATreeTicTacToeAnymoreSweet"), true);
+            this.renderArea.addLinkCall(".mapATreeTicTacToeAnymoreSweet", new CallbackCollection(this.nextStep.bind(this)));
+            return;
+        }
+
+        // Draw different things depending on the tic-tac-toa step
+        switch(this.ticTacToeStep){
+            case ATreeTicTacToeStep.PLAYING:
+                this.drawSpeech(Database.getText("mapATreeTicTacToeLetsPlay"), Database.getTranslatedText("mapATreeTicTacToeLetsPlay"), 75); // Speech
+                this.drawTicTacToeBoard(); // Board
+                break;
+            case ATreeTicTacToeStep.NOBODY_WINS:
+                this.drawSpeech(Database.getText("mapATreeTicTacToeNobodyWins"), Database.getTranslatedText("mapATreeTicTacToeNobodyWins"), 75); // Speech
+                this.drawTicTacToeBoard(false); // Board
+                break;
+            case ATreeTicTacToeStep.YOU_LOSE:
+                this.drawSpeech(Database.getText("mapATreeTicTacToeYouLose"), Database.getTranslatedText("mapATreeTicTacToeYouLose"), 75); // Speech
+                this.drawTicTacToeBoard(false); // Board
+                break;
+        }
+        // If was just had a draw / lose, add the button to try again
+        if(this.ticTacToeStep == ATreeTicTacToeStep.NOBODY_WINS || this.ticTacToeStep == ATreeTicTacToeStep.YOU_LOSE){
+            this.renderArea.addAsciiRealButton(Database.getText("mapATreeTicTacToeTryAgainButton"), 21, 24, "mapATreeTicTacToeTryAgainButton", Database.getTranslatedText("mapATreeTicTacToeTryAgainButton"));
+            this.renderArea.addLinkCall(".mapATreeTicTacToeTryAgainButton", new CallbackCollection(this.playTicTacToe_tryAgain.bind(this)));
+        }
     }
 }
