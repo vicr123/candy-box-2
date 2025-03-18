@@ -14,6 +14,7 @@ import {ATreeTicTacToeMinimaxReturnValue} from "./ATreeTicTacToeMinimaxReturnVal
 import {Pos} from "./Pos";
 import {EnigmaAnswerStrings} from "./EnigmaAnswerStrings";
 import {EnigmaAnswerCandies} from "./EnigmaAnswerCandies";
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerBool("aTreeFinishedIntroduction", false);
 Saving.registerBool("aTreeFinishedTicTacToeIntro", false);
@@ -46,7 +47,12 @@ export class ATree extends Place{
         // If we're at step 8 (just won the tic tac toe game), go on to step 9
         if(Saving.loadBool("aTreeWonTicTacToe") && !Saving.loadBool("aTreeFinishedTicTacToe"))
             this.nextStep();
-        
+
+        Archipelago.client.room.on("locationsChecked", () => {
+            this.update();
+            this.getGame().updatePlace();
+        });
+
         // Resize & update
         this.renderArea.resizeFromArray(Database.getAscii("places/aTree/background"), 17, 3);
         this.update();
@@ -116,14 +122,11 @@ export class ATree extends Place{
                 console.log("Saved " + step)
                 break;
             }
-            
+
         }
         // We possibly do some action depending on the new step
         if(Saving.loadBool("aTreeFinishedTicTacToeIntro") && !Saving.loadBool("aTreeWonTicTacToe")){ // If we're going to play tic tac toe
             this.startTicTacToe();
-        }
-        if(Saving.loadBool("aTreeFinishedTicTacToe")){ // If we won the tic tac toe game
-            //this.getGame().gainItem("gridItemPossessedThirdHouseKey");
         }
         
         // We update
@@ -447,7 +450,7 @@ export class ATree extends Place{
             this.renderArea.addLinkCall(".aTreeIntroductionButton", new CallbackCollection(this.nextStep.bind(this)));
             return;
         }
-        
+
         // First question (do you like candies)
         if (!Saving.loadBool("aTreeAnsweredQuestion1")) {
             this.drawSpeech(Database.getText("mapATreeFirstQuestion"), Database.getTranslatedText("mapATreeFirstQuestion"));
