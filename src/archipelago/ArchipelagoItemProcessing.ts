@@ -163,6 +163,21 @@ export class ArchipelagoItemProcessing {
                 case "PITCHFORK":
                     game.gainItem("gridItemPossessedPitchfork");
                     break;
+                case "CANDY_20":
+                    game.getCandies().add(20);
+                    break;
+                case "CANDY_100":
+                    game.getCandies().add(100);
+                    break;
+                case "CANDY_500":
+                    game.getCandies().add(500);
+                    break;
+                case "LOLLIPOP_3":
+                    game.getLollipops().add(3);
+                    break;
+                case "CHOCOLATE_BAR_3":
+                    game.getChocolateBars().add(3);
+                    break;
             }
         })
     }
