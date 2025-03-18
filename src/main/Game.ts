@@ -88,6 +88,7 @@ import {FortressRoom2} from "./FortressRoom2";
 import {TheHole} from "./TheHole";
 import { FortressRoom1 } from "./FortressRoom1";
 import {FortressRoom3} from "./FortressRoom3";
+import {CastleRoom1} from "./CastleRoom1";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerString("gameLanguage", "en");
@@ -519,6 +520,9 @@ export class Game{
                 break;
             case "The Ledge Room":
                 await this.setPlace(new FortressRoom3(this));
+                break;
+            case "The Trap Room":
+                await this.setPlace(new CastleRoom1(this));
                 break;
         }
     }

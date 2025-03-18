@@ -160,6 +160,9 @@ export class ArchipelagoItemProcessing {
                 case "CHOCOLATE_BAR_4":
                     game.getChocolateBars().add(4);
                     break;
+                case "PITCHFORK":
+                    game.gainItem("gridItemPossessedPitchfork");
+                    break;
             }
         })
     }

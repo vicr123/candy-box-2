@@ -59,7 +59,8 @@ export const ArchipelagoLocation = {
     GIANT_SPOON_ACQUIRED: 3900,
     XINOPHERYDON_CLAW_ACQUIRED: 4000,
     UNICORN_HORN_ACQUIRED: 4001,
-    ROCKET_BOOTS_ACQUIRED: 4100
+    ROCKET_BOOTS_ACQUIRED: 4100,
+    PITCHFORK_ACQUIRED: 4300
 } satisfies Record<string, number>
 
 export const ArchipelagoLocationRegion = {
@@ -125,7 +126,8 @@ export const ArchipelagoItem = {
     ROCKET_BOOTS: 42,
     HEART_PENDANT: 43,
     BLACK_MAGIC_GRIMOIRE: 44,
-    CHOCOLATE_BAR_4: 45
+    CHOCOLATE_BAR_4: 45,
+    PITCHFORK: 46
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000

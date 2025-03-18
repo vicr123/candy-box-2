@@ -12,7 +12,7 @@ import {Database} from "./Database";
 import {CallbackCollection} from "./CallbackCollection";
 
 Saving.registerBool("castleRoom2LitFire", false);
-Saving.registerBool("castleRoom2TookObject", false);
+Saving.registerApLocation("castleRoom2TookObject", "PITCHFORK_ACQUIRED");
 
 export class CastleRoom2 extends CastleRoom{
     // The render area
@@ -157,10 +157,7 @@ export class CastleRoom2 extends CastleRoom{
     private takeObject(): void{
         // Set the bool
         Saving.saveBool("castleRoom2TookObject", true);
-        
-        // Take it
-        this.getGame().gainItem("gridItemPossessedPitchfork");
-        
+
         // Re-calc the farm production
         this.getGame().calcLollipopFarmProduction();
         
