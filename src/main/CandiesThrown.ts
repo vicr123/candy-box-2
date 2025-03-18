@@ -12,8 +12,10 @@ import {CandiesThrownSmileyCaveStep} from "./CandiesThrownSmileyCaveStep";
 import {Random} from "./Random";
 import {RenderArea} from "./RenderArea";
 import {Algo} from "./Algo";
+import {Item} from "archipelago.js";
+import {Archipelago} from "../archipelago/Archipelago";
 
-Saving.registerBool("candiesThrownGotChocolateBar", false);
+Saving.registerApLocation("candiesThrownGotChocolateBar", "DISAPPOINTED_EMOTE_CHOCOLATE_BAR");
 
 export class CandiesThrown extends Resource{
     // The game
@@ -175,14 +177,14 @@ export class CandiesThrown extends Resource{
                                  new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)),
                                  new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).openChest(),
                                  new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("!!!", new Pos(5, 5))).openChest(),
-                                 new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("I found a chocolate bar!", new Pos(3, 5))),
+                                 new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("I found {player}'s {item}!", new Pos(3, 5))),
                                  new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("...", new Pos(3, 5))),
                                  new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("hey, listen", new Pos(3, 5))),
-                                 new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("I'll give you the chocolate bar", new Pos(3, 5))),
+                                 new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("I'll give them the {item}", new Pos(3, 5))),
                                  new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("if you swear to stop throwing candies", new Pos(3, 5))),
                                  new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("okay?", new Pos(3, 5))),
                                  new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("throw 10 last candies to let me know if you agree", new Pos(3, 5))),
-                                 new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("good. here's the bar. no more throwing!!", new Pos(3, 5))),
+                                 new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("good. they got their {item}. no more throwing!!", new Pos(3, 5))),
                                  new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)),
                                  new CandiesThrownSmileyCave("(._.)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("Hey?!", new Pos(3, 5))),
                                  new CandiesThrownSmileyCave("(;_;)", new Pos(4, 7)).addObject(new CandiesThrownSmileyCaveObject("You're still throwing candies!", new Pos(3, 5))),
@@ -260,9 +262,22 @@ export class CandiesThrown extends Resource{
     private nomNomSmileyIndex: number = 0;
     
     // Constructor
+    private item: Item;
+
     constructor(game: Game, savingPrefix: string){
         super(savingPrefix);
         this.game = game;
+
+        Archipelago.events.on("connectionStatusChanged", () => {
+            if (Archipelago.connectionStatus.current == "connected") {
+                queueMicrotask(() => {
+                    Archipelago.scoutRoom(["CANDY_BOX"]).then(results => {
+                        this.item = results.findItem("DISAPPOINTED_EMOTE_CHOCOLATE_BAR");
+                        game.updatePlace();
+                    });
+                })
+            }
+        })
     }
     
     // Public methods
@@ -271,7 +286,6 @@ export class CandiesThrown extends Resource{
         var returnValue: boolean = super.add(n);
         // If it's time to get this chocolate bar, we get it
         if(Saving.loadBool("candiesThrownGotChocolateBar") == false && Math.floor(this.getCurrent()/10) - 1 == 162){
-            this.game.getChocolateBars().add(1);
             Saving.saveBool("candiesThrownGotChocolateBar", true);
         }
         // We choose a random *nom* *nom* smiley index in case we're at this step of the animation
@@ -281,6 +295,8 @@ export class CandiesThrown extends Resource{
     }
     
     public draw(renderArea: RenderArea, x: number, y: number): number{
+        if (!this.item) return;
+
         var n: number = this.getCurrent();
         var smileyIndex: number;
         var base: string;
@@ -300,7 +316,7 @@ export class CandiesThrown extends Resource{
         // Add a smiley from the smileys array if the index is correct
         if(smileyIndex >= 0 && smileyIndex < this.smileys.length){
             // Draw the smiley and return the correct y gap
-            return this.smileys[smileyIndex].draw(renderArea, x, y, base);
+            return this.smileys[smileyIndex].draw(renderArea, x, y, base, this.item);
         }
         // Else, if the index is too low, don't add any smiley
         else if(smileyIndex < 0){
@@ -311,7 +327,7 @@ export class CandiesThrown extends Resource{
         // Else, add the *nom* *nom* smiley
         else{
             // Draw the smiley and return the correct y gap
-            return this.nomNomSmileys[this.nomNomSmileyIndex].draw(renderArea, x, y, base);
+            return this.nomNomSmileys[this.nomNomSmileyIndex].draw(renderArea, x, y, base, this.item);
         }
     }
 }

@@ -2,6 +2,7 @@ import {Archipelago} from "./Archipelago";
 
 export const ArchipelagoLocation = {
     HP_BAR_UNLOCK: 1,
+    DISAPPOINTED_EMOTE_CHOCOLATE_BAR: 2,
     VILLAGE_SHOP_TOP_LOLLIPOP: 100,
     VILLAGE_SHOP_CENTRE_LOLLIPOP: 101,
     VILLAGE_SHOP_BOTTOM_LOLLIPOP: 102,
@@ -64,6 +65,7 @@ export const ArchipelagoLocation = {
 } satisfies Record<string, number>
 
 export const ArchipelagoLocationRegion = {
+    CANDY_BOX: 0,
     VILLAGE_SHOP: ArchipelagoLocation.VILLAGE_SHOP_TOP_LOLLIPOP,
     MOUNTAINS: ArchipelagoLocation.POGO_STICK,
     SORCERESS_HUT: ArchipelagoLocation.SORCERESS_HUT_LOLLIPOP,

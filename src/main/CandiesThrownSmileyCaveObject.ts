@@ -1,4 +1,5 @@
 import {Pos} from "./Pos";
+import {Item} from "archipelago.js";
 
 export class CandiesThrownSmileyCaveObject{
     // The string
@@ -18,7 +19,7 @@ export class CandiesThrownSmileyCaveObject{
         return this.position;
     }
     
-    public getStr(): string{
-        return this.str;
+    public getStr(item: Item): string{
+        return this.str.replace("{player}", item.receiver.name).replace("{item}", item.name);
     }
 }

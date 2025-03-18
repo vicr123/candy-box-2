@@ -6,6 +6,7 @@ import {Pos} from "./Pos";
 import {CandiesThrownSmileyCaveStep} from "./CandiesThrownSmileyCaveStep";
 import {RenderArea} from "./RenderArea";
 import {Database} from "./Database";
+import {Item} from "archipelago.js";
 
 export class CandiesThrownSmileyCave extends CandiesThrownSmiley{
     // The line
@@ -32,7 +33,7 @@ export class CandiesThrownSmileyCave extends CandiesThrownSmiley{
     }
     
     // draw()
-    public draw(renderArea: RenderArea, x: number, y: number, base: string): number{
+    public draw(renderArea: RenderArea, x: number, y: number, base: string, item: Item): number{
         // Draw the base
         renderArea.drawString(base, x, y);
         
@@ -75,7 +76,7 @@ export class CandiesThrownSmileyCave extends CandiesThrownSmiley{
         
         // Draw objects
         for(var i = 0; i < this.objects.length; i++){
-            renderArea.drawString(this.objects[i].getStr(), x + this.objects[i].getPosition().x, y + this.objects[i].getPosition().y);
+            renderArea.drawString(this.objects[i].getStr(item), x + this.objects[i].getPosition().x, y + this.objects[i].getPosition().y);
         }
         
         // Return the cave's height

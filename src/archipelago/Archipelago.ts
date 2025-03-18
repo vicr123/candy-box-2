@@ -98,7 +98,8 @@ export namespace Archipelago {
 
         const scoutIds: number[] = [];
         for (const room of item) {
-            for (let i = ArchipelagoLocationRegion[room]; Object.values(ArchipelagoLocation).includes(i); i++) {
+            for (let i = ArchipelagoLocationRegion[room]; Object.values(ArchipelagoLocation).includes(i) || i == 0; i++) {
+                if (i == 0) continue;
                 scoutIds.push(i);
             }
         }
