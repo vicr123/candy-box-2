@@ -522,7 +522,7 @@ export class Game{
             case "The Xinopherydron Quest":
                 await this.setPlace(new FortressRoom1(this));
                 break;
-            case "The Ledge Room":
+            case "The Ledge Room Quest":
                 await this.setPlace(new FortressRoom3(this));
                 break;
             case "The Trap Room":

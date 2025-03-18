@@ -20,7 +20,7 @@ export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Cli
     "The Ledge Room Quest Click" | "Castle Trap Room Click";
 export type ArchipelagoExit = "Village Cellar" | "The Desert" | "The Bridge" | "The Octopus King Quest" | "The Naked Monkey Wizard" |
     "The Forest" | "The Castle Entrance" | "The Giant Nougat Monster" | "The Castle Egg Room" | "Hell" | "The Developer Quest" | "The Teapot Quest" |
-    "The Hole" | "The Xinopherydron Quest" | "The Ledge Room" | "The Trap Room";
+    "The Hole" | "The Xinopherydron Quest" | "The Ledge Room Quest" | "The Trap Room";
 
 type EntrancePairing = [ArchipelagoEntrance, ArchipelagoExit];
 
