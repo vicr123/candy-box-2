@@ -47,15 +47,15 @@ export class TheSeaPattern_SeaSnakesForever extends TheSeaPattern{
             
             // If a shark was added
             if(shark != null){
-                if(Saving.loadBool("gridItemPossessedRedSharkFin") == false && this.addedRedSharkFin == false && this.getTheSea().getDistance() - this.getInitialDistance() > 150){
+                if(Saving.loadBool("apRedFin") == false && this.addedRedSharkFin == false && this.getTheSea().getDistance() - this.getInitialDistance() > 150){
                     shark.hasFin(BigSharkFinType.RED);
                     this.addedRedSharkFin = true;
                 }
-                else if(Saving.loadBool("gridItemPossessedGreenSharkFin") == false && this.addedGreenSharkFin == false && this.getTheSea().getDistance() - this.getInitialDistance() > 700){
+                else if(Saving.loadBool("apGreenFin") == false && this.addedGreenSharkFin == false && this.getTheSea().getDistance() - this.getInitialDistance() > 700){
                     shark.hasFin(BigSharkFinType.GREEN);
                     this.addedGreenSharkFin = true;
                 }
-                else if(Saving.loadBool("gridItemPossessedPurpleSharkFin") == false && this.addedPurpleSharkFin == false && this.getTheSea().getDistance() - this.getInitialDistance() > 2500){
+                else if(Saving.loadBool("apPurpleFin") == false && this.addedPurpleSharkFin == false && this.getTheSea().getDistance() - this.getInitialDistance() > 2500){
                     shark.hasFin(BigSharkFinType.PURPLE);
                     this.addedPurpleSharkFin = true;
                 }

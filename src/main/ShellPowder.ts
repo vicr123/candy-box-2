@@ -10,6 +10,9 @@ import {CollisionBoxCollection} from "./CollisionBoxCollection";
 import {CollisionBox} from "./CollisionBox";
 import {QuestEntityTeam} from "./QuestEntityTeam";
 import {QuestItemFound} from "./QuestItemFound";
+import { Saving } from "./Saving";
+
+Saving.registerApLocation("apShellPowder", "SEA_SHELL_POWDER_ACQUIRED")
 
 export class ShellPowder extends QuestEntity{
     // Constructor
@@ -43,6 +46,6 @@ export class ShellPowder extends QuestEntity{
     // willDie()
     public willDie(): void{
        super.willDie();
-       this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "gridItemPossessedShellPowder", "You found shell powder.", "You gain shell powder."));
+       this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apShellPowder", "You found shell powder.", "You gain shell powder."));
     }
 }

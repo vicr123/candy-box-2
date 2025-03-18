@@ -181,6 +181,21 @@ export class ArchipelagoItemProcessing {
                 case "THIRD_HOUSE_KEY":
                     game.gainItem("gridItemPossessedThirdHouseKey");
                     break;
+                case "SPONGE":
+                    game.gainItem("gridItemPossessedSponge");
+                    break;
+                case "SHELL_POWDER":
+                    game.gainItem("gridItemPossessedShellPowder");
+                    break;
+                case "RED_FIN":
+                    game.gainItem("gridItemPossessedRedSharkFin");
+                    break;
+                case "GREEN_FIN":
+                    game.gainItem("gridItemPossessedGreenSharkFin");
+                    break;
+                case "PURPLE_FIN":
+                    game.gainItem("gridItemPossessedPurpleSharkFin");
+                    break;
             }
         })
     }

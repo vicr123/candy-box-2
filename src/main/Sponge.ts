@@ -10,6 +10,9 @@ import {CollisionBoxCollection} from "./CollisionBoxCollection";
 import {CollisionBox} from "./CollisionBox";
 import {QuestEntityTeam} from "./QuestEntityTeam";
 import {QuestItemFound} from "./QuestItemFound";
+import {Saving} from "./Saving";
+
+Saving.registerApLocation("apSponge", "SEA_SPONGE_ACQUIRED");
 
 export class Sponge extends QuestEntity{
     // Constructor
@@ -43,6 +46,6 @@ export class Sponge extends QuestEntity{
     // willDie()
     public willDie(): void{
        super.willDie();
-       this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "gridItemPossessedSponge", "You found a sponge.", "You gain a sponge."));
+       this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apSponge", "You found a sponge.", "You gain a sponge."));
     }
 }

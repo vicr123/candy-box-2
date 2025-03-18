@@ -18,6 +18,11 @@ import {QuestLogMessage} from "./QuestLogMessage";
 import {Algo} from "./Algo";
 import {QuestItemFound} from "./QuestItemFound";
 import {Color} from "./Color";
+import {Saving} from "./Saving";
+
+Saving.registerApLocation("apRedFin", "SEA_RED_FIN_ACQUIRED")
+Saving.registerApLocation("apGreenFin", "SEA_GREEN_FIN_ACQUIRED")
+Saving.registerApLocation("apPurpleFin", "SEA_PURPLE_FIN_ACQUIRED")
 
 export class BigShark extends QuestEntity{
     // Do we have a special fin?
@@ -93,13 +98,13 @@ export class BigShark extends QuestEntity{
         if(this.finType != null){
             switch(this.finType){
                 case BigSharkFinType.RED:
-                    this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "gridItemPossessedRedSharkFin", "You found a red shark fin", "You gain a red shark fin"));
+                    this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apRedFin", "You found a red shark fin", "You gain a red shark fin"));
                 break;
                 case BigSharkFinType.GREEN:
-                    this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "gridItemPossessedGreenSharkFin", "You found a green shark fin", "You gain a green shark fin"));
+                    this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apGreenFin", "You found a green shark fin", "You gain a green shark fin"));
                 break;
                 case BigSharkFinType.PURPLE:
-                    this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "gridItemPossessedPurpleSharkFin", "You found a purple shark fin", "You gain a purple shark fin"));
+                    this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apPurpleFin", "You found a purple shark fin", "You gain a purple shark fin"));
                 break;
             }
         }

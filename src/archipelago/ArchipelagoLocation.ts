@@ -67,7 +67,12 @@ export const ArchipelagoLocation = {
     TREE_SQUIRREL_QUESTION_3: 4402,
     TREE_SQUIRREL_QUESTION_4: 4403,
     TREE_SQUIRREL_QUESTION_5: 4404,
-    TREE_SQUIRREL_TIC_TAC_TOE: 4405
+    TREE_SQUIRREL_TIC_TAC_TOE: 4405,
+    SEA_SPONGE_ACQUIRED: 4500,
+    SEA_SHELL_POWDER_ACQUIRED: 4501,
+    SEA_RED_FIN_ACQUIRED: 4502,
+    SEA_GREEN_FIN_ACQUIRED: 4503,
+    SEA_PURPLE_FIN_ACQUIRED: 4504
 } satisfies Record<string, number>
 
 export const ArchipelagoLocationRegion = {
@@ -141,7 +146,12 @@ export const ArchipelagoItem = {
     CANDY_500: 49,
     LOLLIPOP_3: 50,
     CHOCOLATE_BAR_3: 51,
-    THIRD_HOUSE_KEY: 52
+    THIRD_HOUSE_KEY: 52,
+    SPONGE: 53,
+    SHELL_POWDER: 54,
+    RED_FIN: 55,
+    GREEN_FIN: 56,
+    PURPLE_FIN: 57
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000
