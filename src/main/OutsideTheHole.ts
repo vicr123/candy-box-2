@@ -26,7 +26,7 @@ export class OutsideTheHole extends Place{
     
     // Private methods 
     private jump(): void{
-        this.getGame().setPlace(new TheHole(this.getGame()));
+        this.getGame().loadRandomisedEntrance("Hole Click");
     }
     
     private update(): void{

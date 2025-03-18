@@ -85,6 +85,8 @@ import {CastleRoom3} from "./CastleRoom3";
 import {Hell} from "./Hell";
 import {Developer} from "./Developer";
 import {FortressRoom2} from "./FortressRoom2";
+import {TheHole} from "./TheHole";
+import { FortressRoom1 } from "./FortressRoom1";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerString("gameLanguage", "en");
@@ -508,7 +510,12 @@ export class Game{
             case "The Teapot Quest":
                 await this.setPlace(new FortressRoom2(this));
                 break;
-
+            case "The Hole":
+                await this.setPlace(new TheHole(this));
+                break;
+            case "The Xinopherydron Quest":
+                await this.setPlace(new FortressRoom1(this));
+                break;
         }
     }
 

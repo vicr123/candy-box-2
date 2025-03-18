@@ -18,7 +18,7 @@ import {QuestEntityHealthBarPositionType} from "./QuestEntityHealthBarPositionTy
 import {BarType} from "./BarType";
 import {QuestItemFound} from "./QuestItemFound";
 
-Saving.registerBool("fortressRoom1ChestFound", false);
+Saving.registerApLocation("apUnicornHorn", "UNICORN_HORN_ACQUIRED");
 
 export class FortressRoom1 extends Quest{
     // Did we open the chest?
@@ -59,7 +59,7 @@ export class FortressRoom1 extends Quest{
         this.addXinopherydon(new Pos(181, 2));
         
         // Add the chest
-        this.addEntity(new Chest(this, new Pos(203, 24), false, new CallbackCollection(this.openChest.bind(this)), Saving.loadBool("fortressRoom1ChestFound")));
+        this.addEntity(new Chest(this, new Pos(203, 24), false, new CallbackCollection(this.openChest.bind(this)), Saving.loadBool("apUnicornHorn")));
         
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter the first room. It seems tricky."));
@@ -84,11 +84,6 @@ export class FortressRoom1 extends Quest{
         
         // We call the endQuest method of our mother class
         super.endQuest(win);
-        
-        // If we won and we opened the chest, we confirm that we found it
-        if(win && this.chestOpened){
-            Saving.saveBool("fortressRoom1ChestFound", true);
-        }
     }
     
     public update(): void{
@@ -166,6 +161,6 @@ export class FortressRoom1 extends Quest{
     
     private openChest(): void{
         this.chestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "gridItemPossessedUnicornHorn", "You opened a chest and found a unicorn horn!", "You gain a unicorn horn."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "apUnicornHorn", "You opened a chest and found a unicorn horn!", "You gain a unicorn horn."));
     }
 }

@@ -142,6 +142,12 @@ export class ArchipelagoItemProcessing {
                 case "KNIGHT_BODY_ARMOUR":
                     game.gainItem("eqItemBodyArmoursKnightBodyArmour");
                     break;
+                case "XINOPHERYDON_CLAW":
+                    game.gainItem("gridItemPossessedXinopherydonClaw")
+                    break;
+                case "UNICORN_HORN":
+                    game.gainItem("gridItemPossessedUnicornHorn")
+                    break;
             }
         })
     }

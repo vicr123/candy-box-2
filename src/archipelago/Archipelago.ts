@@ -15,9 +15,10 @@ type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemT
 
 export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Click" | "The Bridge Click" | "The Octopus King Click" |
     "Naked Monkey Wizard Click" | "The Forest Click" | "Castle Entrance Click" | "Giant Nougat Monster Click" | "Castle Egg Room Click" |
-    "Hell Room Click" | "The Developer Quest Click" | "The Teapot Quest Click";
+    "Hell Room Click" | "The Developer Quest Click" | "The Teapot Quest Click" | "Hole Click" | "The Xinopherydron Quest Click";
 export type ArchipelagoExit = "Village Cellar" | "The Desert" | "The Bridge" | "The Octopus King Quest" | "The Naked Monkey Wizard" |
-    "The Forest" | "The Castle Entrance" | "The Giant Nougat Monster" | "The Castle Egg Room" | "Hell" | "The Developer Quest" | "The Teapot Quest";
+    "The Forest" | "The Castle Entrance" | "The Giant Nougat Monster" | "The Castle Egg Room" | "Hell" | "The Developer Quest" | "The Teapot Quest" |
+    "The Hole" | "The Xinopherydron Quest";
 
 type EntrancePairing = [ArchipelagoEntrance, ArchipelagoExit];
 
