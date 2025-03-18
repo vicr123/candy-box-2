@@ -135,7 +135,12 @@ export const ArchipelagoItem = {
     HEART_PENDANT: 43,
     BLACK_MAGIC_GRIMOIRE: 44,
     CHOCOLATE_BAR_4: 45,
-    PITCHFORK: 46
+    PITCHFORK: 46,
+    CANDY_20: 47,
+    CANDY_100: 48,
+    CANDY_500: 49,
+    LOLLIPOP_3: 50,
+    CHOCOLATE_BAR_3: 51
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000
