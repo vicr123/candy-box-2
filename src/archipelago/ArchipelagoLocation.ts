@@ -140,7 +140,8 @@ export const ArchipelagoItem = {
     CANDY_100: 48,
     CANDY_500: 49,
     LOLLIPOP_3: 50,
-    CHOCOLATE_BAR_3: 51
+    CHOCOLATE_BAR_3: 51,
+    THIRD_HOUSE_KEY: 52
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000
