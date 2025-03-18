@@ -11,6 +11,7 @@ import {CallbackCollection} from "./CallbackCollection";
 import {Archipelago, ScoutResults} from "../archipelago/Archipelago";
 import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
 import { Item } from "archipelago.js";
+import {san} from "../utils";
 
 Saving.registerApLocation("forgeFoundLollipop", "FORGE_LOLLIPOP");
 
@@ -152,7 +153,7 @@ export class Forge extends House{
             sentence = `I'm sure ${item.receiver.name} will have lots of fun with it(!)`;
         }
 
-        this.currentSpeech = `Thanks for the candies! I've just sent ${item.name} straight to ${item.game} - free of charge! ${sentence}`
+        this.currentSpeech = san`Thanks for the candies! I've just sent ${item.name} straight to ${item.game} - free of charge! ${sentence}`
     }
     
     private drawLollipopStuff(x: number, y: number): void{

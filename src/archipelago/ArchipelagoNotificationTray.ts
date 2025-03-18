@@ -8,6 +8,7 @@ import {CallbackCollection} from "../main/CallbackCollection";
 import {Game} from "../main/Game";
 import {Archipelago} from "./Archipelago";
 import {Item} from "archipelago.js";
+import {san} from "../utils";
 
 export class ArchipelagoNotificationTray {
     private statusBar: StatusBar;
@@ -25,10 +26,13 @@ export class ArchipelagoNotificationTray {
         Archipelago.events.on("itemToBeProcessed",(item: Item) => {
             if (item.sender.name == Archipelago.client.name && item.receiver.name == Archipelago.client.name) {
                 this.queueNotification(new ArchipelagoNotification("selfgive", item.name, item.receiver.name));
-            } else if (item.sender.name == Archipelago.client.name) {
-                this.queueNotification(new ArchipelagoNotification("give", item.name, item.receiver.name));
             } else if (item.receiver.name == Archipelago.client.name) {
                 this.queueNotification(new ArchipelagoNotification("get", item.name, item.sender.name));
+            }
+        })
+        Archipelago.client.messages.on("itemSent", (_, item) => {
+            if (item.sender.name == Archipelago.client.name) {
+                this.queueNotification(new ArchipelagoNotification("give", item.name, item.receiver.name));
             }
         })
 
@@ -47,7 +51,7 @@ export class ArchipelagoNotificationTray {
         switch (notification.type) {
             case "get":
                 renderArea.drawString(`Archipelago Update:`, 31, 1);
-                renderArea.drawString(`Got ${notification.item} from ${notification.obtainer}!`, 31, 2);
+                renderArea.drawString(san`Got ${notification.item} from ${notification.obtainer}!`, 31, 2);
                 renderArea.addBold(30 + 5, 30 + 5 + notification.item.length, 2);
                 renderArea.addBold(30 + 5 + notification.item.length + 6, 30 + 5 + notification.item.length + 6 + notification.obtainer.length, 2);
                 renderArea.addBackgroundColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_NOTIFICATION));
@@ -59,7 +63,7 @@ export class ArchipelagoNotificationTray {
                 break;
             case "give":
                 renderArea.drawString(`Archipelago Update:`, 31, 1);
-                renderArea.drawString(`Sent ${notification.item} to ${notification.obtainer}!`, 31, 2);
+                renderArea.drawString(san`Sent ${notification.item} to ${notification.obtainer}!`, 31, 2);
                 renderArea.addBold(30 + 6, 30 + 6 + notification.item.length, 2);
                 renderArea.addBold(30 + 6 + notification.item.length + 4, 30 + 6 + notification.item.length + 4 + notification.obtainer.length, 2);
                 renderArea.addBackgroundColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_NOTIFICATION));
@@ -71,7 +75,7 @@ export class ArchipelagoNotificationTray {
                 break;
             case "selfgive":
                 renderArea.drawString(`Archipelago Update:`, 31, 1);
-                renderArea.drawString(`Got ${notification.item}!`, 31, 2);
+                renderArea.drawString(san`Got ${notification.item}!`, 31, 2);
                 renderArea.addBold(30 + 5, 30 + 5 + notification.item.length, 2);
                 renderArea.addBackgroundColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_NOTIFICATION));
                 renderArea.addColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_NOTIFICATION_FOREGROUND));
@@ -82,7 +86,7 @@ export class ArchipelagoNotificationTray {
                 break;
             case "deathlink":
                 renderArea.drawString(`Archipelago Update:`, 31, 1);
-                renderArea.drawString(`Death granted by ${notification.obtainer}!`, 31, 2);
+                renderArea.drawString(san`Death granted by ${notification.obtainer}!`, 31, 2);
                 renderArea.drawString(notification.item, 31, 3);
                 renderArea.addBold(30 + 18, 30 + 18 + notification.obtainer.length, 2);
                 renderArea.addBackgroundColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_DEATHLINK, false));

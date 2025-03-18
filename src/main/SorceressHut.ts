@@ -9,6 +9,7 @@ import {Database} from "./Database";
 import {RenderTransparency} from "./RenderTransparency";
 import {Archipelago, ScoutResults} from "../archipelago/Archipelago";
 import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
+import {san} from "../utils";
 
 Saving.registerApLocation("sorceressHutTookLollipop", "SORCERESS_HUT_LOLLIPOP");
 Saving.registerApLocation("sorceressHutBoughtGrimoire", "SORCERESS_HUT_BEGINNER_GRIMOIRE");
@@ -108,7 +109,7 @@ export class SorceressHut extends Place{
     private clickedCauldron(): void{
         const item = this.itemScoutResults.findItem("SORCERESS_HUT_CAULDRON");
         // Set the new speech
-        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 100 000 lollipops!`;
+        this.currentSpeech = san`That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 100 000 lollipops!`;
         
         // Update
         this.update();
@@ -119,7 +120,7 @@ export class SorceressHut extends Place{
     private clickedGrimoire(): void{
         const item = this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNER_GRIMOIRE");
         // Set the new speech
-        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 5 000 lollipops!`;
+        this.currentSpeech = san`That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 5 000 lollipops!`;
         
         // Update
         this.update();
@@ -130,7 +131,7 @@ export class SorceressHut extends Place{
     private clickedGrimoire2(): void{
         const item = this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE");
         // Set the new speech
-        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 20 000 lollipops!`;
+        this.currentSpeech = san`That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 20 000 lollipops!`;
         
         // Update
         this.update();
@@ -141,7 +142,7 @@ export class SorceressHut extends Place{
     private clickedHat(): void{
         const item = this.itemScoutResults.findItem("SORCERESS_HUT_HAT");
         // Set the new speech
-        this.currentSpeech = `That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 1 000 000 000 lollipops!`;
+        this.currentSpeech = san`That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 1 000 000 000 lollipops!`;
         
         // Update
         this.update();

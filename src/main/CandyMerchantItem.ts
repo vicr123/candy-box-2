@@ -3,6 +3,7 @@ import {Game} from "./Game";
 import {Saving} from "./Saving";
 import {Item} from "archipelago.js";
 import {Database} from "./Database";
+import {san} from "../utils";
 
 export class CandyMerchantItem{
     // The game
@@ -95,7 +96,7 @@ export class CandyMerchantItem{
     }
     
     public getMerchantSpeech(): string{
-        return `This is ${this.merchantSpeech.receiver.name}'s ${this.merchantSpeech.name}. I'll send it straight to ${this.merchantSpeech.receiver.game} with free express shipping for ${this.price} candies!`;
+        return san`This is ${this.merchantSpeech.receiver.name}'s ${this.merchantSpeech.name}. I'll send it straight to ${this.merchantSpeech.receiver.game} with free express shipping for ${this.price} candies!`;
     }
     
     public getPrice(): number{

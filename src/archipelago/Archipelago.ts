@@ -8,6 +8,7 @@ import {
     ArchipelagoLocation,
     ArchipelagoLocationRegion
 } from "./ArchipelagoLocation";
+import {san, sanitiseText} from "../utils";
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
 type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed";
@@ -119,10 +120,38 @@ export class ScoutResults {
     }
 }
 
-Archipelago.client.messages.on("message", content => {
-    console.log(content);
-    for (const line of content.split("\n")) {
-        Archipelago.apLog.addMessage(new QuestLogMessage(line));
+Archipelago.client.messages.on("message", content => console.log(content));
+Archipelago.client.messages.on("chat", (message, player) => {
+    for (const line of message.split("\n")) {
+        if (player.name == Archipelago.client.name) {
+            Archipelago.apLog.addMessage(new QuestLogMessage("", sanitiseText(line)));
+        } else {
+            Archipelago.apLog.addMessage(new QuestLogMessage(san`${player.name}: ${line}`));
+        }
+    }
+    Archipelago.events.emit("apLogUpdated");
+})
+Archipelago.client.messages.on("serverChat", (message) => {
+    for (const line of message.split("\n")) {
+        Archipelago.apLog.addMessage(new QuestLogMessage(sanitiseText(line)));
+    }
+    Archipelago.events.emit("apLogUpdated");
+})
+Archipelago.client.messages.on("tutorial", (message) => {
+    for (const line of message.split("\n")) {
+        Archipelago.apLog.addMessage(new QuestLogMessage(sanitiseText(line)));
+    }
+    Archipelago.events.emit("apLogUpdated");
+})
+Archipelago.client.messages.on("userCommand", (message) => {
+    for (const line of message.split("\n")) {
+        Archipelago.apLog.addMessage(new QuestLogMessage(sanitiseText(line)));
+    }
+    Archipelago.events.emit("apLogUpdated");
+})
+Archipelago.client.messages.on("adminCommand", (message) => {
+    for (const line of message.split("\n")) {
+        Archipelago.apLog.addMessage(new QuestLogMessage(sanitiseText(line)));
     }
     Archipelago.events.emit("apLogUpdated");
 })
