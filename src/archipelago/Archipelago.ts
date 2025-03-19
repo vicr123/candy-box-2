@@ -26,7 +26,8 @@ type EntrancePairing = [ArchipelagoEntrance, ArchipelagoExit];
 
 interface ArchipelagoSlotData {
     uuid: string;
-    entranceInformation: EntrancePairing[]
+    entranceInformation: EntrancePairing[];
+    deathLink: number;
 }
 
 function createObservable<T>(initialValue: T, eventEmitter: EventEmitter<ArchipelagoEventTypes>, event: ArchipelagoEventTypes) {
@@ -67,10 +68,14 @@ export namespace Archipelago {
             // @ts-expect-error Slot data type is correct here
             slotData = await client.login<ArchipelagoSlotData>(apLink, apSlot, "Candy Box 2", {
                 password: apPassword,
-                tags: ["DeathLink"],
                 items: itemsHandlingFlags.all
             });
             localSaveSlot = slotData.uuid;
+
+            if (slotData.deathLink) {
+                client.deathLink.enableDeathLink()
+            }
+
             connectionStatus.current = "connected";
         } catch (e) {
             connectionStatus.current = "disconnected";
