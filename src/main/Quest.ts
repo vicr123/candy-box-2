@@ -525,7 +525,7 @@ export class Quest extends Place{
     }
     
     public castPlayerXPotion(): void{
-        this.getGame().goToYourself();
+        this.getGame().loadRandomisedEntrance("The X Potion Quest Click")
     }
     
     public configPlayerOrClone(entity: QuestEntity): void{

@@ -478,7 +478,9 @@ export class Game{
 
     public async loadRandomisedEntrance(entrance: ArchipelagoEntrance) {
         // Save the current place for later
-        this.questEntry = this.place;
+        if (!this.questEntry) {
+            this.questEntry = this.place;
+        }
 
         switch (Archipelago.findExit(entrance)) {
             case "Village Cellar":
@@ -531,6 +533,10 @@ export class Game{
                 break;
             case "The Sea":
                 await this.setPlace(new TheSea(this));
+                break;
+            case "The X Potion Quest":
+                await this.setPlace(new Yourself(this));
+                break;
         }
     }
 

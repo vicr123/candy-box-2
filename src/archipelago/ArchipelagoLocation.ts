@@ -74,7 +74,8 @@ export const ArchipelagoLocation = {
     SEA_GREEN_FIN_ACQUIRED: 4503,
     SEA_PURPLE_FIN_ACQUIRED: 4504,
     X_MARKS_THE_SPOT: 4600,
-    LOCKED_CANDY_BOX_ACQUIRED: 4700
+    LOCKED_CANDY_BOX_ACQUIRED: 4700,
+    BOOTS_OF_INTROSPECTION_ACQUIRED: 4800
 } satisfies Record<string, number>
 
 export const ArchipelagoLocationRegion = {
@@ -154,7 +155,8 @@ export const ArchipelagoItem = {
     RED_FIN: 55,
     GREEN_FIN: 56,
     PURPLE_FIN: 57,
-    LOCKED_CANDY_BOX: 58
+    LOCKED_CANDY_BOX: 58,
+    BOOTS_OF_INTROSPECTION: 59
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000
