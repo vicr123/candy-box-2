@@ -7,6 +7,8 @@ import {CallbackCollection} from "../main/CallbackCollection";
 import {Pos} from "../main/Pos";
 import {Saving} from "../main/Saving";
 import {MainLoadingType} from "../main/MainLoadingType";
+import {Color} from "../main/Color";
+import {ColorType} from "../main/ColorType";
 
 export class ArchipelagoPlace extends Place {
     // The render area
@@ -23,6 +25,7 @@ export class ArchipelagoPlace extends Place {
         this.update();
 
         Archipelago.events.on("connectionStatusChanged", this.externalUpdate.bind(this));
+        Archipelago.events.on("connectionErrorStringChanged", this.externalUpdate.bind(this));
         Archipelago.events.on("connectionStatusChanged", () => {
             if (Archipelago.connectionStatus.current == "connected" && !Saving.loadBool("statusBarUnlockedAp")) {
                 // Initial setup complete - start the game by going to the candy box
@@ -54,7 +57,6 @@ export class ArchipelagoPlace extends Place {
     }
 
     private update(): void{
-        console.log("Update AP")
         // Erase everything
         this.renderArea.resetAllButSize();
 
@@ -65,9 +67,9 @@ export class ArchipelagoPlace extends Place {
         this.renderArea.drawString(Database.getText("apPassword"), 7, 20);
 
         if (Archipelago.connectionStatus.current == "disconnected") {
-            this.renderArea.addSimpleInput(10, 30, 12, new CallbackCollection(this.changeApUrl.bind(this)), "apUrl", Archipelago.apLink, false);
-            this.renderArea.addSimpleInput(10, 30, 17, new CallbackCollection(this.changeApSlot.bind(this)), "apSlot", Archipelago.apSlot, false);
-            this.renderArea.addSimpleInput(10, 30, 22, new CallbackCollection(this.changeApPassword.bind(this)), "apPassword", Archipelago.apPassword, false);
+            this.renderArea.addSimpleInput(10, 40, 12, new CallbackCollection(this.changeApUrl.bind(this)), "apUrl", Archipelago.apLink, false);
+            this.renderArea.addSimpleInput(10, 40, 17, new CallbackCollection(this.changeApSlot.bind(this)), "apSlot", Archipelago.apSlot, false);
+            this.renderArea.addSimpleInput(10, 40, 22, new CallbackCollection(this.changeApPassword.bind(this)), "apPassword", Archipelago.apPassword, false);
         } else {
             this.renderArea.drawString(Archipelago.apLink, 10, 12);
             this.renderArea.drawString(Archipelago.apSlot, 10, 17);
@@ -86,6 +88,11 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.addAsciiRealButton(Database.getText("apDisconnect"), 7, 25, "apDisconnect", Database.getText("apDisconnectWarning"), true);
                 this.renderArea.addLinkCall(".apDisconnect", new CallbackCollection(this.disconnectFromAp.bind(this)));
                 break;
+        }
+
+        if (Archipelago.connectionError.current.length != 0) {
+            this.renderArea.drawString(Archipelago.connectionError.current, 7, 27);
+            this.renderArea.addColor(7, 7 + Archipelago.connectionError.current.length, 27, new Color(ColorType.SAVE_RED));
         }
 
         this.renderApLog();
