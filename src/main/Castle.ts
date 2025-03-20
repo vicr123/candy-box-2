@@ -155,7 +155,7 @@ export class Castle extends Place{
     }
 
     private goToNougatMonster(): void{
-        this.getGame().loadRandomisedEntrance("Castle Entrance Click");
+        this.getGame().loadRandomisedEntrance("Giant Nougat Monster Click");
     }
     
     private goToRoom1(): void{

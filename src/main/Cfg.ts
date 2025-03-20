@@ -62,7 +62,7 @@ export class Cfg extends Place{
         // Who...
         this.renderArea.drawString("Ideas, game design & code by aniwey.", x + 4, y + 9);
         this.renderArea.drawString("Ascii art by Tobias Nordqvist, GodsTurf, dixsept, Dani \"Deinol\" Gómez and aniwey.", x + 4, y + 10);
-        this.renderArea.drawString("Archipelago fork by Victor Tran.", x + 4, y + 11);
+        this.renderArea.drawString("Archipelago fork by Victor Tran and Aren Merzoian.", x + 4, y + 11);
         
         // License?
         this.renderArea.drawString("License?", x + 2, y + 13);
