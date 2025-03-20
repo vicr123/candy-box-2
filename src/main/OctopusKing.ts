@@ -14,6 +14,9 @@ import {QuestEntityWeapon} from "./QuestEntityWeapon";
 import {QuestLogMessage} from "./QuestLogMessage";
 import {Algo} from "./Algo";
 import {QuestItemFound} from "./QuestItemFound";
+import { Saving } from "./Saving";
+
+Saving.registerApLocation("apOctopusKingCrown", "OCTOPUS_KING_QUEST")
 
 export class OctopusKing extends QuestEntity{
     // Constructor
@@ -63,6 +66,6 @@ export class OctopusKing extends QuestEntity{
         // Candies
         this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage() + " (and found " + Algo.pluralFormat(this.getQuest().foundCandies(4000), " candy", " candies") + ")", this.getQuest().getCandiesFoundMessage()));
         // The monkey wizard staff
-        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "eqItemHatOctopusKingCrown", "You found the Octopus King crown.", "You gain the Octopus King crown."));
+        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apOctopusKingCrown", "You found the Octopus King crown.", "You gain the Octopus King crown."));
     }
 }

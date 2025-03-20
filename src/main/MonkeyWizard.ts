@@ -18,6 +18,9 @@ import {MonkeyWizardMagicalPurpleBall} from "./MonkeyWizardMagicalPurpleBall";
 import {Color} from "./Color";
 import {ColorType} from "./ColorType";
 import {Random} from "./Random";
+import {Saving} from "./Saving";
+
+Saving.registerApLocation("apMonkeyWizardStaff", "MONKEY_WIZARD_QUEST")
 
 export class MonkeyWizard extends QuestEntity{
     // Timer used for spell casting
@@ -156,7 +159,7 @@ export class MonkeyWizard extends QuestEntity{
         // Candies
         this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage() + " (and found " + Algo.pluralFormat(this.getQuest().foundCandies(1000), " candy", " candies") + ")", this.getQuest().getCandiesFoundMessage()));
         // The monkey wizard staff
-        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "eqItemWeaponMonkeyWizardStaff", "You found a staff.", "You gain the monkey wizard staff."));
+        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apMonkeyWizardStaff", "You found a staff.", "You gain the monkey wizard staff."));
     }
     
     // Private methods
