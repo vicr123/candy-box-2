@@ -77,6 +77,11 @@ export namespace Archipelago {
             }
 
             connectionStatus.current = "connected";
+
+            client.socket.on("disconnected", () => {
+                connectionStatus.current = "disconnected";
+                interruptGame(true);
+            })
         } catch (e) {
             connectionStatus.current = "disconnected";
 
@@ -141,6 +146,89 @@ export namespace Archipelago {
 
     export function findExit(entrance: ArchipelagoEntrance) {
         return slotData.entranceInformation.find(([transitionEntrance]) => transitionEntrance == entrance)[1];
+    }
+
+    function interruptGame(isDisconnection: boolean) {
+        const container = document.createElement("pre");
+        container.style.position = "fixed";
+        container.style.top = "0";
+        container.style.bottom = "0";
+        container.style.left = "0";
+        container.style.right = "0";
+        container.style.background = "rgba(0, 0, 0, 0.8)"
+        container.style.color = "white";
+        container.style.display = "flex";
+        container.style.alignItems = "center";
+        container.style.justifyContent = "center";
+        container.style.flexDirection = "column";
+        container.style.zIndex = "100";
+        container.style.margin = "0";
+
+        if (isDisconnection) {
+            const errorMessage = document.createElement("span");
+            errorMessage.innerText = "Lost connection to the Archipelago server";
+            errorMessage.style.position = "static";
+            container.appendChild(errorMessage)
+
+            const spacing = document.createElement("span");
+            spacing.innerText = " ";
+            spacing.style.position = "static";
+            container.appendChild(spacing)
+
+            const button = document.createElement("span");
+            button.classList.add("asciiRealButton");
+            button.innerText = "Reload and try again (your game will be saved)"
+            button.style.color = "black"
+            button.style.position = "static";
+            button.onclick = () => window.location.reload()
+            container.appendChild(button);
+
+            document.body.style.pointerEvents = "initial";
+        } else {
+            const errorMessage = document.createElement("span");
+            errorMessage.innerText = "Waiting for Archipelago...";
+            errorMessage.style.position = "static";
+            container.appendChild(errorMessage)
+        }
+
+        document.body.appendChild(container);
+
+        return container;
+    }
+
+    export function interruptAfterTimeout<T>(operation: Promise<T>) {
+        return new Promise<T>((res, rej) => {
+            const finishInterrupt = () => {
+                document.body.style.pointerEvents = "initial";
+                operation.then(res).catch(rej);
+            }
+
+            document.body.style.pointerEvents = "none";
+
+            let interrupt: HTMLPreElement | undefined;
+            let shouldRemoveInterrupt = false;
+            let operationDone = false;
+
+            const timeout = setTimeout(() => {
+                interrupt = interruptGame(false);
+                setTimeout(() => {
+                    shouldRemoveInterrupt = true;
+                    if (operationDone) {
+                        interrupt.remove();
+                        finishInterrupt();
+                    }
+                }, 1000);
+            }, 1000);
+
+            operation.finally(() => {
+                clearTimeout(timeout);
+                operationDone = true;
+                if (!interrupt || shouldRemoveInterrupt) {
+                    interrupt?.remove();
+                    finishInterrupt();
+                }
+            })
+        })
     }
 }
 

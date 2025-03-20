@@ -452,7 +452,7 @@ export class Game{
     public async setPlace(place: Place): Promise<void>{
         if (this.blockRoomTransitions) return;
 
-        place.scoutResults(await Archipelago.scoutRoom(place.scoutKeys()));
+        place.scoutResults(await Archipelago.interruptAfterTimeout(Archipelago.scoutRoom(place.scoutKeys())));
 
         // If the current place isn't null, we warn it that we're going to stop displaying it
         if(this.place != null){
@@ -982,6 +982,9 @@ export class Game{
     }
     
     private oneSecondMethod(): void{
+        // If we're not connected to Archipelago, we pause the game
+        if (Archipelago.connectionStatus.current != "connected") return;
+
         // Our methods
         this.player.magicHealthRegain();
         this.handleCandiesProduction();
