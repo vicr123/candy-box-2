@@ -40,6 +40,7 @@
     "mapVillageForgeIntroductionSpeechNoMoreToSell": "Hi! I'm a blacksmith. Sadly, I have nothing more to sell. Come back later, maybe?",
     "mapVillageFifthHouseNoWeaponSpeech": "Hello. My cellar is full of rats, I need to get rid of them... if only someone with a weapon could help me...",
     "mapVillageFifthHouseWeaponSpeech": "Hey, you! I see you carry a weapon! If you kill the rats pestering my cellar, I'll reward you!",
+    "mapVillageFifthHouseEggSpeech": "Hey, you! Want to play a game? If you manage to get through my cellar without breaking an egg, I'll reward you!",
     "mapVillageFifthHouseAgree": "Let's go, then!",
     "mapVillageFifthHouseCellarDone": "Thank you for getting rid of them! Here's something very precious as a reward : a map of the world. I think you will use it more than I do.",
     "mapVillageTheShopComment": "The shop",

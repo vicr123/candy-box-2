@@ -7,6 +7,7 @@ import {Database} from "./Database";
 import {Cellar} from "./Cellar";
 import {Saving} from "./Saving";
 import {CallbackCollection} from "./CallbackCollection";
+import {Archipelago} from "../archipelago/Archipelago";
 
 export class FifthHouse extends House{
     private renderArea: RenderArea = new RenderArea();
@@ -38,20 +39,29 @@ export class FifthHouse extends House{
         void this.getGame().loadRandomisedEntrance("Village House Enter Cellar");
     }
     
-    private update(): void{
+    private update(): void {
         // Erase everything
         this.renderArea.resetAllButSize();
-        
+
         // Back to the village button
         this.addBackToTheVillageButton(this.renderArea, "fifthHouseBackToTheVillageButton");
-        
+
         // Draw the house
         this.renderArea.drawArray(Database.getAscii("places/village/fifthHouse"), 0, 3);
 
         // If we have a weapon
-        if(this.getGame().getSelectedEqItems()["weapon"] != null){
+        if (this.getGame().getSelectedEqItems()["weapon"] != null) {
             // Draw the speech
             this.renderArea.drawSpeech(Database.getText("mapVillageFifthHouseWeaponSpeech"), 6, 44, 67, "fifthHouseSpeech", Database.getTranslatedText("mapVillageFifthHouseWeaponSpeech"));
+
+            // Add the button
+            this.renderArea.addAsciiRealButton(Database.getText("mapVillageFifthHouseAgree"), 69, 8, "mapVillageFifthHouseAgreeButton", Database.getTranslatedText("mapVillageFifthHouseAgree"), true);
+            this.renderArea.addLinkCall(".mapVillageFifthHouseAgreeButton", new CallbackCollection(this.beginQuest.bind(this)));
+        }
+        // Else if this quest is the egg quest
+        else if (Archipelago.findExit("Village House Enter Cellar") == "The Castle Egg Room") {
+            // Draw the speech
+            this.renderArea.drawSpeech(Database.getText("mapVillageFifthHouseEggSpeech"), 6, 44, 67, "fifthHouseSpeech", Database.getTranslatedText("mapVillageFifthHouseEggSpeech"));
 
             // Add the button
             this.renderArea.addAsciiRealButton(Database.getText("mapVillageFifthHouseAgree"), 69, 8, "mapVillageFifthHouseAgreeButton", Database.getTranslatedText("mapVillageFifthHouseAgree"), true);
