@@ -12,6 +12,9 @@ import {Algo} from "./Algo";
 import {CallbackCollection} from "./CallbackCollection";
 import {RenderTransparency} from "./RenderTransparency";
 import {Random} from "./Random";
+import {Archipelago} from "../archipelago/Archipelago";
+import {Color} from "./Color";
+import { ColorType } from "./ColorType";
 
 Saving.registerBool("lollipopFarmPlant1LollipopButtonUnlocked", false);
 Saving.registerBool("lollipopFarmPlant10LollipopsButtonUnlocked", false);
@@ -223,7 +226,13 @@ export class LollipopFarm extends Place{
 
         // The production
         if(Saving.loadNumber("lollipopFarmLollipopsPlanted") > 0){
-            this.renderArea.drawString("Production : " + this.getProductionAsString(), x, y+4);
+            const productionString = "Production : " + this.getProductionAsString()
+            this.renderArea.drawString(productionString, x, y+4);
+            if (Archipelago.slotData.multipliers.lollipops > 1) {
+                const productionMultiplicationString = ` ×${Archipelago.slotData.multipliers.lollipops} (Archipelago) `
+                this.renderArea.drawString(productionMultiplicationString, x + productionString.length + 1, y + 4);
+                this.renderArea.addBackgroundColor(x + productionString.length + 1, x + productionString.length + 1 + productionMultiplicationString.length, y + 4, new Color(ColorType.HEALTH_GREEN));
+            }
         }
     }
     
@@ -245,8 +254,16 @@ export class LollipopFarm extends Place{
         
             // Draw the current candies production if it's different from one
             if(Saving.loadNumber("lollipopFarmCurrentCandiesProduction") != 1){
-                this.renderArea.drawString(Database.getText("lollipopFarmCurrentCandiesProduction") + " : " + Saving.loadNumber("lollipopFarmCurrentCandiesProduction").toString() + " each second", x+30, y+3);
-                this.renderArea.drawString(Database.getTranslatedText("lollipopFarmCurrentCandiesProduction"), x+30, y+4, true);
+                // this.renderArea.drawString(Database.getTranslatedText("lollipopFarmCurrentCandiesProduction"), x+30, y+4, true);
+
+
+                const productionString = Database.getText("lollipopFarmCurrentCandiesProduction") + " : " + Saving.loadNumber("lollipopFarmCurrentCandiesProduction").toString() + " each second"
+                this.renderArea.drawString(productionString, x+30, y+3);
+                if (Archipelago.slotData.multipliers.candies > 1) {
+                    const productionMultiplicationString = ` ×${Archipelago.slotData.multipliers.candies} (Archipelago) `
+                    this.renderArea.drawString(productionMultiplicationString, x + 30 + productionString.length + 1, y + 3);
+                    this.renderArea.addBackgroundColor(x + 30 + productionString.length + 1, x + 30 + productionString.length + 1 + productionMultiplicationString.length, y + 3, new Color(ColorType.HEALTH_GREEN));
+                }
             }
         }
     }

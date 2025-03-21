@@ -32,6 +32,10 @@ interface ArchipelagoSlotData {
     entranceInformation: EntrancePairing[];
     deathLink: number;
     expectedClientVersion: string;
+    multipliers: {
+        candies: number;
+        lollipops: number;
+    }
 }
 
 function createObservable<T>(initialValue: T, eventEmitter: EventEmitter<ArchipelagoEventTypes>, event: ArchipelagoEventTypes) {
@@ -56,7 +60,7 @@ export namespace Archipelago {
     export let apSlot = localStorage.getItem("apSlot") ?? "";
     export let apPassword = "";
     export let localSaveSlot = "";
-    let slotData: ArchipelagoSlotData;
+    export let slotData: ArchipelagoSlotData;
 
     export const client = new Client();
     export const events = new EventEmitter<ArchipelagoEventTypes>();

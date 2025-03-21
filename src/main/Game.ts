@@ -909,7 +909,7 @@ export class Game{
     }
     
     private handleCandiesProduction(): void{
-        this.candies.add(Saving.loadNumber("lollipopFarmCurrentCandiesProduction"));
+        this.candies.add(Saving.loadNumber("lollipopFarmCurrentCandiesProduction") * Archipelago.slotData.multipliers.candies);
     }
     
     private handleLollipopProduction(): void{
@@ -918,7 +918,7 @@ export class Game{
             // If the production is each second
             if(Saving.loadBool("lollipopFarmIsProductionEachSecond")){
                 // We just add the production as lollipops
-                this.lollipops.add(Saving.loadNumber("lollipopFarmProduction"));
+                this.lollipops.add(Saving.loadNumber("lollipopFarmProduction") * Archipelago.slotData.multipliers.lollipops);
             }
             // Else
             else{
@@ -931,7 +931,7 @@ export class Game{
                 }
                 else{
                     // We increase the time
-                    Saving.saveNumber("lollipopFarmTimeSinceLastProduction", Saving.loadNumber("lollipopFarmTimeSinceLastProduction") + 1);
+                    Saving.saveNumber("lollipopFarmTimeSinceLastProduction", Saving.loadNumber("lollipopFarmTimeSinceLastProduction") + Archipelago.slotData.multipliers.lollipops);
                 }
             }
         }
