@@ -26,6 +26,7 @@ export class ArchipelagoPlace extends Place {
 
         Archipelago.events.on("connectionStatusChanged", this.externalUpdate.bind(this));
         Archipelago.events.on("connectionErrorStringChanged", this.externalUpdate.bind(this));
+        Archipelago.events.on("expectedClientVersionChanged", this.externalUpdate.bind(this));
         Archipelago.events.on("connectionStatusChanged", () => {
             if (Archipelago.connectionStatus.current == "connected" && !Saving.loadBool("statusBarUnlockedAp")) {
                 // Initial setup complete - start the game by going to the candy box
@@ -87,15 +88,23 @@ export class ArchipelagoPlace extends Place {
             case "connected":
                 this.renderArea.addAsciiRealButton(Database.getText("apDisconnect"), 7, 25, "apDisconnect", Database.getText("apDisconnectWarning"), true);
                 this.renderArea.addLinkCall(".apDisconnect", new CallbackCollection(this.disconnectFromAp.bind(this)));
+                this.renderApLog();
                 break;
         }
 
         if (Archipelago.connectionError.current.length != 0) {
             this.renderArea.drawString(Archipelago.connectionError.current, 7, 27);
             this.renderArea.addColor(7, 7 + Archipelago.connectionError.current.length, 27, new Color(ColorType.SAVE_RED));
-        }
 
-        this.renderApLog();
+            if (Archipelago.expectedClientVersion.current) {
+                this.renderArea.addAsciiRealButton(`Load Version ${Archipelago.expectedClientVersion.current}`, 7, 29, "apLoadCorrectVersion");
+                this.renderArea.addLinkCall(".apLoadCorrectVersion", new CallbackCollection(this.loadCorrectVersion.bind(this)))
+            }
+        }
+    }
+
+    private loadCorrectVersion() {
+        window.location.pathname = `/${Archipelago.expectedClientVersion.current}`
     }
 
     private renderApLog() {

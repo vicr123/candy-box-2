@@ -1,5 +1,5 @@
 import * as process from "node:process";
-import {headCommit, latestCommitIsTag, versioningString} from "./versioning.ts";
+import {headCommit, lastTag, latestCommitIsTag, versioningString} from "./versioning.ts";
 import {findExecutable} from "./findExecutable.ts";
 import path from "node:path";
 import {execFile} from "node:child_process";
@@ -23,6 +23,9 @@ const folders = [
 ];
 if (latestCommitIsTag || true) {
     folders.push("latest");
+}
+if (!latestCommitIsTag) {
+    folders.push(`${lastTag}+`);
 }
 
 console.log(`Building client for commit ${headCommit}`)

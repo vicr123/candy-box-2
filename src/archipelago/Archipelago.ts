@@ -11,8 +11,11 @@ import {
 import {san, sanitiseText} from "../utils";
 import {ArchipelagoNotification} from "./ArchipelagoNotificationTray";
 
+declare const __LAST_TAG: string;
+declare const __COMMITS_SINCE_LAST_TAG: string;
+
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
-type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged";
+type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged";
 
 export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Click" | "The Bridge Click" | "The Octopus King Click" |
     "Naked Monkey Wizard Click" | "The Forest Click" | "Castle Entrance Click" | "Giant Nougat Monster Click" | "Castle Egg Room Click" |
@@ -28,6 +31,7 @@ interface ArchipelagoSlotData {
     uuid: string;
     entranceInformation: EntrancePairing[];
     deathLink: number;
+    expectedClientVersion: string;
 }
 
 function createObservable<T>(initialValue: T, eventEmitter: EventEmitter<ArchipelagoEventTypes>, event: ArchipelagoEventTypes) {
@@ -61,6 +65,7 @@ export namespace Archipelago {
 
     export let connectionStatus = createObservable<ConnectionStatus>("disconnected", events, "connectionStatusChanged");
     export let connectionError = createObservable<string>("", events, "connectionErrorStringChanged");
+    export let expectedClientVersion = createObservable("", events, "expectedClientVersionChanged");
 
     export async function connect() {
         connectionError.current = "";
@@ -71,6 +76,17 @@ export namespace Archipelago {
                 password: apPassword,
                 items: itemsHandlingFlags.all
             });
+
+            // Determine if the client version is acceptable
+            const expectedVersion = `${__LAST_TAG}${__COMMITS_SINCE_LAST_TAG != "0" ? "+" : ""}`;
+            if (slotData.expectedClientVersion != expectedVersion && slotData.expectedClientVersion) {
+                client.socket.disconnect();
+                connectionError.current = "This version of Candy Box 2 is not compatible with the server.";
+                expectedClientVersion.current = slotData.expectedClientVersion;
+                connectionStatus.current = "disconnected";
+                return;
+            }
+
             localSaveSlot = slotData.uuid;
 
             if (slotData.deathLink) {
