@@ -44,6 +44,6 @@ viteResult.on("exit", async (code) => {
             recursive: true
         });
 
-        await symlink(buildFolder, destination);
+        await symlink(headCommit, destination);
     }
 })
