@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "vite --host",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "vite build"
+    "build": "vite build",
+    "update-build-tree": "node --experimental-strip-types updateBuiltBranches.ts"
   },
   "keywords": [],
   "dependencies": {
@@ -21,7 +22,8 @@
     "typescript": "^5.8.2",
     "yuicompressor": "^2.4.8",
     "vite": "^6.2.2",
-    "@types/jquery": "^3.5.32"
+    "@types/jquery": "^3.5.32",
+    "@types/node": "^22.13.10"
   },
   "author": "",
   "license": "ISC",
