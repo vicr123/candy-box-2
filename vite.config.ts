@@ -11,6 +11,7 @@ export default defineConfig({
     },
     base: "./",
     define: {
-        __VERSION: JSON.stringify(`${versioningString} AP (base ${upstreamBaseVersion})`),
+        __VERSION: JSON.stringify(versioningString),
+        __VERSIONSTRING: JSON.stringify(`${versioningString} AP (base ${upstreamBaseVersion})`)
     }
 })
