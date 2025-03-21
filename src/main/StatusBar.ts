@@ -9,7 +9,6 @@ import {StatusBarTabType} from "./StatusBarTabType";
 import {CallbackCollection} from "./CallbackCollection";
 import {Hotkey} from "./Hotkey";
 import {ArchipelagoNotificationTray} from "../archipelago/ArchipelagoNotificationTray";
-import {ArchipelagoItem, ArchipelagoItemBaseId, ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
 import {Archipelago} from "../archipelago/Archipelago";
 import {Item} from "archipelago.js";
 
@@ -66,6 +65,8 @@ export class StatusBar{
             // Reload the status bar if given an update
             this.deleteAndReAddEverything();
         })
+
+        Archipelago.events.on("apCountdownChanged", () => this.updateAll());
     }
     
     // Public methods
@@ -248,10 +249,16 @@ export class StatusBar{
             
             for(var i = 0; i < this.tabs.length; i++){
                 const tab = this.tabs[i];
-                if (this.apNotificationTray.currentlyDisplayingNotification && tab.getType() != StatusBarTabType.ARCHIPELAGO) continue;
+                if (this.apNotificationTray.currentlyDisplayingNotification && tab.getType() != StatusBarTabType.ARCHIPELAGO) continue
 
                 tab.render(this.renderArea, 29, 1, this.selectedTabIndex == i);
             }
+        }
+
+        if (Archipelago.apCountdown.current > 0) {
+            this.renderArea.drawString(" COUNT ", 81, 1);
+            this.renderArea.drawString(` DOWN  `, 81, 2);
+            this.renderArea.drawString(` ${Archipelago.apCountdown.current.toString().padEnd(6, " ")}`, 81, 3);
         }
     }
     

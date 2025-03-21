@@ -12,7 +12,7 @@ import {san, sanitiseText} from "../utils";
 import {ArchipelagoNotification} from "./ArchipelagoNotificationTray";
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
-type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged";
+type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged";
 
 export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Click" | "The Bridge Click" | "The Octopus King Click" |
     "Naked Monkey Wizard Click" | "The Forest Click" | "Castle Entrance Click" | "Giant Nougat Monster Click" | "Castle Egg Room Click" |
@@ -57,6 +57,7 @@ export namespace Archipelago {
     export const client = new Client();
     export const events = new EventEmitter<ArchipelagoEventTypes>();
     export const apLog = new QuestLog(20, false);
+    export const apCountdown = createObservable(0, events, "apCountdownChanged");
 
     export let connectionStatus = createObservable<ConnectionStatus>("disconnected", events, "connectionStatusChanged");
     export let connectionError = createObservable<string>("", events, "connectionErrorStringChanged");
@@ -294,5 +295,9 @@ Archipelago.client.messages.on("disconnected", (_, player, tags) => {
     Archipelago.apLog.addMessage(new QuestLogMessage(san`${player.name} playing ${player.game} left - ${JSON.stringify(tags)}`));
     Archipelago.events.emit("apLogUpdated");
 })
+Archipelago.client.messages.on("countdown", (_, value, tags) => {
+    Archipelago.apCountdown.current = value;
+})
+
 
 window.archipelago = Archipelago;
