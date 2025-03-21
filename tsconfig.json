@@ -7,12 +7,5 @@
     "strict": false,
     "skipLibCheck": true,
     "moduleResolution": "bundler"
-  },
-  "include": [
-    "./public/libs/*.ts",
-    "./code/main/*.ts",
-    "./code/gen/*.ts",
-    "./code/arena/*/*"
-  ],
-  "extends": "./tsconfig.json"
+  }
 }

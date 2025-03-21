@@ -14,5 +14,6 @@
     "./versioning.ts",
     "./vite.config.ts",
     "./findExecutable.ts"
-  ]
+  ],
+  "extends": "./tsconfig.json"
 }
