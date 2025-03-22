@@ -92,8 +92,8 @@ import {CastleRoom1} from "./CastleRoom1";
 import {TheSea} from "./TheSea";
 
 Saving.registerBool("gameDebug", false);
-Saving.registerString("gameLanguage", "en");
-Saving.registerBool("gameInvertedColors", false);
+Saving.registerGlobalString("gameLanguage", "en");
+Saving.registerGlobalBoolean("gameInvertedColors", false);
 
 // EqItems
 Saving.registerString("gameWeaponSelected", "inventorySpecialNothingWeapon");

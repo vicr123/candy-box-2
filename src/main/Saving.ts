@@ -7,10 +7,13 @@ import {Archipelago} from "../archipelago/Archipelago";
 import {ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
 
 export module Saving {
+    import saveGlobals = LocalSaving.saveGlobals;
     var bools: { [s: string]: boolean; } = {};
     var numbers: { [s: string]: number; } = {};
     var strings: { [s: string]: string; } = {};
     var apLocations: { [s: string]: keyof typeof ArchipelagoLocation; } = {};
+    var globalStrings: { [s: string]: string; } = {};
+    var globalBooleans: { [s: string]: boolean; } = {};
 
     // Can we register?
     export var canRegister: boolean = true;
@@ -240,6 +243,14 @@ export module Saving {
     export function getAllStrings(): { [s: string]: string; }{
         return strings;
     }
+
+    export function getAllGlobalStrings(): { [s: string]: string; }{
+        return globalStrings;
+    }
+
+    export function getAllGlobalBooleans(): { [s: string]: boolean; }{
+        return globalBooleans;
+    }
     
     export function loadBool(key: string): boolean{
         // BUGS
@@ -248,6 +259,9 @@ export module Saving {
 
         if (key in apLocations)
             return Archipelago.isChecked(apLocations[key])
+
+        if (key in globalBooleans)
+            return globalBooleans[key];
         
         if(key in bools)
             return bools[key];
@@ -268,6 +282,9 @@ export module Saving {
         // BUGS
         if(Bugs.getUltimateBugLevel() >= 4 && Random.oneChanceOutOf(5))
             saveString(key, "bug");
+
+        if (key in globalStrings)
+            return globalStrings[key];
         
         if(key in strings)
             return strings[key];
@@ -276,7 +293,7 @@ export module Saving {
     
     export function registerBool(key: string, b: boolean): void{
         if(canRegister){
-            if(key in bools || key in numbers || key in strings || key in apLocations)
+            if(isKeyRegistered(key))
                 console.log("Error : trying to register the key " + key + " as bool, but this key is already registered.");
             this.saveBool(key, b, true);
         }
@@ -284,7 +301,7 @@ export module Saving {
 
     export function registerApLocation(key: string, location: keyof typeof ArchipelagoLocation) {
         if(canRegister){
-            if(key in bools || key in numbers || key in strings || key in apLocations)
+            if(isKeyRegistered(key))
                 console.log("Error : trying to register the key " + key + " as apLocation, but this key is already registered.");
             apLocations[key] = location;
         }
@@ -292,7 +309,7 @@ export module Saving {
     
     export function registerNumber(key: string, n: number): void{
         if(canRegister){
-            if(key in bools || key in numbers || key in strings || key in apLocations)
+            if(isKeyRegistered(key))
                 console.log("Error : trying to register the key " + key + " as number, but this key is already registered.");
             this.saveNumber(key, n, true);
         }
@@ -300,10 +317,30 @@ export module Saving {
     
     export function registerString(key: string, s: string): void{
         if(canRegister){
-            if(key in bools || key in numbers || key in strings || key in apLocations)
+            if(isKeyRegistered(key))
                 console.log("Error : trying to register the key " + key + " as string, but this key is already registered.");
             this.saveString(key, s, true);
         }
+    }
+
+    export function registerGlobalString(key: string, s: string): void {
+        if (canRegister){
+            if(isKeyRegistered(key))
+                console.log("Error : trying to register the key " + key + " as global string, but this key is already registered.");
+            globalStrings[key] = s;
+        }
+    }
+
+    export function registerGlobalBoolean(key: string, b: boolean): void {
+        if (canRegister){
+            if(isKeyRegistered(key))
+                console.log("Error : trying to register the key " + key + " as global boolean, but this key is already registered.");
+            globalBooleans[key] = b;
+        }
+    }
+
+    function isKeyRegistered(key: string) {
+        return key in bools || key in numbers || key in strings || key in apLocations || key in globalStrings || key in globalBooleans;
     }
     
     export function saveBool(key: string, b: boolean, registering: boolean = false): void{
@@ -312,6 +349,13 @@ export module Saving {
                 // Check off this location in AP
                 Archipelago.check(apLocations[key]);
             }
+            return;
+        }
+
+        if(key in globalBooleans){
+            globalBooleans[key] = b;
+            if (!registering)
+                saveGlobals();
             return;
         }
 
@@ -335,6 +379,12 @@ export module Saving {
     }
     
     export function saveString(key: string, s: string, registering: boolean = false): void{
+        if(key in globalStrings){
+            globalStrings[key] = s;
+            if (!registering)
+                saveGlobals();
+            return;
+        }
         if(key in strings || registering){
             strings[key] = s;
             if (Saving.game)

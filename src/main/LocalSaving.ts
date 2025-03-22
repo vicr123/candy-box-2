@@ -17,7 +17,7 @@ export module LocalSaving{
     export function load(): boolean{
         if (!Archipelago.localSaveSlot) return;
 
-        const slotId = Archipelago.localSaveSlot;
+        const slotId = Archipelago.localSaveSlot
 
         // If this sot doesn't seem to exist, we return false
         if(loadString(slotId) == null)
@@ -25,17 +25,17 @@ export module LocalSaving{
         
         // Load bools
         for(var str in Saving.getAllBools()){
-            Saving.saveBool(str, this.loadBool(slotId + "." + str));
+            Saving.saveBool(str, loadBool(slotId + "." + str));
         }
         
         // Load numbers
         for(var str in Saving.getAllNumbers()){
-            Saving.saveNumber(str, this.loadNumber(slotId + "." + str));
+            Saving.saveNumber(str, loadNumber(slotId + "." + str));
         }
         
         // Load strings
         for(var str in Saving.getAllStrings()){
-            Saving.saveString(str, this.loadString(slotId + "." + str));
+            Saving.saveString(str, loadString(slotId + "." + str));
         }
         
         // No error, return true
@@ -75,6 +75,24 @@ export module LocalSaving{
 
         // No error, return true
         return true;
+    }
+
+    export function saveGlobals() {
+        for(var str in Saving.getAllGlobalBooleans()){
+            localStorage.setItem(str, Saving.boolToString(Saving.getAllGlobalBooleans()[str]));
+        }
+        for(var str in Saving.getAllGlobalStrings()){
+            localStorage.setItem(str, Saving.getAllGlobalStrings()[str]);
+        }
+    }
+
+    export function loadGlobals() {
+        for(var str in Saving.getAllGlobalStrings()){
+            Saving.saveString(str, loadString(str), true);
+        }
+        for(var str in Saving.getAllGlobalBooleans()){
+            Saving.saveBool(str, loadBool(str), true);
+        }
     }
 
     export function erase() {

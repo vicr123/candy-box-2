@@ -64,8 +64,11 @@ export class ArchipelagoPlace extends Place {
         this.renderArea.drawArray(Database.getAscii("text/Archipelago"), 7 + 17, 0);
 
         this.renderArea.drawString(Database.getText("apUrl"), 7, 10);
+        this.renderArea.drawString(Database.getTranslatedText("apUrl"), 7 + 30, 10, true);
         this.renderArea.drawString(Database.getText("apSlot"), 7, 15);
+        this.renderArea.drawString(Database.getTranslatedText("apSlot"), 7 + 25, 15, true);
         this.renderArea.drawString(Database.getText("apPassword"), 7, 20);
+        this.renderArea.drawString(Database.getTranslatedText("apPassword"), 7 + 35, 20, true);
 
         if (Archipelago.connectionStatus.current == "disconnected") {
             this.renderArea.addSimpleInput(10, 40, 12, new CallbackCollection(this.changeApUrl.bind(this)), "apUrl", Archipelago.apLink, false);
@@ -79,22 +82,30 @@ export class ArchipelagoPlace extends Place {
 
         switch (Archipelago.connectionStatus.current) {
             case "disconnected":
-                this.renderArea.addAsciiRealButton(Database.getText("apConnect"), 7, 25, "apConnect");
+                this.renderArea.addAsciiRealButton(Database.getText("apConnect"), 7, 25, "apConnect", Database.getTranslatedText("apConnect"));
                 this.renderArea.addLinkCall(".apConnect", new CallbackCollection(this.connectToAp.bind(this)));
                 break;
             case "connecting":
                 this.renderArea.drawString(Database.getText("apStatusConnecting"), 7, 25);
+                this.renderArea.drawString(Database.getText("apStatusConnecting"), 7 + 20, 25);
                 break;
             case "connected":
-                this.renderArea.addAsciiRealButton(Database.getText("apDisconnect"), 7, 25, "apDisconnect", Database.getText("apDisconnectWarning"), true);
+                this.renderArea.addAsciiRealButton(Database.getText("apDisconnect"), 7, 25, "apDisconnect", Database.getTranslatedText("apDisconnect"));
                 this.renderArea.addLinkCall(".apDisconnect", new CallbackCollection(this.disconnectFromAp.bind(this)));
                 this.renderApLog();
                 break;
         }
 
         if (Archipelago.connectionError.current.length != 0) {
-            this.renderArea.drawString(Archipelago.connectionError.current, 7, 27);
-            this.renderArea.addColor(7, 7 + Archipelago.connectionError.current.length, 27, new Color(ColorType.SAVE_RED));
+            const errorText = Database.getText(Archipelago.connectionError.current)
+            this.renderArea.drawString(errorText, 7, 27);
+            this.renderArea.addColor(7, 7 + errorText.length, 27, new Color(ColorType.SAVE_RED));
+
+            const translatedErrorText = Database.getTranslatedText(Archipelago.connectionError.current)
+            if (translatedErrorText) {
+                this.renderArea.drawString(translatedErrorText, 7, 28);
+                this.renderArea.addColor(7, 7 + translatedErrorText.length, 28, new Color(ColorType.SAVE_RED));
+            }
 
             if (Archipelago.expectedClientVersion.current) {
                 this.renderArea.addAsciiRealButton(`Load Version ${Archipelago.expectedClientVersion.current}`, 7, 29, "apLoadCorrectVersion");
@@ -113,6 +124,10 @@ export class ArchipelagoPlace extends Place {
         if (Archipelago.connectionStatus.current == "connected") {
             this.renderArea.addSimpleInputOnEnter(0, 95, 52, new CallbackCollection(this.sendApMessage.bind(this)), "apMessage", "", true);
             this.renderArea.addAsciiRealButton(Database.getText("apSend"), 95, 54, "apSend");
+            const translatedSendText = Database.getTranslatedText("apSend")
+            if (translatedSendText) {
+                this.renderArea.drawString(translatedSendText, 95 - translatedSendText.length - 1, 94, true);
+            }
             this.renderArea.addLinkCall(".apSend", new CallbackCollection(this.sendApMessage.bind(this)));
         }
     }

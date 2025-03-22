@@ -47,3 +47,9 @@ a:visited {
 .keepBlackTextWhenInverted{
     color: rgb(0, 0, 0);
 }
+
+textarea, input[type=text] {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}

@@ -2,9 +2,11 @@ import {MainLoadingType} from "./MainLoadingType";
 import {Game} from "./Game";
 import {Keyboard} from "./Keyboard";
 import {Saving} from "./Saving";
+import {LocalSaving} from "./LocalSaving";
 
 export module Main{
     // The game
+    import loadGlobals = LocalSaving.loadGlobals;
     var game: Game = null;
     
     // Information about loading
@@ -63,7 +65,10 @@ export module Main{
     }
     
     async function start(): Promise<void> {
+        loadGlobals();
+
         game = new Game(gameMode);
+        game.applyInvertedColorsToCss();
         window.game = game;
         Keyboard.setGame(game);
         game.postLoad();

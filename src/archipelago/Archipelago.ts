@@ -85,7 +85,7 @@ export namespace Archipelago {
             const expectedVersion = `${__LAST_TAG}${__COMMITS_SINCE_LAST_TAG != "0" ? "+" : ""}`;
             if (slotData.expectedClientVersion != expectedVersion && slotData.expectedClientVersion) {
                 client.socket.disconnect();
-                connectionError.current = "This version of Candy Box 2 is not compatible with the server.";
+                connectionError.current = "apConnectErrorVersion";
                 expectedClientVersion.current = slotData.expectedClientVersion;
                 connectionStatus.current = "disconnected";
                 return;
@@ -110,24 +110,24 @@ export namespace Archipelago {
                 const loginError = e as LoginError;
                 switch (loginError.errors[0]) {
                     case "InvalidSlot":
-                        connectionError.current = "Check the slot name and try again.";
+                        connectionError.current = "apConnectErrorSlot";
                         break;
                     case "InvalidGame":
-                        connectionError.current = "This slot is not configured for Candy Box 2.";
+                        connectionError.current = "apConnectErrorGame";
                         break;
                     case "IncompatibleVersion":
-                        connectionError.current = "This version of Candy Box 2 is not compatible with the server.";
+                        connectionError.current = "apConnectErrorVersion";
                         break;
                     case "InvalidPassword":
-                        connectionError.current = "Check the password and try again.";
+                        connectionError.current = "apConnectErrorPassword";
                         break;
                     case "InvalidItemsHandling":
                     default:
-                        connectionError.current = "Unable to connect to Archipelago. Check your parameters and try again.";
+                        connectionError.current = "apConnectError";
                         break;
                 }
             } else {
-                connectionError.current = "Unable to connect to Archipelago. Check your parameters and try again.";
+                connectionError.current = "apConnectError";
             }
             console.log(e);
         }

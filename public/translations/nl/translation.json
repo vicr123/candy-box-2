@@ -343,5 +343,12 @@
     "talkingCandySpeech1": "He!, Ik ben het pratende snoepje. Je hebt het spel gewonnen! Ik zal je candy box openmaken, dit is je prijs. Zal ik doorgaan?",
     "talkingCandySpeech2": "Klaar! Je kunt er nu in. Ik hoop dat je het spel leuk vond :)",
     "talkingCandyButton": "Ja!!",
-    "lighthousePuzzleResetButton": "Reset"
+    "lighthousePuzzleResetButton": "Reset",
+    "apUrl": "Archipelago Server en port",
+    "apSlot": "Archipelago Slotnaam",
+    "apPassword": "Archipelago wachtwoord (optioneel)",
+    "apConnect": "Aan het verbinden met Archipelago",
+    "apDisconnect": "Verbreek verbinding met Archipelago en ververs",
+    "apStatusConnecting": "Verbind met Archipelago...",
+    "apSend": "Versturen"
 }

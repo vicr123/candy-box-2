@@ -353,7 +353,6 @@
     "apConnect": "Connect to Archipelago",
     "apStatusConnecting": "Connecting to Archipelago...",
     "apDisconnect": "Disconnect from Archipelago and Reload",
-    "apDisconnectWarning": "You should save your game before you disconnect, otherwise you'll lose it.",
     "apSend": "Send",
     "savePrompt": "This version of Candy Box 2 saves automatically every second.",
     "savePrompt2": "If, however, you are having problems, you can erase your local save here.",
@@ -365,5 +364,10 @@
     "loadPrompt2": "Different worlds are saved separately, so there is no need to choose a slot to load.",
     "eraseDialog": "Are you sure you want to erase the current save slot?",
     "eraseAllDialog": "Are you sure you want to erase all save slots?",
-    "loadSaveImportantNote": "It is important to note that these text saves are not compatible with vanilla Candy Box 2."
+    "loadSaveImportantNote": "It is important to note that these text saves are not compatible with vanilla Candy Box 2.",
+    "apConnectError": "Unable to connect to Archipelago. Check your parameters and try again.",
+    "apConnectErrorPassword": "Check the password and try again.",
+    "apConnectErrorVersion": "This version of Candy Box 2 is not compatible with the server.",
+    "apConnectErrorGame": "This slot is not configured for Candy Box 2.",
+    "apConnectErrorSlot": "Check the slot name and try again."
 }
