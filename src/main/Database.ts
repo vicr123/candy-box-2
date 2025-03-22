@@ -46,21 +46,22 @@ export module Database{
         return getAscii(key).slice(y1, y2);
     }
     
-    export function getText(key: string): string{
+    export function getText(key: string, replacements?: Record<string, string>): string{
         return i18n.t(key, {
-            lng: "en"
+            lng: "en",
+            ...(replacements ?? {})
         });
     }
     
-    export function getTranslatedText(key: string): string{
+    export function getTranslatedText(key: string, replacements?: Record<string, string>): string{
         // If we have a language (other than english) selected
         if(Saving.loadString("gameLanguage") != "en"){
             // If the translated text isn't chinese
             if(Saving.loadString("gameLanguage") != "zh")
-                return i18n.t(key);
+                return i18n.t(key, replacements);
             // Else, the translated text is chinese
             else
-                return i18n.t(key).addChineseSpaces(); // We return the text after adding spaces
+                return i18n.t(key, replacements).addChineseSpaces(); // We return the text after adding spaces
         }
         
         // Else, we return an empty string

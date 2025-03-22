@@ -75,7 +75,12 @@ export const ArchipelagoLocation = {
     SEA_PURPLE_FIN_ACQUIRED: 4504,
     X_MARKS_THE_SPOT: 4600,
     LOCKED_CANDY_BOX_ACQUIRED: 4700,
-    BOOTS_OF_INTROSPECTION_ACQUIRED: 4800
+    BOOTS_OF_INTROSPECTION_ACQUIRED: 4800,
+    BAKE_PAIN_AU_CHOCOLAT_1: 4900,
+    BAKE_PAIN_AU_CHOCOLAT_2: 4901,
+    BAKE_PAIN_AU_CHOCOLAT_3: 4902,
+    BAKE_PAIN_AU_CHOCOLAT_4: 4903,
+    BAKE_PAIN_AU_CHOCOLAT_5: 4904,
 } satisfies Record<string, number>
 
 export const ArchipelagoLocationRegion = {
@@ -93,7 +98,8 @@ export const ArchipelagoLocationRegion = {
     WISHING_WELL_3: ArchipelagoLocation.ENCHANT_ENCHANTED_MONKEY_WIZARD_STAFF,
     WISHING_WELL_4: ArchipelagoLocation.ENCHANT_ENCHANTED_KNIGHT_BODY_ARMOUR,
     WISHING_WELL_5: ArchipelagoLocation.ENCHANT_OCTOPUS_KING_CROWN_WITH_JASPERS,
-    WISHING_WELL_6: ArchipelagoLocation.ENCHANT_GIANT_SPOON_OF_DOOM
+    WISHING_WELL_6: ArchipelagoLocation.ENCHANT_GIANT_SPOON_OF_DOOM,
+    CASTLE_BAKEHOUSE: ArchipelagoLocation.BAKE_PAIN_AU_CHOCOLAT_1
 } satisfies Record<string, number>
 
 export const ArchipelagoItem = {
@@ -156,7 +162,8 @@ export const ArchipelagoItem = {
     GREEN_FIN: 56,
     PURPLE_FIN: 57,
     LOCKED_CANDY_BOX: 58,
-    BOOTS_OF_INTROSPECTION: 59
+    BOOTS_OF_INTROSPECTION: 59,
+    PAIN_AU_CHOCOLAT: 60
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000

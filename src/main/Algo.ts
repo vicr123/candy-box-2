@@ -88,4 +88,8 @@ export module Algo{
             return a;
         return b;
     }
+
+    export function posessive(name: string) {
+        return `${name}'${name.endsWith("s") ? "" : "s"}`
+    }
 }

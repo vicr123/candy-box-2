@@ -201,6 +201,9 @@ export class ArchipelagoItemProcessing {
                 case "BOOTS_OF_INTROSPECTION":
                     game.gainItem("eqItemBootsBootsOfIntrospection");
                     break;
+                case "PAIN_AU_CHOCOLAT":
+                    game.getPainsAuChocolat().add(1);
+                    break;
             }
         })
     }
