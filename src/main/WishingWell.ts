@@ -354,6 +354,13 @@ export class WishingWell extends Place{
     }
     
     private throwFirstLollipop(): void{
+        if (Saving.loadNumber("lollipopFarmLollipopsPlanted") < 11) {
+            this.currentSpeech = "wishingWellLollipopDeclineSpeech"; // Set the speech
+            this.update();
+            this.getGame().updatePlace();
+            return;
+        }
+
         if(this.getGame().getLollipops().getCurrent() >= 1){
             this.getGame().getLollipops().add(-1); // We use one lollipop
             this.currentSpeech = "wishingWellLollipopIntroductionSpeech"; // Set the speech

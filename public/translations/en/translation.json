@@ -178,6 +178,7 @@
     "wishingWellNoWoundSpeech": "You have no wounds to heal!",
     "wishingWellThrowFirstLollipopButton": "Throw a lollipop in the well",
     "wishingWellLollipopIntroductionSpeech": "Hello, wanderer! I am the wishing well. I shall grant you wishes in exchange of some sweets! When you'll throw lollipops into me, I will convert them into candies.",
+    "wishingWellLollipopDeclineSpeech": "Hello, wanderer! I am the wishing well. I shall grant you wishes in exchange of some sweets! But I don't want you to be greedy now. Come back when you have more lollipops!",
     "wishingWellThrewLollipopsSpeech": "Your lollipops are converted into candies! Two lollipops for one candy.",
     "wishingWellThrowChocolateBarButton": "Throw a chocolate bar in the well",
     "wishingWellChocolateBarIntroductionSpeech": "Hello, wanderer! I am the wishing well. I shall grant you wishes in exchange of some sweets! I love chocolate bars. I really love them. For each chocolate bar you will throw into me, including this one, you will be granted the opportunity to return one item to your special someone.",
