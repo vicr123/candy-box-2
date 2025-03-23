@@ -271,6 +271,8 @@
     "secondHouseLeatherGlovesButtonText": "Buy a pair of leather gloves (300 candies)",
     "secondHouseChocolateBarSpeech": "This is a chocolate bar. I don't know what it is used for, but it happens to be quite rare, which explains the price. 800 candies and it's yours!",
     "secondHouseChocolateBarButtonText": "Buy the chocolate bar (800 candies)",
+    "secondHouseBuySpeech_one": "`This is {{player}} {{item}}. I'll send it straight to {{game}} with free express shipping for {{count}} candy!`",
+    "secondHouseBuySpeech_other": "`This is {{player}} {{item}}. I'll send it straight to {{game}} with free express shipping for {{count}} candies!`",
     "outsideTheHoleButton": "Jump in this big hole in the ground",
     "theCaveExitText0": "You finally reached the cave's exit.",
     "theCaveExitText1": "You can see a big forest outside of here.",
@@ -369,5 +371,9 @@
     "apConnectErrorPassword": "Check the password and try again.",
     "apConnectErrorVersion": "This version of Candy Box 2 is not compatible with the server.",
     "apConnectErrorGame": "This slot is not configured for Candy Box 2.",
-    "apConnectErrorSlot": "Check the slot name and try again."
+    "apConnectErrorSlot": "Check the slot name and try again.",
+    "buyCandies_one": "Send {{item}} to {{player}} for {{count}} candy",
+    "buyCandies_other": "Send {{item}} to {{player}} for {{count}} candies",
+    "buyLollipops_one": "Send {{item}} to {{player}} for {{count}} lollipop",
+    "buyLollipops_other": "Send {{item}} to {{player}} for {{count}} lollipops"
 }

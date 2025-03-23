@@ -13,7 +13,7 @@ import {CandyMerchantItem_ChocolateBar} from "./CandyMerchantItem_ChocolateBar";
 import {CandyMerchantItem_MerchantHat} from "./CandyMerchantItem_MerchantHat";
 import {CandyMerchantItem_TimeRing} from "./CandyMerchantItem_TimeRing";
 import {CandyMerchantItem_LeatherGloves} from "./CandyMerchantItem_LeatherGloves";
-import {Database} from "./Database";
+import {Database, DatabaseTextReplacements} from "./Database";
 import {RenderTransparency} from "./RenderTransparency";
 import {CallbackCollection} from "./CallbackCollection";
 import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
@@ -156,20 +156,22 @@ export class SecondHouse extends House{
         var yPos: number; // Will contain the y position of the bottom of the speech
         
         // Draw the speech
-        yPos = this.drawSpeech(this.items[this.selectedItemIndex].getMerchantSpeech());
+        const item = this.items[this.selectedItemIndex];
+        yPos = this.drawSpeech(item.getMerchantSpeech(), item.getMerchantSpeechArgs());
         
         // If we can buy this item
-        if(this.items[this.selectedItemIndex].canBeBought()){
+        if(item.canBeBought()){
             // Add the buying button
-            this.renderArea.addAsciiRealButton(Database.getText(this.items[this.selectedItemIndex].getButtonText()), 45 - Math.floor(Database.getText(this.items[this.selectedItemIndex].getButtonText()).length/2), yPos + 2, this.items[this.selectedItemIndex].getButtonName() + "BuyingButton", Database.getTranslatedText(this.items[this.selectedItemIndex].getButtonText()), true);
+            const buyText = item.getButtonText()
+            this.renderArea.addAsciiRealButton(buyText, 45 - Math.floor(buyText.length/2), yPos + 2, item.getButtonName() + "BuyingButton", item.getTranslatedButtonText(), true);
 
             // Add the link
-            this.renderArea.addLinkCall("." + this.items[this.selectedItemIndex].getButtonName() + "BuyingButton", new CallbackCollection(this.buySelectedItem.bind(this)));
+            this.renderArea.addLinkCall("." + item.getButtonName() + "BuyingButton", new CallbackCollection(this.buySelectedItem.bind(this)));
         }
     }
     
-    private drawSpeech(speechName: string): number{
-        return this.renderArea.drawSpeech(Database.getText(speechName), 3, 30, 60, "secondHouseMerchantSpeech", Database.getTranslatedText(speechName));
+    private drawSpeech(speechName: string, args?: DatabaseTextReplacements): number{
+        return this.renderArea.drawSpeech(Database.getText(speechName, args), 3, 30, 60, "secondHouseMerchantSpeech", Database.getTranslatedText(speechName, args));
     }
     
     private update(): void{

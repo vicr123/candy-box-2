@@ -4,6 +4,8 @@ import {Saving} from "./Saving";
 import {Item} from "archipelago.js";
 import {Database} from "./Database";
 import {san} from "../utils";
+import {Algo} from "./Algo";
+import posessive = Algo.posessive;
 
 export class CandyMerchantItem{
     // The game
@@ -90,13 +92,26 @@ export class CandyMerchantItem{
     public getButtonText(): string{
         return Database.getBuyText(this.merchantSpeech, this.price, "candies");
     }
+
+    public getTranslatedButtonText() {
+        return Database.getTranslatedBuyText(this.merchantSpeech, this.price, "candies");
+    }
     
     public getGame(): Game{
         return this.game;
     }
     
     public getMerchantSpeech(): string{
-        return san`This is ${this.merchantSpeech.receiver.name}'s ${this.merchantSpeech.name}. I'll send it straight to ${this.merchantSpeech.receiver.game} with free express shipping for ${this.price} candies!`;
+        return "secondHouseBuySpeech";
+    }
+
+    public getMerchantSpeechArgs() {
+        return {
+            player: posessive(this.merchantSpeech.receiver.name),
+            item: this.merchantSpeech.name,
+            game: this.merchantSpeech.game,
+            count: this.price
+        }
     }
     
     public getPrice(): number{

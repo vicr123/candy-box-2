@@ -4,6 +4,10 @@ import {i18n} from "../i18n";
 import {Item} from "archipelago.js";
 import {san} from "../utils";
 
+export type DatabaseTextReplacements = Record<string, string | number> & {
+    count?: number;
+}
+
 export module Database{
     // Variables
     var asciiMap: { [s: string]: string[]; } = {}; // A map which associates strings (the keys) to array of strings (the ascii arts)
@@ -46,14 +50,14 @@ export module Database{
         return getAscii(key).slice(y1, y2);
     }
     
-    export function getText(key: string, replacements?: Record<string, string>): string{
+    export function getText(key: string, replacements?: DatabaseTextReplacements): string{
         return i18n.t(key, {
             lng: "en",
             ...(replacements ?? {})
         });
     }
     
-    export function getTranslatedText(key: string, replacements?: Record<string, string>): string{
+    export function getTranslatedText(key: string, replacements?: DatabaseTextReplacements): string{
         // If we have a language (other than english) selected
         if(Saving.loadString("gameLanguage") != "en"){
             // If the translated text isn't chinese
@@ -69,6 +73,18 @@ export module Database{
     }
 
     export function getBuyText(item: Item, price: number, currency: "candies" | "lollipops") {
-        return san`Send ${item.name} to ${item.receiver.name} (${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")} ${currency})`;
+        return getText(currency == "candies" ? "buyCandies" : "buyLollipops", {
+            item: item.name,
+            player: item.receiver.name,
+            count: price
+        });
+    }
+
+    export function getTranslatedBuyText(item: Item, price: number, currency: "candies" | "lollipops") {
+        return getTranslatedText(currency == "candies" ? "buyCandies" : "buyLollipops", {
+            item: item.name,
+            player: item.receiver.name,
+            count: price
+        });
     }
 }
