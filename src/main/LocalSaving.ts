@@ -88,6 +88,7 @@ export module LocalSaving{
 
     export function loadGlobals() {
         for(var str in Saving.getAllGlobalStrings()){
+            if (localStorage.getItem(str) == null) continue;
             Saving.saveString(str, loadString(str), true);
         }
         for(var str in Saving.getAllGlobalBooleans()){
