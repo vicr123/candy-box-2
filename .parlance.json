@@ -4,13 +4,13 @@
     {
       "name": "Candy Box 2 Game",
       "type": "i18next",
-      "path": "/public/translations/{lang}/translation.json",
+      "path": "/translations/{lang}/translation.json",
       "baseLang": "en"
     },
     {
       "name": "Candy Box 2 Cauldron",
       "type": "i18next",
-      "path": "/public/translations/{lang}/cauldron.json",
+      "path": "/translations/{lang}/cauldron.json",
       "baseLang": "en"
     }
   ]

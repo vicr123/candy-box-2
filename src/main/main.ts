@@ -3,6 +3,7 @@ import {Game} from "./Game";
 import {Keyboard} from "./Keyboard";
 import {Saving} from "./Saving";
 import {LocalSaving} from "./LocalSaving";
+import {i18n} from "../i18n";
 
 export module Main{
     // The game
@@ -66,6 +67,9 @@ export module Main{
     
     async function start(): Promise<void> {
         loadGlobals();
+
+        // Translations
+        await i18n.changeLanguage(Saving.loadString("gameLanguage"));
 
         game = new Game(gameMode);
         game.applyInvertedColorsToCss();

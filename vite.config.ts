@@ -1,9 +1,16 @@
 import {defineConfig} from "vite";
 import {commitsSinceLastTag, lastTag, versioningString} from "./versioning";
+import i18nextLoader from "vite-plugin-i18next-loader"
 
 const upstreamBaseVersion = "1.2.3";
 
 export default defineConfig({
+    plugins: [
+        i18nextLoader({
+            paths: ["./translations"],
+            namespaceResolution: "basename"
+        })
+    ],
     esbuild: {
         supported: {
             "top-level-await": true

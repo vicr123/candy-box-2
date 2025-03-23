@@ -1,12 +1,14 @@
 import i18next from "i18next";
-import i18nextHttp from "i18next-http-backend";
 import {sanitiseText} from "./utils";
 import {Algo} from "./main/Algo";
 
+// @ts-ignore
+import resources from "virtual:i18next-loader";
+
 await i18next
-    .use(i18nextHttp)
     .init({
         lng: "en",
+        resources: resources,
         backend: {
             loadPath: "translations/{{lng}}/{{ns}}.json"
         },
@@ -27,7 +29,5 @@ await i18next
             alwaysFormat: true
         }
     })
-
-await i18next.loadLanguages("en");
 
 export const i18n = i18next;

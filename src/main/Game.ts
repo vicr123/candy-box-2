@@ -386,9 +386,6 @@ export class Game{
     }
     
     public async load(): Promise<void>{
-        // Translations
-        await i18n.changeLanguage(Saving.loadString("gameLanguage"));
-
         // Resources
         this.candies.load();
         this.lollipops.load();
