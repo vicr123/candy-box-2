@@ -3,10 +3,7 @@
 import {Main} from "./main/main";
 import "./main/string_prototype"
 
-import "./gen/genAscii"
-
 import "./design.css"
-import {i18n} from "./i18n";
 
 declare const __VERSION: string;
 declare const __VERSIONSTRING: string;

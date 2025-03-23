@@ -2,7 +2,8 @@ import {Pos} from "./Pos";
 import {Saving} from "./Saving";
 import {i18n} from "../i18n";
 import {Item} from "archipelago.js";
-import {san} from "../utils";
+
+import {AsciiArt} from "virtual:ascii-art";
 
 export type DatabaseTextReplacements = Record<string, string | number> & {
     count?: number;
@@ -87,4 +88,8 @@ export module Database{
             count: price
         });
     }
+}
+
+for (const art of AsciiArt) {
+    Database.addAscii(art.name, art.width, art.height, art.art);
 }

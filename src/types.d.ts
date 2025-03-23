@@ -7,3 +7,12 @@ declare global {
         archipelago: Archipelago;
     }
 }
+
+declare module 'virtual:ascii-art' {
+    const AsciiArt: {
+        name: string;
+        height: number;
+        width: number;
+        art: string[];
+    }
+}

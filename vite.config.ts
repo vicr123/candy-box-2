@@ -1,6 +1,7 @@
 import {defineConfig} from "vite";
 import {commitsSinceLastTag, lastTag, versioningString} from "./versioning";
 import i18nextLoader from "vite-plugin-i18next-loader"
+import {asciiArtProcessing} from "./asciiArtProcessing";
 
 const upstreamBaseVersion = "1.2.3";
 
@@ -9,7 +10,8 @@ export default defineConfig({
         i18nextLoader({
             paths: ["./translations"],
             namespaceResolution: "basename"
-        })
+        }),
+        asciiArtProcessing()
     ],
     esbuild: {
         supported: {
