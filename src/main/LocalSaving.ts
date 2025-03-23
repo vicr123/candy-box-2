@@ -91,6 +91,7 @@ export module LocalSaving{
             Saving.saveString(str, loadString(str), true);
         }
         for(var str in Saving.getAllGlobalBooleans()){
+            if (localStorage.getItem(str) == null) continue;
             Saving.saveBool(str, loadBool(str), true);
         }
     }
