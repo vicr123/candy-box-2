@@ -10,6 +10,9 @@ import {RenderTransparency} from "./RenderTransparency";
 import {Archipelago, ScoutResults} from "../archipelago/Archipelago";
 import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
 import {san} from "../utils";
+import {Item} from "archipelago.js";
+import {Algo} from "./Algo";
+import posessive = Algo.posessive;
 
 Saving.registerApLocation("sorceressHutTookLollipop", "SORCERESS_HUT_LOLLIPOP");
 Saving.registerApLocation("sorceressHutBoughtGrimoire", "SORCERESS_HUT_BEGINNER_GRIMOIRE");
@@ -25,13 +28,16 @@ export class SorceressHut extends Place{
     private currentSpeech: string;
 
     private itemScoutResults: ScoutResults;
+
+    private selectedItem: Item;
+    private selectedPrice: number;
     
     // Constructor
     constructor(game: Game){
         super(game);
         
         // Set the default speech
-        this.currentSpeech = "Hello, I'm the sorceress. I can give you some interesting things that I've found from the whole multiworld. But everything has a price! And this price will be lollipops. A lot of them.";
+        this.currentSpeech = "sorceressHutHello";
         
         // Resize & update
         this.renderArea.resize(144, 48);
@@ -107,46 +113,50 @@ export class SorceressHut extends Place{
     }
     
     private clickedCauldron(): void{
-        const item = this.itemScoutResults.findItem("SORCERESS_HUT_CAULDRON");
+        this.selectedItem = this.itemScoutResults.findItem("SORCERESS_HUT_CAULDRON");
         // Set the new speech
-        this.currentSpeech = san`That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 100 000 lollipops!`;
+        this.currentSpeech = "sorceressHutClickedSpeech";
+        this.selectedPrice = 100000;
         
         // Update
         this.update();
-        this.drawBuyingButton(Database.getBuyText(item, 100000, "lollipops"), new CallbackCollection(this.buyCauldron.bind(this)));
+        this.drawBuyingButton(Database.getBuyText(this.selectedItem, 100000, "lollipops"), new CallbackCollection(this.buyCauldron.bind(this)));
         this.getGame().updatePlace();
     }
     
     private clickedGrimoire(): void{
-        const item = this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNER_GRIMOIRE");
+        this.selectedItem = this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNER_GRIMOIRE");
         // Set the new speech
-        this.currentSpeech = san`That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 5 000 lollipops!`;
+        this.currentSpeech = "sorceressHutClickedSpeech";
+        this.selectedPrice = 5000;
         
         // Update
         this.update();
-        this.drawBuyingButton(Database.getBuyText(item, 5000, "lollipops"), new CallbackCollection(this.buyGrimoire.bind(this)));
+        this.drawBuyingButton(Database.getBuyText(this.selectedItem, 5000, "lollipops"), new CallbackCollection(this.buyGrimoire.bind(this)));
         this.getGame().updatePlace();
     }
     
     private clickedGrimoire2(): void{
-        const item = this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE");
+        this.selectedItem = this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE");
         // Set the new speech
-        this.currentSpeech = san`That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 20 000 lollipops!`;
+        this.currentSpeech = "sorceressHutClickedSpeech";
+        this.selectedPrice = 20000;
         
         // Update
         this.update();
-        this.drawBuyingButton(Database.getBuyText(item, 20000, "lollipops"), new CallbackCollection(this.buyGrimoire2.bind(this)));
+        this.drawBuyingButton(Database.getBuyText(this.selectedItem, 20000, "lollipops"), new CallbackCollection(this.buyGrimoire2.bind(this)));
         this.getGame().updatePlace();
     }
     
     private clickedHat(): void{
-        const item = this.itemScoutResults.findItem("SORCERESS_HUT_HAT");
+        this.selectedItem = this.itemScoutResults.findItem("SORCERESS_HUT_HAT");
         // Set the new speech
-        this.currentSpeech = san`That's ${item.receiver.name}'s ${item.name}. I'll return it to them in ${item.game} for 1 000 000 000 lollipops!`;
+        this.currentSpeech = "sorceressHutClickedSpeech";
+        this.selectedPrice = 1000000000;
         
         // Update
         this.update();
-        this.drawBuyingButton(Database.getBuyText(item, 1000000000, "lollipops"), new CallbackCollection(this.buyHat.bind(this)));
+        this.drawBuyingButton(Database.getBuyText(this.selectedItem, 1000000000, "lollipops"), new CallbackCollection(this.buyHat.bind(this)));
         this.getGame().updatePlace();
     }
     
@@ -191,7 +201,13 @@ export class SorceressHut extends Place{
     
     private drawCurrentSpeech(x: number, y: number): void{
         if (this.currentSpeech) {
-            this.renderArea.drawSpeech(this.currentSpeech, y, x, x + 27, "sorceressHutSpeech", Database.getTranslatedText(this.currentSpeech));
+            const args = {
+                player: this.selectedItem && posessive(this.selectedItem.receiver.name),
+                item: this.selectedItem?.name,
+                game: this.selectedItem?.game,
+                count: this.selectedPrice
+            };
+            this.renderArea.drawSpeech(Database.getText(this.currentSpeech, args), y, x, x + 27, "sorceressHutSpeech", Database.getTranslatedText(this.currentSpeech, args));
         }
     }
     
