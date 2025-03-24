@@ -71,6 +71,8 @@ export namespace Archipelago {
     export let connectionError = createObservable<string>("", events, "connectionErrorStringChanged");
     export let expectedClientVersion = createObservable("", events, "expectedClientVersionChanged");
 
+    export let equivalence: string[][] = [];
+
     export async function connect() {
         connectionError.current = "";
         try {
@@ -83,10 +85,14 @@ export namespace Archipelago {
 
             // Determine if the client version is acceptable
             const expectedVersion = `${__LAST_TAG}${__COMMITS_SINCE_LAST_TAG != "0" ? "+" : ""}`;
-            if (slotData.expectedClientVersion != expectedVersion && slotData.expectedClientVersion) {
+
+            // Find equivalence versions
+            const equivalence = Archipelago.equivalence.find(e => e.includes(expectedVersion)) ?? [expectedVersion];
+
+            if (slotData.expectedClientVersion && !equivalence.includes(slotData.expectedClientVersion)) {
                 client.socket.disconnect();
                 connectionError.current = "apConnectErrorVersion";
-                expectedClientVersion.current = slotData.expectedClientVersion;
+                expectedClientVersion.current = equivalence[equivalence.length - 1];
                 connectionStatus.current = "disconnected";
                 return;
             }
@@ -319,5 +325,13 @@ Archipelago.client.messages.on("countdown", (_, value, tags) => {
     Archipelago.apCountdown.current = value;
 })
 
+// Check equivalence
+fetch("/equivalence.json")
+    .then(response => response.json())
+    .then(json => Archipelago.equivalence = json)
+    .catch(err => {
+        console.log("Unable to retrieve version equivalence information");
+        console.log(err);
+    })
 
 window.archipelago = Archipelago;
