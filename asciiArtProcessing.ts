@@ -19,7 +19,7 @@ export async function asciiArtProcessing(): Promise<Plugin> {
         }
 
         const artFile = await fs.readFile(artObject, "utf8");
-        const artLines = artFile.split(/\r?\n/g).filter((line) => !line.startsWith("@author") && !!line);
+        const artLines = artFile.trimEnd().split(/\r?\n/g).filter((line) => !line.startsWith("@author"));
         const height = artLines.length;
         const width = artLines.reduce((max: number, current: string) => Math.max(max, current.length), 0);
 
