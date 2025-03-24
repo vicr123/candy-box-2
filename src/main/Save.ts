@@ -248,28 +248,40 @@ export class Save extends Place{
         // }
 
         this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+3);
-        this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+12);
         this.renderArea.drawString(Database.getText("savePrompt"), x, y+yAdd+5);
         this.renderArea.drawString(Database.getText("savePrompt2"), x, y+yAdd+6);
         this.renderArea.drawString(Database.getText("savePrompt3"), x, y+yAdd+7);
         this.renderArea.drawString(Database.getText("savePrompt4"), x, y+yAdd+8);
-        this.renderArea.addAsciiRealButton(Database.getText("eraseSaveButton"), 7, y+yAdd+10, "eraseSave");
-        this.renderArea.addLinkCall(".eraseSave", new CallbackCollection(this.eraseSave.bind(this)));
-        this.renderArea.addAsciiRealButton(Database.getText("eraseAllSavesButton"), 35, y+yAdd+10, "eraseAllSave");
-        this.renderArea.addLinkCall(".eraseAllSave", new CallbackCollection(this.eraseAllSave.bind(this)));
+        if (Database.isTranslated()) {
+            this.renderArea.drawString(Database.getTranslatedText("savePrompt"), x, y+yAdd+10, true);
+            this.renderArea.drawString(Database.getTranslatedText("savePrompt2"), x, y+yAdd+11, true);
+            this.renderArea.drawString(Database.getTranslatedText("savePrompt3"), x, y+yAdd+12, true);
+            this.renderArea.drawString(Database.getTranslatedText("savePrompt4"), x, y+yAdd+13, true);
+            this.renderArea.addAsciiRealButton(Database.getText("eraseSaveButton"), 7, y+yAdd+16, "eraseSave", Database.getTranslatedText("eraseSaveButton"));
+            this.renderArea.addLinkCall(".eraseSave", new CallbackCollection(this.eraseSave.bind(this)));
+            this.renderArea.addAsciiRealButton(Database.getText("eraseAllSavesButton"), 7, y+yAdd+18, "eraseAllSave", Database.getTranslatedText("eraseAllSavesButton"));
+            this.renderArea.addLinkCall(".eraseAllSave", new CallbackCollection(this.eraseAllSave.bind(this)));
+            yAdd += 8;
+        } else {
+            this.renderArea.addAsciiRealButton(Database.getText("eraseSaveButton"), 7, y+yAdd+10, "eraseSave");
+            this.renderArea.addLinkCall(".eraseSave", new CallbackCollection(this.eraseSave.bind(this)));
+            this.renderArea.addAsciiRealButton(Database.getText("eraseAllSavesButton"), 35, y+yAdd+10, "eraseAllSave");
+            this.renderArea.addLinkCall(".eraseAllSave", new CallbackCollection(this.eraseAllSave.bind(this)));
+        }
+        this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+12);
 
         // Return yAdd
         return yAdd;
     }
 
     private eraseSave() {
-        if (confirm(Database.getText("eraseDialog"))) {
+        if (confirm([Database.getText("eraseDialog"), ...(Database.isTranslated() ? ["", Database.getTranslatedText("eraseDialog")] : [])].join("\n"))) {
             Saving.erase();
         }
     }
 
     private eraseAllSave() {
-        if (confirm(Database.getText("eraseAllDialog"))) {
+        if (confirm([Database.getText("eraseAllDialog"), ...(Database.isTranslated() ? ["", Database.getTranslatedText("eraseAllDialog")] : [])].join("\n"))) {
             Saving.eraseAll();
         }
     }
@@ -284,12 +296,18 @@ export class Save extends Place{
         // Instructions
         this.renderArea.drawString(Database.getText("saveFileLoadPaste"), x, y+yAdd+2);
         this.renderArea.drawString(Database.getTranslatedText("saveFileLoadPaste"), x, y+yAdd+3, true);
-        
-        // Add the text area
-        this.renderArea.addTextarea(x + 2, y+yAdd+7, 96, 6, "saveFileLoadTextarea");
 
         this.renderArea.drawString(Database.getText("loadSaveImportantNote"), x, y+yAdd+5);
         this.renderArea.addBold(x, x + Database.getText("loadSaveImportantNote").length, y+yAdd+5);
+        if(Database.isTranslated()){
+            this.renderArea.drawString(Database.getTranslatedText("loadSaveImportantNote"), x, y+yAdd+6, true);
+            this.renderArea.addBold(x, x + Database.getTranslatedText("loadSaveImportantNote").length, y+yAdd+6);
+            yAdd += 1;
+        }
+
+        // Add the text area
+        this.renderArea.addTextarea(x + 2, y+yAdd+7, 96, 6, "saveFileLoadTextarea");
+
         yAdd += 2;
         
         // Add the load button
@@ -326,6 +344,11 @@ export class Save extends Place{
 
         this.renderArea.drawString(Database.getText("loadSaveImportantNote"), x, y+yAdd+8);
         this.renderArea.addBold(x, x + Database.getText("loadSaveImportantNote").length, y+yAdd+8);
+        if(Database.isTranslated()){
+            this.renderArea.drawString(Database.getTranslatedText("loadSaveImportantNote"), x, y+yAdd+9, true);
+            this.renderArea.addBold(x, x + Database.getTranslatedText("loadSaveImportantNote").length, y+yAdd+9);
+            yAdd += 1;
+        }
         yAdd += 2;
         
         // Add the button
@@ -379,7 +402,7 @@ export class Save extends Place{
     private resize(): void{
         // The size depends on if there's a translation or not
         if(Database.isTranslated())
-            this.renderArea.resize(100, 84);
+            this.renderArea.resize(100, 90);
         else
             this.renderArea.resize(100, 74);
     }
