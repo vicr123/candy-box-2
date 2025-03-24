@@ -1,5 +1,6 @@
 import {Pos} from "./Pos";
 import {Random} from "./Random";
+import {Saving} from "./Saving";
 
 export module Algo{
     // Return 0 is the number given is under 0, else return the number given
@@ -90,6 +91,11 @@ export module Algo{
     }
 
     export function posessive(name: string) {
-        return `${name}'${name.endsWith("s") ? "" : "s"}`
+        switch (Saving.loadString("gameLanguage")) {
+            case "nl":
+                return `${name}${name.endsWith("s") ? "'" : "s"}`
+            default:
+                return `${name}'${name.endsWith("s") ? "" : "s"}`
+        }
     }
 }
