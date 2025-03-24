@@ -16,7 +16,7 @@ export class Cfg extends Place{
     // The map used for the language selection : match the select's options id with the actual usually two letters code used by the Saving module
     private languageSelectionMap: { [s: string]: string; } = {
         "cfgLanguageEn": "en",
-        "cfgLanguageBr": "br",
+        "cfgLanguagePtBr": "pt-BR",
         "cfgLanguageCz": "cz",
         "cfgLanguageEs": "es",
         "cfgLanguageFr": "fr",
@@ -104,10 +104,10 @@ export class Cfg extends Place{
         this.renderArea.addList(x + Algo.takeBiggest(Database.getText("cfgChooseLanguage").length, Database.getTranslatedText("cfgChooseLanguage").length) + 2, x + Algo.takeBiggest(Database.getText("cfgChooseLanguage").length, Database.getTranslatedText("cfgChooseLanguage").length) + 20, y, "cfgLanguageList", new CallbackCollection(this.languageSelected.bind(this)),
             [
             "cfgLanguageEn", "English",
-            "cfgLanguageBr", "Brazilian Portuguese (by TranslaCAT)",
+            "cfgLanguagePtBr", "Brazilian Portuguese (by TranslaCAT, Archipelago fork translations by Vrabbers)",
             "cfgLanguageZh", "Chinese (by Fan Zhang)",
             "cfgLanguageCz", "Czech (by Keranis)",
-            "cfgLanguageNl", "Dutch (by Noël Wierema and Vincent van Gennep, corrections by Wessel van den Putte)",
+            "cfgLanguageNl", "Dutch (by Noël Wierema and Vincent van Gennep, corrections by Wessel van den Putte, Archipelago fork translations by Aren Merzoian)",
             "cfgLanguageFr", "French (by aniwey)",
             "cfgLanguageDe", "German (by Kai Kubasta)",
             "cfgLanguageEl", "Greek (by VagosLabrou)",
