@@ -15,7 +15,8 @@ declare const __LAST_TAG: string;
 declare const __COMMITS_SINCE_LAST_TAG: string;
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
-type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged";
+type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged";
+export type ArchipelagoPlacePage = "connection" | "chat";
 
 export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Click" | "The Bridge Click" | "The Octopus King Click" |
     "Naked Monkey Wizard Click" | "The Forest Click" | "Castle Entrance Click" | "Giant Nougat Monster Click" | "Castle Egg Room Click" |
@@ -64,12 +65,14 @@ export namespace Archipelago {
 
     export const client = new Client();
     export const events = new EventEmitter<ArchipelagoEventTypes>();
-    export const apLog = new QuestLog(20, false);
+    export const apLog = new QuestLog(30, false);
     export const apCountdown = createObservable(0, events, "apCountdownChanged");
 
-    export let connectionStatus = createObservable<ConnectionStatus>("disconnected", events, "connectionStatusChanged");
-    export let connectionError = createObservable<string>("", events, "connectionErrorStringChanged");
-    export let expectedClientVersion = createObservable("", events, "expectedClientVersionChanged");
+    export const connectionStatus = createObservable<ConnectionStatus>("disconnected", events, "connectionStatusChanged");
+    export const connectionError = createObservable<string>("", events, "connectionErrorStringChanged");
+    export const expectedClientVersion = createObservable("", events, "expectedClientVersionChanged");
+
+    export let apPage = createObservable<ArchipelagoPlacePage>("connection", events, "apPageChanged");
 
     export let equivalence: string[][] = [];
 
@@ -104,6 +107,7 @@ export namespace Archipelago {
             }
 
             connectionStatus.current = "connected";
+            apPage.current = "chat";
 
             client.socket.on("disconnected", () => {
                 connectionStatus.current = "disconnected";

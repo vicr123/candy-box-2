@@ -377,5 +377,7 @@
     "buyCandies_one": "Send {{item}} to {{player}} for {{count}} candy",
     "buyCandies_other": "Send {{item}} to {{player}} for {{count}} candies",
     "buyLollipops_one": "Send {{item}} to {{player}} for {{count}} lollipop",
-    "buyLollipops_other": "Send {{item}} to {{player}} for {{count}} lollipops"
+    "buyLollipops_other": "Send {{item}} to {{player}} for {{count}} lollipops",
+    "apConnectionTab": "Connection",
+    "apChatTab": "Chat"
 }
