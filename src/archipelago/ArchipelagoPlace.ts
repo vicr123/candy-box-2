@@ -75,10 +75,9 @@ export class ArchipelagoPlace extends Place {
 
         this.renderArea.drawArray(Database.getAscii("text/Archipelago"), 7 + 17, 0);
 
-        let y = 10;
+        let y = 7;
         let x = 0;
         if (Archipelago.connectionStatus.current == "connected") {
-            let y = 7;
             for (const tab of this.tabs) {
                 const text = Database.getText(tab.text)
                 const translatedText = Database.getTranslatedText(tab.text)
@@ -106,7 +105,7 @@ export class ArchipelagoPlace extends Place {
                 }
             }
             this.renderArea.drawVerticalLine("|", x, y + 1, Database.isTranslated() ? y + 2 : y + 1);
-            y = 14;
+            y = Database.isTranslated() ? y + 4 : y + 3;
         }
 
         switch (Archipelago.apPage.current) {
