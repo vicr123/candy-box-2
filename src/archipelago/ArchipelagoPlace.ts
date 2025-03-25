@@ -202,6 +202,29 @@ export class ArchipelagoPlace extends Place {
     }
 
     private renderHints(y: number) {
+        const apAvailableHintPoints = Database.getText("apAvailableHintPoints");
+        const apHintCost = Database.getText("apHintCost")
+        const apAvailableHintPointsTranslated = Database.getTranslatedText("apAvailableHintPoints");
+        const apHintCostTranslated = Database.getTranslatedText("apHintCost");
+        this.renderArea.drawString(apAvailableHintPoints, 0, y);
+        const hintPointsY = y;
+        y += 1;
+        if (apAvailableHintPointsTranslated) {
+            this.renderArea.drawString(apAvailableHintPointsTranslated, 0, y, true);
+            y += 1;
+        }
+        this.renderArea.drawString(apHintCost, 0, y);
+        const hintCostY = y;
+        y += 1;
+        if (apHintCostTranslated) {
+            this.renderArea.drawString(apHintCostTranslated, 0, y, true);
+            y += 1;
+        }
+
+        const pointsX = Math.max(apAvailableHintPoints.length, apHintCost.length, apAvailableHintPointsTranslated.length, apHintCostTranslated.length) + 3;
+        this.renderArea.drawString(`${Archipelago.client.room.hintPoints}`, pointsX, hintPointsY);
+        this.renderArea.drawString(`${Archipelago.client.room.hintCost}`, pointsX, hintCostY);
+
         const hintList = Archipelago.client.items.hints.filter(x => x.item.receiver.name == Archipelago.client.name || x.item.sender.name == Archipelago.client.name);
 
         if (hintList.length == 0) {

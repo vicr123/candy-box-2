@@ -396,5 +396,7 @@
     "apHintTab": "Hint",
     "apHintNotFound": "Not Found Hints",
     "apHintFound": "Found Hints",
-    "apNoHints": "Request a hint from the server to view it here"
+    "apNoHints": "Request a hint from the server to view it here",
+    "apAvailableHintPoints": "Available Hint Points:",
+    "apHintCost": "Hint Cost:"
 }
