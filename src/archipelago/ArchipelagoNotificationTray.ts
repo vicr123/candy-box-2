@@ -50,10 +50,14 @@ export class ArchipelagoNotificationTray {
         const notification = this.queuedNotifications[0];
         switch (notification.type) {
             case "get":
-                renderArea.drawString(`Archipelago Update:`, 31, 1);
-                renderArea.drawString(san`Got ${notification.item} from ${notification.obtainer}!`, 31, 2);
-                renderArea.addBold(30 + 5, 30 + 5 + notification.item.length, 2);
-                renderArea.addBold(30 + 5 + notification.item.length + 6, 30 + 5 + notification.item.length + 6 + notification.obtainer.length, 2);
+                renderArea.drawString(Database.getTranslatedTextWithFallback("apArchipelagoUpdate"), 31, 1);
+                renderArea.addBold(31, 31 + Database.getTranslatedTextWithFallback("apArchipelagoUpdate").length, 1);
+                renderArea.drawString(Database.getTranslatedTextWithFallback("apReceive", {
+                    item: notification.item
+                }), 31, 2);
+                renderArea.drawString(Database.getTranslatedTextWithFallback("apReceive2", {
+                    sender: notification.obtainer
+                }), 31, 3);
                 renderArea.addBackgroundColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_NOTIFICATION));
                 renderArea.addColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_NOTIFICATION_FOREGROUND));
                 renderArea.addBackgroundColor(30, 78, 2, new Color(ColorType.ARCHIPELAGO_NOTIFICATION));
@@ -62,10 +66,14 @@ export class ArchipelagoNotificationTray {
                 renderArea.addColor(30, 77, 3, new Color(ColorType.ARCHIPELAGO_NOTIFICATION_FOREGROUND));
                 break;
             case "give":
-                renderArea.drawString(`Archipelago Update:`, 31, 1);
-                renderArea.drawString(san`Sent ${notification.item} to ${notification.obtainer}!`, 31, 2);
-                renderArea.addBold(30 + 6, 30 + 6 + notification.item.length, 2);
-                renderArea.addBold(30 + 6 + notification.item.length + 4, 30 + 6 + notification.item.length + 4 + notification.obtainer.length, 2);
+                renderArea.drawString(Database.getTranslatedTextWithFallback("apArchipelagoUpdate"), 31, 1);
+                renderArea.addBold(31, 31 + Database.getTranslatedTextWithFallback("apArchipelagoUpdate").length, 1);
+                renderArea.drawString(Database.getTranslatedTextWithFallback("apSent", {
+                    item: notification.item
+                }), 31, 2);
+                renderArea.drawString(Database.getTranslatedTextWithFallback("apSent2", {
+                    receiver: notification.obtainer
+                }), 31, 3);
                 renderArea.addBackgroundColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_NOTIFICATION));
                 renderArea.addColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_NOTIFICATION_FOREGROUND));
                 renderArea.addBackgroundColor(30, 78, 2, new Color(ColorType.ARCHIPELAGO_NOTIFICATION));
@@ -74,9 +82,11 @@ export class ArchipelagoNotificationTray {
                 renderArea.addColor(30, 77, 3, new Color(ColorType.ARCHIPELAGO_NOTIFICATION_FOREGROUND));
                 break;
             case "selfgive":
-                renderArea.drawString(`Archipelago Update:`, 31, 1);
-                renderArea.drawString(san`Got ${notification.item}!`, 31, 2);
-                renderArea.addBold(30 + 5, 30 + 5 + notification.item.length, 2);
+                renderArea.drawString(Database.getTranslatedTextWithFallback("apArchipelagoUpdate"), 31, 1);
+                renderArea.addBold(31, 31 + Database.getTranslatedTextWithFallback("apArchipelagoUpdate").length, 1);
+                renderArea.drawString(Database.getTranslatedTextWithFallback("apReceiveSelf", {
+                    item: notification.item
+                }), 31, 2);
                 renderArea.addBackgroundColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_NOTIFICATION));
                 renderArea.addColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_NOTIFICATION_FOREGROUND));
                 renderArea.addBackgroundColor(30, 78, 2, new Color(ColorType.ARCHIPELAGO_NOTIFICATION));
@@ -85,10 +95,12 @@ export class ArchipelagoNotificationTray {
                 renderArea.addColor(30, 77, 3, new Color(ColorType.ARCHIPELAGO_NOTIFICATION_FOREGROUND));
                 break;
             case "deathlink":
-                renderArea.drawString(`Archipelago Update:`, 31, 1);
-                renderArea.drawString(san`Death granted by ${notification.obtainer}!`, 31, 2);
+                renderArea.drawString(Database.getTranslatedTextWithFallback("apArchipelagoUpdate"), 31, 1);
+                renderArea.addBold(31, 31 + Database.getTranslatedTextWithFallback("apArchipelagoUpdate").length, 1);
+                renderArea.drawString(Database.getTranslatedTextWithFallback("apDeathlink", {
+                    sender: notification.obtainer
+                }), 31, 2);
                 renderArea.drawString(notification.item, 31, 3);
-                renderArea.addBold(30 + 18, 30 + 18 + notification.obtainer.length, 2);
                 renderArea.addBackgroundColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_DEATHLINK, false));
                 renderArea.addColor(30, 77, 1, new Color(ColorType.ARCHIPELAGO_NOTIFICATION_FOREGROUND, false));
                 renderArea.addBackgroundColor(30, 78, 2, new Color(ColorType.ARCHIPELAGO_DEATHLINK, false));

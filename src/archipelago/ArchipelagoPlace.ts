@@ -158,12 +158,17 @@ export class ArchipelagoPlace extends Place {
 
             const translatedErrorText = Database.getTranslatedText(Archipelago.connectionError.current)
             if (translatedErrorText) {
-                this.renderArea.drawString(translatedErrorText, 7, 7 + 18);
-                this.renderArea.addColor(7, 7 + translatedErrorText.length, 7 + 18, new Color(ColorType.SAVE_RED));
+                this.renderArea.drawString(translatedErrorText, 7, y + 18);
+                this.renderArea.addColor(7, 7 + translatedErrorText.length, y + 18, new Color(ColorType.SAVE_RED));
+                y += 1;
             }
 
             if (Archipelago.expectedClientVersion.current) {
-                this.renderArea.addAsciiRealButton(`Load Version ${Archipelago.expectedClientVersion.current}`, 7, y + 19, "apLoadCorrectVersion");
+                this.renderArea.addAsciiRealButton(Database.getText("apLoadCorrectVersion", {
+                    version: Archipelago.expectedClientVersion.current
+                }), 7, y + 19, "apLoadCorrectVersion", Database.getTranslatedText("apLoadCorrectVersion", {
+                    version: Archipelago.expectedClientVersion.current
+                }));
                 this.renderArea.addLinkCall(".apLoadCorrectVersion", new CallbackCollection(this.loadCorrectVersion.bind(this)))
             }
         }

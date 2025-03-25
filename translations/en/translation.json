@@ -379,5 +379,13 @@
     "buyLollipops_one": "Send {{item}} to {{player}} for {{count}} lollipop",
     "buyLollipops_other": "Send {{item}} to {{player}} for {{count}} lollipops",
     "apConnectionTab": "Connection",
-    "apChatTab": "Chat"
+    "apChatTab": "Chat",
+    "apLoadCorrectVersion": "Load version {{version}}",
+    "apArchipelagoUpdate": "Archipelago Update:",
+    "apSent": "{{item}} was sent",
+    "apSent2": "to {{receiver}}!",
+    "apReceive": "Got {{item}}",
+    "apReceive2": "from {{sender}}!",
+    "apReceiveSelf": "Got {{item}}!",
+    "apDeathlink": "Death granted by {{sender}}!"
 }

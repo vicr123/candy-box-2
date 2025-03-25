@@ -73,6 +73,14 @@ export module Database{
         return "";
     }
 
+    export function getTranslatedTextWithFallback(key: string, replacements?: DatabaseTextReplacements): string{
+        let retval = getTranslatedText(key, replacements);
+        if (!retval) {
+            retval = getText(key, replacements);
+        }
+        return retval;
+    }
+
     export function getBuyText(item: Item, price: number, currency: "candies" | "lollipops") {
         return getText(currency == "candies" ? "buyCandies" : "buyLollipops", {
             item: item.name,
