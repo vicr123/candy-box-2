@@ -390,5 +390,11 @@
     "apDeathlink": "Death granted by {{sender}}!",
     "apLostConnection": "Lost connection to the Archipelago server",
     "apReloadTryAgain": "Reload and try again (your game will be saved)",
-    "apWaitingForArchipelago": "Waiting for Archipelago..."
+    "apWaitingForArchipelago": "Waiting for Archipelago...",
+    "apHintText": "{{player}} {{item}} is at {{location}} in {{sender}} world",
+    "apHintTextWithEntrance": "{{player}} {{item}} is at {{location}} ({{entrance}}) in {{sender}} world",
+    "apHintTab": "Hint",
+    "apHintNotFound": "Not Found Hints",
+    "apHintFound": "Found Hints",
+    "apNoHints": "Request a hint from the server to view it here"
 }

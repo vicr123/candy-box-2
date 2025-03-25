@@ -9,6 +9,8 @@ import {Saving} from "../main/Saving";
 import {MainLoadingType} from "../main/MainLoadingType";
 import {Color} from "../main/Color";
 import {ColorType} from "../main/ColorType";
+import {Algo} from "../main/Algo";
+import posessive = Algo.posessive;
 
 export class ArchipelagoPlace extends Place {
     // The render area
@@ -22,6 +24,10 @@ export class ArchipelagoPlace extends Place {
         {
             text: "apChatTab",
             page: "chat"
+        },
+        {
+            text: "apHintTab",
+            page: "hint"
         }
     ]
 
@@ -115,6 +121,9 @@ export class ArchipelagoPlace extends Place {
             case "chat":
                 this.renderApLog(y);
                 break;
+            case "hint":
+                this.renderHints(y);
+                break;
         }
     }
 
@@ -189,6 +198,76 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.drawString(translatedSendText, 95 - translatedSendText.length - 1, y + 34, true);
             }
             this.renderArea.addLinkCall(".apSend", new CallbackCollection(this.sendApMessage.bind(this)));
+        }
+    }
+
+    private renderHints(y: number) {
+        const hintList = Archipelago.client.items.hints.filter(x => x.item.receiver.name == Archipelago.client.name || x.item.sender.name == Archipelago.client.name);
+
+        if (hintList.length == 0) {
+            this.renderArea.drawString(Database.getText("apNoHints"), 50 - Database.getText("apNoHints").length / 2, y + 1);
+
+            if (Database.isTranslated()) {
+                this.renderArea.drawString(Database.getTranslatedText("apNoHints"), 50 - Database.getTranslatedText("apNoHints").length / 2, y + 2, true);
+            }
+            return;
+        }
+        const notFoundHints = hintList.filter(x => !x.found);
+        const foundHints = hintList.filter(x => x.found);
+
+        if (notFoundHints.length > 0) {
+            this.renderArea.drawString(Database.getText("apHintNotFound"), 0, y + 1);
+            this.renderArea.addBold(0, Database.getText("apHintNotFound").length, y + 1);
+            if (Database.isTranslated()) {
+                this.renderArea.drawString(Database.getTranslatedText("apHintNotFound"), Database.getText("apHintNotFound").length + 2, y + 1, true);
+            }
+            for (const hint of notFoundHints) {
+                if (hint.entrance == "Vanilla") {
+                    this.renderArea.drawString(Database.getTranslatedTextWithFallback("apHintText", {
+                        player: posessive(hint.item.receiver.name),
+                        item: hint.item.name,
+                        location: hint.item.locationName,
+                        sender: posessive(hint.item.sender.name)
+                    }), 2, y + 3)
+                } else {
+                    this.renderArea.drawString(Database.getTranslatedTextWithFallback("apHintTextWithEntrance", {
+                        player: posessive(hint.item.receiver.name),
+                        item: hint.item.name,
+                        location: hint.item.locationName,
+                        entrance: hint.entrance,
+                        sender: posessive(hint.item.sender.name)
+                    }), 2, y + 3)
+                }
+                y += 1;
+            }
+            y += 4;
+        }
+
+        if (foundHints.length > 0) {
+            this.renderArea.drawString(Database.getText("apHintFound"), 0, y + 1);
+            this.renderArea.addBold(0, Database.getText("apHintFound").length, y + 1);
+            if (Database.isTranslated()) {
+                this.renderArea.drawString(Database.getTranslatedText("apHintFound"), Database.getText("apHintFound").length + 2, y + 1, true);
+            }
+            for (const hint of foundHints) {
+                if (hint.entrance == "Vanilla") {
+                    this.renderArea.drawString(Database.getTranslatedTextWithFallback("apHintText", {
+                        player: posessive(hint.item.receiver.name),
+                        item: hint.item.name,
+                        location: hint.item.locationName,
+                        sender: posessive(hint.item.sender.name)
+                    }), 2, y + 3)
+                } else {
+                    this.renderArea.drawString(Database.getTranslatedTextWithFallback("apHintTextWithEntrance", {
+                        player: posessive(hint.item.receiver.name),
+                        item: hint.item.name,
+                        location: hint.item.locationName,
+                        entrance: hint.entrance,
+                        sender: posessive(hint.item.sender.name)
+                    }), 2, y + 3)
+                }
+                y += 1;
+            }
         }
     }
 

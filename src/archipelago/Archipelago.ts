@@ -17,7 +17,7 @@ declare const __COMMITS_SINCE_LAST_TAG: string;
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
 type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged";
-export type ArchipelagoPlacePage = "connection" | "chat";
+export type ArchipelagoPlacePage = "connection" | "chat" | "hint";
 
 export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Click" | "The Bridge Click" | "The Octopus King Click" |
     "Naked Monkey Wizard Click" | "The Forest Click" | "Castle Entrance Click" | "Giant Nougat Monster Click" | "Castle Egg Room Click" |

@@ -92,6 +92,8 @@ export module Algo{
 
     export function posessive(name: string) {
         switch (Saving.loadString("gameLanguage")) {
+            case "pt-BR":
+                return name;
             case "nl":
                 return `${name}${name.endsWith("s") ? "'" : "s"}`
             default:
