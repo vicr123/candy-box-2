@@ -87,7 +87,7 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.drawVerticalLine("|", x, y + 1, Database.isTranslated() ? y + 2 : y + 1);
                 this.renderArea.drawString(text, x + 2, y + 1);
                 if (Database.isTranslated()) {
-                    this.renderArea.drawString(translatedText, x + 2, y + 1, true);
+                    this.renderArea.drawString(translatedText, x + 2, y + 2, true);
                     x += Math.max(text.length, translatedText.length) + 3;
                 } else {
                     x += text.length + 3;
@@ -98,7 +98,7 @@ export class ArchipelagoPlace extends Place {
                     if (Database.isTranslated()) this.renderArea.addBackgroundColor(startX + 1, x, y + 2, new Color(ColorType.STATUS_BAR_SELECTED_TAB, true));
                 } else {
                     this.renderArea.addAsciiButton(startX + 1, x, y + 1, `changeTo${tab.page}Tab`)
-                    if (Database.isTranslated()) this.renderArea.addAsciiButton(startX + 1, x, y + 1, `changeTo${tab.page}Tab`)
+                    if (Database.isTranslated()) this.renderArea.addAsciiButton(startX + 1, x, y + 2, `changeTo${tab.page}Tab`)
                     this.renderArea.addLinkCall(`.changeTo${tab.page}Tab`, new CallbackCollection(() => {
                         Archipelago.apPage.current = tab.page;
                     }));
