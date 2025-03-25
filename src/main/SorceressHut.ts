@@ -102,8 +102,8 @@ export class SorceressHut extends Place{
     
     private buyHat(): void{
         // If we have enough lollipops
-        if(this.getGame().getLollipops().getCurrent() >= 1000000000){
-            this.getGame().getLollipops().add(-1000000000); // We spend the lollipops
+        if(this.getGame().getLollipops().getCurrent() >= Archipelago.slotData.prices.sorceressHat){
+            this.getGame().getLollipops().add(-Archipelago.slotData.prices.sorceressHat); // We spend the lollipops
             Saving.saveBool("sorceressHutBoughtHat", true); // We now bought the hat
             this.currentSpeech = ""; // We set the speech
             // We update
@@ -152,11 +152,11 @@ export class SorceressHut extends Place{
         this.selectedItem = this.itemScoutResults.findItem("SORCERESS_HUT_HAT");
         // Set the new speech
         this.currentSpeech = "sorceressHutClickedSpeech";
-        this.selectedPrice = 1000000000;
+        this.selectedPrice = Archipelago.slotData.prices.sorceressHat;
         
         // Update
         this.update();
-        this.drawBuyingButton(Database.getBuyText(this.selectedItem, 1000000000, "lollipops"), new CallbackCollection(this.buyHat.bind(this)));
+        this.drawBuyingButton(Database.getBuyText(this.selectedItem, Archipelago.slotData.prices.sorceressHat, "lollipops"), new CallbackCollection(this.buyHat.bind(this)));
         this.getGame().updatePlace();
     }
     

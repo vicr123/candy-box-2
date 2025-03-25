@@ -13,6 +13,7 @@ import {Database} from "./Database";
 import {Algo} from "./Algo";
 import {Random} from "./Random";
 import {Pos} from "./Pos";
+import {i18n} from "../i18n";
 
 Saving.registerNumber("cauldronBookCurrentPage", 0);
 
@@ -252,8 +253,8 @@ export class Cauldron extends Place{
                 this.renderArea.addAsciiNinjaButton(x+49, x+90, i, "cauldronRightPageTranslationButton");
             }
             // Tooltips
-            this.renderArea.addTooltip("cauldronLeftPageTranslationButtonTooltip", Database.getTranslatedText("cauldron.page" + Saving.loadNumber("cauldronBookCurrentPage")));
-            this.renderArea.addTooltip("cauldronRightPageTranslationButtonTooltip", Database.getTranslatedText("cauldron.page" + (Saving.loadNumber("cauldronBookCurrentPage")+1)));
+            this.renderArea.addTooltip("cauldronLeftPageTranslationButtonTooltip", i18n.t("cauldron:cauldron.page" + Saving.loadNumber("cauldronBookCurrentPage")));
+            this.renderArea.addTooltip("cauldronRightPageTranslationButtonTooltip", i18n.t("cauldron:cauldron.page" + (Saving.loadNumber("cauldronBookCurrentPage")+1)));
             // Links
             this.renderArea.addLinkOnHoverShowTooltip(".cauldronLeftPageTranslationButton", ".cauldronLeftPageTranslationButtonTooltip");
             this.renderArea.addLinkOnHoverShowTooltip(".cauldronRightPageTranslationButton", ".cauldronRightPageTranslationButtonTooltip");

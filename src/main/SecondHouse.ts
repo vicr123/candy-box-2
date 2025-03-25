@@ -73,7 +73,7 @@ export class SecondHouse extends House{
         // The chocolate bar
         this.addItem(new CandyMerchantItem_ChocolateBar(this.getGame(), "secondHouseChocolateBarBought", "places/village/candyMerchantItems/chocolateBar", new Pos(62, 27), items.findItem("VILLAGE_SHOP_CHOCOLATE_BAR"), 800, "secondHouseChocolateBarButtonText", "secondHouseChocolateBarButton"));
         // The merchant hat
-        this.addItem(new CandyMerchantItem_MerchantHat(this.getGame(), "secondHouseMerchantHatBought", "places/village/candyMerchantItems/hat", new Pos(53, 13), items.findItem("VILLAGE_SHOP_CANDY_MERCHANTS_HAT"), 1000000, "secondHouseMerchantHatButtonText", "secondHouseMerchantHatButton"));
+        this.addItem(new CandyMerchantItem_MerchantHat(this.getGame(), "secondHouseMerchantHatBought", "places/village/candyMerchantItems/hat", new Pos(53, 13), items.findItem("VILLAGE_SHOP_CANDY_MERCHANTS_HAT"), Archipelago.slotData.prices.candyMerchantHat, "secondHouseMerchantHatButtonText", "secondHouseMerchantHatButton"));
         // The time ring
         this.addItem(new CandyMerchantItem_TimeRing(this.getGame(), "secondHouseTimeRingBought", "places/village/candyMerchantItems/timeRing", new Pos(43, 28), items.findItem("VILLAGE_SHOP_TIME_RING"), 500, "secondHouseTimeRingButtonText", "secondHouseTimeRingButton"));
         // Leather gloves

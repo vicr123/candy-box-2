@@ -36,6 +36,10 @@ interface ArchipelagoSlotData {
     multipliers: {
         candies: number;
         lollipops: number;
+    };
+    prices: {
+        candyMerchantHat: number;
+        sorceressHat: number;
     }
 }
 

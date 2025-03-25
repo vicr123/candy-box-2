@@ -15,6 +15,7 @@ await i18next
         fallbackLng: false,
         returnEmptyString: true,
         missingKeyNoValueFallbackToKey: true,
+        keySeparator: false,
         parseMissingKeyHandler(key: string, defaultValue?: string): any {
             return "";
         },
