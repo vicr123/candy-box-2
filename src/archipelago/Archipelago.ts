@@ -10,6 +10,7 @@ import {
 } from "./ArchipelagoLocation";
 import {san, sanitiseText} from "../utils";
 import {ArchipelagoNotification} from "./ArchipelagoNotificationTray";
+import {Database} from "../main/Database";
 
 declare const __LAST_TAG: string;
 declare const __COMMITS_SINCE_LAST_TAG: string;
@@ -201,9 +202,17 @@ export namespace Archipelago {
 
         if (isDisconnection) {
             const errorMessage = document.createElement("span");
-            errorMessage.innerText = "Lost connection to the Archipelago server";
+            errorMessage.innerText = Database.getText("apLostConnection");
             errorMessage.style.position = "static";
             container.appendChild(errorMessage)
+
+            const lostConnectionTranslated = Database.getTranslatedText("apLostConnection");
+            if (lostConnectionTranslated) {
+                const errorMessageTranslated = document.createElement("i");
+                errorMessageTranslated.innerText = lostConnectionTranslated
+                errorMessageTranslated.style.position = "static";
+                container.appendChild(errorMessageTranslated);
+            }
 
             const spacing = document.createElement("span");
             spacing.innerText = " ";
@@ -212,18 +221,34 @@ export namespace Archipelago {
 
             const button = document.createElement("span");
             button.classList.add("asciiRealButton");
-            button.innerText = "Reload and try again (your game will be saved)"
+            button.innerText = Database.getText("apReloadTryAgain")
             button.style.color = "black"
             button.style.position = "static";
             button.onclick = () => window.location.reload()
             container.appendChild(button);
 
+            const reloadTryAgainTranslated = Database.getTranslatedText("apReloadTryAgain");
+            if (reloadTryAgainTranslated) {
+                const errorMessageTranslated = document.createElement("i");
+                errorMessageTranslated.innerText = reloadTryAgainTranslated
+                errorMessageTranslated.style.position = "static";
+                container.appendChild(errorMessageTranslated);
+            }
+
             document.body.style.pointerEvents = "initial";
         } else {
             const errorMessage = document.createElement("span");
-            errorMessage.innerText = "Waiting for Archipelago...";
+            errorMessage.innerText = Database.getText("apWaitingForArchipelago");
             errorMessage.style.position = "static";
             container.appendChild(errorMessage)
+
+            const errorMessageTranslatedString = Database.getTranslatedText("apWaitingForArchipelago");
+            if (errorMessageTranslatedString) {
+                const errorMessageTranslated = document.createElement("i");
+                errorMessageTranslated.innerText = errorMessageTranslatedString
+                errorMessageTranslated.style.position = "static";
+                container.appendChild(errorMessageTranslated);
+            }
         }
 
         document.body.appendChild(container);
