@@ -255,7 +255,7 @@
     "mountainsText0": "You spotted something in the mountains!",
     "mountainsText1": "It looks interesting. Maybe it could be useful.",
     "mountainsTextButton": "Climb the mountains to get the thing",
-    "mountainsTextAfter": "You found {{player}}'s {{item}}! It was sent to them.",
+    "mountainsTextAfter": "You found {{player}} {{item}}! It was sent to them.",
     "secondHouseIntroSpeech": "Hello, I'm the candy merchant. I would do anything for candies. What do you need?",
     "secondHouseLollipop1Speech": "This is a lemon-flavored lollipop. My favourite! It costs 60 candies, but it's worth it.",
     "secondHouseLollipop2Speech": "This one is a strawberry-flavored lollipop. It tastes good. I like its red color. Only 60 candies!",

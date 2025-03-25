@@ -10,6 +10,8 @@ import {Archipelago, ScoutResults} from "../archipelago/Archipelago";
 import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
 import {i18n} from "../i18n";
 import {Item} from "archipelago.js";
+import {Algo} from "./Algo";
+import posessive = Algo.posessive;
 
 export class Moutains extends Place{
     // The render area
@@ -80,13 +82,13 @@ export class Moutains extends Place{
         else{
             this.renderArea.drawString(i18n.t("mountainsTextAfter", {
                 lng: "en",
-                player: this.scoutItem.receiver.name,
+                player: posessive(this.scoutItem.receiver.name),
                 item: this.scoutItem.name
             }), 19, 22);
 
             if (Saving.loadString("gameLanguage") != "en") {
                 this.renderArea.drawString(i18n.t("mountainsTextAfter", {
-                    player: this.scoutItem.receiver.name,
+                    player: posessive(this.scoutItem.receiver.name),
                     item: this.scoutItem.name
                 }), 19, 24, true);
             }
