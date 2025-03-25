@@ -103,11 +103,13 @@ export class Cfg extends Place{
         // List
         this.renderArea.addList(x + Algo.takeBiggest(Database.getText("cfgChooseLanguage").length, Database.getTranslatedText("cfgChooseLanguage").length) + 2, x + Algo.takeBiggest(Database.getText("cfgChooseLanguage").length, Database.getTranslatedText("cfgChooseLanguage").length) + 20, y, "cfgLanguageList", new CallbackCollection(this.languageSelected.bind(this)),
             [
+            "category", "Supported Translations",
             "cfgLanguageEn", "English",
             "cfgLanguagePtBr", "Brazilian Portuguese (by TranslaCAT, Archipelago fork translations by Vrabbers)",
+            "cfgLanguageNl", "Dutch (by Noël Wierema and Vincent van Gennep, corrections by Wessel van den Putte, Archipelago fork translations by Aren Merzoian)",
+            "category", "Out of Date Translations",
             "cfgLanguageZh", "Chinese (by Fan Zhang)",
             "cfgLanguageCz", "Czech (by Keranis)",
-            "cfgLanguageNl", "Dutch (by Noël Wierema and Vincent van Gennep, corrections by Wessel van den Putte, Archipelago fork translations by Aren Merzoian)",
             "cfgLanguageFr", "French (by aniwey)",
             "cfgLanguageDe", "German (by Kai Kubasta)",
             "cfgLanguageEl", "Greek (by VagosLabrou)",
@@ -131,7 +133,7 @@ export class Cfg extends Place{
             this.renderArea.drawString("中文版翻译会导致少量图像显示错误，我会尽量修复它们的！", x + 9, y + 2, true);
         }
         // Add the TranslaCAT ascii art
-        else if(Saving.loadString("gameLanguage") == "br"){
+        else if(Saving.loadString("gameLanguage") == "pt-BR"){
             this.renderArea.drawArray(Database.getAscii("general/translaCAT"), x + 70, y - 1);
             this.renderArea.addHtmlLink(x + 76, y + 7, "http://www.translacat.com/", "TranslaCAT");
         }

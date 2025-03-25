@@ -178,10 +178,22 @@ export class RenderArea{
     
     public addList(x1: number, x2: number, y: number, id: string, callbackCollection: CallbackCollection, optionsArray: string[] = []): void{
         var options: string = "";
-        
+
+        let inOptgroup = false;
         // Add all the options tag & text to the options string
         for(var i = 0; i < optionsArray.length/2; i++){
-            options += "<option id=\"" + optionsArray[i*2] + "\" class=\"asciiSelectOption\">" + optionsArray[i*2+1] + "</option>";
+            if (optionsArray[i*2] == "category") {
+                if (inOptgroup) {
+                    options += "</optgroup>";
+                }
+                options += `<optgroup label="${optionsArray[i*2+1]}">`;
+                inOptgroup = true;
+            } else {
+                options += "<option id=\"" + optionsArray[i*2] + "\" class=\"asciiSelectOption\">" + optionsArray[i*2+1] + "</option>";
+            }
+        }
+        if (inOptgroup) {
+            options += "</optgroup>";
         }
         
         // Add the list itself as a tag
