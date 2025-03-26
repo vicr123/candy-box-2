@@ -21,11 +21,12 @@ const builtTreeFolder = process.argv[2];
 const folders = [
     versioningString,
 ];
-if (latestCommitIsTag || true) {
+if (latestCommitIsTag) {
     folders.push("latest");
 }
 if (!latestCommitIsTag) {
     folders.push(`${lastTag}+`);
+    folders.push("latest-blueprint");
 }
 
 console.log(`Building client for commit ${headCommit}`)
