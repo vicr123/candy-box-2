@@ -24,7 +24,7 @@ export async function asciiArtProcessing(): Promise<Plugin> {
         const width = artLines.reduce((max: number, current: string) => Math.max(max, current.length), 0);
 
         return {
-            name: path.join(path.dirname(file), path.basename(file, ".txt")),
+            name: path.join(path.dirname(file), path.basename(file, ".txt")).replaceAll("\\", "/"),
             height,
             width,
             art: artLines

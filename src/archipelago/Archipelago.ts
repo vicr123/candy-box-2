@@ -41,6 +41,9 @@ interface ArchipelagoSlotData {
     prices: {
         candyMerchantHat: number;
         sorceressHat: number;
+    };
+    health: {
+        teapot: number;
     }
 }
 

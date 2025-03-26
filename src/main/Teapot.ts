@@ -13,6 +13,7 @@ import {RenderTransparency} from "./RenderTransparency";
 import {QuestLogMessage} from "./QuestLogMessage";
 import {QuestItemFound} from "./QuestItemFound";
 import {Saving} from "./Saving";
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerApLocation("apGiantSpoonAcquired", "GIANT_SPOON_ACQUIRED")
 
@@ -40,8 +41,8 @@ export class Teapot extends QuestEntity{
         
         // Set destructible
         this.setDestructible(true);
-        this.setMaxHp(1000000);
-        this.setHp(1000000);
+        this.setMaxHp(Archipelago.slotData.health.teapot);
+        this.setHp(Archipelago.slotData.health.teapot);
         
         // Set the ascii art and the transparent character
         this.getRenderArea().drawArray(Database.getAscii("places/quests/fortress/teapot"));
