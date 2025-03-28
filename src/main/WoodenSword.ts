@@ -28,3 +28,9 @@ export class WoodenSword extends EqItem{
         return qew;
     }
 }
+
+export class Nothing extends EqItem{
+    constructor() {
+        super("eqItemWeaponNothing", "inventorySpecialNothingEqItem", "inventorySpecialNothingEqItem", "eqItems/weapons/woodenSword");
+    }
+}

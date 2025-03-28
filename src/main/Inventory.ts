@@ -60,14 +60,21 @@ export class Inventory extends Place{
         var arr: string[] = [];
 
         // Add the "Nothing" item
-        arr.push(nothingId);
-        arr.push(Database.getText("inventorySpecialNothingEqItem") + (Database.getTranslatedText("inventorySpecialNothingEqItem") == ""? "": " (" + Database.getTranslatedText("inventorySpecialNothingEqItem") + ")"));
-        
+        if (nothingId != "inventorySpecialNothingWeapon") {
+            arr.push(nothingId);
+            arr.push(Database.getText("inventorySpecialNothingEqItem") + (Database.getTranslatedText("inventorySpecialNothingEqItem") == ""? "": " (" + Database.getTranslatedText("inventorySpecialNothingEqItem") + ")"));
+        }
+
         // Fill the array with eqItems
         for(var savingName in eqItemsArray){
             if(eqItemsArray[savingName].isPossessed()){
-                arr.push(savingName);
-                arr.push(Database.getText(eqItemsArray[savingName].getDatabaseName()) + (Database.getTranslatedText(eqItemsArray[savingName].getDatabaseName()) == ""? "": " (" + Database.getTranslatedText(eqItemsArray[savingName].getDatabaseName()) + ")"));
+                if (savingName == "eqItemWeaponNothing") {
+                    arr.push(nothingId);
+                    arr.push(Database.getText("inventorySpecialNothingEqItem") + (Database.getTranslatedText("inventorySpecialNothingEqItem") == ""? "": " (" + Database.getTranslatedText("inventorySpecialNothingEqItem") + ")"));
+                } else {
+                    arr.push(savingName);
+                    arr.push(Database.getText(eqItemsArray[savingName].getDatabaseName()) + (Database.getTranslatedText(eqItemsArray[savingName].getDatabaseName()) == ""? "": " (" + Database.getTranslatedText(eqItemsArray[savingName].getDatabaseName()) + ")"));
+                }
             }
         }
         
@@ -85,7 +92,7 @@ export class Inventory extends Place{
     
     private drawEqItem(eqItem: EqItem, pos: Pos, size: Pos){
         // If the eqItem isn't null
-        if(eqItem != null){
+        if(eqItem != null && eqItem.getSavingName() != "eqItemWeaponNothing"){
             this.renderArea.drawArray(Database.getAscii(eqItem.getAscii()), Math.floor(pos.x + size.x/2 - Database.getAsciiWidth(eqItem.getAscii())/2), Math.floor(pos.y + size.y/2 - Database.getAsciiHeight(eqItem.getAscii())/2), null, eqItem.getSavingName() + "OnHover");
         
             // Add the tooltip

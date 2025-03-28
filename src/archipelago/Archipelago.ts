@@ -45,6 +45,9 @@ interface ArchipelagoSlotData {
     health: {
         teapot: number;
     }
+    defaults: {
+        weapon: number;
+    }
 }
 
 function createObservable<T>(initialValue: T, eventEmitter: EventEmitter<ArchipelagoEventTypes>, event: ArchipelagoEventTypes) {

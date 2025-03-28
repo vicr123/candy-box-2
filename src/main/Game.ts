@@ -39,7 +39,7 @@ import {SorceressHut} from "./SorceressHut";
 import {TheCave} from "./TheCave";
 import {TheComputer} from "./TheComputer";
 import {Yourself} from "./Yourself";
-import {WoodenSword} from "./WoodenSword";
+import {Nothing, WoodenSword} from "./WoodenSword";
 import {IronAxe} from "./IronAxe";
 import {PolishedSilverSword} from "./PolishedSilverSword";
 import {TrollBludgeon} from "./TrollBludgeon";
@@ -73,7 +73,7 @@ import {MainLoadingType} from "./MainLoadingType";
 import {i18n} from "../i18n";
 import {ArchipelagoPlace} from "../archipelago/ArchipelagoPlace";
 import {Archipelago, ArchipelagoEntrance} from "../archipelago/Archipelago";
-import {ArchipelagoItemProcessing} from "../archipelago/ArchipelagoItemProcessing";
+import {ArchipelagoItemProcessing, grantArchipelagoItem} from "../archipelago/ArchipelagoItemProcessing";
 import {Cellar} from "./Cellar";
 import {Desert} from "./Desert";
 import {Bridge} from "./Bridge";
@@ -90,13 +90,14 @@ import { FortressRoom1 } from "./FortressRoom1";
 import {FortressRoom3} from "./FortressRoom3";
 import {CastleRoom1} from "./CastleRoom1";
 import {TheSea} from "./TheSea";
+import {ArchipelagoItem} from "../archipelago/ArchipelagoLocation";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerGlobalString("gameLanguage", "en");
 Saving.registerGlobalBoolean("gameInvertedColors", false);
 
 // EqItems
-Saving.registerString("gameWeaponSelected", "inventorySpecialNothingWeapon");
+Saving.registerString("gameWeaponSelected", "default");
 Saving.registerString("gameHatSelected", "inventorySpecialNothingHat");
 Saving.registerString("gameBodyArmourSelected", "inventorySpecialNothingBodyArmour");
 Saving.registerString("gameGlovesSelected", "inventorySpecialNothingGloves");
@@ -337,7 +338,22 @@ export class Game{
         this.selectedEqItems = {};
         
         // Fill
-        if(Saving.loadString("gameWeaponSelected") != "inventorySpecialNothingWeapon") this.selectedEqItems["weapon"] = this.weapons[Saving.loadString("gameWeaponSelected")];
+        const selectedWeapon = Saving.loadString("gameWeaponSelected")
+        if (selectedWeapon == "inventorySpecialNothingWeapon") {
+            // noop
+        } else if(selectedWeapon != "default") {
+            this.selectedEqItems["weapon"] = this.weapons[Saving.loadString("gameWeaponSelected")];
+        } else {
+            const item = Object.values(this.weapons).find(x => x.isPossessed());
+            if (item) {
+                if (item.getSavingName() == "eqItemWeaponNothing") {
+                    Saving.saveString("inventorySpecialNothingWeapon", item.getSavingName())
+                } else {
+                    this.selectedEqItems["weapon"] = item;
+                    Saving.saveString("gameWeaponSelected", item.getSavingName())
+                }
+            }
+        }
         if(Saving.loadString("gameHatSelected") != "inventorySpecialNothingHat") this.selectedEqItems["hat"] = this.hats[Saving.loadString("gameHatSelected")];
         if(Saving.loadString("gameBodyArmourSelected") != "inventorySpecialNothingBodyArmour") this.selectedEqItems["bodyArmour"] = this.bodyArmours[Saving.loadString("gameBodyArmourSelected")];
         if(Saving.loadString("gameGlovesSelected") != "inventorySpecialNothingGloves") this.selectedEqItems["gloves"] = this.gloves[Saving.loadString("gameGlovesSelected")];
@@ -402,6 +418,11 @@ export class Game{
     }
     
     public postLoad(): void{
+        if (Archipelago.slotData) {
+            // Issue the weapon from the slot data
+            grantArchipelagoItem(this, Object.entries(ArchipelagoItem).find(([, value]) => value == Archipelago.slotData.defaults.weapon)![0] as keyof typeof ArchipelagoItem)
+        }
+
         // We re calc the player hp
         this.player.reCalcMaxHp();
         
@@ -812,7 +833,7 @@ export class Game{
     
     // Private methods
     private addEqItem(eqItem: EqItem, array: { [s: string]: EqItem; }): void{
-        array[eqItem.getSavingName()] = eqItem;
+        array[eqItem?.getSavingName() ?? "inventorySpecialNothingWeapon"] = eqItem;
     }
     
     private addGridItem(gridItem: GridItem): void{
@@ -821,6 +842,7 @@ export class Game{
     
     private createEqItems(): void{
         // Create weapons
+        this.addEqItem(new Nothing(), this.weapons);
         this.addEqItem(new WoodenSword(), this.weapons);
         this.addEqItem(new IronAxe(), this.weapons);
         this.addEqItem(new PolishedSilverSword(), this.weapons);
