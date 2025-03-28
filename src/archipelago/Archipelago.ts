@@ -105,8 +105,11 @@ export namespace Archipelago {
 
             if (slotData.expectedClientVersion && !equivalence.includes(slotData.expectedClientVersion)) {
                 client.socket.disconnect();
+
+                const newVersion = equivalence[equivalence.length - 1];
+                const newEquivalence = Archipelago.equivalence.find(e => e.includes(newVersion)) ?? [newVersion];
                 connectionError.current = "apConnectErrorVersion";
-                expectedClientVersion.current = equivalence[equivalence.length - 1];
+                expectedClientVersion.current = newEquivalence[newEquivalence.length - 1];
                 connectionStatus.current = "disconnected";
                 return;
             }
