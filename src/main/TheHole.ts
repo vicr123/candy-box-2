@@ -18,6 +18,9 @@ import {QuestEntityHealthBar} from "./QuestEntityHealthBar";
 import {Wall} from "./Wall";
 import {QuestItemFound} from "./QuestItemFound";
 import {Keyboard} from "./Keyboard";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
+import {Algo} from "./Algo";
+import itemName = Algo.itemName;
 
 Saving.registerApLocation("theHoleFirstChestFound", "HEART_PENDANT_ACQUIRED");
 Saving.registerApLocation("theHoleSecondChestFound", "DESERT_FORTRESS_KEY_ACQUIRED");
@@ -90,7 +93,11 @@ export class TheHole extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You jumped into the big hole! You're falling quickly, try to stay alive!"));
     }
-    
+
+    scoutKeys(): ScoutKeys {
+        return ["THE_HOLE"]
+    }
+
     // willBeDisplayed()
     public willBeDisplayed(): void{
         // We call the mother willBeDisplayed()
@@ -420,22 +427,22 @@ export class TheHole extends Quest{
 
     private openFirstChest(): void{
         this.firstChestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleFirstChestFound", "You opened a chest and found a heart pendant!", "You gain a heart pendant."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleFirstChestFound", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("HEART_PENDANT_ACQUIRED"))}!`, this.itemScoutResults.findItem("HEART_PENDANT_ACQUIRED")));
     }
     
     private openFourthChest(): void{
         this.fourthChestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleFourthChestFound", "You opened a chest and found 4 chocolate bars!", "You gain 4 chocolate bars."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleFourthChestFound", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("HOLE_CHOCOLATE_BAR_4"))}!`, this.itemScoutResults.findItem("HOLE_CHOCOLATE_BAR_4")));
     }
     
     private openSecondChest(): void{
         this.secondChestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleSecondChestFound", "You opened a chest and found the desert fortress key!", "You gain the desert fortress key."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleSecondChestFound", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("DESERT_FORTRESS_KEY_ACQUIRED"))}!`, this.itemScoutResults.findItem("DESERT_FORTRESS_KEY_ACQUIRED")));
     }
     
     private openThirdChest(): void{
         this.thirdChestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleThirdChestFound", "You opened a chest and found a grimoire!", "You gain a black magic grimoire."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleThirdChestFound", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED"))}!`, this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED")));
     }
     
     private moveHorizontally(): void{

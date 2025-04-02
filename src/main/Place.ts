@@ -2,12 +2,13 @@ import {Game} from "./Game";
 import {RenderArea} from "./RenderArea";
 import {CallbackCollection} from "./CallbackCollection";
 import {Database} from "./Database";
-import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
-import { Item } from "archipelago.js";
 import { ScoutResults } from "../archipelago/Archipelago";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 
 export class Place{
     private game: Game;
+
+    private _itemScoutResults: ScoutResults | undefined;
     
     // Constructor
     constructor(game: Game){
@@ -64,11 +65,15 @@ export class Place{
         return false;
     }
 
-    public scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
+    public scoutKeys(): ScoutKeys {
         return [];
     }
 
     public scoutResults(items: ScoutResults) {
+        this._itemScoutResults = items;
+    }
 
+    public get itemScoutResults() {
+        return this._itemScoutResults;
     }
 }

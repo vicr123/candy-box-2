@@ -99,8 +99,24 @@ export const ArchipelagoLocationRegion = {
     WISHING_WELL_4: ArchipelagoLocation.ENCHANT_ENCHANTED_KNIGHT_BODY_ARMOUR,
     WISHING_WELL_5: ArchipelagoLocation.ENCHANT_OCTOPUS_KING_CROWN_WITH_JASPERS,
     WISHING_WELL_6: ArchipelagoLocation.ENCHANT_GIANT_SPOON_OF_DOOM,
-    CASTLE_BAKEHOUSE: ArchipelagoLocation.BAKE_PAIN_AU_CHOCOLAT_1
+    CASTLE_BAKEHOUSE: ArchipelagoLocation.BAKE_PAIN_AU_CHOCOLAT_1,
+    EGG_ROOM: ArchipelagoLocation.EGG_ROOM_CHEST,
+    LEDGE_ROOM: ArchipelagoLocation.ROCKET_BOOTS_ACQUIRED,
+    XINOPHERYDON_ROOM: ArchipelagoLocation.XINOPHERYDON_CLAW_ACQUIRED,
+    THE_HOLE: ArchipelagoLocation.TRIBAL_SPEAR_ACQUIRED,
+    THE_SEA: ArchipelagoLocation.SEA_SPONGE_ACQUIRED,
+    THE_DESERT: ArchipelagoLocation.DESERT_QUEST,
+    THE_DEVELOPER: ArchipelagoLocation.KILL_THE_DEVELOPER,
+    HELL: ArchipelagoLocation.KILL_THE_DEVIL,
+    CASTLE_ENTRANCE: ArchipelagoLocation.CASTLE_ENTRANCE_QUEST,
+    MONKEY_WIZARD_QUEST: ArchipelagoLocation.MONKEY_WIZARD_QUEST,
+    OCTOPUS_KING_QUEST: ArchipelagoLocation.OCTOPUS_KING_QUEST,
+    TEAPOT_ROOM: ArchipelagoLocation.GIANT_SPOON_ACQUIRED,
+    THE_BRIDGE: ArchipelagoLocation.BRIDGE_QUEST,
+    X_ROOM: ArchipelagoLocation.BOOTS_OF_INTROSPECTION_ACQUIRED
 } satisfies Record<string, number>
+
+export type ScoutKeys = (keyof typeof ArchipelagoLocationRegion)[];
 
 export const ArchipelagoItem = {
     CANDY: 0,

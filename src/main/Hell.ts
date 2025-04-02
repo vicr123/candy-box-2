@@ -18,6 +18,7 @@ import {Lava} from "./Lava";
 import {Database} from "./Database";
 import {Color} from "./Color";
 import {ColorType} from "./ColorType";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 
 export class Hell extends Quest{
     // The devil
@@ -55,7 +56,11 @@ export class Hell extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter Hell."));
     }
-    
+
+    scoutKeys(): ScoutKeys {
+        return ["HELL"]
+    }
+
     // Public methods
     public castPlayerTeleport(): void{
         super.castPlayerTeleport(new Pos(0, 0), new Pos(20, 21));

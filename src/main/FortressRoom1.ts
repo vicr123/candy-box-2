@@ -17,6 +17,9 @@ import {QuestEntityHealthBar} from "./QuestEntityHealthBar";
 import {QuestEntityHealthBarPositionType} from "./QuestEntityHealthBarPositionType";
 import {BarType} from "./BarType";
 import {QuestItemFound} from "./QuestItemFound";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
+import {Algo} from "./Algo";
+import itemName = Algo.itemName;
 
 Saving.registerApLocation("apUnicornHorn", "UNICORN_HORN_ACQUIRED");
 
@@ -64,7 +67,11 @@ export class FortressRoom1 extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter the first room. It seems tricky."));
     }
-    
+
+    scoutKeys(): ScoutKeys {
+        return ["XINOPHERYDON_ROOM"]
+    }
+
     // Public methods
     public castPlayerTeleport(): void{
         super.castPlayerTeleport(new Pos(2, 3), new Pos(1, 1));
@@ -161,6 +168,6 @@ export class FortressRoom1 extends Quest{
     
     private openChest(): void{
         this.chestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "apUnicornHorn", "You opened a chest and found a unicorn horn!", "You gain a unicorn horn."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "apUnicornHorn", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("UNICORN_HORN_ACQUIRED"))}!`, this.itemScoutResults.findItem("UNICORN_HORN_ACQUIRED")));
     }
 }

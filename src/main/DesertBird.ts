@@ -12,6 +12,8 @@ import {QuestEntityAnimation} from "./QuestEntityAnimation";
 import {Random} from "./Random";
 import {QuestItemFound} from "./QuestItemFound";
 import {Saving} from "./Saving";
+import {Algo} from "./Algo";
+import itemName = Algo.itemName;
 
 Saving.registerApLocation("apDesertBirdFeather", "DESERT_BIRD_FEATHER");
 
@@ -46,6 +48,6 @@ export class DesertBird extends QuestEntity{
     // willDie()
     public willDie(): void{
         super.willDie();
-        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apDesertBirdFeather", "You found a desert bird feather!", "You gain a desert bird feather"));
+        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apDesertBirdFeather", `You found ${itemName(this.getQuest().itemScoutResults.findItem("DESERT_BIRD_FEATHER"))}!`, this.getQuest().itemScoutResults.findItem("DESERT_BIRD_FEATHER")));
     }
 }

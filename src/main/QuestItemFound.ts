@@ -1,5 +1,8 @@
 import {Quest} from "./Quest";
 import {QuestLogMessage} from "./QuestLogMessage";
+import {Item} from "archipelago.js";
+import {Algo} from "./Algo";
+import sentItem = Algo.sentItem;
 
 export class QuestItemFound{
     // The quest
@@ -12,14 +15,14 @@ export class QuestItemFound{
     private foundText: string;
     
     // The text to show when we get the item
-    private getText: string;
+    private item: Item;
     
     // Constructor
-    constructor(quest: Quest, savingName: string, foundText: string, getText: string){
+    constructor(quest: Quest, savingName: string, foundText: string, item: Item){
         this.quest = quest;
         this.savingName = savingName;
         this.foundText = foundText;
-        this.getText = getText;
+        this.item = item;
     }
     
     // Public methods
@@ -28,7 +31,7 @@ export class QuestItemFound{
     }
     
     public get(): void{ // Called when we get the item
-        this.quest.getGame().getQuestLog().addMessage(new QuestLogMessage(this.getText, null, true));
+        this.quest.getGame().getQuestLog().addMessage(new QuestLogMessage(`You sent ${sentItem(this.item)}`, null, true));
     }
     
     // Public getters    

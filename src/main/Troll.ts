@@ -16,6 +16,7 @@ import {QuestLogMessage} from "./QuestLogMessage";
 import {Algo} from "./Algo";
 import {QuestItemFound} from "./QuestItemFound";
 import {Saving} from "./Saving";
+import itemName = Algo.itemName;
 
 Saving.registerApLocation("apTrollBludgeon", "THE_TROLLS_BLUDGEON_ACQUIRED")
 
@@ -66,6 +67,6 @@ export class Troll extends QuestEntity{
     
     public willDie(): void{
         this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage() + " (and found " + Algo.pluralFormat(this.getQuest().foundCandies(500), " candy", " candies") + ")", this.getQuest().getCandiesFoundMessage()));
-        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apTrollBludgeon", "You picked up the troll's bludgeon from the floor", "You gain the troll's bludgeon"));
+        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apTrollBludgeon", `You picked up ${itemName(this.getQuest().itemScoutResults.findItem("THE_TROLLS_BLUDGEON_ACQUIRED"))} from the floor`, this.getQuest().itemScoutResults.findItem("THE_TROLLS_BLUDGEON_ACQUIRED")));
     }
 }

@@ -12,6 +12,7 @@ import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Database} from "./Database";
 import {Wall} from "./Wall";
 import {QuestItemFound} from "./QuestItemFound";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 
 Saving.registerApLocation("apRocketBootsFound", "ROCKET_BOOTS_ACQUIRED");
 
@@ -44,7 +45,11 @@ export class FortressRoom3 extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter the third room. There's a chest up there. How to reach it?!"));
     }
-    
+
+    scoutKeys(): ScoutKeys {
+        return ["LEDGE_ROOM"]
+    }
+
     // Public methods
     public castPlayerTeleport(): void{
         super.castPlayerTeleport(new Pos(2, 26), new Pos(1, 1));
@@ -107,6 +112,6 @@ export class FortressRoom3 extends Quest{
     
     private openChest(): void{
         this.chestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "apRocketBootsFound", "You opened a chest and found rocket boots!", "You gain rocket boots."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "apRocketBootsFound", `You opened a chest and found ${this.itemScoutResults.findItem("ROCKET_BOOTS_ACQUIRED")}!`, this.itemScoutResults.findItem("ROCKET_BOOTS_ACQUIRED")));
     }
 }

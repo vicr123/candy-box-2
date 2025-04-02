@@ -21,6 +21,7 @@ import {ColorType} from "./ColorType";
 import {Random} from "./Random";
 import {Database} from "./Database";
 import {Saving} from "./Saving";
+import itemName = Algo.itemName;
 
 Saving.registerApLocation("apAStone", "KILL_THE_DEVIL")
 
@@ -99,7 +100,7 @@ export class Devil extends QuestEntity{
     // willDie()
     public willDie(): void{
         this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage() + " (and found " + Algo.pluralFormat(this.getQuest().foundCandies(1000000), " candy", " candies") + ")", this.getQuest().getCandiesFoundMessage()));
-        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apAStone", "You found a strange stone.", "You gain a strange stone."));
+        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apAStone", `You found ${itemName(this.getQuest().itemScoutResults.findItem("KILL_THE_DEVIL"))}.`, this.getQuest().itemScoutResults.findItem("KILL_THE_DEVIL")));
     }
     
     // Private methods

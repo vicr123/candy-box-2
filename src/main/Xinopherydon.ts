@@ -15,6 +15,7 @@ import {QuestLogMessage} from "./QuestLogMessage";
 import {Algo} from "./Algo";
 import {QuestItemFound} from "./QuestItemFound";
 import {Saving} from "./Saving";
+import itemName = Algo.itemName;
 
 Saving.registerApLocation("apXinopherydonClaw", "XINOPHERYDON_CLAW_ACQUIRED")
 
@@ -71,6 +72,6 @@ export class Xinopherydon extends QuestEntity{
         // Candies
         this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage() + " (and found " + Algo.pluralFormat(this.getQuest().foundCandies(30000), " candy", " candies") + ")", this.getQuest().getCandiesFoundMessage()));
         // The claw
-        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apXinopherydonClaw", "You found a strange claw on the xinopherydon's corpse.", "You gain a strange claw."));
+        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apXinopherydonClaw", `You found ${itemName(this.getQuest().itemScoutResults.findItem("XINOPHERYDON_CLAW_ACQUIRED"))}.`, this.getQuest().itemScoutResults.findItem("XINOPHERYDON_CLAW_ACQUIRED")));
     }
 }

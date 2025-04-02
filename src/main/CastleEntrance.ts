@@ -13,6 +13,7 @@ import {Database} from "./Database";
 import {CallbackCollection} from "./CallbackCollection";
 import {QuestEntityHealthBar} from "./QuestEntityHealthBar";
 import {Wall} from "./Wall";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 
 export class CastleEntrance extends Quest{
     // Last knight added
@@ -43,7 +44,11 @@ export class CastleEntrance extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You're trying to cross the castle's entrance."));
     }
-    
+
+    scoutKeys(): ScoutKeys {
+        return ["CASTLE_ENTRANCE"]
+    }
+
     // Public methods
     public castPlayerTeleport(): void{
         super.castPlayerTeleport(new Pos(0, 0), new Pos(60, 20));

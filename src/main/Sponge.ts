@@ -11,6 +11,8 @@ import {CollisionBox} from "./CollisionBox";
 import {QuestEntityTeam} from "./QuestEntityTeam";
 import {QuestItemFound} from "./QuestItemFound";
 import {Saving} from "./Saving";
+import {Algo} from "./Algo";
+import itemName = Algo.itemName;
 
 Saving.registerApLocation("apSponge", "SEA_SPONGE_ACQUIRED");
 
@@ -46,6 +48,6 @@ export class Sponge extends QuestEntity{
     // willDie()
     public willDie(): void{
        super.willDie();
-       this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apSponge", "You found a sponge.", "You gain a sponge."));
+       this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apSponge", `You found ${itemName(this.getQuest().itemScoutResults.findItem("SEA_SPONGE_ACQUIRED"))}.`, this.getQuest().itemScoutResults.findItem("SEA_SPONGE_ACQUIRED")));
     }
 }

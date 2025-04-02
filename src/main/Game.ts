@@ -72,7 +72,7 @@ import {RenderArea} from "./RenderArea";
 import {MainLoadingType} from "./MainLoadingType";
 import {i18n} from "../i18n";
 import {ArchipelagoPlace} from "../archipelago/ArchipelagoPlace";
-import {Archipelago, ArchipelagoEntrance} from "../archipelago/Archipelago";
+import {Archipelago, ArchipelagoEntrance, ScoutResults} from "../archipelago/Archipelago";
 import {ArchipelagoItemProcessing, grantArchipelagoItem} from "../archipelago/ArchipelagoItemProcessing";
 import {Cellar} from "./Cellar";
 import {Desert} from "./Desert";

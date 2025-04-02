@@ -29,6 +29,7 @@ import {Sponge} from "./Sponge";
 import {PlayerCharacterType} from "./PlayerCharacterType";
 import {TheSeaPatternLevel_Level0} from "./TheSeaPatternLevel_Level0";
 import {Keyboard} from "./Keyboard";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 
 export class TheSea extends Quest{
     // Floors
@@ -86,7 +87,11 @@ export class TheSea extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You jump into the sea! You know you could find precious hidden treasures in the depths..."));
     }
-    
+
+    scoutKeys(): ScoutKeys {
+        return ["THE_SEA"]
+    }
+
     // willBeDisplayed()
     public willBeDisplayed(): void{
         // We call the mother willBeDisplayed()

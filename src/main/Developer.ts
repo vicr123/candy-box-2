@@ -11,6 +11,7 @@ import {CallbackCollection} from "./CallbackCollection";
 import {QuestEntityHealthBar} from "./QuestEntityHealthBar";
 import {QuestEntityHealthBarPositionType} from "./QuestEntityHealthBarPositionType";
 import {BarType} from "./BarType";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 
 export class Developer extends Quest{
     // The developer
@@ -38,7 +39,11 @@ export class Developer extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You're attacking the developer."));
     }
-    
+
+    scoutKeys(): ScoutKeys {
+        return ["THE_DEVELOPER"]
+    }
+
     // Public methods
     public castPlayerBlackDemons(): void{
         super.castPlayerBlackDemons();

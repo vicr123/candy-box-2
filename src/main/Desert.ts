@@ -17,6 +17,7 @@ import {QuestEntityHealthBar} from "./QuestEntityHealthBar";
 import {TripodCamel} from "./TripodCamel";
 import {Camel} from "./Camel";
 import {Wall} from "./Wall";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 
 export class Desert extends Quest{
     // Bird adding variables
@@ -82,7 +83,11 @@ export class Desert extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter the desert, camels and palm trees as far as the eye can see."));
     }
-    
+
+    scoutKeys(): ScoutKeys {
+        return ["THE_DESERT"]
+    }
+
     // Public methods
     public configPlayerOrClone(entity: QuestEntity): void{
         entity.setQuestEntityMovement(new QuestEntityMovement(new Pos(1, 0)));

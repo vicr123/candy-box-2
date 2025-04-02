@@ -13,6 +13,7 @@ import {QuestEntityHealthBar} from "./QuestEntityHealthBar";
 import {QuestEntityHealthBarPositionType} from "./QuestEntityHealthBarPositionType";
 import {BarType} from "./BarType";
 import {Wall} from "./Wall";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 
 export class MonkeyWizardQuest extends Quest{
     // Constructor
@@ -40,7 +41,11 @@ export class MonkeyWizardQuest extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You challenged the monkey wizard. Let the fight begin!"));
     }
-    
+
+    scoutKeys(): ScoutKeys {
+        return ["MONKEY_WIZARD_QUEST"]
+    }
+
     // Public methods
     public configPlayerOrClone(entity: QuestEntity): void{
         entity.setQuestEntityMovement(new QuestEntityMovement(new Pos(1, 0)));

@@ -14,6 +14,8 @@ import {QuestLogMessage} from "./QuestLogMessage";
 import {QuestItemFound} from "./QuestItemFound";
 import {Saving} from "./Saving";
 import {Archipelago} from "../archipelago/Archipelago";
+import {Algo} from "./Algo";
+import itemName = Algo.itemName;
 
 Saving.registerApLocation("apGiantSpoonAcquired", "GIANT_SPOON_ACQUIRED")
 
@@ -64,6 +66,6 @@ export class Teapot extends QuestEntity{
         // Candies
         this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage()));
         // The spoon
-        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apGiantSpoonAcquired", "You found a giant spoon inside the teapot.", "You gain a giant spoon."));
+        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apGiantSpoonAcquired", `You found ${itemName(this.getQuest().itemScoutResults.findItem("GIANT_SPOON_ACQUIRED"))} inside the teapot.`, this.getQuest().itemScoutResults.findItem("GIANT_SPOON_ACQUIRED")));
     }
 }

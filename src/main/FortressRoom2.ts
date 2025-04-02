@@ -13,6 +13,7 @@ import {Teapot} from "./Teapot";
 import {QuestEntityHealthBar} from "./QuestEntityHealthBar";
 import {QuestEntityHealthBarPositionType} from "./QuestEntityHealthBarPositionType";
 import {BarType} from "./BarType";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 
 export class FortressRoom2 extends Quest{
     // Constructor
@@ -40,7 +41,11 @@ export class FortressRoom2 extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter the second room. There's a giant teapot in the center."));
     }
-    
+
+    scoutKeys(): ScoutKeys {
+        return ["TEAPOT_ROOM"]
+    }
+
     // Public methods
     public configPlayerOrClone(entity: QuestEntity): void{
         entity.setQuestEntityMovement(new QuestEntityMovement(new Pos(1, 0)));

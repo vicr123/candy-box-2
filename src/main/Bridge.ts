@@ -14,6 +14,7 @@ import {Troll} from "./Troll";
 import {QuestEntityHealthBar} from "./QuestEntityHealthBar";
 import {QuestEntityHealthBarPositionType} from "./QuestEntityHealthBarPositionType";
 import {BarType} from "./BarType";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 
 export class Bridge extends Quest{
     // Constructor
@@ -41,7 +42,11 @@ export class Bridge extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You're trying to cross the bridge. A huge troll is blocking your way!"));
     }
-    
+
+    scoutKeys(): ScoutKeys {
+        return ["THE_BRIDGE"]
+    }
+
     // Public methods
     public configPlayerOrClone(entity: QuestEntity): void{
         entity.setQuestEntityMovement(new QuestEntityMovement(new Pos(1, 0)));

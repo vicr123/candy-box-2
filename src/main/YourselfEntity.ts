@@ -13,6 +13,7 @@ import {QuestLogMessage} from "./QuestLogMessage";
 import {Algo} from "./Algo";
 import {QuestItemFound} from "./QuestItemFound";
 import {Saving} from "./Saving";
+import itemName = Algo.itemName;
 
 Saving.registerApLocation("apBootsOfIntrospection", "BOOTS_OF_INTROSPECTION_ACQUIRED")
 
@@ -66,6 +67,6 @@ export class YourselfEntity extends QuestEntity{
     // willDie()
     public willDie(): void{
         this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage(this.getDeathMessage() + " (and found " + Algo.pluralFormat(this.getQuest().foundCandies(Math.floor(this.getQuest().getGame().getCandies().getCurrent()/10)), " candy", " candies") + ")", this.getQuest().getCandiesFoundMessage()));
-        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apBootsOfIntrospection", "You found the boots of introspection", "You gain the boots of introspection"));
+        this.getQuest().foundGridOrEqItem(new QuestItemFound(this.getQuest(), "apBootsOfIntrospection", `You found ${itemName(this.getQuest().itemScoutResults.findItem("BOOTS_OF_INTROSPECTION_ACQUIRED"))}`, this.getQuest().itemScoutResults.findItem("BOOTS_OF_INTROSPECTION_ACQUIRED")));
     }
 }

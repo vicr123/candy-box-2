@@ -14,6 +14,9 @@ import {Saving} from "./Saving";
 import {Egg} from "./Egg";
 import {Wall} from "./Wall";
 import {QuestItemFound} from "./QuestItemFound";
+import {ArchipelagoLocationRegion, ScoutKeys} from "../archipelago/ArchipelagoLocation";
+import {Algo} from "./Algo";
+import itemName = Algo.itemName;
 
 Saving.registerApLocation("apLStone", "EGG_ROOM_CHEST")
 
@@ -52,7 +55,11 @@ export class CastleRoom3 extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter one of the castle's room."));
     }
-    
+
+    public scoutKeys(): ScoutKeys {
+        return ["EGG_ROOM"];
+    }
+
     // Public methods
     public castPlayerTeleport(): void{
         super.castPlayerTeleport(new Pos(96, 19), new Pos(2, 3));
@@ -144,6 +151,6 @@ export class CastleRoom3 extends Quest{
     }
     
     private openChest(): void{
-        this.foundGridOrEqItem(new QuestItemFound(this, "apLStone", "You opened a chest and found a strange stone.", "You gain a strange stone."));
+        this.foundGridOrEqItem(new QuestItemFound(this, "apLStone", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("EGG_ROOM_CHEST"))}.`, this.itemScoutResults.findItem("EGG_ROOM_CHEST")));
     }
 }

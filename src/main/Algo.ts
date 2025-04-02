@@ -1,6 +1,7 @@
 import {Pos} from "./Pos";
 import {Random} from "./Random";
 import {Saving} from "./Saving";
+import {Item} from "archipelago.js";
 
 export module Algo{
     // Return 0 is the number given is under 0, else return the number given
@@ -90,8 +91,8 @@ export module Algo{
         return b;
     }
 
-    export function posessive(name: string) {
-        switch (Saving.loadString("gameLanguage")) {
+    export function posessive(name: string, language?: string) {
+        switch (language ?? Saving.loadString("gameLanguage")) {
             case "pt-BR":
                 return name;
             case "nl":
@@ -99,5 +100,13 @@ export module Algo{
             default:
                 return `${name}'${name.endsWith("s") ? "" : "s"}`
         }
+    }
+
+    export function itemName(item: Item) {
+        return `${posessive(item.receiver.name, "en")} ${item.name}`;
+    }
+
+    export function sentItem(item: Item) {
+        return `${item.name} to ${item.receiver.name}`;
     }
 }

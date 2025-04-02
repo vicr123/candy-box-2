@@ -97,21 +97,23 @@ export namespace Archipelago {
                 items: itemsHandlingFlags.all
             });
 
-            // Determine if the client version is acceptable
-            const expectedVersion = `${__LAST_TAG}${__COMMITS_SINCE_LAST_TAG != "0" ? "+" : ""}`;
+            if (import.meta.env.PROD) {
+                // Determine if the client version is acceptable
+                const expectedVersion = `${__LAST_TAG}${__COMMITS_SINCE_LAST_TAG != "0" ? "+" : ""}`;
 
-            // Find equivalence versions
-            const equivalence = Archipelago.equivalence.find(e => e.includes(expectedVersion)) ?? [expectedVersion];
+                // Find equivalence versions
+                const equivalence = Archipelago.equivalence.find(e => e.includes(expectedVersion)) ?? [expectedVersion];
 
-            if (slotData.expectedClientVersion && !equivalence.includes(slotData.expectedClientVersion)) {
-                client.socket.disconnect();
+                if (slotData.expectedClientVersion && !equivalence.includes(slotData.expectedClientVersion)) {
+                    client.socket.disconnect();
 
-                const newVersion = slotData.expectedClientVersion;
-                const newEquivalence = Archipelago.equivalence.find(e => e.includes(newVersion)) ?? [newVersion];
-                connectionError.current = "apConnectErrorVersion";
-                expectedClientVersion.current = newEquivalence[newEquivalence.length - 1];
-                connectionStatus.current = "disconnected";
-                return;
+                    const newVersion = slotData.expectedClientVersion;
+                    const newEquivalence = Archipelago.equivalence.find(e => e.includes(newVersion)) ?? [newVersion];
+                    connectionError.current = "apConnectErrorVersion";
+                    expectedClientVersion.current = newEquivalence[newEquivalence.length - 1];
+                    connectionStatus.current = "disconnected";
+                    return;
+                }
             }
 
             localSaveSlot = slotData.uuid;

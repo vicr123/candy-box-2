@@ -15,6 +15,7 @@ import {QuestEntityHealthBarPositionType} from "./QuestEntityHealthBarPositionTy
 import {BarType} from "./BarType";
 import {Wall} from "./Wall";
 import {Random} from "./Random";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 
 export class Yourself extends Quest{
     // Yourself
@@ -51,7 +52,11 @@ export class Yourself extends Quest{
         // Add the message
         this.getGame().getQuestLog().addMessage(new QuestLogMessage("You are now fighting yourself."));
     }
-    
+
+    scoutKeys(): ScoutKeys {
+        return ["X_ROOM"]
+    }
+
     // Public methods
     public configPlayerOrClone(entity: QuestEntity): void{
         entity.setQuestEntityMovement(new QuestEntityMovement(new Pos(1, 0)));
