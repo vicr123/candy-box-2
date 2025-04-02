@@ -27,8 +27,6 @@ export class SorceressHut extends Place{
     // Current speech
     private currentSpeech: string;
 
-    private itemScoutResults: ScoutResults;
-
     private selectedItem: Item;
     private selectedPrice: number;
     
@@ -51,10 +49,6 @@ export class SorceressHut extends Place{
 
     scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
         return ["SORCERESS_HUT"];
-    }
-
-    scoutResults(items: ScoutResults) {
-        this.itemScoutResults = items;
     }
 
     // getRenderArea()
