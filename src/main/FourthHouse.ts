@@ -197,3 +197,4 @@ export class FourthHouse extends House{
         this.drawCarpetStuff(41, 32);
     }
 }
+

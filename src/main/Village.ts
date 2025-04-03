@@ -15,6 +15,7 @@ import {CallbackCollection} from "./CallbackCollection";
 import {Archipelago} from "../archipelago/Archipelago";
 import client = Archipelago.client;
 import {ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
+import {ShareHouse} from "./ShareHouse";
 
 export class Village extends Place{
     // Render areas
@@ -88,7 +89,7 @@ export class Village extends Place{
     
     // Private "go to" methods
     private goToFirstHouse(): void{
-        alert("yay");
+        this.getGame().setPlace(new ShareHouse(this.getGame()));
     }
     
     private goToSecondHouse(): void{
@@ -114,17 +115,29 @@ export class Village extends Place{
     // Private "load" methods
     private loadFirstHouse(x: number, y: number): void{
         // Buttons
-        this.renderArea.addMultipleAsciiNinjaButtons("mapVillageFirstHouseButton",
+        const buttonArgs = [
             x+6, x+8, y,
             x+1, x+10, y+1,
             x, x+11, y+2,
             x-1, x+12, y+3,
             x, x+11, y+4,
-            x, x+11, y+5);
-        // Comments
-        this.renderArea.addFullComment(x + 6, y + 6, Database.getText("mapVillageLockedHouseComment"), Database.getTranslatedText("mapVillageLockedHouseComment"), "mapVillageFirstHouseComment");
-        // Interactions
-        this.renderArea.addLinkOver(".mapVillageFirstHouseButton, .mapVillageFirstHouseComment", ".mapVillageFirstHouseComment");
+            x, x+11, y+5
+        ];
+
+        if (Archipelago.slotData?.gifting || Archipelago.slotData?.energyLink) {
+            this.renderArea.addMultipleAsciiButtons("mapVillageFirstHouseButton", ...buttonArgs);
+            // Comments
+            this.renderArea.addFullComment(x + 6, y + 6, Database.getText("shareHouse"), Database.getTranslatedText("shareHouse"), "mapVillageFirstHouseComment");
+            // Interactions
+            this.renderArea.addLinkOver(".mapVillageFirstHouseButton, .mapVillageFirstHouseComment", ".mapVillageFirstHouseComment");
+            this.renderArea.addLinkCall(".mapVillageFirstHouseButton, .mapVillageFirstHouseComment", new CallbackCollection(this.goToFirstHouse.bind(this)));
+        } else {
+            this.renderArea.addMultipleAsciiNinjaButtons("mapVillageFirstHouseButton", ...buttonArgs);
+            // Comments
+            this.renderArea.addFullComment(x + 6, y + 6, Database.getText("mapVillageLockedHouseComment"), Database.getTranslatedText("mapVillageLockedHouseComment"), "mapVillageFirstHouseComment");
+            // Interactions
+            this.renderArea.addLinkOver(".mapVillageFirstHouseButton, .mapVillageFirstHouseComment", ".mapVillageFirstHouseComment");
+        }
     }
     
     private loadSecondHouse(x: number, y: number): void{

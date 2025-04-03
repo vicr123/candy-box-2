@@ -11,12 +11,13 @@ import {
 import {san, sanitiseText} from "../utils";
 import {ArchipelagoNotification} from "./ArchipelagoNotificationTray";
 import {Database} from "../main/Database";
+import {energyLinkStorageName} from "./ArchipelagoEnergyLink";
 
 declare const __LAST_TAG: string;
 declare const __COMMITS_SINCE_LAST_TAG: string;
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
-type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged";
+type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged" | "energyLinkUpdated";
 export type ArchipelagoPlacePage = "connection" | "chat" | "hint";
 
 export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Click" | "The Bridge Click" | "The Octopus King Click" |
@@ -29,10 +30,15 @@ export type ArchipelagoExit = "Village Cellar" | "The Desert" | "The Bridge" | "
 
 type EntrancePairing = [ArchipelagoEntrance, ArchipelagoExit];
 
+export const lollipopCalorieExchangeRate = 47.3;
+export const candyCalorieExchangeRate = 57.8;
+
 interface ArchipelagoSlotData {
     uuid: string;
     entranceInformation: EntrancePairing[];
     deathLink: number;
+    energyLink: number;
+    gifting: number;
     expectedClientVersion: string;
     multipliers: {
         candies: number;
@@ -118,9 +124,19 @@ export namespace Archipelago {
 
             localSaveSlot = slotData.uuid;
 
+            const tags = [];
             if (slotData.deathLink) {
-                client.deathLink.enableDeathLink()
+                tags.push("DeathLink")
             }
+            if (slotData.energyLink) {
+                tags.push("EnergyLink")
+                await client.storage.notify([energyLinkStorageName()], (key, value, oldValue) => {
+                    if (key == energyLinkStorageName()) {
+                        events.emit("energyLinkUpdated");
+                    }
+                });
+            }
+            client.updateTags(tags)
 
             connectionStatus.current = "connected";
             apPage.current = "chat";

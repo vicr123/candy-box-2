@@ -1,4 +1,4 @@
-import {Plugin} from "vite";
+import {ModuleNode, Plugin} from "vite";
 import fs from "node:fs/promises"
 import path from "node:path";
 
@@ -33,6 +33,9 @@ export async function asciiArtProcessing(): Promise<Plugin> {
 
     return {
         name: "ascii-art-processing",
+        configureServer(server) {
+            server.watcher.add("ascii/**/*")
+        },
         resolveId(id) {
             if (id === virtualModuleId) {
                 return resolvedVirtualModuleId;
@@ -41,6 +44,22 @@ export async function asciiArtProcessing(): Promise<Plugin> {
         load(id) {
             if (id === resolvedVirtualModuleId) {
                 return `export const AsciiArt = ${JSON.stringify(artObjects)}`
+            }
+        },
+        handleHotUpdate({server, modules, timestamp, file}) {
+            if (file.startsWith("/ascii")) {
+                // Invalidate modules manually
+                const invalidatedModules = new Set<ModuleNode>()
+                for (const mod of modules) {
+                    server.moduleGraph.invalidateModule(
+                        mod,
+                        invalidatedModules,
+                        timestamp,
+                        true
+                    )
+                }
+                server.ws.send({ type: 'full-reload' })
+                return []
             }
         }
     }

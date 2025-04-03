@@ -398,5 +398,19 @@
     "apHintFound": "Found Hints",
     "apNoHints": "Request a hint from the server to view it here",
     "apAvailableHintPoints": "Available Hint Points:",
-    "apHintCost": "Hint Cost:"
+    "apHintCost": "Hint Cost:",
+    "shareHouse": "The Share House",
+    "lockedDoorComment": "A locked door",
+    "giftRoomComment": "The Gift Room",
+    "energyRoomComment": "The Energy Room",
+    "energyGuyWelcome": "Hi, I'm the Energy Guy! I love lollipops and candies! I can convert your lollipops and candies to pure energy, and my magic exercise bike can produce fresh lollipops and candies made from pure energy!",
+    "energyGuyLollipopDepositComplete": "Thanks for the lollipops! My stomach has converted it to pure energy! Do you want anything else?",
+    "energyGuyCandyDepositComplete": "Thanks for the candies! My stomach has converted it to pure energy! Do you want anything else?",
+    "energyGuyCandyWithdrawalComplete": "Here you go! Candies crafted with pure energy! Do you want anything else? (huff... huff...)",
+    "energyGuyLollipopWithdrawalComplete": "Here you go! Lollipops crafted with pure energy! Do you want anything else? (huff... huff...)",
+    "depositCandies": "Deposit Candies:",
+    "depositLollipops": "Deposit Lollipops:",
+    "withdrawCandies": "Withdraw Candies:",
+    "withdrawLollipops": "Withdraw Lollipops:",
+    "energyRemaining": "Energy in EnergyLink System:"
 }
