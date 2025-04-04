@@ -417,7 +417,7 @@
     "postOfficeSend": "Send something",
     "postOfficeSending": "What would you like to send?",
     "postOfficeSendLabel": "Send:",
-    "postOfficeChooseItem": "Choose these items",
+    "postOfficeChooseItem": "Put these items in a box",
     "postOfficeAmountLabel": "Amount:",
     "postOfficeInsufficientText": "You don't have enough",
     "postOfficeInvalidText": "Enter a valid amount",
@@ -428,5 +428,6 @@
     "postOfficeThankYou": "Thank you!",
     "postOfficeReceived_one": "Hey, I was just looking for you! I have here a {{item}}, sent to you from {{game}} by {{player}}. Here, it's all yours.",
     "postOfficeReceived_other": "Hey, I was just looking for you! I have here a box labelled {{item}}, sent to you from {{game}} by {{player}}. It looks like there are {{count}} inside. Here, it's all yours.",
-    "postOfficeRefunded": "Hey, I was just looking for you! You sent a box labelled {{item}} to {{player}} earlier, but it looks like it was returned. Here, you can have it back."
+    "postOfficeRefunded": "Hey, I was just looking for you! You sent a box labelled {{item}} to {{player}} earlier, but it looks like it was returned. Here, you can have it back.",
+    "postOfficeNotification": "The post office has something for you!"
 }

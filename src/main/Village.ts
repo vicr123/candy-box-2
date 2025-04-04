@@ -16,6 +16,7 @@ import {Archipelago} from "../archipelago/Archipelago";
 import client = Archipelago.client;
 import {ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
 import {ShareHouse} from "./ShareHouse";
+import {RenderTransparency} from "./RenderTransparency";
 
 export class Village extends Place{
     // Render areas
@@ -37,6 +38,11 @@ export class Village extends Place{
         
         // Update
         this.update();
+
+        Archipelago.giftManager.on("giftReceived", () => {
+            this.update();
+            this.getGame().updatePlace();
+        })
     }
     
     // Public methods    
@@ -131,6 +137,12 @@ export class Village extends Place{
             // Interactions
             this.renderArea.addLinkOver(".mapVillageFirstHouseButton, .mapVillageFirstHouseComment", ".mapVillageFirstHouseComment");
             this.renderArea.addLinkCall(".mapVillageFirstHouseButton, .mapVillageFirstHouseComment", new CallbackCollection(this.goToFirstHouse.bind(this)));
+
+            if (Archipelago.slotData?.gifting && Archipelago.giftManager.gifts().length > 0) {
+                this.renderArea.drawArray(Database.getAscii("places/village/share/postOfficeNotification"), x, y - 8, new RenderTransparency("x"), "postOfficeNotification");
+                this.renderArea.addTooltip("postOfficeNotificationTooltip", `${Database.getText("postOfficeNotification")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("postOfficeNotification")}</i>` : ""}`);
+                this.renderArea.addLinkOnHoverShowTooltip(".postOfficeNotification", ".postOfficeNotificationTooltip");
+            }
         } else {
             this.renderArea.addMultipleAsciiNinjaButtons("mapVillageFirstHouseButton", ...buttonArgs);
             // Comments

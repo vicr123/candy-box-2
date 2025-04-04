@@ -22,6 +22,7 @@ import {CallbackCollection} from "./CallbackCollection";
 import {Archipelago} from "../archipelago/Archipelago";
 import {Item} from "archipelago.js";
 import {ArchipelagoItem, ArchipelagoItemBaseId} from "../archipelago/ArchipelagoLocation";
+import {RenderTransparency} from "./RenderTransparency";
 
 Saving.registerNumber("mainMapDefaultScroll", 400);
 
@@ -47,7 +48,12 @@ export class MainMap extends Place{
             // Reload the map if given an update
             if (item.id - ArchipelagoItemBaseId == ArchipelagoItem.PROGRESSIVE_WORLD_MAP) {
                 this.load();
+                this.getGame().updatePlace();
             }
+        })
+        Archipelago.giftManager.on("giftReceived", () => {
+            this.load();
+            this.getGame().updatePlace();
         })
     }
     
@@ -484,6 +490,12 @@ export class MainMap extends Place{
         // Interactions
         this.renderArea.addLinkOver(".mapVillageButton, .mapVillageComment", ".mapVillageComment");
         this.renderArea.addLinkCall(".mapVillageButton, .mapVillageComment", new CallbackCollection(this.getGame().goToVillage.bind(this.getGame())));
+
+        if (Archipelago.slotData?.gifting && Archipelago.giftManager.gifts().length > 0) {
+            this.renderArea.drawArray(Database.getAscii("places/village/share/postOfficeNotification"), x + 10, y - 4, new RenderTransparency("x"), "postOfficeNotification");
+            this.renderArea.addTooltip("postOfficeNotificationTooltip", `${Database.getText("postOfficeNotification")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("postOfficeNotification")}</i>` : ""}`);
+            this.renderArea.addLinkOnHoverShowTooltip(".postOfficeNotification", ".postOfficeNotificationTooltip");
+        }
     }
     
     private loadWishingWell(x: number, y: number): void{
