@@ -43,6 +43,10 @@ export class Village extends Place{
             this.update();
             this.getGame().updatePlace();
         })
+        Archipelago.giftManager.on("giftRemoved", () => {
+            this.update();
+            this.getGame().updatePlace();
+        })
     }
     
     // Public methods    

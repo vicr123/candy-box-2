@@ -56,8 +56,6 @@ export class WishingWell extends Place{
     // Gifts
     private selectedGiftId: string = "wishingWellGiftPower";
 
-    private itemScoutResults: ScoutResults;
-    
     // Constructor
     constructor(game: Game){
         super(game);
@@ -74,8 +72,7 @@ export class WishingWell extends Place{
     }
 
     scoutResults(items: ScoutResults) {
-        this.itemScoutResults = items;
-
+        super.scoutResults(items);
         this.createPossibleEnchantments();
 
         this.renderArea.resizeFromArray(Database.getAscii("places/wishingWell"), 62, 3);

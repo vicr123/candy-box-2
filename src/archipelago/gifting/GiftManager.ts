@@ -30,10 +30,14 @@ export class GiftManager extends EventBasedManager<GiftEvents> {
                 const currentGiftBox = value as unknown as Record<string, NetworkGift>;
                 const oldGiftBox = oldValue as unknown as Record<string, NetworkGift>
                 const newGifts = Object.keys(currentGiftBox).filter(x => !Object.keys(oldGiftBox).includes(x));
+                const removedGifts = Object.keys(oldGiftBox).filter(x => !Object.keys(currentGiftBox).includes(x));
 
                 const gifts = this.gifts();
                 for (const newGift of newGifts) {
                     this.emit("giftReceived", [gifts.find(x => x.id == newGift)])
+                }
+                for (const newGift of newGifts) {
+                    this.emit("giftRemoved", [gifts.find(x => x.id == newGift)])
                 }
             }
         })

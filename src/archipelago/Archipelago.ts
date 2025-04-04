@@ -16,6 +16,7 @@ import {GiftManager} from "./gifting/GiftManager";
 import {Saving} from "../main/Saving";
 import {GiftTraitType} from "./gifting/GiftTrait";
 import { Gift } from "./gifting/Gift";
+import {Game} from "../main/Game";
 
 declare const __LAST_TAG: string;
 declare const __COMMITS_SINCE_LAST_TAG: string;
@@ -353,15 +354,89 @@ export const sendableItems = [
             Saving.saveNumber("questPlayerSpellHealthPotionQuantity", Saving.loadNumber("questPlayerSpellHealthPotionQuantity") + amount);
         },
         name: "Health Potion",
-        traits: ["Consumable", "Drink", "Heal"]
+        traits: ["Consumable", "Drink", "Heal"],
+        giftedAmount: (gift) => gift.amount
+    },
+    {
+        id: "turtle",
+        amount: () => Saving.loadNumber("questPlayerSpellTurtlePotionQuantity"),
+        send: (amount) => Saving.saveNumber("questPlayerSpellTurtlePotionQuantity", Saving.loadNumber("questPlayerSpellTurtlePotionQuantity") - amount),
+        receive: (amount) => {
+            Saving.saveBool("questPlayerSpellTurtlePotionHasSpell", true);
+            Saving.saveNumber("questPlayerSpellTurtlePotionQuantity", Saving.loadNumber("questPlayerSpellTurtlePotionQuantity") + amount);
+        },
+        name: "Turtle Potion",
+        traits: ["Consumable", "Drink", "Slowness", "Armor"],
+        giftedAmount: (gift) => gift.amount
+    },
+    {
+        id: "berserk",
+        amount: () => Saving.loadNumber("questPlayerSpellBerserkPotionQuantity"),
+        send: (amount) => Saving.saveNumber("questPlayerSpellBerserkPotionQuantity", Saving.loadNumber("questPlayerSpellBerserkPotionQuantity") - amount),
+        receive: (amount) => {
+            Saving.saveBool("questPlayerSpellBerserkPotionHasSpell", true);
+            Saving.saveNumber("questPlayerSpellBerserkPotionQuantity", Saving.loadNumber("questPlayerSpellBerserkPotionQuantity") + amount);
+        },
+        name: "Berserk Potion",
+        traits: ["Consumable", "Drink", "Damage", "Buff"],
+        giftedAmount: (gift) => gift.amount
+    },
+    {
+        id: "cloning",
+        amount: () => Saving.loadNumber("questPlayerSpellCloningPotionQuantity"),
+        send: (amount) => Saving.saveNumber("questPlayerSpellCloningPotionQuantity", Saving.loadNumber("questPlayerSpellCloningPotionQuantity") - amount),
+        receive: (amount) => {
+            Saving.saveBool("questPlayerSpellCloningPotionHasSpell", true);
+            Saving.saveNumber("questPlayerSpellCloningPotionQuantity", Saving.loadNumber("questPlayerSpellCloningPotionQuantity") + amount);
+        },
+        name: "Cloning Potion",
+        traits: ["Consumable", "Drink", "Copy"],
+        giftedAmount: (gift) => gift.amount
+    },
+    {
+        id: "p-potion",
+        amount: () => Saving.loadNumber("questPlayerSpellPPotionQuantity"),
+        send: (amount) => Saving.saveNumber("questPlayerSpellPPotionQuantity", Saving.loadNumber("questPlayerSpellPPotionQuantity") - amount),
+        receive: (amount) => {
+            Saving.saveBool("questPlayerSpellPPotionHasSpell", true);
+            Saving.saveNumber("questPlayerSpellPPotionQuantity", Saving.loadNumber("questPlayerSpellPPotionQuantity") + amount);
+        },
+        name: "P Potion",
+        traits: ["Consumable", "Drink", "Random"],
+        giftedAmount: (gift) => gift.amount
+    },
+    {
+        id: "x-potion",
+        amount: () => Saving.loadNumber("questPlayerSpellXPotionQuantity"),
+        send: (amount) => Saving.saveNumber("questPlayerSpellXPotionQuantity", Saving.loadNumber("questPlayerSpellXPotionQuantity") - amount),
+        receive: (amount) => {
+            Saving.saveBool("questPlayerSpellXPotionHasSpell", true);
+            Saving.saveNumber("questPlayerSpellXPotionQuantity", Saving.loadNumber("questPlayerSpellXPotionQuantity") + amount);
+        },
+        name: "X Potion",
+        traits: ["Consumable", "Drink", "Teleport", "Quest"],
+        giftedAmount: (gift) => gift.amount
+    },
+    {
+        id: "extra-hp",
+        amount: () => undefined,
+        send: () => void 0,
+        receive: (amount, game) => {
+            Saving.saveNumber("gameGiftHealth", Saving.loadNumber("gameGiftHealth") + amount);
+            game.getPlayer().reCalcMaxHp();
+        },
+        name: "Extra HP",
+        traits: ["Life"],
+        giftedAmount: (gift) => Math.floor(gift.amount * (gift.traits.find(x => x.trait == "Life")?.quality ?? 1))
     }
 ] satisfies {
     id: string,
-    amount: () => number,
+    amount: () => number | undefined,
     send: (amount: number) => void,
-    receive: (amount: number) => void,
+    receive: (amount: number, game: Game) => void,
     name: string,
-    traits: GiftTraitType[]
+    traits: GiftTraitType[],
+    giftedAmount: (gift: Gift) => number
 }[]
 
 export function findCompatibleSendableItem(traits: GiftTraitType[]) {

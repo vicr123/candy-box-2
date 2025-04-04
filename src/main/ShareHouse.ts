@@ -26,6 +26,10 @@ export class ShareHouse extends House {
             this.update();
             this.getGame().updatePlace();
         })
+        Archipelago.giftManager.on("giftRemoved", () => {
+            this.update();
+            this.getGame().updatePlace();
+        })
     }
 
     public getRenderArea(): RenderArea{

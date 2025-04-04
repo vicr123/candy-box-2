@@ -81,7 +81,7 @@ export class PostOffice extends House{
 
         this.renderArea.drawString(Database.getText("postOfficeSendLabel"), 20, 10, false);
         this.renderArea.addList(20, 70, 11, "potionSendType", new CallbackCollection(this.changeItem.bind(this)),
-            sendableItems.flatMap(potion => [potion.id, `${potion.name} (you have ${potion.amount()})`])
+            sendableItems.filter(item => item.amount() != undefined).flatMap(item => [item.id, `${item.name} (you have ${item.amount()})`])
         );
 
         this.renderArea.drawString(Database.getText("postOfficeAmountLabel"), 20, 13, false);
@@ -161,7 +161,7 @@ export class PostOffice extends House{
     private async collectGift() {
         const nextGift = Archipelago.giftManager.gifts()[0];
         const compatibleItem = findCompatibleSendableItem(nextGift.traits.map(x => x.trait));
-        compatibleItem.receive(nextGift.amount);
+        compatibleItem.receive(compatibleItem.giftedAmount(nextGift), this.getGame());
         await Archipelago.interruptAfterTimeout(Archipelago.giftManager.claimGift(nextGift));
 
         queueMicrotask(() => this.resetState());

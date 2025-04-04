@@ -55,6 +55,10 @@ export class MainMap extends Place{
             this.load();
             this.getGame().updatePlace();
         })
+        Archipelago.giftManager.on("giftRemoved", () => {
+            this.load();
+            this.getGame().updatePlace();
+        })
     }
     
     // willStopBeingDisplayed()
