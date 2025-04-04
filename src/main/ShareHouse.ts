@@ -5,6 +5,7 @@ import {Database} from "./Database";
 import {Archipelago} from "../archipelago/Archipelago";
 import {EnergyRoom} from "./EnergyRoom";
 import {CallbackCollection} from "./CallbackCollection";
+import {PostOffice} from "./PostOffice";
 
 export class ShareHouse extends House {
     private renderArea: RenderArea = new RenderArea();
@@ -49,6 +50,12 @@ export class ShareHouse extends House {
             16, 36, 27,
         ];
         if (Archipelago.slotData.gifting) {
+            this.renderArea.addMultipleAsciiButtons("shareHouseGiftButton", ...giftButtonArgs);
+            // Comments
+            this.renderArea.addFullComment(26, 28, Database.getText("postOfficeComment"), Database.getTranslatedText("postOfficeComment"), "shareHouseGiftComment");
+            // Interactions
+            this.renderArea.addLinkOver(".shareHouseGiftButton, .shareHouseGiftComment", ".shareHouseGiftComment");
+            this.renderArea.addLinkCall(".shareHouseGiftButton, .shareHouseGiftComment", new CallbackCollection(this.goToPostOffice.bind(this)));
         } else {
             this.renderArea.drawArray(Database.getAscii("places/village/share/lockedDoor"), 15, 17);
             this.renderArea.addMultipleAsciiNinjaButtons("shareHouseLockedGiftButton", ...giftButtonArgs);
@@ -89,5 +96,9 @@ export class ShareHouse extends House {
 
     private goToEnergyRoom() {
         this.getGame().setPlace(new EnergyRoom(this.getGame()));
+    }
+
+    private goToPostOffice() {
+        this.getGame().setPlace(new PostOffice(this.getGame()));
     }
 }

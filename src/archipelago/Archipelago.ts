@@ -12,6 +12,10 @@ import {san, sanitiseText} from "../utils";
 import {ArchipelagoNotification} from "./ArchipelagoNotificationTray";
 import {Database} from "../main/Database";
 import {energyLinkStorageName} from "./ArchipelagoEnergyLink";
+import {GiftManager} from "./gifting/GiftManager";
+import {Saving} from "../main/Saving";
+import {GiftTraitType} from "./gifting/GiftTrait";
+import { Gift } from "./gifting/Gift";
 
 declare const __LAST_TAG: string;
 declare const __COMMITS_SINCE_LAST_TAG: string;
@@ -81,6 +85,7 @@ export namespace Archipelago {
     export let slotData: ArchipelagoSlotData;
 
     export const client = new Client();
+    export const giftManager = new GiftManager(client);
     export const events = new EventEmitter<ArchipelagoEventTypes>();
     export const apLog = new QuestLog(30, false);
     export const apCountdown = createObservable(0, events, "apCountdownChanged");
@@ -135,6 +140,13 @@ export namespace Archipelago {
                         events.emit("energyLinkUpdated");
                     }
                 });
+            }
+            if (slotData.gifting) {
+                await giftManager.openGiftBox(false, [...new Set(...sendableItems.map(x => x.traits))]);
+                // Process any gifts we might have received while we were offline
+                for (const gift of Archipelago.giftManager.gifts()) {
+                    await receiveGift(gift);
+                }
             }
             client.updateTags(tags)
 
@@ -317,6 +329,58 @@ export namespace Archipelago {
             })
         })
     }
+
+    export async function receiveGift(gift: Gift) {
+        if (!findCompatibleSendableItem(gift.traits.map(x => x.trait))) {
+            // We don't understand this gift so refund it immediately
+            if (gift.isRefund) {
+                // Huh, this is a refund. We don't know what to do with this so just discard it
+                await Archipelago.giftManager.claimGift(gift);
+            } else {
+                await Archipelago.giftManager.refundGift(gift);
+            }
+        }
+    }
+}
+
+export const sendableItems = [
+    {
+        id: "health",
+        amount: () => Saving.loadNumber("questPlayerSpellHealthPotionQuantity"),
+        send: (amount) => Saving.saveNumber("questPlayerSpellHealthPotionQuantity", Saving.loadNumber("questPlayerSpellHealthPotionQuantity") - amount),
+        receive: (amount) => {
+            Saving.saveBool("questPlayerSpellHealthPotionHasSpell", true);
+            Saving.saveNumber("questPlayerSpellHealthPotionQuantity", Saving.loadNumber("questPlayerSpellHealthPotionQuantity") + amount);
+        },
+        name: "Health Potion",
+        traits: ["Consumable", "Drink", "Heal"]
+    }
+] satisfies {
+    id: string,
+    amount: () => number,
+    send: (amount: number) => void,
+    receive: (amount: number) => void,
+    name: string,
+    traits: GiftTraitType[]
+}[]
+
+export function findCompatibleSendableItem(traits: GiftTraitType[]) {
+    const items = sendableItems.map(item => {
+        return {
+            item: item,
+            common: item.traits.filter(x => traits.includes(x)),
+            missing: item.traits.filter(x => !traits.includes(x)),
+            surplus: traits.filter(x => !item.traits.includes(x)),
+        }
+    })
+
+    // First look for an item that has exactly the traits required
+    const perfectMatch = items.find(x => x.missing.length == 0 && x.surplus.length == 0);
+    if (perfectMatch) {
+        return perfectMatch.item;
+    }
+
+    return null;
 }
 
 export class ScoutResults {
@@ -383,6 +447,10 @@ Archipelago.client.messages.on("disconnected", (_, player, tags) => {
 })
 Archipelago.client.messages.on("countdown", (_, value, tags) => {
     Archipelago.apCountdown.current = value;
+})
+
+Archipelago.giftManager.on("giftReceived", (gift) => {
+    Archipelago.receiveGift(gift);
 })
 
 // Check equivalence
