@@ -1,6 +1,5 @@
 import { Saving } from "../main/Saving";
 import {Archipelago} from "./Archipelago";
-import {loadBool, loadNumber, loadString} from "../main/LocalSaving";
 
 interface SavePackage {
     date: number,
@@ -57,5 +56,10 @@ export namespace ArchipelagoSaving{
         for(const str in Saving.getAllStrings()){
             Saving.saveString(str, savePackage.data[str] as string);
         }
+    }
+
+    export function haveSave() {
+        const savePackage = Archipelago.client.storage.store[saveStorageKey()] as unknown as SavePackage;
+        return !!savePackage?.date;
     }
 }

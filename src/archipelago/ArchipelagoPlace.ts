@@ -11,6 +11,8 @@ import {Color} from "../main/Color";
 import {ColorType} from "../main/ColorType";
 import {Algo} from "../main/Algo";
 import posessive = Algo.posessive;
+import {LocalSaving} from "../main/LocalSaving";
+import {ArchipelagoSaving} from "./ArchipelagoSaving";
 
 export class ArchipelagoPlace extends Place {
     // The render area
@@ -46,9 +48,13 @@ export class ArchipelagoPlace extends Place {
         Archipelago.events.on("expectedClientVersionChanged", this.externalUpdate.bind(this));
         Archipelago.events.on("apPageChanged", this.externalUpdate.bind(this));
         Archipelago.events.on("connectionStatusChanged", () => {
-            if (Archipelago.connectionStatus.current == "connected" && !Saving.loadBool("statusBarUnlockedAp")) {
-                // Initial setup complete - start the game by going to the candy box
-                game.goToCandyBox();
+            if (Archipelago.connectionStatus.current == "connected") {
+                if (!Saving.loadBool("statusBarUnlockedAp")) {
+                    // Initial setup complete - start the game by going to the candy box
+                    game.goToCandyBox();
+                } else {
+                    game.goToVillage();
+                }
             }
             game.updateStatusBar(true);
         });
@@ -115,6 +121,9 @@ export class ArchipelagoPlace extends Place {
         }
 
         switch (Archipelago.apPage.current) {
+            case "backupRestore":
+                this.renderBackupRestore(y);
+                break;
             case "connection":
                 this.renderApConnection(y);
                 break;
@@ -294,6 +303,54 @@ export class ArchipelagoPlace extends Place {
         }
     }
 
+    private renderBackupRestore(y: number) {
+        let yAdd = 0;
+        this.renderArea.drawString(Database.getText("apBackupFoundText"), 0, y);
+        this.renderArea.drawString(Database.getText("saveApLastSave", {
+            date: new Intl.DateTimeFormat("en", {
+                dateStyle: "medium",
+                timeStyle: "medium"
+            }).format(ArchipelagoSaving.lastDate())
+        }), 0, y+1);
+
+        if (Database.isTranslated()) {
+            this.renderArea.drawString(Database.getTranslatedText("apBackupFoundText"), 0, y + yAdd + 3, true);
+            this.renderArea.drawString(Database.getTranslatedText("saveApLastSave", {
+                date: new Intl.DateTimeFormat(Saving.loadString("gameLanguage"), {
+                    dateStyle: "medium",
+                    timeStyle: "medium"
+                }).format(ArchipelagoSaving.lastDate())
+            }), 0, y+4, true);
+            yAdd += 3;
+        }
+
+        this.renderArea.addAsciiRealButton(Database.getText("loadApLoadNow"), 7, y + yAdd + 3, "restoreApBackup", Database.getTranslatedText("loadApLoadNow"));
+        this.renderArea.addLinkCall(".restoreApBackup", new CallbackCollection(this.restoreArchipelagoBackup.bind(this)));
+
+        this.renderArea.drawString(Database.getText("apBackupFoundNewGame0"), 0, y + yAdd + 5)
+        this.renderArea.drawString(Database.getText("apBackupFoundNewGame1"), 0, y + yAdd + 6)
+        this.renderArea.drawString(Database.getText("apBackupFoundNewGame2"), 0, y + yAdd + 7)
+        if (Database.isTranslated()) {
+            this.renderArea.drawString(Database.getTranslatedText("apBackupFoundNewGame0"), 0, y + yAdd + 9, true)
+            this.renderArea.drawString(Database.getTranslatedText("apBackupFoundNewGame1"), 0, y + yAdd + 10, true)
+            this.renderArea.drawString(Database.getTranslatedText("apBackupFoundNewGame2"), 0, y + yAdd + 11, true)
+            yAdd += 4;
+        }
+
+        this.renderArea.addAsciiRealButton(Database.getText("apBackupStartNewGame"), 7, y + yAdd + 9, "startNewGame", Database.getTranslatedText("apBackupStartNewGame"));
+        this.renderArea.addLinkCall(".startNewGame", new CallbackCollection(this.startNewGame.bind(this)));
+    }
+
+    private async restoreArchipelagoBackup() {
+        await Saving.load(this.getGame(), MainLoadingType.ARCHIPELAGO);
+        this.gameLoaded();
+    }
+
+    private async startNewGame() {
+        await Saving.load(this.getGame(), MainLoadingType.LOCAL);
+        this.gameLoaded();
+    }
+
     private changeApUrl(): void{
         if($(".apUrl").length) {
             Archipelago.apLink = $(".apUrl").val() as string;
@@ -321,8 +378,19 @@ export class ArchipelagoPlace extends Place {
 
     private async connectToAp() {
         await Archipelago.connect();
-        await Saving.load(this.getGame(), MainLoadingType.LOCAL);
+
+        if (!LocalSaving.haveSave() && ArchipelagoSaving.haveSave()) {
+            // We need to ask what the user wants to do
+            Archipelago.apPage.current = "backupRestore";
+            return;
+        }
+
+        await this.startNewGame();
+    }
+
+    private gameLoaded() {
         this.getGame().postLoad();
+        Archipelago.finaliseConnection();
     }
 
     private disconnectFromAp() {

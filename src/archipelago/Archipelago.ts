@@ -24,7 +24,7 @@ declare const __COMMITS_SINCE_LAST_TAG: string;
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
 type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged" | "energyLinkUpdated" | "saveDataUpdated";
-export type ArchipelagoPlacePage = "connection" | "chat" | "hint";
+export type ArchipelagoPlacePage = "backupRestore" | "connection" | "chat" | "hint";
 
 export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Click" | "The Bridge Click" | "The Octopus King Click" |
     "Naked Monkey Wizard Click" | "The Forest Click" | "Castle Entrance Click" | "Giant Nougat Monster Click" | "Castle Egg Room Click" |
@@ -158,9 +158,6 @@ export namespace Archipelago {
                 }
             });
 
-            connectionStatus.current = "connected";
-            apPage.current = "chat";
-
             client.socket.on("disconnected", () => {
                 connectionStatus.current = "disconnected";
                 interruptGame(true);
@@ -193,6 +190,11 @@ export namespace Archipelago {
             }
             console.log(e);
         }
+    }
+
+    export function finaliseConnection() {
+        connectionStatus.current = "connected";
+        apPage.current = "chat";
     }
 
     export function sendMessage(message) {

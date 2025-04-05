@@ -13,6 +13,12 @@ export module LocalSaving{
             return loadString(slotId) + ", candies : " + loadString(slotId + ".gameCandiesCurrent");
         }
     }
+
+    export function haveSave() {
+        if (!Archipelago.localSaveSlot) return false;
+
+        return !!loadString(Archipelago.localSaveSlot);
+    }
     
     export function load(): boolean{
         if (!Archipelago.localSaveSlot) return;

@@ -441,5 +441,10 @@
     "loadApLoadTitle": "Load from Archipelago",
     "loadApLoadDescription": "Loading your Archipelago backup will cause the current save to be overwritten.",
     "loadApLoadNow": "Restore Archipelago Backup",
-    "loadApLastSaveNone": "To load an Archipelago backup, you need to create an Archipelago backup above."
+    "loadApLastSaveNone": "To load an Archipelago backup, you need to create an Archipelago backup above.",
+    "apBackupFoundText": "No save data was found on this browser, however, backup save data was found on Archipelago.",
+    "apBackupFoundNewGame0": "You can also opt to start a new game.",
+    "apBackupFoundNewGame1": "You will keep all the items that you have been sent from Archipelago.",
+    "apBackupFoundNewGame2": "Checks that you have already sent will remain sent.",
+    "apBackupStartNewGame": "Start New Game"
 }
