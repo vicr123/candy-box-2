@@ -1,5 +1,6 @@
 export enum MainLoadingType{
     NONE,
     LOCAL,
-    FILE
+    FILE,
+    ARCHIPELAGO
 }

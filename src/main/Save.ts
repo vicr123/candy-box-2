@@ -13,6 +13,8 @@ import {ColorType} from "./ColorType";
 import {Database} from "./Database";
 import {CallbackCollection} from "./CallbackCollection";
 import {Algo} from "./Algo";
+import {ArchipelagoSaving} from "../archipelago/ArchipelagoSaving";
+import {Archipelago} from "../archipelago/Archipelago";
 
 export class Save extends Place{
     // The render area
@@ -45,6 +47,11 @@ export class Save extends Place{
         
         // Update
         this.update();
+
+        Archipelago.events.on("saveDataUpdated", () => {
+            this.update();
+            this.getGame().updatePlace();
+        })
     }
     
     // getRenderArea()
@@ -88,6 +95,11 @@ export class Save extends Place{
     
     private clickedFileLoad(): void{
         Main.reloadEverythingFromFile($(".saveFileLoadTextarea").val());
+    }
+
+    private async clickedApLoad() {
+        await Archipelago.interruptAfterTimeout(Saving.load(this.getGame(), MainLoadingType.ARCHIPELAGO));
+        this.getGame().goToCandyBox();
     }
     
     private clickedFileSave(): void{
@@ -134,6 +146,10 @@ export class Save extends Place{
         // Update
         this.update();
         this.getGame().updatePlace();
+    }
+
+    private async clickedApSave() {
+        await Archipelago.interruptAfterTimeout(Saving.save(this.getGame(), MainLoadingType.ARCHIPELAGO));
     }
     
     private createSlotsArray(): void{
@@ -193,6 +209,30 @@ export class Save extends Place{
         // Return yAdd
         return yAdd;
     }
+
+    private drawApLoad(x: number, y: number) {
+        // The y we will return (will remain 0 if there's no translation to show)
+        var yAdd: number = 0;
+
+        // The title
+        this.drawTitle("loadApLoadTitle", y+yAdd);
+
+        if (ArchipelagoSaving.lastDate()) {
+            this.renderArea.drawString(Database.getText("loadApLoadDescription"), x, y+yAdd+2);
+            if (Database.isTranslated()) {
+                this.renderArea.drawString(Database.getTranslatedText("loadApLoadDescription"), x, y+yAdd+3, true);
+                yAdd += 1;
+            }
+
+            this.renderArea.addAsciiRealButton(Database.getText("loadApLoadNow"), x+36, y+yAdd+4, "loadApLoadButton", Database.getTranslatedText("loadApLoadNow"), true)
+            this.renderArea.addLinkCall(".loadApLoadButton", new CallbackCollection(this.clickedApLoad.bind(this)));
+        } else {
+            this.renderArea.drawString(Database.getText("loadApLastSaveNone"), x, y+yAdd+2);
+            this.renderArea.drawString(Database.getTranslatedText("loadApLastSaveNone"), x, y+yAdd+3, true);
+        }
+
+        return yAdd;
+    }
     
     private drawLocalSave(x: number, y: number): number{
         // The y we will return (will remain 0 if there's no translation to show)
@@ -202,50 +242,6 @@ export class Save extends Place{
         this.drawTitle("saveLocalSaveTitle", y+yAdd);
         this.drawPoint("saveLocalSaveWhy", x, y+yAdd+2);
         if(Database.isTranslated()) yAdd += 1;
-        
-        // If we support local saving
-        // if(LocalSaving.supportsLocalSaving()){
-        //     // Choose a slot text
-        //     this.drawPoint("saveLocalSaveChooseSlot", x, y+yAdd+4);
-        //     // Slots list
-        //     this.renderArea.addList(x+5, x+45, y+yAdd+7, "saveLocalSaveSlotsList", new CallbackCollection(this.slotSelected.bind(this)), this.slotsArray);
-        //     // Autosave enabled ?
-        //     if(this.getGame().getLocalAutosaveEnabled()){
-        //         this.drawGreen(Database.getText("saveLocalSaveAutosaveEnabled"), x, y+yAdd+9);
-        //         if(Database.getTranslatedText("saveLocalSaveAutosaveEnabled") != "") this.drawGreen("(" + Database.getTranslatedText("saveLocalSaveAutosaveEnabled") + ")", x, y+yAdd+10, true);
-        //         this.drawGreen("Next save in " + Algo.pluralFormat(Math.ceil(this.getGame().getLocalAutosaveTime()/60), " minute", " minutes") + " on slot " + this.getGame().getLocalAutosaveSlot().substr(4, 1) + ".", x, y+yAdd+11);
-        //     }
-        //     // Separation lines
-        //     this.renderArea.drawVerticalLine("|", x+50, y+yAdd+5, y+yAdd+11);
-        //     this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+3);
-        //     this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+12);
-        //     // Choose what to do text
-        //     this.drawPoint("saveLocalSaveChooseWhatToDo", x+51, y+yAdd+4);
-        //     // Add save button
-        //     this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveSaveButton") + " on slot " + this.selectedSlot.substr(4, 1), x+51, y+yAdd+7, "saveLocalSaveSaveButton", Database.getTranslatedText("saveLocalSaveSaveButton"), true, -1, null, false);
-        //     this.renderArea.addLinkCall(".saveLocalSaveSaveButton", new CallbackCollection(this.clickedSave.bind(this)));
-        //     // If autosave is disabled or it's not enabled on the currently selected slot
-        //     if(this.getGame().getLocalAutosaveEnabled() == false){
-        //         // Add autosave button
-        //         this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveAutosaveButton") + " on slot " + this.selectedSlot.substr(4, 1), x+51, y+yAdd+10, "saveLocalSaveAutosaveButton", Database.getTranslatedText("saveLocalSaveAutosaveButton"), true, -1, null, false);
-        //         this.renderArea.addLinkCall(".saveLocalSaveAutosaveButton", new CallbackCollection(this.clickedAutosave.bind(this)));
-        //     }
-        //     // Else
-        //     else{
-        //         // Add disable autosave button
-        //         this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveDisableAutosaveButton"), x+51, y+yAdd+10, "saveLocalSaveDisableAutosaveButton", Database.getTranslatedText("saveLocalSaveDisableAutosaveButton"), true, -1, null, false);
-        //         this.renderArea.addLinkCall(".saveLocalSaveDisableAutosaveButton", new CallbackCollection(this.clickedDisableAutosave.bind(this)));
-        //     }
-        // }
-        // // If we don't
-        // else{
-        //     // Warning messages
-        //     this.drawWarning(Database.getText("saveLocalSaveWarning0") + " (local storage and application cache)", x, y+yAdd+4);
-        //     this.drawWarning(Database.getText("saveLocalSaveWarning1"), x, y+yAdd+5);
-        //
-        //     this.drawWarning(Database.getTranslatedText("saveLocalSaveWarning0"), x, y+yAdd+7, true);
-        //     this.drawWarning(Database.getTranslatedText("saveLocalSaveWarning1"), x, y+yAdd+8, true);
-        // }
 
         this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+3);
         this.renderArea.drawString(Database.getText("savePrompt"), x, y+yAdd+5);
@@ -317,11 +313,59 @@ export class Save extends Place{
         // Return yAdd
         return yAdd;
     }
+
+    private drawApSave(x: number, y: number) {
+        // The y we will return (will remain 0 if there's no translation to show)
+        var yAdd: number = 0;
+
+        // The title
+        this.drawTitle("saveApSaveTitle", y+yAdd);
+
+        // The "why"
+        this.renderArea.drawString(Database.getText("saveApSaveWhy0"), x, y+yAdd+2);
+        this.renderArea.drawString(Database.getText("saveApSaveWhy1"), x, y+yAdd+3);
+        this.renderArea.drawString(Database.getText("saveApSaveWhy2"), x, y+yAdd+4);
+        this.renderArea.drawString(Database.getText("saveApSaveWhy3"), x, y+yAdd+5);
+
+        // The translated "why" (only if there's a translation)
+        if(Database.isTranslated()){
+            this.renderArea.drawString(Database.getTranslatedText("saveApSaveWhy0"), x, y+yAdd+7, true);
+            this.renderArea.drawString(Database.getTranslatedText("saveApSaveWhy1"), x, y+yAdd+8, true);
+            this.renderArea.drawString(Database.getTranslatedText("saveApSaveWhy2"), x, y+yAdd+9, true);
+            this.renderArea.drawString(Database.getTranslatedText("saveApSaveWhy3"), x, y+yAdd+10, true);
+            yAdd += 5; // We increase yAdd by 5 because the translations took 5 lines
+        }
+
+        // yAdd += 50
+        this.renderArea.drawHorizontalLine("-", x, x + 100, y + yAdd + 6);
+        const lastSave = ArchipelagoSaving.lastDate();
+        if (lastSave) {
+            this.renderArea.drawString(Database.getText("saveApLastSave", {
+                date: new Intl.DateTimeFormat(Saving.loadString("gameLanguage"), {
+                    dateStyle: "medium",
+                    timeStyle: "medium"
+                }).format(lastSave)
+            }), x+7, y+yAdd+8, false);
+        } else {
+            this.renderArea.drawString(Database.getText("saveApLastSaveNone"), x+7, y+yAdd+8, false);
+            if (Database.isTranslated()){
+                this.renderArea.drawString(Database.getTranslatedText("saveApLastSaveNone"), x+7, y+yAdd+9, true);
+                yAdd += 1;
+            }
+        }
+
+        this.renderArea.drawHorizontalLine("-", x, x + 100, y + yAdd + 12);
+        this.renderArea.addAsciiRealButton(Database.getText("saveApSaveNow"), x+7, y+yAdd+10, "saveApSaveButton", Database.getTranslatedText("saveApSaveNow"))
+        this.renderArea.addLinkCall(".saveApSaveButton", new CallbackCollection(this.clickedApSave.bind(this)));
+
+        // We return yAdd
+        return yAdd;
+    }
     
     private drawFileSave(x: number, y: number): number{
         // The y we will return (will remain 0 if there's no translation to show)
         var yAdd: number = 0;
-        
+
         // The title
         this.drawTitle("saveFileSaveTitle", y+yAdd);
         
@@ -402,9 +446,9 @@ export class Save extends Place{
     private resize(): void{
         // The size depends on if there's a translation or not
         if(Database.isTranslated())
-            this.renderArea.resize(100, 90);
+            this.renderArea.resize(100, 120);
         else
-            this.renderArea.resize(100, 74);
+            this.renderArea.resize(100, 105);
     }
     
     private selectRightSlot(): void{
@@ -430,12 +474,14 @@ export class Save extends Place{
         // Saving
         this.renderArea.drawArray(Database.getAscii("text/Saving"), 50 - Math.floor((Database.getAsciiWidth("text/Saving")/2)), yPosition);
         yPosition += this.drawLocalSave(0, yPosition+7);
-        yPosition += this.drawFileSave(0, yPosition+21);
+        yPosition += this.drawApSave(0, yPosition+21);
+        yPosition += this.drawFileSave(0, yPosition+35);
         
         // Loading
-        this.renderArea.drawArray(Database.getAscii("text/Loading"), 50 - Math.floor((Database.getAsciiWidth("text/Loading")/2)), yPosition+40);
-        yPosition += this.drawLocalLoad(0, yPosition+47);
-        yPosition += this.drawFileLoad(0, yPosition+53);
+        this.renderArea.drawArray(Database.getAscii("text/Loading"), 50 - Math.floor((Database.getAsciiWidth("text/Loading")/2)), yPosition+54);
+        yPosition += this.drawLocalLoad(0, yPosition+61);
+        yPosition += this.drawApLoad(0, yPosition+67);
+        yPosition += this.drawFileLoad(0, yPosition+75);
         
         // Add the link which will call the selectRightSlot method after the html dom is created
         this.renderArea.addLinkCallbackCollection(new CallbackCollection(this.selectRightSlot.bind(this)));

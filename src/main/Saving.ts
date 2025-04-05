@@ -5,6 +5,7 @@ import {Bugs} from "./Bugs";
 import {Random} from "./Random";
 import {Archipelago} from "../archipelago/Archipelago";
 import {ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
+import {ArchipelagoSaving} from "../archipelago/ArchipelagoSaving";
 
 export module Saving {
     import saveGlobals = LocalSaving.saveGlobals;
@@ -160,6 +161,9 @@ export module Saving {
                 case MainLoadingType.LOCAL:
                     LocalSaving.load();
                     break;
+                case MainLoadingType.ARCHIPELAGO:
+                    await ArchipelagoSaving.load();
+                    break;
                 case MainLoadingType.FILE:
                     break;
             }
@@ -184,7 +188,7 @@ export module Saving {
         return LocalSaving.eraseAll();
     }
     
-    export function save(game: Game, savingType: MainLoadingType): boolean{
+    export async function save(game: Game, savingType: MainLoadingType) {
         if (saving) return true;
         if (Archipelago.localSaveSlot == "") return false;
         saving = true;
@@ -198,10 +202,10 @@ export module Saving {
             switch (savingType) {
                 case MainLoadingType.LOCAL:
                     return LocalSaving.save();
-                    break;
                 case MainLoadingType.FILE:
                     return false;
-                    break;
+                case MainLoadingType.ARCHIPELAGO:
+                    return await ArchipelagoSaving.save();
             }
         } finally {
             saving = false;

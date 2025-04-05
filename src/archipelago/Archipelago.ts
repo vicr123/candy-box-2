@@ -17,12 +17,13 @@ import {Saving} from "../main/Saving";
 import {GiftTraitType} from "./gifting/GiftTrait";
 import { Gift } from "./gifting/Gift";
 import {Game} from "../main/Game";
+import {ArchipelagoSaving} from "./ArchipelagoSaving";
 
 declare const __LAST_TAG: string;
 declare const __COMMITS_SINCE_LAST_TAG: string;
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
-type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged" | "energyLinkUpdated";
+type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged" | "energyLinkUpdated" | "saveDataUpdated";
 export type ArchipelagoPlacePage = "connection" | "chat" | "hint";
 
 export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Click" | "The Bridge Click" | "The Octopus King Click" |
@@ -150,6 +151,12 @@ export namespace Archipelago {
                 }
             }
             client.updateTags(tags)
+
+            await client.storage.notify([ArchipelagoSaving.saveStorageKey()], (key, value, oldValue) => {
+                if (key == ArchipelagoSaving.saveStorageKey()) {
+                    events.emit("saveDataUpdated");
+                }
+            });
 
             connectionStatus.current = "connected";
             apPage.current = "chat";

@@ -429,5 +429,17 @@
     "postOfficeReceived_one": "Hey, I was just looking for you! I have here a {{item}}, sent to you from {{game}} by {{player}}. Here, it's all yours.",
     "postOfficeReceived_other": "Hey, I was just looking for you! I have here a box labelled {{item}}, sent to you from {{game}} by {{player}}. It looks like there are {{count}} inside. Here, it's all yours.",
     "postOfficeRefunded": "Hey, I was just looking for you! You sent a box labelled {{item}} to {{player}} earlier, but it looks like it was returned. Here, you can have it back.",
-    "postOfficeNotification": "The post office has something for you!"
+    "postOfficeNotification": "The post office has something for you!",
+    "saveApSaveTitle": "Save on Archipelago",
+    "saveApSaveWhy0": "You can also optionally back up your game save to Archipelago.",
+    "saveApSaveWhy1": "This can be useful if you need to change to another browser but continue to play the same game.",
+    "saveApSaveWhy2": "This can also be useful if you are swapping out for a different player on this slot.",
+    "saveApSaveWhy3": "They can pick up where you left off on this slot.",
+    "saveApSaveNow": "Back up to Archipelago now",
+    "saveApLastSave": "Last Archipelago backup: {{date}}",
+    "saveApLastSaveNone": "No backup found on Archipelago",
+    "loadApLoadTitle": "Load from Archipelago",
+    "loadApLoadDescription": "Loading your Archipelago backup will cause the current save to be overwritten.",
+    "loadApLoadNow": "Restore Archipelago Backup",
+    "loadApLastSaveNone": "To load an Archipelago backup, you need to create an Archipelago backup above."
 }
