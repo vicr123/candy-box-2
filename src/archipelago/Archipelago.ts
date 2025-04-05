@@ -143,7 +143,7 @@ export namespace Archipelago {
                 });
             }
             if (slotData.gifting) {
-                await giftManager.openGiftBox(false, [...new Set(...sendableItems.map(x => x.traits))]);
+                await giftManager.openGiftBox(false, [...new Set(sendableItems.flatMap(x => x.traits))]);
                 // Process any gifts we might have received while we were offline
                 for (const gift of Archipelago.giftManager.gifts()) {
                     await receiveGift(gift);
