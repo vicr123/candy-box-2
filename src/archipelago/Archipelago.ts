@@ -457,12 +457,26 @@ export function findCompatibleSendableItem(traits: GiftTraitType[]) {
             surplus: traits.filter(x => !item.traits.includes(x)),
         }
     })
-
     // First look for an item that has exactly the traits required
     const perfectMatch = items.find(x => x.missing.length == 0 && x.surplus.length == 0);
     if (perfectMatch) {
         return perfectMatch.item;
     }
+
+    let maxSurplus = items.filter(item => item.missing.length == 0).reduce((acc, item )=> Math.max(acc, item.surplus.length), 0);
+    const surplusOnly = items.flatMap(item => Array(maxSurplus + 1 - item.surplus.length).map(() => item))
+
+    if (surplusOnly.length > 0)
+        return surplusOnly[Math.floor(Math.random()*surplusOnly.length)]
+
+    let maxDistance = items.reduce((acc, item ) => Math.max(acc, item.missing.length + item.surplus.length), 0)
+    const weightedItems = items
+        .flatMap(item => Array(maxDistance + 1 - (item.surplus.length + item.surplus.length))
+        .map(() => item))
+        .filter(x => (x.missing.length + x.surplus.length) <= (traits.length * 1.5))
+
+    if (weightedItems.length > 0)
+        return weightedItems[Math.floor(Math.random()*weightedItems.length)]
 
     return null;
 }
