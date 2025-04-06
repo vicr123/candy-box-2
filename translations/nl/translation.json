@@ -354,7 +354,7 @@
   "apUrl": "Archipelago Server en port",
   "apSlot": "Archipelago Slotnaam",
   "apPassword": "Archipelago wachtwoord (optioneel)",
-  "apConnect": "Aan het verbinden met Archipelago",
+  "apConnect": "Verbind met Archipelago",
   "apStatusConnecting": "Verbind met Archipelago...",
   "apDisconnect": "Verbreek verbinding met Archipelago en ververs",
   "apSend": "Versturen",
