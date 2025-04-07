@@ -241,7 +241,7 @@ export class Inventory extends Place{
     private selectedEqItem(): void{
         // Set the eqItems
         if($("#inventoryWeaponsList").length) Saving.saveString("gameWeaponSelected", $("#inventoryWeaponsList").find(":selected").attr("id"));
-        else Saving.saveString("gameWeaponSelected", "inventorySpecialNothingWeapon");
+        // else Saving.saveString("gameWeaponSelected", "inventorySpecialNothingWeapon");
             
         if($("#inventoryHatsList").length) Saving.saveString("gameHatSelected", $("#inventoryHatsList").find(":selected").attr("id"));
         else Saving.saveString("gameHatSelected", "inventorySpecialNothingHat");
