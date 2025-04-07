@@ -58,6 +58,7 @@ export class EnergyRoom extends House{
         this.renderArea.addAsciiRealButton("10", x + 2, y, `${action}10Button`);
         this.renderArea.addAsciiRealButton("100", x + 5, y, `${action}100Button`);
         this.renderArea.addAsciiRealButton("1000", x + 9, y, `${action}1000Button`);
+        this.renderArea.addAsciiRealButton("Other", x + 15, y, `${action}OtherButton`);
     }
 
     private drawDepositArea() {
@@ -73,6 +74,7 @@ export class EnergyRoom extends House{
         this.renderArea.addLinkCall(`.depositCandy10Button`, new CallbackCollection(this.deposit.bind(this, 10, "candies")))
         this.renderArea.addLinkCall(`.depositCandy100Button`, new CallbackCollection(this.deposit.bind(this, 100, "candies")))
         this.renderArea.addLinkCall(`.depositCandy1000Button`, new CallbackCollection(this.deposit.bind(this, 1000, "candies")))
+        this.renderArea.addLinkCall(`.depositCandyOtherButton`, new CallbackCollection(this.deposit.bind(this, -1, "candies")))
 
         this.renderArea.drawString(`${Database.getText("depositLollipops")} 1 = ${(lollipopCalorieExchangeRate * 0.75).toFixed(2)} cal`, 55, 8)
         this.drawActionButtons(57, 10, "depositLollipop")
@@ -80,6 +82,7 @@ export class EnergyRoom extends House{
         this.renderArea.addLinkCall(`.depositLollipop10Button`, new CallbackCollection(this.deposit.bind(this, 10, "lollipops")))
         this.renderArea.addLinkCall(`.depositLollipop100Button`, new CallbackCollection(this.deposit.bind(this, 100, "lollipops")))
         this.renderArea.addLinkCall(`.depositLollipop1000Button`, new CallbackCollection(this.deposit.bind(this, 1000, "lollipops")))
+        this.renderArea.addLinkCall(`.depositLollipopOtherButton`, new CallbackCollection(this.deposit.bind(this, -1, "lollipops")))
 
         this.renderArea.drawString(`${Database.getText("withdrawCandies")} ${candyCalorieExchangeRate} cal = 1`, 55, 12)
         this.drawActionButtons(57, 14, "withdrawCandy")
@@ -87,6 +90,7 @@ export class EnergyRoom extends House{
         this.renderArea.addLinkCall(`.withdrawCandy10Button`, new CallbackCollection(this.withdraw.bind(this, 10, "candies")))
         this.renderArea.addLinkCall(`.withdrawCandy100Button`, new CallbackCollection(this.withdraw.bind(this, 100, "candies")))
         this.renderArea.addLinkCall(`.withdrawCandy1000Button`, new CallbackCollection(this.withdraw.bind(this, 1000, "candies")))
+        this.renderArea.addLinkCall(`.withdrawCandyOtherButton`, new CallbackCollection(this.withdraw.bind(this, -1, "candies")))
 
         this.renderArea.drawString(`${Database.getText("withdrawLollipops")} ${lollipopCalorieExchangeRate} cal = 1`, 55, 16)
         this.drawActionButtons(57, 18, "withdrawLollipop")
@@ -94,6 +98,7 @@ export class EnergyRoom extends House{
         this.renderArea.addLinkCall(`.withdrawLollipop10Button`, new CallbackCollection(this.withdraw.bind(this, 10, "lollipops")))
         this.renderArea.addLinkCall(`.withdrawLollipop100Button`, new CallbackCollection(this.withdraw.bind(this, 100, "lollipops")))
         this.renderArea.addLinkCall(`.withdrawLollipop1000Button`, new CallbackCollection(this.withdraw.bind(this, 1000, "lollipops")))
+        this.renderArea.addLinkCall(`.withdrawLollipopOtherButton`, new CallbackCollection(this.withdraw.bind(this, -1, "lollipops")))
 
         this.renderArea.drawString(`${Database.getText("energyRemaining")} ${formatter.format(savedEnergy())} cal`, 55, 20)
 
@@ -107,6 +112,21 @@ export class EnergyRoom extends House{
     }
 
     private async deposit(number: number, unit: "candies" | "lollipops") {
+        if (number == -1) {
+            const string = unit == "candies" ? "depositCandiesCustomAmount" : "depositLollipopsCustomAmount";
+            const tArgs = {
+                limit: unit == "candies" ? this.getGame().getCandies().getCurrent() : this.getGame().getLollipops().getCurrent()
+            }
+            const response = prompt(`${Database.getText(string, tArgs)}${Database.isTranslated() ? `\n\n${Database.getTranslatedText(string, tArgs)}` : ""}`)
+
+            const amountInt = +response;
+            if (!Number.isInteger(amountInt) || amountInt <= 0 || amountInt > tArgs.limit) {
+                return;
+            }
+
+            number = amountInt;
+        }
+
         let energyToDeposit;
         if (unit == "candies") {
             if (this.getGame().getCandies().getCurrent() < number) return;
@@ -128,6 +148,21 @@ export class EnergyRoom extends House{
     }
 
     private async withdraw(number: number, unit: "candies" | "lollipops") {
+        if (number == -1) {
+            const string = unit == "candies" ? "withdrawCandiesCustomAmount" : "withdrawLollipopsCustomAmount";
+            const tArgs = {
+                limit: unit == "candies" ? Math.floor(savedEnergy() / candyCalorieExchangeRate) : Math.floor(savedEnergy() / lollipopCalorieExchangeRate)
+            }
+            const response = prompt(`${Database.getText(string, tArgs)}${Database.isTranslated() ? `\n\n${Database.getTranslatedText(string, tArgs)}` : ""}`)
+
+            const amountInt = +response;
+            if (!Number.isInteger(amountInt) || amountInt <= 0 || amountInt > tArgs.limit) {
+                return;
+            }
+
+            number = amountInt;
+        }
+
         const energyWithdrawn = await Archipelago.interruptAfterTimeout(withdrawEnergy(number * (unit == "candies" ? candyCalorieExchangeRate : lollipopCalorieExchangeRate)));
         if (unit == "candies") {
             const candiesToAdd = Math.floor(energyWithdrawn / candyCalorieExchangeRate);
