@@ -334,6 +334,7 @@ export class WishingWell extends Place{
             Saving.saveNumber("wishingWellHowManyChocolateBarsThrown", Saving.loadNumber("wishingWellHowManyChocolateBarsThrown") + 1)
             // We are now enchanting
             Saving.saveBool("wishingWellWeAreEnchanting", true);
+            this.getGame().getChocolateBars().load();
             // Update
             this.update();
             this.getGame().updatePlace();
