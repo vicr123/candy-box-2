@@ -99,7 +99,7 @@ export class Save extends Place{
 
     private async clickedApLoad() {
         await Archipelago.interruptAfterTimeout(Saving.load(this.getGame(), MainLoadingType.ARCHIPELAGO));
-        this.getGame().goToCandyBox();
+        this.getGame().goToCandyBox()
     }
     
     private clickedFileSave(): void{

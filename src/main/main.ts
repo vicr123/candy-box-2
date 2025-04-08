@@ -4,6 +4,7 @@ import {Keyboard} from "./Keyboard";
 import {Saving} from "./Saving";
 import {LocalSaving} from "./LocalSaving";
 import {i18n} from "../i18n";
+import {Archipelago} from "../archipelago/Archipelago";
 
 export module Main{
     // The game
@@ -23,19 +24,12 @@ export module Main{
         start(); // Start the game
     }
     
-    export function reloadEverythingFromFile(fileContent: string): void{
-        // Clear intervals for the current game
-        game.clearAllIntervals();
-        // Set the loading type
-        loadingType = MainLoadingType.FILE;
+    export async function reloadEverythingFromFile(fileContent: string) {
         // Set the loading string
         loadingString = fileContent;
-        // Set the gamemode (null so that it is set from loading)
-        gameMode = null;
-        // We can't register anymore
-        Saving.canRegister = false;
-        // Finally start (this will erase the current game)
-        start();
+
+        await Saving.load(game, MainLoadingType.FILE);
+        game.goToCandyBox()
     }
     
     export function setUrlData(urlData: string): void{
