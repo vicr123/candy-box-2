@@ -99,6 +99,13 @@ export class PostOffice extends House{
         if (Database.isTranslated()) {
             this.renderArea.drawString(Database.getTranslatedText("postOfficeSendLabel"), 30, 10, true);
             this.renderArea.drawString(Database.getTranslatedText("postOfficeAmountLabel"), 30, 13, true);
+            if (this.error) {
+                const errorText = Database.getTranslatedText(this.error)
+                this.renderArea.drawString(errorText, 20, 20, true);
+                if (errorText) {
+                    this.renderArea.addColor(20, 20 + errorText.length, 20, new Color(ColorType.SAVE_RED))
+                }
+            }
         }
 
         this.renderArea.addLinkCallbackCollection(new CallbackCollection(() => {

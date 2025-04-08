@@ -161,7 +161,7 @@ export class ArchipelagoPlace extends Place {
                 break;
             case "connecting":
                 this.renderArea.drawString(Database.getText("apStatusConnecting"), 7, y + 15);
-                this.renderArea.drawString(Database.getText("apStatusConnecting"), 7 + 32, y + 15);
+                this.renderArea.drawString(Database.getTranslatedText("apStatusConnecting"), 7 + 32, y + 15, true);
                 break;
             case "connected":
                 this.renderArea.addAsciiRealButton(Database.getText("apDisconnect"), 7, y + 15, "apDisconnect", Database.getTranslatedText("apDisconnect"));
