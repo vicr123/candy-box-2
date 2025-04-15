@@ -29,6 +29,20 @@ export class ArchipelagoItemProcessing {
     }
 }
 
+const ProgressiveWeapons = [
+    "eqItemWeaponWoodenSword",
+    "eqItemWeaponIronAxe",
+    "eqItemWeaponPolishedSilverSword",
+    "eqItemWeaponTrollBludgeon",
+    "eqItemWeaponMonkeyWizardStaff",
+    "eqItemWeaponEnchantedMonkeyWizardStaff",
+    "eqItemWeaponTribalSpear",
+    "eqItemWeaponSummoningTribalSpear",
+    "eqItemWeaponGiantSpoon",
+    "eqItemWeaponScythe",
+    "eqItemWeaponGiantSpoonOfDoom",
+];
+
 export function grantArchipelagoItem(game: Game, itemKey: keyof typeof ArchipelagoItem) {
     switch (itemKey) {
         case "CANDY":
@@ -212,6 +226,15 @@ export function grantArchipelagoItem(game: Game, itemKey: keyof typeof Archipela
             break;
         case "WEAPON_NOTHING":
             game.gainItem("eqItemWeaponNothing");
+            break;
+        case "PROGRESSIVE_WEAPON":
+            // Give the first progressive weapon that we don't currently have
+            for (const weapon of ProgressiveWeapons) {
+                if (!Saving.loadBool(weapon)) {
+                    game.gainItem(weapon);
+                    break;
+                }
+            }
             break;
     }
 }

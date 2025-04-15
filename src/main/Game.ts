@@ -420,7 +420,13 @@ export class Game{
     public postLoad(): void{
         if (Archipelago.slotData) {
             // Issue the weapon from the slot data
-            grantArchipelagoItem(this, Object.entries(ArchipelagoItem).find(([, value]) => value == Archipelago.slotData.defaults.weapon)![0] as keyof typeof ArchipelagoItem)
+            const weapon = Archipelago.slotData.defaults.weapon
+            if (weapon == -1) {
+                // Progressive Weapons - Issue the "Nothing" weapon
+                grantArchipelagoItem(this, "WEAPON_NOTHING")
+            } else {
+                grantArchipelagoItem(this, Object.entries(ArchipelagoItem).find(([, value]) => value == weapon)![0] as keyof typeof ArchipelagoItem)
+            }
         }
 
         // We re calc the player hp

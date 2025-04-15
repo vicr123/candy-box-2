@@ -180,7 +180,8 @@ export const ArchipelagoItem = {
     LOCKED_CANDY_BOX: 58,
     BOOTS_OF_INTROSPECTION: 59,
     PAIN_AU_CHOCOLAT: 60,
-    WEAPON_NOTHING: 61
+    WEAPON_NOTHING: 61,
+    PROGRESSIVE_WEAPON: 62
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000
