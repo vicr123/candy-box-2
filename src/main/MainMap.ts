@@ -130,7 +130,7 @@ export class MainMap extends Place{
     
     private goToBridge(): void{
         if(this.getGame().canStartQuest())
-            void this.getGame().loadRandomisedEntrance("The Bridge Click");
+            void this.getGame().loadRandomisedEntrance("THE_BRIDGE");
     }
     
     private goToCastle(): void{
@@ -149,7 +149,7 @@ export class MainMap extends Place{
     }
     
     private goToForest(): void{
-        void this.getGame().loadRandomisedEntrance("The Forest Click");
+        void this.getGame().loadRandomisedEntrance("THE_FOREST");
     }
     
     private goToFortress(): void{
@@ -182,7 +182,7 @@ export class MainMap extends Place{
     
     private goToTheDesert(): void{
         if(this.getGame().canStartQuest())
-            void this.getGame().loadRandomisedEntrance("The Desert Click");
+            void this.getGame().loadRandomisedEntrance("THE_DESERT");
     }
     
     private goToTheHole(): void{
@@ -200,7 +200,7 @@ export class MainMap extends Place{
 
     private goToCastleEntrance(): void{
         if(this.getGame().canStartQuest())
-            void this.getGame().loadRandomisedEntrance("Castle Entrance Click");
+            void this.getGame().loadRandomisedEntrance("THE_CASTLE_ENTRANCE");
     }
     
     // Private "load" methods

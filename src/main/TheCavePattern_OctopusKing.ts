@@ -35,6 +35,6 @@ export class TheCavePattern_OctopusKing extends TheCavePattern{
     // Private methods
     private challenge(): void{
         if(this.getTheCave().getGame().canStartQuest())
-            this.getTheCave().getGame().loadRandomisedEntrance("The Octopus King Click");
+            this.getTheCave().getGame().loadRandomisedEntrance("THE_OCTOPUS_KING");
     }
 }

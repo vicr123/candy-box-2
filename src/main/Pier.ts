@@ -42,7 +42,7 @@ export class Pier extends Place{
     
     private goToTheSea(): void{
         if(this.getGame().canStartQuest())
-            this.getGame().loadRandomisedEntrance("The Sea Click")
+            this.getGame().loadRandomisedEntrance("THE_SEA")
     }
     
     private update(): void{

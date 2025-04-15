@@ -125,11 +125,11 @@ export class Dragon extends CastleRoom{
     }
     
     private goToDeveloper(): void{
-        this.getGame().loadRandomisedEntrance("The Developer Quest Click");
+        this.getGame().loadRandomisedEntrance("THE_DEVELOPER");
     }
     
     private goToHell(): void{
-        this.getGame().loadRandomisedEntrance("Hell Room Click");
+        this.getGame().loadRandomisedEntrance("HELL");
     }
     
     private okayStopTickling(): void{

@@ -155,11 +155,11 @@ export class Castle extends Place{
     }
 
     private goToNougatMonster(): void{
-        this.getGame().loadRandomisedEntrance("Giant Nougat Monster Click");
+        this.getGame().loadRandomisedEntrance("THE_GIANT_NOUGAT_MONSTER");
     }
     
     private goToRoom1(): void{
-        this.getGame().loadRandomisedEntrance("Castle Trap Room Click");
+        this.getGame().loadRandomisedEntrance("THE_CASTLE_TRAP_ROOM");
     }
     
     private goToRoom2(): void{
@@ -167,7 +167,7 @@ export class Castle extends Place{
     }
     
     private goToRoom3(): void{
-        this.getGame().loadRandomisedEntrance("Castle Egg Room Click");
+        this.getGame().loadRandomisedEntrance("THE_CASTLE_EGG_ROOM");
     }
     
     private goToStairs(): void{

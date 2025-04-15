@@ -507,58 +507,58 @@ export class Game{
         }
 
         switch (Archipelago.findExit(entrance)) {
-            case "Village Cellar":
+            case "THE_CELLAR":
                 await this.setPlace(new Cellar(this));
                 break;
-            case "The Desert":
+            case "THE_DESERT":
                 await this.setPlace(new Desert(this));
                 break;
-            case "The Bridge":
+            case "THE_BRIDGE":
                 await this.setPlace(new Bridge(this));
                 break;
-            case "The Octopus King Quest":
+            case "THE_OCTOPUS_KING":
                 await this.setPlace(new OctopusKingQuest(this));
                 break;
-            case "The Naked Monkey Wizard":
+            case "THE_NAKED_MONKEY_WIZARD":
                 await this.setPlace(new MonkeyWizardQuest(this));
                 break;
-            case "The Forest":
+            case "THE_FOREST":
                 await this.setPlace(new Forest(this));
                 break;
-            case "The Castle Entrance":
+            case "THE_CASTLE_ENTRANCE":
                 await this.setPlace(new CastleEntrance(this));
                 break;
-            case "The Giant Nougat Monster":
+            case "THE_GIANT_NOUGAT_MONSTER":
                 await this.setPlace(new GiantNougatMonsterQuest(this));
                 break;
-            case "The Castle Egg Room":
+            case "THE_CASTLE_EGG_ROOM":
                 await this.setPlace(new CastleRoom3(this));
                 break;
-            case "Hell":
+            case "HELL":
                 await this.setPlace(new Hell(this));
                 break;
-            case "The Developer Quest":
+            case "THE_DEVELOPER":
                 await this.setPlace(new Developer(this));
                 break;
-            case "The Teapot Quest":
+            case "THE_TEAPOT":
                 await this.setPlace(new FortressRoom2(this));
                 break;
-            case "The Hole":
+            case "THE_HOLE":
                 await this.setPlace(new TheHole(this));
                 break;
-            case "The Xinopherydon Quest":
+            case "THE_XINOPHERYDON":
                 await this.setPlace(new FortressRoom1(this));
                 break;
-            case "The Ledge Room Quest":
+            case "THE_LEDGE_ROOM":
                 await this.setPlace(new FortressRoom3(this));
                 break;
-            case "The Trap Room":
+            case "THE_CASTLE_TRAP_ROOM":
                 await this.setPlace(new CastleRoom1(this));
                 break;
-            case "The Sea":
+            case "THE_SEA":
                 await this.setPlace(new TheSea(this));
                 break;
-            case "The X Potion Quest":
+            case "THE_X_POTION":
                 await this.setPlace(new Yourself(this));
                 break;
         }

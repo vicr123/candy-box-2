@@ -36,7 +36,7 @@ export class FifthHouse extends House{
     
     // Private methods
     private beginQuest(): void{
-        void this.getGame().loadRandomisedEntrance("Village House Enter Cellar");
+        void this.getGame().loadRandomisedEntrance("THE_CELLAR");
     }
     
     private update(): void {
@@ -59,7 +59,7 @@ export class FifthHouse extends House{
             this.renderArea.addLinkCall(".mapVillageFifthHouseAgreeButton", new CallbackCollection(this.beginQuest.bind(this)));
         }
         // Else if this quest is the egg quest
-        else if (Archipelago.findExit("Village House Enter Cellar") == "The Castle Egg Room") {
+        else if (Archipelago.findExit("THE_CELLAR") == "The Castle Egg Room") {
             // Draw the speech
             this.renderArea.drawSpeech(Database.getText("mapVillageFifthHouseEggSpeech"), 6, 44, 67, "fifthHouseSpeech", Database.getTranslatedText("mapVillageFifthHouseEggSpeech"));
 

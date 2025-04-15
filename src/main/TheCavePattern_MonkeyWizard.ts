@@ -35,6 +35,6 @@ export class TheCavePattern_MonkeyWizard extends TheCavePattern{
     // Private methods
     private challenge(): void{
         if(this.getTheCave().getGame().canStartQuest())
-            this.getTheCave().getGame().loadRandomisedEntrance("Naked Monkey Wizard Click");
+            this.getTheCave().getGame().loadRandomisedEntrance("THE_NAKED_MONKEY_WIZARD");
     }
 }

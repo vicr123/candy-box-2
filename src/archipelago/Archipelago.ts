@@ -26,15 +26,12 @@ type ConnectionStatus = "disconnected" | "connecting" | "connected";
 type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged" | "energyLinkUpdated" | "saveDataUpdated";
 export type ArchipelagoPlacePage = "backupRestore" | "connection" | "chat" | "hint";
 
-export type ArchipelagoEntrance = "Village House Enter Cellar" | "The Desert Click" | "The Bridge Click" | "The Octopus King Click" |
-    "Naked Monkey Wizard Click" | "The Forest Click" | "Castle Entrance Click" | "Giant Nougat Monster Click" | "Castle Egg Room Click" |
-    "Hell Room Click" | "The Developer Quest Click" | "The Teapot Quest Click" | "Hole Click" | "The Xinopherydon Quest Click" |
-    "The Ledge Room Quest Click" | "Castle Trap Room Click" | "The Sea Click" | "The X Potion Quest Click";
-export type ArchipelagoExit = "Village Cellar" | "The Desert" | "The Bridge" | "The Octopus King Quest" | "The Naked Monkey Wizard" |
-    "The Forest" | "The Castle Entrance" | "The Giant Nougat Monster" | "The Castle Egg Room" | "Hell" | "The Developer Quest" | "The Teapot Quest" |
-    "The Hole" | "The Xinopherydon Quest" | "The Ledge Room Quest" | "The Trap Room" | "The Sea" | "The X Potion Quest";
+export type ArchipelagoEntrance = "THE_CELLAR" | "THE_DESERT" | "THE_BRIDGE" | "THE_OCTOPUS_KING" |
+    "THE_NAKED_MONKEY_WIZARD" | "THE_FOREST" | "THE_CASTLE_ENTRANCE" | "THE_GIANT_NOUGAT_MONSTER" | "THE_CASTLE_EGG_ROOM" |
+    "HELL" | "THE_DEVELOPER" | "THE_TEAPOT" | "THE_HOLE" | "THE_XINOPHERYDON" |
+    "THE_LEDGE_ROOM" | "THE_CASTLE_TRAP_ROOM" | "THE_SEA" | "THE_X_POTION";
 
-type EntrancePairing = [ArchipelagoEntrance, ArchipelagoExit];
+type EntrancePairing = [ArchipelagoEntrance, ArchipelagoEntrance];
 
 export const lollipopCalorieExchangeRate = 47.3;
 export const candyCalorieExchangeRate = 57.8;

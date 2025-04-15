@@ -118,17 +118,17 @@ export class InsideFortress extends Place{
     
     private goToFirstRoom(): void{
         if(this.getGame().canStartQuest())
-            this.getGame().loadRandomisedEntrance("The Xinopherydon Quest Click")
+            this.getGame().loadRandomisedEntrance("THE_XINOPHERYDON")
     }
     
     private goToSecondRoom(): void{
         if(this.getGame().canStartQuest())
-            this.getGame().loadRandomisedEntrance("The Teapot Quest Click")
+            this.getGame().loadRandomisedEntrance("THE_TEAPOT")
     }
     
     private goToThirdRoom(): void{
         if(this.getGame().canStartQuest())
-            this.getGame().loadRandomisedEntrance("The Ledge Room Quest Click")
+            this.getGame().loadRandomisedEntrance("THE_LEDGE_ROOM")
     }
     
     private update(): void{
