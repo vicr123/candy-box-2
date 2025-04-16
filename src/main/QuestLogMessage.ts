@@ -15,17 +15,20 @@ export class QuestLogMessage{
         this.left = left;
         this.right = right;
         this.bold = bold;
-        
-        // If the left string is too big
-        if(this.left.length > 100 - (this.right != null? this.right.length:0)){
-            this.left = this.left.substr(0, 100 - (this.right != null? this.right.length:0) - 7) + " (...)"
+
+        if (right) {
+            // If the left string is too big
+            if(this.left.length > 100 - (this.right != null? this.right.length:0)){
+                this.left = this.left.substr(0, 100 - (this.right != null? this.right.length:0) - 7) + " (...)"
+            }
         }
+
     }
     
     // Public methods
     public draw(renderArea: RenderArea, pos: Pos, width: number): void{
         if(this.left != null){
-            renderArea.drawString(this.left, pos.x, pos.y);
+            renderArea.drawScrollingString(this.left, pos.x, pos.y, 100);
             if(this.bold) renderArea.addBold(pos.x, pos.x + this.left.length, pos.y);
         }
         if(this.right != null){

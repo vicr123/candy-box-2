@@ -1,7 +1,7 @@
 import {Place} from "../main/Place";
 import {Game} from "../main/Game";
 import {Database} from "../main/Database";
-import {RenderArea} from "../main/RenderArea";
+import {RenderArea, RenderAreaEvents} from "../main/RenderArea";
 import {Archipelago, ArchipelagoPlacePage} from "./Archipelago";
 import {CallbackCollection} from "../main/CallbackCollection";
 import {Pos} from "../main/Pos";
@@ -13,6 +13,9 @@ import {Algo} from "../main/Algo";
 import posessive = Algo.posessive;
 import {LocalSaving} from "../main/LocalSaving";
 import {ArchipelagoSaving} from "./ArchipelagoSaving";
+import {Hint} from "archipelago.js";
+
+let chatMessage = "";
 
 export class ArchipelagoPlace extends Place {
     // The render area
@@ -61,7 +64,33 @@ export class ArchipelagoPlace extends Place {
         Archipelago.events.on("apLogUpdated", this.externalUpdate.bind(this));
     }
 
+    willBeDisplayed() {
+        super.willBeDisplayed();
+
+        RenderAreaEvents.on("scrollChanged", this.scrollChanged);
+    }
+
+    willStopBeingDisplayed() {
+        super.willStopBeingDisplayed();
+
+        RenderAreaEvents.off("scrollChanged", this.scrollChanged);
+    }
+
+    private scrollChanged = () => {
+        if (Archipelago.apPage.current == "chat" || Archipelago.apPage.current == "hint") {
+            if (chatMessage == null) {
+                chatMessage = "";
+            } else {
+                const messageBox = $(".apMessage");
+                chatMessage = messageBox.val() as string;
+            }
+
+            this.externalUpdate();
+        }
+    }
+
     private externalUpdate() {
+
         this.update();
         this.getGame().updatePlace();
     }
@@ -200,7 +229,7 @@ export class ArchipelagoPlace extends Place {
         Archipelago.apLog.draw(this.renderArea, new Pos(0, y));
 
         if (Archipelago.connectionStatus.current == "connected") {
-            this.renderArea.addSimpleInputOnEnter(0, 95, y + 32, new CallbackCollection(this.sendApMessage.bind(this)), "apMessage", "", true);
+            this.renderArea.addSimpleInputOnEnter(0, 95, y + 32, new CallbackCollection(this.sendApMessage.bind(this)), "apMessage", chatMessage, true);
             this.renderArea.addAsciiRealButton(Database.getText("apSend"), 95, y + 34, "apSend");
             const translatedSendText = Database.getTranslatedText("apSend")
             if (translatedSendText) {
@@ -247,6 +276,25 @@ export class ArchipelagoPlace extends Place {
         const notFoundHints = hintList.filter(x => !x.found);
         const foundHints = hintList.filter(x => x.found);
 
+        const drawHint = (hint: Hint, x: number, y: number, width: number) => {
+            if (hint.entrance == "Vanilla") {
+                this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintText", {
+                    player: posessive(hint.item.receiver.name),
+                    item: hint.item.name,
+                    location: hint.item.locationName,
+                    sender: posessive(hint.item.sender.name)
+                }), x, y, width)
+            } else {
+                this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintTextWithEntrance", {
+                    player: posessive(hint.item.receiver.name),
+                    item: hint.item.name,
+                    location: hint.item.locationName,
+                    entrance: hint.entrance,
+                    sender: posessive(hint.item.sender.name)
+                }), x, y, width)
+            }
+        }
+
         if (notFoundHints.length > 0) {
             this.renderArea.drawString(Database.getText("apHintNotFound"), 0, y + 1);
             this.renderArea.addBold(0, Database.getText("apHintNotFound").length, y + 1);
@@ -254,22 +302,7 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.drawString(Database.getTranslatedText("apHintNotFound"), Database.getText("apHintNotFound").length + 2, y + 1, true);
             }
             for (const hint of notFoundHints) {
-                if (hint.entrance == "Vanilla") {
-                    this.renderArea.drawString(Database.getTranslatedTextWithFallback("apHintText", {
-                        player: posessive(hint.item.receiver.name),
-                        item: hint.item.name,
-                        location: hint.item.locationName,
-                        sender: posessive(hint.item.sender.name)
-                    }), 2, y + 3)
-                } else {
-                    this.renderArea.drawString(Database.getTranslatedTextWithFallback("apHintTextWithEntrance", {
-                        player: posessive(hint.item.receiver.name),
-                        item: hint.item.name,
-                        location: hint.item.locationName,
-                        entrance: hint.entrance,
-                        sender: posessive(hint.item.sender.name)
-                    }), 2, y + 3)
-                }
+                drawHint(hint, 2, y + 3, 98);
                 y += 1;
             }
             y += 4;
@@ -282,22 +315,7 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.drawString(Database.getTranslatedText("apHintFound"), Database.getText("apHintFound").length + 2, y + 1, true);
             }
             for (const hint of foundHints) {
-                if (hint.entrance == "Vanilla") {
-                    this.renderArea.drawString(Database.getTranslatedTextWithFallback("apHintText", {
-                        player: posessive(hint.item.receiver.name),
-                        item: hint.item.name,
-                        location: hint.item.locationName,
-                        sender: posessive(hint.item.sender.name)
-                    }), 2, y + 3)
-                } else {
-                    this.renderArea.drawString(Database.getTranslatedTextWithFallback("apHintTextWithEntrance", {
-                        player: posessive(hint.item.receiver.name),
-                        item: hint.item.name,
-                        location: hint.item.locationName,
-                        entrance: hint.entrance,
-                        sender: posessive(hint.item.sender.name)
-                    }), 2, y + 3)
-                }
+                drawHint(hint, 2, y + 3, 98);
                 y += 1;
             }
         }
@@ -372,8 +390,13 @@ export class ArchipelagoPlace extends Place {
 
     private sendApMessage() {
         const messageBox = $(".apMessage");
-        Archipelago.sendMessage(messageBox.val() as string);
-        messageBox.val("");
+        const message = messageBox.val();
+        messageBox.val("")
+        chatMessage = null;
+
+        queueMicrotask(() => {
+            Archipelago.sendMessage(message);
+        })
     }
 
     private async connectToAp() {

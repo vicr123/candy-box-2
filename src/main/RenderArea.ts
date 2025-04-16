@@ -20,6 +20,29 @@ import {Bugs} from "./Bugs";
 import {Random} from "./Random";
 import {RenderTransparency} from "./RenderTransparency";
 import {RenderLinkSimpleInputOnEnter} from "./RenderLinkSimpleInputOnEnter";
+import EventEmitter from "eventemitter3";
+
+
+export const RenderAreaEvents = new EventEmitter<"scrollChanged">();
+
+function createObservable<T>(initialValue: T) {
+    let observable = {
+        current: initialValue
+    };
+
+    return new Proxy(observable, {
+        get(target: { current: T }, p: string | symbol, receiver: any): any {
+            return target.current;
+        },
+        set(target: { current: T }, p: string | symbol, newValue: any, receiver: any): boolean {
+            queueMicrotask(() => RenderAreaEvents.emit("scrollChanged", newValue))
+            target.current = newValue;
+            return true;
+        }
+    })
+}
+
+let renderAreaTextScroll = createObservable(0);
 
 export class RenderArea{
     private area: string[] = []; // Array of strings
@@ -383,6 +406,24 @@ export class RenderArea{
         // We return y, which is the y position of the last speech line
         return y;
     }
+
+    public drawScrollingString(str: string, x: number = 0, y: number = 0, width: number = 0, translated: boolean = false) {
+        if (str.length < width) {
+            this.drawString(str, x, y, translated);
+            return;
+        }
+
+        const scrollingStringWaitTime = 30;
+        const string = str + "     ";
+        const doubleString = string.repeat(2);
+        const loop = string.length + scrollingStringWaitTime;
+
+        const progress = renderAreaTextScroll.current % loop;
+        const firstLetter = progress < scrollingStringWaitTime ? 0 : progress - scrollingStringWaitTime;
+        const stringToDraw = doubleString.substring(firstLetter, firstLetter + width);
+
+        this.drawString(stringToDraw, x, y, translated);
+    }
     
     public drawString(str: string, x: number = 0, y: number = 0, translated: boolean = false, transparency: RenderTransparency = null): boolean{
         var indexFirst: number;
@@ -636,3 +677,7 @@ export class RenderArea{
         return true;
     }
 }
+
+setInterval(() => {
+    renderAreaTextScroll.current++;
+}, 200)

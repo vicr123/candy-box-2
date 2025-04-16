@@ -1,6 +1,7 @@
 import {QuestLogMessage} from "./QuestLogMessage";
 import {RenderArea} from "./RenderArea";
 import {Pos} from "./Pos";
+import EventEmitter from "eventemitter3";
 
 export class QuestLog{
     // Array of messages contained in the quest log
@@ -50,3 +51,4 @@ export class QuestLog{
         }
     }
 }
+
