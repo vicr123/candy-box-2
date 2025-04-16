@@ -6,6 +6,7 @@ import {Game} from "./Game";
 import {Database} from "./Database";
 import {Saving} from "./Saving";
 import {CallbackCollection} from "./CallbackCollection";
+import {Archipelago} from "../archipelago/Archipelago";
 
 export class Treasure extends Place{
     // The render area
@@ -17,6 +18,11 @@ export class Treasure extends Place{
         
         this.renderArea.resizeFromArray(Database.getAscii("places/treasure"), 57, 3);
         this.update();
+
+        Archipelago.client.room.on("locationsChecked", () => {
+            this.update();
+            this.getGame().updatePlace();
+        });
     }
     
     // getRenderArea()
