@@ -56,7 +56,7 @@ export class Moutains extends Place{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToMainMapButton(this.renderArea, "mountainsBackToTheMapButton");
+        this.addBackToMainMapButton(this.renderArea, "mountainsBackToTheMapButton", "POGO_STICK_SPOT");
         
         // Draw the moutains
         this.renderArea.drawArray(Database.getAscii("places/mountains"), 0, 3);

@@ -151,7 +151,7 @@ export class Castle extends Place{
     }
     
     private goToBigRoom(): void{
-        this.getGame().setPlace(new CastleBigRoom(this.getGame()));
+        this.getGame().loadRandomisedEntrance("CASTLE_BAKEHOUSE")
     }
 
     private goToNougatMonster(): void{
@@ -163,7 +163,7 @@ export class Castle extends Place{
     }
     
     private goToRoom2(): void{
-        this.getGame().setPlace(new CastleRoom2(this.getGame()));
+        this.getGame().loadRandomisedEntrance("CASTLE_DARK_ROOM")
     }
     
     private goToRoom3(): void{
@@ -171,11 +171,11 @@ export class Castle extends Place{
     }
     
     private goToStairs(): void{
-        this.getGame().setPlace(new Dragon(this.getGame()));
+        this.getGame().loadRandomisedEntrance("DRAGON")
     }
     
     private goToTowerEntrance(): void{
-        this.getGame().setPlace(new CastleTower(this.getGame()));
+        this.getGame().loadRandomisedEntrance("TOWER")
     }
     
     private update(): void{
@@ -183,7 +183,7 @@ export class Castle extends Place{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToMainMapButton(this.renderArea, "castleBackToTheMapButton");
+        this.addBackToMainMapButton(this.renderArea, "castleBackToTheMapButton", "CASTLE");
         
         // Draw the ascii
         this.renderArea.drawArray(Database.getAscii("places/castle/map"), 0, 3);

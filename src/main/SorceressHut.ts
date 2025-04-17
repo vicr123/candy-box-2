@@ -281,7 +281,7 @@ export class SorceressHut extends Place{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToMainMapButton(this.renderArea, "theHoleBackToTheMapButton");
+        this.addBackToMainMapButton(this.renderArea, "theHoleBackToTheMapButton", "SORCERESS_HUT");
         
         // Draw everything
         this.drawBackground(0, 3);

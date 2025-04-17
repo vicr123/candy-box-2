@@ -41,7 +41,7 @@ export class ShareHouse extends House {
         this.renderArea.resetAllButSize();
 
         // Back to the map button
-        this.addBackToTheVillageButton(this.renderArea, "shareHouseBackToTheVillageButton");
+        this.addBackToTheVillageButton(this.renderArea, "shareHouseBackToTheVillageButton", "ENERGY_ROOM");
 
         // Draw the house
         this.renderArea.drawArray(Database.getAscii("places/village/share/shareHouse"), 0, 3);

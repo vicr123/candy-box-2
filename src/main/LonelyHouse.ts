@@ -89,7 +89,7 @@ export class LonelyHouse extends Place{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToMainMapButton(this.renderArea, "lonelyHouseBackToTheMapButton");
+        this.addBackToMainMapButton(this.renderArea, "lonelyHouseBackToTheMapButton", "LONELY_HOUSE");
         
         // Draw the house
         this.renderArea.drawArray(Database.getAscii("places/lonelyHouse"), 0, 3);

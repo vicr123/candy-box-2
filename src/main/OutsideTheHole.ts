@@ -34,7 +34,7 @@ export class OutsideTheHole extends Place{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToMainMapButton(this.renderArea, "theHoleBackToTheMapButton");
+        this.addBackToMainMapButton(this.renderArea, "theHoleBackToTheMapButton", "HOLE");
         
         // Draw the ascii
         this.renderArea.drawArray(Database.getAscii("places/outsideTheHole"), 0, 3);

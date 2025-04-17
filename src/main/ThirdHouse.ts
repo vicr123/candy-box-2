@@ -131,7 +131,7 @@ export class ThirdHouse extends House{
         this.renderArea.resetAllButSize();
         
         // Back to the village button
-        this.addBackToTheVillageButton(this.renderArea, "thirdHouseBackToTheVillageButton");
+        this.addBackToTheVillageButton(this.renderArea, "thirdHouseBackToTheVillageButton", "VILLAGE_MINIGAME");
         
         // Draw the house
         this.renderArea.drawArray(Database.getAscii("places/village/thirdHouse"), 0, 3);

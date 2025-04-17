@@ -187,7 +187,7 @@ export class Forge extends House{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToTheVillageButton(this.renderArea, "forgeBackToTheVillageButton");
+        this.addBackToTheVillageButton(this.renderArea, "forgeBackToTheVillageButton", "VILLAGE_FORGE");
         
         // Draw the house
         this.renderArea.drawArray(Database.getAscii("places/village/forge"), 0, 3);

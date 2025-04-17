@@ -44,7 +44,7 @@ export class FifthHouse extends House{
         this.renderArea.resetAllButSize();
 
         // Back to the village button
-        this.addBackToTheVillageButton(this.renderArea, "fifthHouseBackToTheVillageButton");
+        this.addBackToTheVillageButton(this.renderArea, "fifthHouseBackToTheVillageButton", "VILLAGE_QUEST_HOUSE");
 
         // Draw the house
         this.renderArea.drawArray(Database.getAscii("places/village/fifthHouse"), 0, 3);

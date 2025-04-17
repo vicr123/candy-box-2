@@ -78,7 +78,7 @@ export class Village extends Place{
         
         // Back to the map button only if we possess the main map
         if(Saving.loadBool("gridItemPossessedMainMap"))
-            this.addBackToMainMapButton(this.renderArea, "villageBackToTheMapButton");
+            this.addBackToMainMapButton(this.renderArea, "villageBackToTheMapButton", "VILLAGE");
         
         // Draw the ascii
         this.renderArea.drawArray(Database.getAscii("places/village/village"), 0, 3);
@@ -103,23 +103,23 @@ export class Village extends Place{
     }
     
     private goToSecondHouse(): void{
-        this.getGame().setPlace(new SecondHouse(this.getGame()));
+        this.getGame().loadRandomisedEntrance("VILLAGE_SHOP");
     }
     
     private goToThirdHouse(): void{
-        this.getGame().setPlace(new ThirdHouse(this.getGame()));
+        this.getGame().loadRandomisedEntrance("VILLAGE_MINIGAME");
     }
     
     private goToForge(): void{
-        this.getGame().setPlace(new Forge(this.getGame()));
+        this.getGame().loadRandomisedEntrance("VILLAGE_FORGE");
     }
     
     private goToFourthHouse(): void{
-        this.getGame().setPlace(new FourthHouse(this.getGame()));
+        this.getGame().loadRandomisedEntrance("VILLAGE_FURNISHED_HOUSE");
     }
     
     private goToFifthHouse(): void{
-        this.getGame().setPlace(new FifthHouse(this.getGame()));
+        this.getGame().loadRandomisedEntrance("VILLAGE_QUEST_HOUSE");
     }
     
     // Private "load" methods

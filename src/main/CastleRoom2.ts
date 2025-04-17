@@ -48,7 +48,7 @@ export class CastleRoom2 extends CastleRoom{
         this.renderArea.resetAllButSize();
         
         // Add the button to go back to the castle
-        this.addBackToTheCastleButton(this.renderArea, "castleRoom2BackToTheCastleButton");
+        this.addBackToTheCastleButton(this.renderArea, "castleRoom2BackToTheCastleButton", "CASTLE_DARK_ROOM");
         
         // If the fire isn't lit yet
         if(Saving.loadBool("castleRoom2LitFire") == false){

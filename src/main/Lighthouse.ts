@@ -53,7 +53,7 @@ export class Lighthouse extends Place{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToMainMapButton(this.renderArea, "lighthouseBackToTheMapButton");
+        this.addBackToMainMapButton(this.renderArea, "lighthouseBackToTheMapButton", "LIGHTHOUSE");
         
         // Draw the lighthouse
         this.renderArea.drawArray(Database.getAscii("places/lighthouse/lighthouse"), 0, 3);

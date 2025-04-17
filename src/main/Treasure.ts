@@ -45,7 +45,7 @@ export class Treasure extends Place{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToMainMapButton(this.renderArea, "treasureBackToTheMapButton");
+        this.addBackToMainMapButton(this.renderArea, "treasureBackToTheMapButton", "DIG_SPOT");
         
         // Draw the ascii
         this.renderArea.drawArray(Database.getAscii("places/treasure"), 28, 3);

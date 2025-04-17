@@ -149,7 +149,7 @@ export class Dragon extends CastleRoom{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToTheCastleButton(this.renderArea, "dragonBackToTheCastleButton");
+        this.addBackToTheCastleButton(this.renderArea, "dragonBackToTheCastleButton", "DRAGON");
         
         // Draw the ascii
         this.renderArea.drawArray(Database.getAscii("places/dragonFoot"), 0, 3);

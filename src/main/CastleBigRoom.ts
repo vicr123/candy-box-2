@@ -24,8 +24,7 @@ export class CastleBigRoom extends CastleRoom{
     // Is the hoven waiting? (if true, the hoven is asking us to give it sweets, if false he's telling us he just made a pain au chocolat)
     private hovenWaiting: boolean;
 
-    private itemScoutResults: ScoutResults;
-    
+
     // Constructor
     constructor(game: Game){
         super(game);
@@ -53,10 +52,6 @@ export class CastleBigRoom extends CastleRoom{
         return ["CASTLE_BAKEHOUSE"];
     }
 
-    scoutResults(items: ScoutResults) {
-        this.itemScoutResults = items;
-    }
-
     // getRenderArea()
     public getRenderArea(): RenderArea{
         return this.renderArea;
@@ -68,7 +63,7 @@ export class CastleBigRoom extends CastleRoom{
         this.renderArea.resetAllButSize();
         
         // Add the button to go back to the castle
-        this.addBackToTheCastleButton(this.renderArea, "castleBigRoomBackToTheCastleButton");
+        this.addBackToTheCastleButton(this.renderArea, "castleBigRoomBackToTheCastleButton", "CASTLE_BAKEHOUSE");
         
         // Draw the background
         this.drawBackground(0, 3);

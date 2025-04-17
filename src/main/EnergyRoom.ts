@@ -187,7 +187,7 @@ export class EnergyRoom extends House{
         this.renderArea.resetAllButSize();
 
         // Back to the map button
-        this.addBackToTheVillageButton(this.renderArea, "energyRoomBackToTheVillageButton");
+        this.addBackToTheVillageButton(this.renderArea, "energyRoomBackToTheVillageButton", "ENERGY_ROOM");
 
         // Draw the house
         this.renderArea.drawArray(Database.getAscii("places/village/share/energyRoom"), 0, 3);

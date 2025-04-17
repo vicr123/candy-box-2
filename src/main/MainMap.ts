@@ -125,7 +125,7 @@ export class MainMap extends Place{
     
     // Private "go to" methods
     private goToATree(): void{
-        this.getGame().setPlace(new ATree(this.getGame()));
+        this.getGame().loadRandomisedEntrance("SQUIRREL_TREE");
     }
     
     private goToBridge(): void{
@@ -134,18 +134,15 @@ export class MainMap extends Place{
     }
     
     private goToCastle(): void{
-        this.getGame().goToCastle();
+        this.getGame().loadRandomisedEntrance("CASTLE")
     }
     
     private goToDragon(): void{
-        this.getGame().setPlace(new Dragon(this.getGame()));
+        this.getGame().loadRandomisedEntrance("DRAGON")
     }
     
     private goToFarm(): void{
-        Saving.saveBool("statusBarUnlockedLollipopFarm", true); // We unlock the farm tab
-        this.getGame().updateStatusBar(true); // We update the status bar
-        this.getGame().getStatusBar().selectTabByType(StatusBarTabType.FARM); // We select the farm tab
-        this.getGame().goToLollipopFarm(); // We show the farm
+        this.getGame().loadRandomisedEntrance("LOLLIPOP_FARM")
     }
     
     private goToForest(): void{
@@ -153,31 +150,31 @@ export class MainMap extends Place{
     }
     
     private goToFortress(): void{
-        this.getGame().goToInsideFortress();
+        this.getGame().loadRandomisedEntrance("DESERT_FORTRESS")
     }
     
     private goToLighthouse(): void{
-        this.getGame().goToLighthouse();
+        this.getGame().loadRandomisedEntrance("LIGHTHOUSE")
     }
     
     private goToLonelyHouse(): void{
-        this.getGame().setPlace(new LonelyHouse(this.getGame()));
+        this.getGame().loadRandomisedEntrance("LONELY_HOUSE");
     }
     
     private goToMoutains(): void{
-        this.getGame().setPlace(new Moutains(this.getGame()));
+        this.getGame().loadRandomisedEntrance("POGO_STICK_SPOT")
     }
     
     private goToPier(): void{
-        this.getGame().setPlace(new Pier(this.getGame()));
+        this.getGame().loadRandomisedEntrance("PIER")
     }
     
     private goToSorceressHut(): void{
-        this.getGame().goToSorceressHut();
+        this.getGame().loadRandomisedEntrance("SORCERESS_HUT")
     }
     
     private goToTheCave(): void{
-        this.getGame().goToTheCave();
+        this.getGame().loadRandomisedEntrance("CAVE")
     }
     
     private goToTheDesert(): void{
@@ -187,15 +184,15 @@ export class MainMap extends Place{
     
     private goToTheHole(): void{
         if(this.getGame().canStartQuest())
-            this.getGame().setPlace(new OutsideTheHole(this.getGame()));
+            this.getGame().loadRandomisedEntrance("HOLE")
     }
     
     private goToTreasure(): void{
-        this.getGame().setPlace(new Treasure(this.getGame()));
+        this.getGame().loadRandomisedEntrance("DIG_SPOT");
     }
     
     private goToWishingWell(): void {
-        this.getGame().setPlace(new WishingWell(this.getGame()));
+        this.getGame().loadRandomisedEntrance("WISHING_WELL")
     }
 
     private goToCastleEntrance(): void{

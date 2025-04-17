@@ -409,7 +409,7 @@ export class WishingWell extends Place{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToMainMapButton(this.renderArea, "wishingWellBackToTheMapButton");
+        this.addBackToMainMapButton(this.renderArea, "wishingWellBackToTheMapButton", "WISHING_WELL");
         
         // Draw the well
         this.renderArea.drawArray(Database.getAscii("places/wishingWell"), 38, 3);

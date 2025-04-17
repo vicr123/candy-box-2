@@ -136,7 +136,7 @@ export class InsideFortress extends Place{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToMainMapButton(this.renderArea, "insideFortressBackToTheMapButton");
+        this.addBackToMainMapButton(this.renderArea, "insideFortressBackToTheMapButton", "DESERT_FORTRESS");
         
         // Draw the ascii
         this.renderArea.drawArray(Database.getAscii("places/fortress/inside"), 0, 3);

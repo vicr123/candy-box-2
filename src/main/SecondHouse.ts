@@ -179,7 +179,7 @@ export class SecondHouse extends House{
         this.renderArea.resetAllButSize();
         
         // Back to the village button
-        this.addBackToTheVillageButton(this.renderArea, "secondHouseBackToTheVillageButton");
+        this.addBackToTheVillageButton(this.renderArea, "secondHouseBackToTheVillageButton", "VILLAGE_SHOP");
         
         // Draw the house
         this.renderArea.drawArray(Database.getAscii("places/village/secondHouse"), 0, 3);

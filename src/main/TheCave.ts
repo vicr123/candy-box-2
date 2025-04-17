@@ -302,7 +302,7 @@ export class TheCave extends Place{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToMainMapButton(this.renderArea, "theCaveBackToTheMapButton");
+        this.addBackToMainMapButton(this.renderArea, "theCaveBackToTheMapButton", "CAVE");
         
         // Draw the ways
         this.drawWays();

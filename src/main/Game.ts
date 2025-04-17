@@ -91,6 +91,23 @@ import {FortressRoom3} from "./FortressRoom3";
 import {CastleRoom1} from "./CastleRoom1";
 import {TheSea} from "./TheSea";
 import {ArchipelagoItem} from "../archipelago/ArchipelagoLocation";
+import {SecondHouse} from "./SecondHouse";
+import {ThirdHouse} from "./ThirdHouse";
+import {FourthHouse} from "./FourthHouse";
+import {FifthHouse} from "./FifthHouse";
+import {Forge} from "./Forge";
+import {ATree} from "./ATree";
+import {LonelyHouse} from "./LonelyHouse";
+import {Treasure} from "./Treasure";
+import {Moutains} from "./Moutains";
+import {WishingWell} from "./WishingWell";
+import {Pier} from "./Pier";
+import {OutsideTheHole} from "./OutsideTheHole";
+import {CastleBigRoom} from "./CastleBigRoom";
+import {CastleRoom2} from "./CastleRoom2";
+import {Dragon} from "./Dragon";
+import {CastleTower} from "./CastleTower";
+import {StatusBarTabType} from "./StatusBarTabType";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerGlobalString("gameLanguage", "en");
@@ -561,6 +578,75 @@ export class Game{
             case "THE_X_POTION":
                 await this.setPlace(new Yourself(this));
                 break;
+            case "VILLAGE_SHOP":
+                await this.setPlace(new SecondHouse(this));
+                break;
+            case "VILLAGE_MINIGAME":
+                await this.setPlace(new ThirdHouse(this));
+                break;
+            case "VILLAGE_FORGE":
+                await this.setPlace(new Forge(this));
+                break;
+            case "VILLAGE_FURNISHED_HOUSE":
+                await this.setPlace(new FourthHouse(this));
+                break;
+            case "VILLAGE_QUEST_HOUSE":
+                await this.setPlace(new FifthHouse(this));
+                break;
+            case "SQUIRREL_TREE":
+                await this.setPlace(new ATree(this));
+                break;
+            case "LONELY_HOUSE":
+                await this.setPlace(new LonelyHouse(this));
+                break;
+            case "DIG_SPOT":
+                await this.setPlace(new Treasure(this));
+                break;
+            case "DESERT_FORTRESS":
+                await this.setPlace(new InsideFortress(this));
+                break;
+            case "POGO_STICK_SPOT":
+                await this.setPlace(new Moutains(this));
+                break;
+            case "SORCERESS_HUT":
+                await this.setPlace(new SorceressHut(this));
+                break;
+            case "WISHING_WELL":
+                await this.setPlace(new WishingWell(this));
+                break;
+            case "CAVE":
+                await this.setPlace(new TheCave(this));
+                break;
+            case "PIER":
+                await this.setPlace(new Pier(this));
+                break;
+            case "LIGHTHOUSE":
+                Saving.saveBool("mainMapDonePier", true);
+                await this.setPlace(new Lighthouse(this));
+                break;
+            case "HOLE":
+                await this.setPlace(new OutsideTheHole(this));
+                break;
+            case "CASTLE":
+                await this.setPlace(new Castle(this));
+                break;
+            case "CASTLE_BAKEHOUSE":
+                await this.setPlace(new CastleBigRoom(this));
+                break;
+            case "CASTLE_DARK_ROOM":
+                await this.setPlace(new CastleRoom2(this));
+                break;
+            case "DRAGON":
+                await this.setPlace(new Dragon(this));
+                break;
+            case "TOWER":
+                await this.setPlace(new CastleTower(this));
+                break;
+            case "LOLLIPOP_FARM":
+                Saving.saveBool("statusBarUnlockedLollipopFarm", true); // We unlock the farm tab
+                this.updateStatusBar(true); // We update the status bar
+                this.getStatusBar().selectTabByType(StatusBarTabType.FARM); // We select the farm tab
+                this.goToLollipopFarm();
         }
     }
 
@@ -680,6 +766,14 @@ export class Game{
     
     public goToTheCave(): void{
         this.setPlace(new TheCave(this));
+    }
+
+    public goToThePier(): void{
+        this.setPlace(new Pier(this));
+    }
+
+    public goToFifthHouse(): void{
+        this.setPlace(new FifthHouse(this));
     }
     
     public goToTheComputer(): void{

@@ -159,7 +159,7 @@ export class CastleTower extends CastleRoom{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToTheCastleButton(this.renderArea, "castleTowerBackToTheCastleButton");
+        this.addBackToTheCastleButton(this.renderArea, "castleTowerBackToTheCastleButton", "TOWER");
         
         // Draw the background
         this.drawBackground();

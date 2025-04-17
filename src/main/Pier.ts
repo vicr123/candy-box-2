@@ -28,7 +28,7 @@ export class Pier extends Place{
     // Private methods
     private addLighthouseButton(x: number, y: number): void{
         this.renderArea.addAsciiRealButton(Database.getText("pierLighthouseButton"), x, y, "pierLighthouseButton", Database.getTranslatedText("pierLighthouseButton"), true);
-        this.renderArea.addLinkCall(".pierLighthouseButton", new CallbackCollection(this.clickedOnLighthouseButton.bind(this), this.getGame().goToLighthouse.bind(this.getGame())));
+        this.renderArea.addLinkCall(".pierLighthouseButton", new CallbackCollection(this.clickedOnLighthouseButton.bind(this)));
     }
     
     private addTheSeaButton(x: number, y: number): void{
@@ -37,7 +37,7 @@ export class Pier extends Place{
     }
     
     private clickedOnLighthouseButton(): void{
-        Saving.saveBool("mainMapDonePier", true);
+        this.getGame().loadRandomisedEntrance("LIGHTHOUSE")
     }
     
     private goToTheSea(): void{
@@ -50,7 +50,7 @@ export class Pier extends Place{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToMainMapButton(this.renderArea, "thePierBackToTheMapButton");
+        this.addBackToMainMapButton(this.renderArea, "thePierBackToTheMapButton", "PIER");
         
         // Draw the pier
         this.renderArea.drawArray(Database.getAscii("places/pier"), 0, 3);

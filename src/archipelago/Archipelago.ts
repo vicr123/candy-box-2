@@ -29,7 +29,10 @@ export type ArchipelagoPlacePage = "backupRestore" | "connection" | "chat" | "hi
 export type ArchipelagoEntrance = "THE_CELLAR" | "THE_DESERT" | "THE_BRIDGE" | "THE_OCTOPUS_KING" |
     "THE_NAKED_MONKEY_WIZARD" | "THE_FOREST" | "THE_CASTLE_ENTRANCE" | "THE_GIANT_NOUGAT_MONSTER" | "THE_CASTLE_EGG_ROOM" |
     "HELL" | "THE_DEVELOPER" | "THE_TEAPOT" | "THE_HOLE" | "THE_XINOPHERYDON" |
-    "THE_LEDGE_ROOM" | "THE_CASTLE_TRAP_ROOM" | "THE_SEA" | "THE_X_POTION";
+    "THE_LEDGE_ROOM" | "THE_CASTLE_TRAP_ROOM" | "THE_SEA" | "THE_X_POTION" |
+    "VILLAGE_SHOP" | "VILLAGE_MINIGAME" | "VILLAGE_FORGE" | "VILLAGE_FURNISHED_HOUSE" | "VILLAGE_QUEST_HOUSE" |
+    "SQUIRREL_TREE" | "LONELY_HOUSE" | "DIG_SPOT" | "DESERT_FORTRESS" | "POGO_STICK_SPOT" | "SORCERESS_HUT" | "WISHING_WELL" |
+    "CAVE" | "PIER" | "LIGHTHOUSE" | "HOLE" | "CASTLE" | "CASTLE_BAKEHOUSE" | "CASTLE_DARK_ROOM" | "DRAGON" | "TOWER" | "LOLLIPOP_FARM";
 
 type EntrancePairing = [ArchipelagoEntrance, ArchipelagoEntrance];
 
@@ -227,7 +230,11 @@ export namespace Archipelago {
     }
 
     export function findExit(entrance: ArchipelagoEntrance) {
-        return slotData.entranceInformation.find(([transitionEntrance]) => transitionEntrance == entrance)[1];
+        return slotData.entranceInformation.find(([transitionEntrance]) => transitionEntrance == entrance)?.[1] ?? entrance;
+    }
+
+    export function findEntrance(exit: ArchipelagoEntrance) {
+        return slotData.entranceInformation.find(([, transitionExit]) => transitionExit == exit)?.[0] ?? exit;
     }
 
     function interruptGame(isDisconnection: boolean) {

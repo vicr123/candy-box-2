@@ -45,7 +45,7 @@ export class PostOffice extends House{
         this.renderArea.resetAllButSize();
 
         // Back to the map button
-        this.addBackToTheVillageButton(this.renderArea, "postOfficeBackToTheVillageButton");
+        this.addBackToTheVillageButton(this.renderArea, "postOfficeBackToTheVillageButton", "ENERGY_ROOM");
 
         // Draw the house
         this.renderArea.drawArray(Database.getAscii("places/village/share/postOffice"), 0, 3);

@@ -438,7 +438,7 @@ export class ATree extends Place{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToMainMapButton(this.renderArea, "aTreeBackToTheMapButton");
+        this.addBackToMainMapButton(this.renderArea, "aTreeBackToTheMapButton", "SQUIRREL_TREE");
         
         // Draw the tree with the squirrel
         this.renderArea.drawArray(Database.getAscii("places/aTree/background"), 0, 3);

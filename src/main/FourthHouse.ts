@@ -182,7 +182,7 @@ export class FourthHouse extends House{
         this.renderArea.resetAllButSize();
         
         // Back to the map button
-        this.addBackToTheVillageButton(this.renderArea, "fourthHouseBackToTheVillageButton");
+        this.addBackToTheVillageButton(this.renderArea, "fourthHouseBackToTheVillageButton", "VILLAGE_FURNISHED_HOUSE");
         
         // Draw the house
         this.renderArea.drawArray(Database.getAscii("places/village/fourthHouse"), 0, 3);
