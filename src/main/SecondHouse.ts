@@ -200,4 +200,8 @@ export class SecondHouse extends House{
     scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
         return ["VILLAGE_SHOP"];
     }
+
+    scoutShouldHint(): boolean {
+        return true;
+    }
 }

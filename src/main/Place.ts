@@ -61,6 +61,10 @@ export class Place{
         return [];
     }
 
+    public scoutShouldHint() {
+        return false;
+    }
+
     public scoutResults(items: ScoutResults) {
         this._itemScoutResults = items;
     }

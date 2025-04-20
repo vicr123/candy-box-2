@@ -213,7 +213,7 @@ export namespace Archipelago {
         client.check(ArchipelagoLocation[check]);
     }
 
-    export async function scoutRoom(item: (keyof typeof ArchipelagoLocationRegion)[]) {
+    export async function scoutRoom(item: (keyof typeof ArchipelagoLocationRegion)[], shouldHint: boolean) {
         if (connectionStatus.current != "connected") {
             return new ScoutResults([]);
         }
@@ -226,7 +226,7 @@ export namespace Archipelago {
             }
         }
 
-        return new ScoutResults(await client.scout(scoutIds, 0));
+        return new ScoutResults(await client.scout(scoutIds, shouldHint ? 2 : 0));
     }
 
     export function findExit(entrance: ArchipelagoEntrance) {

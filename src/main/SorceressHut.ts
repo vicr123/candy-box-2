@@ -293,4 +293,8 @@ export class SorceressHut extends Place{
         // Draw the speech
         this.drawCurrentSpeech(43, 4);
     }
+
+    scoutShouldHint(): boolean {
+        return true;
+    }
 }

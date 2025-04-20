@@ -493,7 +493,7 @@ export class Game{
     public async setPlace(place: Place): Promise<void>{
         if (this.blockRoomTransitions) return;
 
-        place.scoutResults(await Archipelago.interruptAfterTimeout(Archipelago.scoutRoom(place.scoutKeys())));
+        place.scoutResults(await Archipelago.interruptAfterTimeout(Archipelago.scoutRoom(place.scoutKeys(), place.scoutShouldHint())));
 
         // If the current place isn't null, we warn it that we're going to stop displaying it
         if(this.place != null){
