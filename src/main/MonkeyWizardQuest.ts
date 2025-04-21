@@ -3,7 +3,7 @@
 import {Quest} from "./Quest";
 import {Game} from "./Game";
 import {Pos} from "./Pos";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Database} from "./Database";
@@ -39,7 +39,11 @@ export class MonkeyWizardQuest extends Quest{
         this.addMonkeyWizard(new Pos(88, 16));
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You challenged the monkey wizard. Let the fight begin!"));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_NAKED_MONKEY_WIZARD"));
+    }
+
+    public static get welcomeMessage() {
+        return "You challenged the monkey wizard."
     }
 
     scoutKeys(): ScoutKeys {

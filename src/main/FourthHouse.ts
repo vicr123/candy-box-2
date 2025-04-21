@@ -30,6 +30,10 @@ export class FourthHouse extends House{
             this.getGame().updatePlace();
         });
     }
+
+    public static get welcomeMessage() {
+        return "You enter the house."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{

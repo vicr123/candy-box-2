@@ -9,7 +9,7 @@ import {Spikes} from "./Spikes";
 import {Chest} from "./Chest";
 import {CallbackCollection} from "./CallbackCollection";
 import {LostTribeWarrior} from "./LostTribeWarrior";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {Hotkey} from "./Hotkey";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
@@ -91,7 +91,11 @@ export class TheHole extends Quest{
         this.addLostTribeWarrior(new LostTribeWarrior(this, new Pos(51, 123), new Pos(2, 112), new Pos(79, 129)));
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You jumped into the big hole! You're falling quickly, try to stay alive!"));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_HOLE"));
+    }
+
+    public static get welcomeMessage() {
+        return "You jumped into the big hole!"
     }
 
     scoutKeys(): ScoutKeys {

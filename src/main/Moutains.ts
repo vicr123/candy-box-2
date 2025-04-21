@@ -31,6 +31,10 @@ export class Moutains extends Place{
         });
     }
 
+    public static get welcomeMessage() {
+        return "You climb the mountain."
+    }
+
     scoutResults(items: ScoutResults) {
         this.scoutItem = items.findItem("POGO_STICK");
         this.update();

@@ -62,6 +62,10 @@ export class Forge extends House{
         this.renderArea.resizeFromArray(Database.getAscii("places/village/forge"), 0, 3);
     }
 
+    public static get welcomeMessage() {
+        return "You enter the forge."
+    }
+
     scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
         return ["FORGE_1", "FORGE_2", "FORGE_3", "FORGE_4", "FORGE_5"];
     }

@@ -52,6 +52,10 @@ export class Dragon extends CastleRoom{
         this.renderArea.resizeFromArray(Database.getAscii("places/dragonFoot"), 0, 3);
         this.update();
     }
+
+    public static get welcomeMessage() {
+        return "You go up the castle stairs to visit the dragon."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{
@@ -216,8 +220,16 @@ export class Dragon extends CastleRoom{
                 this.renderArea.drawSpeech(Database.getText("dragonTalkingCandiesSpeech"), 5, 50, 78, "dragonTalkingCandiesSpeech", Database.getTranslatedText("dragonTalkingCandiesSpeech"));
                 // Add the button
                 this.renderArea.addAsciiRealButton(Database.getText("dragonTalkingCandiesAnswer"), 82, 9, "dragonTalkingCandiesAnswer", Database.getTranslatedText("dragonTalkingCandiesAnswer"));
-                this.renderArea.addLinkCall(".dragonTalkingCandiesAnswer", new CallbackCollection(this.getGame().goToCastle.bind(this.getGame())));
+                this.renderArea.addLinkCall(".dragonTalkingCandiesAnswer", new CallbackCollection(this.finishTalkingCandies.bind(this)));
             break;
         }
+    }
+
+    private finishTalkingCandies() {
+        // Change the step
+        this.step = DragonStep.TALKING;
+        // Update
+        this.update();
+        this.getGame().updatePlace();
     }
 }

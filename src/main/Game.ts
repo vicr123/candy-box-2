@@ -523,130 +523,105 @@ export class Game{
             this.questEntry = this.place;
         }
 
-        switch (Archipelago.findExit(entrance)) {
-            case "THE_CELLAR":
-                await this.setPlace(new Cellar(this));
-                break;
-            case "THE_DESERT":
-                await this.setPlace(new Desert(this));
-                break;
-            case "THE_BRIDGE":
-                await this.setPlace(new Bridge(this));
-                break;
-            case "THE_OCTOPUS_KING":
-                await this.setPlace(new OctopusKingQuest(this));
-                break;
-            case "THE_NAKED_MONKEY_WIZARD":
-                await this.setPlace(new MonkeyWizardQuest(this));
-                break;
-            case "THE_FOREST":
-                await this.setPlace(new Forest(this));
-                break;
-            case "THE_CASTLE_ENTRANCE":
-                await this.setPlace(new CastleEntrance(this));
-                break;
-            case "THE_GIANT_NOUGAT_MONSTER":
-                await this.setPlace(new GiantNougatMonsterQuest(this));
-                break;
-            case "THE_CASTLE_EGG_ROOM":
-                await this.setPlace(new CastleRoom3(this));
-                break;
-            case "HELL":
-                await this.setPlace(new Hell(this));
-                break;
-            case "THE_DEVELOPER":
-                await this.setPlace(new Developer(this));
-                break;
-            case "THE_TEAPOT":
-                await this.setPlace(new FortressRoom2(this));
-                break;
-            case "THE_HOLE":
-                await this.setPlace(new TheHole(this));
-                break;
-            case "THE_XINOPHERYDON":
-                await this.setPlace(new FortressRoom1(this));
-                break;
-            case "THE_LEDGE_ROOM":
-                await this.setPlace(new FortressRoom3(this));
-                break;
-            case "THE_CASTLE_TRAP_ROOM":
-                await this.setPlace(new CastleRoom1(this));
-                break;
-            case "THE_SEA":
-                await this.setPlace(new TheSea(this));
-                break;
-            case "THE_X_POTION":
-                await this.setPlace(new Yourself(this));
-                break;
-            case "VILLAGE_SHOP":
-                await this.setPlace(new SecondHouse(this));
-                break;
-            case "VILLAGE_MINIGAME":
-                await this.setPlace(new ThirdHouse(this));
-                break;
-            case "VILLAGE_FORGE":
-                await this.setPlace(new Forge(this));
-                break;
-            case "VILLAGE_FURNISHED_HOUSE":
-                await this.setPlace(new FourthHouse(this));
-                break;
-            case "VILLAGE_QUEST_HOUSE":
-                await this.setPlace(new FifthHouse(this));
-                break;
-            case "SQUIRREL_TREE":
-                await this.setPlace(new ATree(this));
-                break;
-            case "LONELY_HOUSE":
-                await this.setPlace(new LonelyHouse(this));
-                break;
-            case "DIG_SPOT":
-                await this.setPlace(new Treasure(this));
-                break;
-            case "DESERT_FORTRESS":
-                await this.setPlace(new InsideFortress(this));
-                break;
-            case "POGO_STICK_SPOT":
-                await this.setPlace(new Moutains(this));
-                break;
-            case "SORCERESS_HUT":
-                await this.setPlace(new SorceressHut(this));
-                break;
-            case "WISHING_WELL":
-                await this.setPlace(new WishingWell(this));
-                break;
-            case "CAVE":
-                await this.setPlace(new TheCave(this));
-                break;
-            case "PIER":
-                await this.setPlace(new Pier(this));
-                break;
-            case "LIGHTHOUSE":
-                Saving.saveBool("mainMapDonePier", true);
-                await this.setPlace(new Lighthouse(this));
-                break;
-            case "HOLE":
-                await this.setPlace(new OutsideTheHole(this));
-                break;
-            case "CASTLE":
-                await this.setPlace(new Castle(this));
-                break;
-            case "CASTLE_BAKEHOUSE":
-                await this.setPlace(new CastleBigRoom(this));
-                break;
-            case "CASTLE_DARK_ROOM":
-                await this.setPlace(new CastleRoom2(this));
-                break;
-            case "DRAGON":
-                await this.setPlace(new Dragon(this));
-                break;
-            case "TOWER":
-                await this.setPlace(new CastleTower(this));
-                break;
+        const exit = Archipelago.findExit(entrance)
+        const Room = this.room(exit);
+        switch (exit) {
             case "LOLLIPOP_FARM":
                 Saving.saveBool("statusBarUnlockedLollipopFarm", true); // We unlock the farm tab
                 this.updateStatusBar(true); // We update the status bar
                 this.getStatusBar().selectTabByType(StatusBarTabType.FARM); // We select the farm tab
                 this.goToLollipopFarm();
+                break;
+            case "LIGHTHOUSE":
+                Saving.saveBool("mainMapDonePier", true);
+                // fallthrough
+            default:
+                await this.setPlace(new Room(this));
+        }
+    }
+
+    public room(entrance: ArchipelagoEntrance) {
+        switch (entrance) {
+            case "THE_CELLAR":
+                return Cellar;
+            case "THE_DESERT":
+                return Desert;
+            case "THE_BRIDGE":
+                return Bridge;
+            case "THE_OCTOPUS_KING":
+                return OctopusKingQuest;
+            case "THE_NAKED_MONKEY_WIZARD":
+                return MonkeyWizardQuest;
+            case "THE_FOREST":
+                return Forest;
+            case "THE_CASTLE_ENTRANCE":
+                return CastleEntrance;
+            case "THE_GIANT_NOUGAT_MONSTER":
+                return GiantNougatMonsterQuest;
+            case "THE_CASTLE_EGG_ROOM":
+                return CastleRoom3;
+            case "HELL":
+                return Hell;
+            case "THE_DEVELOPER":
+                return Developer;
+            case "THE_TEAPOT":
+                return FortressRoom2;
+            case "THE_HOLE":
+                return TheHole;
+            case "THE_XINOPHERYDON":
+                return FortressRoom1;
+            case "THE_LEDGE_ROOM":
+                return FortressRoom3;
+            case "THE_CASTLE_TRAP_ROOM":
+                return CastleRoom1;
+            case "THE_SEA":
+                return TheSea;
+            case "THE_X_POTION":
+                return Yourself;
+            case "VILLAGE_SHOP":
+                return SecondHouse;
+            case "VILLAGE_MINIGAME":
+                return ThirdHouse;
+            case "VILLAGE_FORGE":
+                return Forge;
+            case "VILLAGE_FURNISHED_HOUSE":
+                return FourthHouse;
+            case "VILLAGE_QUEST_HOUSE":
+                return FifthHouse;
+            case "SQUIRREL_TREE":
+                return ATree;
+            case "LONELY_HOUSE":
+                return LonelyHouse;
+            case "DIG_SPOT":
+                return Treasure;
+            case "DESERT_FORTRESS":
+                return InsideFortress;
+            case "POGO_STICK_SPOT":
+                return Moutains;
+            case "SORCERESS_HUT":
+                return SorceressHut;
+            case "WISHING_WELL":
+                return WishingWell;
+            case "CAVE":
+                return TheCave;
+            case "PIER":
+                return Pier;
+            case "LIGHTHOUSE":
+                return Lighthouse;
+            case "HOLE":
+                return OutsideTheHole;
+            case "CASTLE":
+                return Castle;
+            case "CASTLE_BAKEHOUSE":
+                return CastleBigRoom;
+            case "CASTLE_DARK_ROOM":
+                return CastleRoom2;
+            case "DRAGON":
+                return Dragon;
+            case "TOWER":
+                return CastleTower;
+            case "LOLLIPOP_FARM":
+                return LollipopFarm;
         }
     }
 

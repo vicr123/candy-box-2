@@ -60,6 +60,10 @@ export class TheCave extends Place{
         this.renderArea.resizeFromArray(Database.getAscii("places/theCave/ways"), 42, 7); // 3 for the return to map button + 4 for the two sentences = 7
         this.update();
     }
+
+    public static get welcomeMessage() {
+        return "You enter the cave."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{

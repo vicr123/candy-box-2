@@ -4,7 +4,7 @@ import {GiantNougatMonster} from "./GiantNougatMonster";
 import {Quest} from "./Quest";
 import {Game} from "./Game";
 import {Pos} from "./Pos";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Saving} from "./Saving";
@@ -41,7 +41,11 @@ export class GiantNougatMonsterQuest extends Quest{
         this.addMonster();
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You attack the giant nougat monster. It seems to be asleep."));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_GIANT_NOUGAT_MONSTER"));
+    }
+
+    public static get welcomeMessage() {
+        return "You attack the giant nougat monster."
     }
     
     // Public methods

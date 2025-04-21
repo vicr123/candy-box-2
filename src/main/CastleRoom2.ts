@@ -32,6 +32,10 @@ export class CastleRoom2 extends CastleRoom{
         this.renderArea.resize(100, 30);
         this.update();
     }
+
+    public static get welcomeMessage() {
+        return "You enter the castle's dark room."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{

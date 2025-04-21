@@ -5,7 +5,7 @@ import {Quest} from "./Quest";
 import {Devil} from "./Devil";
 import {Pos} from "./Pos";
 import {Random} from "./Random";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {CallbackCollection} from "./CallbackCollection";
@@ -54,7 +54,11 @@ export class Hell extends Quest{
         this.addCamazotz(new Pos(Random.between(70, 100), 2));
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter Hell."));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "HELL"));
+    }
+
+    public static get welcomeMessage() {
+        return "The dragon took you on its back to a far away location."
     }
 
     scoutKeys(): ScoutKeys {

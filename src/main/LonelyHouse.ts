@@ -32,6 +32,10 @@ export class LonelyHouse extends Place{
             this.getGame().updatePlace();
         });
     }
+
+    public static get welcomeMessage() {
+        return "You enter the lonely house."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{

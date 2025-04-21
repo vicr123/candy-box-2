@@ -18,6 +18,10 @@ export class OutsideTheHole extends Place{
         this.renderArea.resizeFromArray(Database.getAscii("places/outsideTheHole"), 0, 4);
         this.update();
     }
+
+    public static get welcomeMessage() {
+        return "You peer down into a big hole in the ground."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{

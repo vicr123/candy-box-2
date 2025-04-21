@@ -48,6 +48,10 @@ export class CastleBigRoom extends CastleRoom{
         this.update();
     }
 
+    public static get welcomeMessage() {
+        return "You enter the castle's big room."
+    }
+
     public scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
         return ["CASTLE_BAKEHOUSE"];
     }

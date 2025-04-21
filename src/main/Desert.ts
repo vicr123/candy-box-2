@@ -3,7 +3,7 @@
 import {Game} from "./Game";
 import {Quest} from "./Quest";
 import {Pos} from "./Pos";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Saving} from "./Saving";
@@ -81,7 +81,11 @@ export class Desert extends Quest{
         this.addCamel(new Pos(144, 26));
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter the desert, camels and palm trees as far as the eye can see."));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_DESERT"));
+    }
+
+    public static get welcomeMessage() {
+        return "You enter the desert."
     }
 
     scoutKeys(): ScoutKeys {

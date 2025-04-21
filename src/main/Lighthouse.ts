@@ -41,6 +41,10 @@ export class Lighthouse extends Place{
         this.renderArea.resizeFromArray(Database.getAscii("places/lighthouse/lighthouse"), 0, 4); // 4 in order to add a space below the lighthouse, so that it looks nicer
         this.update();
     }
+
+    public static get welcomeMessage() {
+        return "You visit the lighthouse."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{

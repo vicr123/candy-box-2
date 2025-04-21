@@ -7,7 +7,7 @@ import {Pos} from "./Pos";
 import {Spikes} from "./Spikes";
 import {Chest} from "./Chest";
 import {CallbackCollection} from "./CallbackCollection";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Database} from "./Database";
@@ -65,7 +65,11 @@ export class FortressRoom1 extends Quest{
         this.addEntity(new Chest(this, new Pos(203, 24), false, new CallbackCollection(this.openChest.bind(this)), Saving.loadBool("apUnicornHorn")));
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter the first room. It seems tricky."));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_XINOPHERYDON"));
+    }
+
+    public static get welcomeMessage() {
+        return "You enter the first room."
     }
 
     scoutKeys(): ScoutKeys {

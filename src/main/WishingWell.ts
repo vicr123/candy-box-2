@@ -67,6 +67,10 @@ export class WishingWell extends Place{
         });
     }
 
+    public static get welcomeMessage() {
+        return "You visit the wishing well."
+    }
+
     scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
         return ["WISHING_WELL_1", "WISHING_WELL_2", "WISHING_WELL_3", "WISHING_WELL_4", "WISHING_WELL_5", "WISHING_WELL_6"];
     }

@@ -57,6 +57,10 @@ export class ATree extends Place{
         this.renderArea.resizeFromArray(Database.getAscii("places/aTree/background"), 17, 3);
         this.update();
     }
+
+    public static get welcomeMessage() {
+        return "You go to the tree."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{

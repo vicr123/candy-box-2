@@ -5,7 +5,7 @@ import {Quest} from "./Quest";
 import {Game} from "./Game";
 import {Pos} from "./Pos";
 import {Random} from "./Random";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Saving} from "./Saving";
@@ -42,7 +42,11 @@ export class CastleEntrance extends Quest{
         this.addKnight(Random.between(80, 120));
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You're trying to cross the castle's entrance."));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_CASTLE_ENTRANCE"));
+    }
+
+    public static get welcomeMessage() {
+        return "You're trying to cross the castle's entrance."
     }
 
     scoutKeys(): ScoutKeys {

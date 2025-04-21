@@ -62,6 +62,10 @@ export class SecondHouse extends House{
         });
     }
 
+    public static get welcomeMessage() {
+        return "You enter the shop."
+    }
+
     scoutResults(items: ScoutResults) {
         // We add all the items
         // Lollipops

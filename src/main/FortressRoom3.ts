@@ -6,7 +6,7 @@ import {Quest} from "./Quest";
 import {Pos} from "./Pos";
 import {Chest} from "./Chest";
 import {CallbackCollection} from "./CallbackCollection";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Database} from "./Database";
@@ -43,7 +43,11 @@ export class FortressRoom3 extends Quest{
         this.addEntity(new Chest(this, new Pos(87, 6), false, new CallbackCollection(this.openChest.bind(this)), Saving.loadBool("apRocketBootsFound")));
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter the third room. There's a chest up there. How to reach it?!"));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_LEDGE_ROOM"));
+    }
+
+    public static get welcomeMessage() {
+        return "You enter the third room."
     }
 
     scoutKeys(): ScoutKeys {

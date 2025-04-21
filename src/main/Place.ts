@@ -95,7 +95,12 @@ export class Place{
             buttonText = "buttonBackToTheVillage";
             buttonCallback = this.getGame().goToVillage.bind(this.getGame());
         } else if (thisEntrance != "VILLAGE") {
-            switch (Archipelago.findEntrance(thisEntrance)) {
+            const parentEntrance = Archipelago.findEntrance(thisEntrance);
+            switch (parentEntrance) {
+                case "THE_DEVELOPER":
+                case "HELL":
+                    this.addBackButton(renderArea, otherClass, "DRAGON");
+                    return;
                 case "VILLAGE_SHOP":
                 case "VILLAGE_QUEST_HOUSE":
                 case "VILLAGE_FORGE":

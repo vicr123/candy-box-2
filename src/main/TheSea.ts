@@ -6,7 +6,7 @@ import {TheSeaPattern} from "./TheSeaPattern";
 import {TheSeaPatternLevel} from "./TheSeaPatternLevel";
 import {Pos} from "./Pos";
 import {Game} from "./Game";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {Hotkey} from "./Hotkey";
 import {BigShark} from "./BigShark";
 import {QuestEntityHealthBar} from "./QuestEntityHealthBar";
@@ -85,7 +85,11 @@ export class TheSea extends Quest{
         this.generate(0, 99 + this.generationProjection);
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You jump into the sea! You know you could find precious hidden treasures in the depths..."));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_SEA"));
+    }
+
+    public static get welcomeMessage() {
+        return "You jump into the sea!"
     }
 
     scoutKeys(): ScoutKeys {

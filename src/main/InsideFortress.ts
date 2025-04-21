@@ -20,6 +20,10 @@ export class InsideFortress extends Place{
         this.renderArea.resizeFromArray(Database.getAscii("places/fortress/inside"), 0, 4);
         this.update();
     }
+
+    public static get welcomeMessage() {
+        return "You enter the desert fortress."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{

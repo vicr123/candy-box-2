@@ -4,7 +4,7 @@ import {Game} from "./Game";
 import {Quest} from "./Quest";
 import {DeveloperEntity} from "./DeveloperEntity";
 import {Pos} from "./Pos";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {CallbackCollection} from "./CallbackCollection";
@@ -37,7 +37,11 @@ export class Developer extends Quest{
         this.addDeveloperEntity(new Pos(57, 0));
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You're attacking the developer."));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_DEVELOPER"));
+    }
+
+    public static get welcomeMessage() {
+        return "The dragon took you on its back to a far away location."
     }
 
     scoutKeys(): ScoutKeys {

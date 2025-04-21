@@ -4,7 +4,7 @@ import {Monster} from "./Monster";
 import {Quest} from "./Quest";
 import {Game} from "./Game";
 import {Pos} from "./Pos";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Database} from "./Database";
@@ -53,7 +53,11 @@ export class CastleRoom3 extends Quest{
         this.addChest();
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter one of the castle's room."));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_CASTLE_EGG_ROOM"));
+    }
+
+    public static get welcomeMessage() {
+        return "You enter one of the castle's rooms."
     }
 
     public scoutKeys(): ScoutKeys {

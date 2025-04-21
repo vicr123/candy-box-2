@@ -4,7 +4,7 @@ import {Game} from "./Game";
 import {Quest} from "./Quest";
 import {Pos} from "./Pos";
 import {Random} from "./Random";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Saving} from "./Saving";
@@ -52,7 +52,11 @@ export class Forest extends Quest{
         }
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter the forest."));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_FOREST"));
+    }
+
+    public static get welcomeMessage() {
+        return "You enter the forest."
     }
     
     // Public methods

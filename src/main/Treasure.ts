@@ -29,6 +29,10 @@ export class Treasure extends Place{
     public getRenderArea(): RenderArea{
         return this.renderArea;
     }
+
+    public static get welcomeMessage() {
+        return "You inspect the suspicious tree."
+    }
     
     // Private methods
     private dig(): void{

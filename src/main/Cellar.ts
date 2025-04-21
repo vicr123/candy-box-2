@@ -5,7 +5,7 @@ import {Saving} from "./Saving";
 import {Quest} from "./Quest";
 import {Pos} from "./Pos";
 import {QuestEntityMovement} from "./QuestEntityMovement";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {CallbackCollection} from "./CallbackCollection";
 import {Wall} from "./Wall";
 import {Rat} from "./Rat";
@@ -41,7 +41,11 @@ export class Cellar extends Quest{
         this.addRats();
         
         // Add a delimiter and the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter the cellar. It's dark and you hear rats squeaking all around you."));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_CELLAR"));
+    }
+
+    public static get welcomeMessage() {
+        return "You enter the cellar."
     }
     
     // Public methods

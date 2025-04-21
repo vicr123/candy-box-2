@@ -4,7 +4,7 @@ import {Game} from "./Game";
 import {Quest} from "./Quest";
 import {Pos} from "./Pos";
 import {Spikes} from "./Spikes";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Database} from "./Database";
@@ -35,7 +35,11 @@ export class CastleRoom1 extends Quest{
         this.addEntity(new Spikes(this, new Pos(7, 23), 88));
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter one of the castle's room. Damn, it seems to be full of spikes!"));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_CASTLE_TRAP_ROOM"));
+    }
+
+    public static get welcomeMessage() {
+        return "You enter one of the castle's rooms."
     }
     
     // Public methods

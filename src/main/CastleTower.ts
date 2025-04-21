@@ -55,6 +55,10 @@ export class CastleTower extends CastleRoom{
         this.renderArea.resize(100, 38);
         this.update();
     }
+
+    public static get welcomeMessage() {
+        return "You enter the castle tower."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{

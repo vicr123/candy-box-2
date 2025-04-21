@@ -19,6 +19,10 @@ export class FifthHouse extends House{
         this.renderArea.resizeFromArray(Database.getAscii("places/village/fifthHouse"), 0, 3);
         this.update();
     }
+
+    public static get welcomeMessage() {
+        return "You enter the house."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{

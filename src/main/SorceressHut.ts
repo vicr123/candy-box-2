@@ -47,6 +47,10 @@ export class SorceressHut extends Place{
         });
     }
 
+    public static get welcomeMessage() {
+        return "You enter the sorceress' hut."
+    }
+
     scoutKeys(): (keyof typeof ArchipelagoLocationRegion)[] {
         return ["SORCERESS_HUT"];
     }

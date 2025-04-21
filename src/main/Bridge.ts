@@ -3,7 +3,7 @@
 import {Game} from "./Game";
 import {Quest} from "./Quest";
 import {Pos} from "./Pos";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Saving} from "./Saving";
@@ -40,7 +40,11 @@ export class Bridge extends Quest{
         this.addTroll();
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You're trying to cross the bridge. A huge troll is blocking your way!"));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_BRIDGE"));
+    }
+
+    public static get welcomeMessage() {
+        return "You're trying to cross the bridge."
     }
 
     scoutKeys(): ScoutKeys {

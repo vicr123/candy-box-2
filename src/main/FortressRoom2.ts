@@ -3,7 +3,7 @@
 import {Game} from "./Game";
 import {Quest} from "./Quest";
 import {Pos} from "./Pos";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Database} from "./Database";
@@ -39,7 +39,11 @@ export class FortressRoom2 extends Quest{
         this.addTeapot();
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You enter the second room. There's a giant teapot in the center."));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_TEAPOT"));
+    }
+
+    public static get welcomeMessage() {
+        return "You enter the second room."
     }
 
     scoutKeys(): ScoutKeys {

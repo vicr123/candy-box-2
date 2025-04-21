@@ -19,6 +19,10 @@ export class Pier extends Place{
         this.renderArea.resizeFromArray(Database.getAscii("places/pier"), 0, 6);
         this.update();
     }
+
+    public static get welcomeMessage() {
+        return "You visit the pier."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{

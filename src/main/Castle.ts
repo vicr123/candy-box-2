@@ -28,6 +28,10 @@ export class Castle extends Place{
         this.renderArea.resizeFromArray(Database.getAscii("places/castle/map"), 0, 5);
         this.update();
     }
+
+    public static get welcomeMessage() {
+        return "You enter the castle."
+    }
     
     // getRenderArea()
     public getRenderArea(): RenderArea{

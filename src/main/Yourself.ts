@@ -5,7 +5,7 @@ import {Quest} from "./Quest";
 import {YourselfSentence} from "./YourselfSentence";
 import {Game} from "./Game";
 import {Pos} from "./Pos";
-import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestLogMessage, WelcomeQuestLogMessage} from "./QuestLogMessage";
 import {QuestEntity} from "./QuestEntity";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Saving} from "./Saving";
@@ -50,7 +50,11 @@ export class Yourself extends Quest{
         this.addWalls();
         
         // Add the message
-        this.getGame().getQuestLog().addMessage(new QuestLogMessage("You are now fighting yourself."));
+        this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_X_POTION"));
+    }
+
+    public static get welcomeMessage() {
+        return "You block your nose and drink an X potion."
     }
 
     scoutKeys(): ScoutKeys {

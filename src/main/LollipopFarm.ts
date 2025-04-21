@@ -75,6 +75,10 @@ export class LollipopFarm extends Place{
         this.addPondLine(new PondLine(9, 45));
         this.addPondLine(new PondLine(12, 44));
     }
+
+    public static get welcomeMessage() {
+        return "You go to the lollipop farm."
+    }
     
     // Public methods
     public willBeDisplayed(): void{
