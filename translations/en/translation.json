@@ -299,7 +299,7 @@
     "fortressInsideEnterRoom2": "Enter the second room",
     "fortressInsideEnterRoom3": "Enter the third room",
     "treasureButtonDig": "Dig",
-    "treasureButtonYouFound": "You found three chocolate bars!",
+    "treasureButtonYouFound": "You found {{player}} {{item}}!",
     "sorceressHutHello": "Hello, I'm the sorceress. I can give you some interesting things that I've found from the whole multiworld. But everything has a price! And this price will be lollipops. A lot of them.",
     "sorceressHutClickedGrimoire": "This is a grimoire made for beginners. By carrying it with you in quests, you will be able to cast simple but useful spells. You need this! Only 5 000 lollipops.",
     "sorceressHutBuyGrimoireButton": "Buy this grimoire (5 000 lollipops)",

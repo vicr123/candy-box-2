@@ -6,7 +6,10 @@ import {Game} from "./Game";
 import {Database} from "./Database";
 import {Saving} from "./Saving";
 import {CallbackCollection} from "./CallbackCollection";
-import {Archipelago} from "../archipelago/Archipelago";
+import {Archipelago, ScoutResults} from "../archipelago/Archipelago";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
+import {Algo} from "./Algo";
+import posessive = Algo.posessive;
 
 export class Treasure extends Place{
     // The render area
@@ -15,7 +18,14 @@ export class Treasure extends Place{
     // Constructor
     constructor(game: Game){
         super(game);
-        
+    }
+
+    scoutKeys(): ScoutKeys {
+        return ["DIG_SPOT"]
+    }
+
+    scoutResults(items: ScoutResults) {
+        super.scoutResults(items);
         this.renderArea.resizeFromArray(Database.getAscii("places/treasure"), 57, 3);
         this.update();
 
@@ -24,7 +34,7 @@ export class Treasure extends Place{
             this.getGame().updatePlace();
         });
     }
-    
+
     // getRenderArea()
     public getRenderArea(): RenderArea{
         return this.renderArea;
@@ -62,9 +72,17 @@ export class Treasure extends Place{
         }
         // Else, we found the treasure
         else{
+            const item = this.itemScoutResults.findItem("X_MARKS_THE_SPOT");
+
             // Add the text
-            this.renderArea.drawString(Database.getText("treasureButtonYouFound"), 49, 14);
-            this.renderArea.drawString(Database.getTranslatedText("treasureButtonYouFound"), 49, 15, true);
+            this.renderArea.drawString(Database.getText("treasureButtonYouFound", {
+                player: posessive(item.receiver.name, "en"),
+                item: item.name
+            }), 49, 14);
+            this.renderArea.drawString(Database.getTranslatedText("treasureButtonYouFound", {
+                player: posessive(item.receiver.name),
+                item: item.name
+            }), 49, 15, true);
         }
     }
 }
