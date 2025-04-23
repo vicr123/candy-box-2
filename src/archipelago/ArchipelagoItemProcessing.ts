@@ -29,19 +29,15 @@ export class ArchipelagoItemProcessing {
     }
 }
 
-const ProgressiveWeapons = [
-    "eqItemWeaponWoodenSword",
-    "eqItemWeaponIronAxe",
-    "eqItemWeaponPolishedSilverSword",
-    "eqItemWeaponTrollBludgeon",
-    "eqItemWeaponMonkeyWizardStaff",
-    "eqItemWeaponEnchantedMonkeyWizardStaff",
-    "eqItemWeaponTribalSpear",
-    "eqItemWeaponSummoningTribalSpear",
-    "eqItemWeaponGiantSpoon",
-    "eqItemWeaponScythe",
-    "eqItemWeaponGiantSpoonOfDoom",
-];
+function grantNextProgressiveItem(game: Game, items: string[]) {
+    // Give the first progressive item that we don't currently have
+    for (const item of items) {
+        if (!Saving.loadBool(item)) {
+            game.gainItem(item);
+            break;
+        }
+    }
+}
 
 export function grantArchipelagoItem(game: Game, itemKey: keyof typeof ArchipelagoItem) {
     switch (itemKey) {
@@ -228,13 +224,26 @@ export function grantArchipelagoItem(game: Game, itemKey: keyof typeof Archipela
             game.gainItem("eqItemWeaponNothing");
             break;
         case "PROGRESSIVE_WEAPON":
-            // Give the first progressive weapon that we don't currently have
-            for (const weapon of ProgressiveWeapons) {
-                if (!Saving.loadBool(weapon)) {
-                    game.gainItem(weapon);
-                    break;
-                }
-            }
+            grantNextProgressiveItem(game, [
+                "eqItemWeaponWoodenSword",
+                "eqItemWeaponIronAxe",
+                "eqItemWeaponPolishedSilverSword",
+                "eqItemWeaponTrollBludgeon",
+                "eqItemWeaponMonkeyWizardStaff",
+                "eqItemWeaponEnchantedMonkeyWizardStaff",
+                "eqItemWeaponTribalSpear",
+                "eqItemWeaponSummoningTribalSpear",
+                "eqItemWeaponGiantSpoon",
+                "eqItemWeaponScythe",
+                "eqItemWeaponGiantSpoonOfDoom",
+            ])
+            break;
+        case "PROGRESSIVE_JUMP":
+            grantNextProgressiveItem(game, [
+                "gridItemPossessedPogoStick",
+                "gridItemPossessedFeather",
+                "eqItemBootsRocketBoots",
+            ])
             break;
     }
 }
