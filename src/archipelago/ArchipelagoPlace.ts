@@ -14,6 +14,7 @@ import posessive = Algo.posessive;
 import {LocalSaving} from "../main/LocalSaving";
 import {ArchipelagoSaving} from "./ArchipelagoSaving";
 import {Hint} from "archipelago.js";
+import {StatusBarTabType} from "../main/StatusBarTabType";
 
 let chatMessage = "";
 
@@ -55,11 +56,13 @@ export class ArchipelagoPlace extends Place {
                 if (!Saving.loadBool("statusBarUnlockedAp")) {
                     // Initial setup complete - start the game by going to the candy box
                     game.goToCandyBox();
+                    game.updateStatusBar(true);
                 } else {
-                    game.goToVillage();
+                    game.goToMap();
+                    game.updateStatusBar(true);
+                    game.getStatusBar().selectTabByType(StatusBarTabType.MAP)
                 }
             }
-            game.updateStatusBar(true);
         });
         Archipelago.events.on("apLogUpdated", this.externalUpdate.bind(this));
     }
