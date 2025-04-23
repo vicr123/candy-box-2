@@ -181,9 +181,9 @@ export class TheHole extends Quest{
         this.getRenderArea().drawArray(Database.getPartOfAscii("places/quests/theHole/background", -this.getGlobalDrawingOffset().y, -this.getGlobalDrawingOffset().y + 35), this.getRealQuestPosition().x, this.getRealQuestPosition().y);
         this.drawEntities();
         this.drawAroundQuest();
-        if(this.getQuestEnded() == false) this.addExitQuestButton(new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestNoKeeping");
-        else if(this.getQuestEndedAndWeWon() == false) this.addExitQuestButton(new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestNoKeepingBecauseLose");
-        else this.addExitQuestButton(new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestKeeping");
+        if(this.getQuestEnded() == false) this.addExitQuestButton(new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestNoKeeping", "THE_HOLE");
+        else if(this.getQuestEndedAndWeWon() == false) this.addExitQuestButton(new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestNoKeepingBecauseLose", "THE_HOLE");
+        else this.addExitQuestButton(new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestKeeping", "THE_HOLE");
         this.postDraw();
     }
     

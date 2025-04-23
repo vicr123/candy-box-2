@@ -105,9 +105,9 @@ export class CastleEntrance extends Quest{
         this.drawEntities();
         this.getRenderArea().drawArray(Database.getAscii("places/quests/castleEntrance/front"), this.getRealQuestPosition().x + 104, this.getRealQuestPosition().y);
         this.drawAroundQuest();
-        if(this.getQuestEnded() == false) this.addExitQuestButton(new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestNoKeeping");
-        else if(this.getQuestEndedAndWeWon() == false) this.addExitQuestButton(new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestNoKeepingBecauseLose");
-        else this.addExitQuestButton(new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestKeeping");
+        if(this.getQuestEnded() == false) this.addExitQuestButton(new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestNoKeeping", "THE_CASTLE_ENTRANCE");
+        else if(this.getQuestEndedAndWeWon() == false) this.addExitQuestButton(new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestNoKeepingBecauseLose", "THE_CASTLE_ENTRANCE");
+        else this.addExitQuestButton(new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestKeeping", "THE_CASTLE_ENTRANCE");
         this.postDraw();
     }
     

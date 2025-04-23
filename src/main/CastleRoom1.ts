@@ -80,7 +80,7 @@ export class CastleRoom1 extends Quest{
         this.getRenderArea().drawArray(Database.getAscii("places/quests/castle/room1/background"), this.getRealQuestPosition().x, this.getRealQuestPosition().y);
         this.drawEntities();
         this.drawAroundQuest();
-        this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToCastle.bind(this.getGame())), "buttonExitQuestKeeping");
+        this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToCastle.bind(this.getGame())), "buttonExitQuestKeeping", "THE_CASTLE_TRAP_ROOM");
         this.postDraw();
     }
     

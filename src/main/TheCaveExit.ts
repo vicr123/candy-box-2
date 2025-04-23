@@ -41,6 +41,6 @@ export class TheCaveExit extends Place{
         
         // Add the button to return to the main map
         this.renderArea.addAsciiRealButton(Database.getText("theCaveExitButtonText"), 41, 20, "theCaveExitReturnToMapButton", Database.getTranslatedText("theCaveExitButtonText"), true);
-        this.renderArea.addLinkCall(".theCaveExitReturnToMapButton", new CallbackCollection(this.getGame().goToMainMap.bind(this.getGame())));
+        this.renderArea.addLinkCall(".theCaveExitReturnToMapButton", new CallbackCollection(this.goBackToPreviousRoom.bind(this)));
     }
 }

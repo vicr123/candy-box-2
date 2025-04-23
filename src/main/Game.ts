@@ -631,7 +631,7 @@ export class Game{
             backupCallback.fire();
             this.blockRoomTransitions = false;
 
-            this.setPlace(this.questEntry);
+            // this.setPlace(this.questEntry);
             this.questEntry = undefined;
         } else {
             backupCallback.fire();

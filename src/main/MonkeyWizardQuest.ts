@@ -84,7 +84,7 @@ export class MonkeyWizardQuest extends Quest{
         this.getRenderArea().drawArray(Database.getAscii("places/quests/monkeyWizard/roof"), this.getRealQuestPosition().x, this.getRealQuestPosition().y);
         this.drawEntities();
         this.drawAroundQuest();
-        this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToTheCave.bind(this.getGame())), "buttonExitQuestKeeping");
+        this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToTheCave.bind(this.getGame())), "buttonExitQuestKeeping", "THE_NAKED_MONKEY_WIZARD");
         this.postDraw();
     }
     

@@ -84,7 +84,7 @@ export class FortressRoom2 extends Quest{
         this.getRenderArea().drawArray(Database.getAscii("places/quests/fortress/room2"), this.getRealQuestPosition().x, this.getRealQuestPosition().y);
         this.drawEntities();
         this.drawAroundQuest();
-        this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToInsideFortress.bind(this.getGame())), "buttonExitQuestKeeping");
+        this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToInsideFortress.bind(this.getGame())), "buttonExitQuestKeeping", "THE_TEAPOT");
         this.postDraw();
     }
     

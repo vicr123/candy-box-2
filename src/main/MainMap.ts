@@ -95,13 +95,13 @@ export class MainMap extends Place{
         this.loadTheDesert(114, 42);
         this.loadVillage(150, 36);
         this.loadLonelyHouse(159, 23);
-        if(Saving.loadBool("TheCavePattern_TreasureMapSawMap") == true && Saving.loadBool("TheCavePattern_TreasureMapFoundTreasure") == false) this.loadTreasure(163, 29);
+        if(Saving.loadBool("TheCavePattern_TreasureMapSawMap") == true) this.loadTreasure(163, 29);
         if(mapState >= 2){
             this.loadFarm(115, 57);
             this.loadBridge(99, 61);
             this.loadCaveEntrance(52, 57);
             this.loadWishingWell(55, 66);
-            if(!Archipelago.isChecked("POGO_STICK")) this.loadMoutains(71, 52);
+            this.loadMoutains(71, 52);
         }
         if(mapState >= 3) this.loadSorceressHut(95, 68);
         if(mapState >= 4){

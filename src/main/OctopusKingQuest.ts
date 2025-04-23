@@ -84,7 +84,7 @@ export class OctopusKingQuest extends Quest{
         this.getRenderArea().drawArray(Database.getAscii("places/quests/octopusKing/roof"), this.getRealQuestPosition().x, this.getRealQuestPosition().y);
         this.drawEntities();
         this.drawAroundQuest();
-        this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToTheCave.bind(this.getGame())), "buttonExitQuestKeeping");
+        this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToTheCave.bind(this.getGame())), "buttonExitQuestKeeping", "THE_OCTOPUS_KING");
         this.postDraw();
     }
     

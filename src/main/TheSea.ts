@@ -238,7 +238,7 @@ export class TheSea extends Quest{
         this.drawSea();
         this.drawEntities();
         this.drawAroundQuest();
-        this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestKeeping");
+        this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestKeeping", "THE_SEA");
         this.postDraw();
     }
     

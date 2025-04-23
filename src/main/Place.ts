@@ -4,6 +4,7 @@ import {CallbackCollection} from "./CallbackCollection";
 import {Database} from "./Database";
 import {Archipelago, ArchipelagoEntrance, ScoutResults} from "../archipelago/Archipelago";
 import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
+import {Saving} from "./Saving";
 
 export class Place{
     private game: Game;
@@ -87,18 +88,22 @@ export class Place{
         this.addBackButton(renderArea, otherClass, thisEntrance);
     }
 
-    public addBackButton(renderArea: RenderArea, otherClass: string, thisEntrance: ArchipelagoEntrance | "VILLAGE" | "ENERGY_ROOM") {
-        let buttonText = "buttonBackToTheMap";
-        let buttonCallback = this.getGame().goToMainMap.bind(this.getGame());
+    public addBackButton(renderArea: RenderArea, otherClass: string, thisEntrance: ArchipelagoEntrance | "VILLAGE" | "ENERGY_ROOM", overrideText?: string, y?: number, x?: number) {
+        let buttonText: string;
+        if(Saving.loadBool("gridItemPossessedMainMap")) {
+            buttonText = "buttonBackToTheMap";
+        } else {
+            buttonText = "buttonBackToTheVillage";
+        }
 
         if (thisEntrance == "ENERGY_ROOM") {
             buttonText = "buttonBackToTheVillage";
-            buttonCallback = this.getGame().goToVillage.bind(this.getGame());
         } else if (thisEntrance != "VILLAGE") {
             const parentEntrance = Archipelago.findEntrance(thisEntrance);
             switch (parentEntrance) {
                 case "THE_DEVELOPER":
                 case "HELL":
+                case "DRAGON":
                     this.addBackButton(renderArea, otherClass, "DRAGON");
                     return;
                 case "VILLAGE_SHOP":
@@ -107,6 +112,64 @@ export class Place{
                 case "VILLAGE_MINIGAME":
                 case "VILLAGE_FURNISHED_HOUSE":
                     buttonText = "buttonBackToTheVillage";
+                    break;
+                case "CASTLE_BAKEHOUSE":
+                case "CASTLE_DARK_ROOM":
+                case "TOWER":
+                case "THE_CASTLE_TRAP_ROOM":
+                case "THE_GIANT_NOUGAT_MONSTER":
+                case "THE_CASTLE_EGG_ROOM":
+                    buttonText = "buttonBackToTheCastle";
+                    break;
+                case "THE_LEDGE_ROOM":
+                case "THE_XINOPHERYDON":
+                case "THE_TEAPOT":
+                    buttonText = "buttonBackToTheDesertFortress";
+                    break;
+                case "THE_NAKED_MONKEY_WIZARD":
+                case "THE_OCTOPUS_KING":
+                    buttonText = "buttonBackToTheCave";
+                    break;
+                case "THE_SEA":
+                    buttonText = "buttonBackToThePier";
+                    break;
+                case "THE_CELLAR":
+                    buttonText = "buttonBackToVillageHouse";
+                    break;
+            }
+        }
+
+        if (overrideText) buttonText = overrideText;
+
+        this.addBackToButton(renderArea,
+            new CallbackCollection(this.goBackToPreviousRoom.bind(this, thisEntrance)),
+            Database.getText(buttonText),
+            Database.getTranslatedText(buttonText),
+            otherClass, y, x);
+    }
+
+    public goBackToPreviousRoom(thisEntrance: ArchipelagoEntrance | "VILLAGE" | "ENERGY_ROOM") {
+        let buttonCallback: () => void;
+        if(Saving.loadBool("gridItemPossessedMainMap")) {
+            buttonCallback = this.getGame().goToMainMap.bind(this.getGame());
+        } else {
+            buttonCallback = this.getGame().goToVillage.bind(this.getGame());
+        }
+
+        if (thisEntrance == "ENERGY_ROOM") {
+            buttonCallback = this.getGame().goToVillage.bind(this.getGame());
+        } else if (thisEntrance != "VILLAGE") {
+            const parentEntrance = Archipelago.findEntrance(thisEntrance);
+            switch (parentEntrance) {
+                case "THE_DEVELOPER":
+                case "HELL":
+                    this.goBackToPreviousRoom("DRAGON");
+                    return;
+                case "VILLAGE_SHOP":
+                case "VILLAGE_QUEST_HOUSE":
+                case "VILLAGE_FORGE":
+                case "VILLAGE_MINIGAME":
+                case "VILLAGE_FURNISHED_HOUSE":
                     buttonCallback = this.getGame().goToVillage.bind(this.getGame());
                     break;
                 case "CASTLE_BAKEHOUSE":
@@ -116,35 +179,26 @@ export class Place{
                 case "THE_CASTLE_TRAP_ROOM":
                 case "THE_GIANT_NOUGAT_MONSTER":
                 case "THE_CASTLE_EGG_ROOM":
-                    buttonText = "buttonBackToTheCastle";
                     buttonCallback = this.getGame().goToCastle.bind(this.getGame());
                     break;
                 case "THE_LEDGE_ROOM":
                 case "THE_XINOPHERYDON":
                 case "THE_TEAPOT":
-                    buttonText = "buttonBackToTheDesertFortress";
                     buttonCallback = this.getGame().goToInsideFortress.bind(this.getGame());
                     break;
                 case "THE_NAKED_MONKEY_WIZARD":
                 case "THE_OCTOPUS_KING":
-                    buttonText = "buttonBackToTheCave";
                     buttonCallback = this.getGame().goToTheCave.bind(this.getGame());
                     break;
                 case "THE_SEA":
-                    buttonText = "buttonBackToThePier";
                     buttonCallback = this.getGame().goToThePier.bind(this.getGame());
                     break;
                 case "THE_CELLAR":
-                    buttonText = "buttonBackToVillageHouse";
                     buttonCallback = this.getGame().goToFifthHouse.bind(this.getGame());
                     break;
             }
         }
 
-        this.addBackToButton(renderArea,
-            new CallbackCollection(buttonCallback),
-            Database.getText(buttonText),
-            Database.getTranslatedText(buttonText),
-            otherClass);
+        buttonCallback();
     }
 }

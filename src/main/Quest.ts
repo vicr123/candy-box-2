@@ -28,7 +28,7 @@ import {Saving} from "./Saving";
 import {ObsidianBrick} from "./ObsidianBrick";
 import {Algo} from "./Algo";
 import {QuestPlayerSpellCountdownType} from "./QuestPlayerSpellCountdownType";
-import {Archipelago} from "../archipelago/Archipelago";
+import {Archipelago, ArchipelagoEntrance} from "../archipelago/Archipelago";
 
 export class Quest extends Place{
     // Array of quest entities
@@ -139,15 +139,9 @@ export class Quest extends Place{
         return true;
     }
     
-    public addExitQuestButton(callbackCollection: CallbackCollection, buttonText: string): void{
-        this.addBackToButton(this.renderArea,
-                             new CallbackCollection(() => this.getGame().quitQuest(callbackCollection)),
-                             Database.getText(buttonText),
-                             Database.getTranslatedText(buttonText),
-                             buttonText,
-                             0,
-                             ((this.renderArea.getWidth()-100) - this.getGap())/2 + (50 - Database.getText(buttonText).length/2)
-                            );
+    public addExitQuestButton(callbackCollection: CallbackCollection, buttonText: string, thisEntrance: ArchipelagoEntrance): void{
+        this.addBackButton(this.renderArea, "questExitButton", thisEntrance, buttonText, 0, ((this.renderArea.getWidth()-100) - this.getGap())/2 + (50 - Database.getText(buttonText).length/2));
+        this.renderArea.addLinkCall(".questExitButton", new CallbackCollection(() => this.getGame().quitQuest(callbackCollection)));
     }
     
     public castPlayerAcidRain(areaPosition: Pos = null, areaSize: Pos = null, maxLeftDistanceFromPlayer: number = 50, maxRightDistanceFromPlayer: number = 50): void{
