@@ -112,6 +112,13 @@ export class EnergyRoom extends House{
     }
 
     private async deposit(number: number, unit: "candies" | "lollipops") {
+        if (unit == "lollipops" && Saving.loadNumber("lollipopFarmLollipopsPlanted") < 11) {
+            this.speech = "energyGuyLollipopDepositNotEnoughGeneration";
+            this.update();
+            this.getGame().updatePlace();
+            return;
+        }
+
         if (number == -1) {
             const string = unit == "candies" ? "depositCandiesCustomAmount" : "depositLollipopsCustomAmount";
             const tArgs = {

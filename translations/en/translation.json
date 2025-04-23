@@ -412,6 +412,7 @@
     "energyGuyCandyDepositComplete": "Thanks for the candies! My stomach has converted it to pure energy! Do you want anything else?",
     "energyGuyCandyWithdrawalComplete": "Here you go! Candies crafted with pure energy! Do you want anything else? (huff... huff...)",
     "energyGuyLollipopWithdrawalComplete": "Here you go! Lollipops crafted with pure energy! Do you want anything else? (huff... huff...)",
+    "energyGuyLollipopDepositNotEnoughGeneration": "I appreciate your generosity, but it looks like you'll hardly have any lollipops left after this! Come back when you have more lollipops and I'll be happy to take them from you!",
     "depositCandies": "Deposit Candies:",
     "depositLollipops": "Deposit Lollipops:",
     "withdrawCandies": "Withdraw Candies:",

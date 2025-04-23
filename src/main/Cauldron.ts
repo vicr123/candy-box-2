@@ -31,6 +31,7 @@ export class Cauldron extends Place{
     // The comments next to candies and lollipops input fields (they're needed if the player types something which isn't a number, or which is a negative number)
     private candiesInputComment: string = null;
     private lollipopsInputComment: string = null;
+    private lollipopsInputCommentToolip: string = null;
     
     // What are we doing?
     private currentAction: CauldronAction = CauldronAction.NOTHING;
@@ -168,7 +169,12 @@ export class Cauldron extends Place{
             this.renderArea.drawString("lollipops", x + 21, y+4);
             if(this.lollipopsInputComment != null){
                 this.renderArea.drawString(this.lollipopsInputComment, x + 31, y+4);
+                this.renderArea.addClass(x + 31, x + 31 + this.lollipopsInputComment.length, y + 4, "lollipopsInputComment");
                 this.renderArea.addBold(x + 31, x + 31 + this.lollipopsInputComment.length, y+4);
+                if (this.lollipopsInputCommentToolip != null){
+                    this.renderArea.addTooltip("lollipopsInputCommentTooltip", this.lollipopsInputCommentToolip);
+                    this.renderArea.addLinkOnHoverShowTooltip(".lollipopsInputComment", ".lollipopsInputCommentTooltip");
+                }
             }
             // Put all that in the cauldron
             this.renderArea.addAsciiRealButton("Put all that in the cauldron", x, y+6, "cauldronPutAllThatInTheCauldronButton", "", false, 4);
@@ -342,6 +348,7 @@ export class Cauldron extends Place{
         // Reset the comments
         this.candiesInputComment = null;
         this.lollipopsInputComment = null;
+        this.lollipopsInputCommentToolip = null;
         
         // If the candies are incorrect, set the comment and return
         if(isNaN(candies)){
@@ -369,9 +376,13 @@ export class Cauldron extends Place{
         else if(lollipops > this.getGame().getLollipops().getCurrent()){
             this.lollipopsInputComment = "(not enough lollipops)";
             updateAndReturn = true;
+        } else if (Saving.loadNumber("lollipopFarmLollipopsPlanted") < 11) {
+            this.lollipopsInputComment = "(cauldron rejected!)";
+            this.lollipopsInputCommentToolip = "Perhaps you could use your lollipops elsewhere and then come back later?";
+            updateAndReturn = true;
         }
-        
-        // If we have to update and return, well, we do that
+
+            // If we have to update and return, well, we do that
         if(updateAndReturn){
             this.update();
             this.getGame().updatePlace();

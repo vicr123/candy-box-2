@@ -153,6 +153,10 @@ export class RenderArea{
             return false;
         else return this.addTranslatedComment(Algo.correctIfUnderZero(x - (translated.length/2)), y + 1, translated, otherClass);
     }
+
+    public addClass(x1: number, x2: number, y: number, className: string): boolean{
+        return this.addTwoTags(x1, x2, y, "<span class=\"" + className + "\">", "</span>");
+    }
     
     public addHiddenClass(x1: number, x2: number, y: number, className: string): boolean{
         return this.addTwoTags(x1, x2, y, "<span visibility=\"hidden\" class=\"" + className + "\">", "</span>");
