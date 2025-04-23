@@ -12,11 +12,14 @@ export class QuestLogMessage{
     private bold: boolean;
     
     // Constructor
-    constructor(left: string, right: string = null, bold: boolean = false){
+    private disableScrolling: boolean;
+
+    constructor(left: string, right: string = null, bold: boolean = false, disableScrolling?: boolean){
         // Set the parameters
         this.left = left;
         this.right = right;
         this.bold = bold;
+        this.disableScrolling = disableScrolling ?? false;
 
         if (right) {
             // If the left string is too big
@@ -26,11 +29,15 @@ export class QuestLogMessage{
         }
 
     }
-    
+
     // Public methods
     public draw(renderArea: RenderArea, pos: Pos, width: number): void{
         if(this.left != null){
-            renderArea.drawScrollingString(this.left, pos.x, pos.y, 100);
+            if (this.disableScrolling) {
+                renderArea.drawString(this.left, pos.x, pos.y);
+            } else {
+                renderArea.drawScrollingString(this.left, pos.x, pos.y, 100);
+            }
             if(this.bold) renderArea.addBold(pos.x, pos.x + this.left.length, pos.y);
         }
         if(this.right != null){

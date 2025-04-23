@@ -17,7 +17,7 @@ export class QuestLog{
     
     // Public method
     public addDelimiter(): void{
-        this.messages.push(new QuestLogMessage("----------------------------------------------------------------------------------------------------"));
+        this.messages.push(new QuestLogMessage("----------------------------------------------------------------------------------------------------", null, false, true));
         this.messages.push(new QuestLogMessage(""));
     }
     
