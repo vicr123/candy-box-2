@@ -543,8 +543,8 @@ Archipelago.client.messages.on("connected", (_, player, tags) => {
     Archipelago.apLog.addMessage(new QuestLogMessage(san`${player.name} joined playing ${player.game} - ${JSON.stringify(tags)}`));
     Archipelago.events.emit("apLogUpdated");
 })
-Archipelago.client.messages.on("disconnected", (_, player, tags) => {
-    Archipelago.apLog.addMessage(new QuestLogMessage(san`${player.name} playing ${player.game} left - ${JSON.stringify(tags)}`));
+Archipelago.client.messages.on("disconnected", (_, player) => {
+    Archipelago.apLog.addMessage(new QuestLogMessage(san`${player.name} playing ${player.game} left.`));
     Archipelago.events.emit("apLogUpdated");
 })
 Archipelago.client.messages.on("countdown", (_, value, tags) => {
