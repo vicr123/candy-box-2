@@ -169,8 +169,7 @@ export class TheCave extends Place{
                                 this.pattern = new TheCavePattern_ChocolateBarNow(this);
                         break;
                         case 2:
-                            if(Saving.loadBool("TheCavePattern_TreasureMapFoundTreasure") == false)
-                                this.pattern = new TheCavePattern_TreasureMap(this);
+                            this.pattern = new TheCavePattern_TreasureMap(this);
                         break;
                         case 3:
                             this.pattern = new TheCavePattern_MonkeyWizard(this);
