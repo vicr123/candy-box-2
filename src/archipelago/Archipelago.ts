@@ -46,6 +46,7 @@ interface ArchipelagoSlotData {
     energyLink: number;
     gifting: number;
     expectedClientVersion: string;
+    multiX: number;
     multipliers: {
         candies: number;
         lollipops: number;

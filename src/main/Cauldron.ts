@@ -14,6 +14,7 @@ import {Algo} from "./Algo";
 import {Random} from "./Random";
 import {Pos} from "./Pos";
 import {i18n} from "../i18n";
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerNumber("cauldronBookCurrentPage", 0);
 
@@ -233,7 +234,7 @@ export class Cauldron extends Place{
         this.renderArea.drawArray(Database.getAscii("places/cauldron/book"), x, y);
         
         // Draw the pages' content
-        this.renderArea.drawArray(Database.getAscii("places/cauldron/bookPage" + Saving.loadNumber("cauldronBookCurrentPage")), x+8, y+1);
+        this.renderArea.drawArray(Saving.loadNumber("cauldronBookCurrentPage") == 10 && Archipelago.slotData.multiX == 1 ? Database.getAscii("places/cauldron/bookPage10-multiple") : Database.getAscii("places/cauldron/bookPage" + Saving.loadNumber("cauldronBookCurrentPage")), x+8, y+1);
         this.renderArea.drawArray(Database.getAscii("places/cauldron/bookPage" + (Saving.loadNumber("cauldronBookCurrentPage")+1)), x+50, y+1);
         
         // Add the previous page button if we're not already at the first page
@@ -259,7 +260,7 @@ export class Cauldron extends Place{
                 this.renderArea.addAsciiNinjaButton(x+49, x+90, i, "cauldronRightPageTranslationButton");
             }
             // Tooltips
-            this.renderArea.addTooltip("cauldronLeftPageTranslationButtonTooltip", i18n.t("cauldron:cauldron.page" + Saving.loadNumber("cauldronBookCurrentPage")));
+            this.renderArea.addTooltip("cauldronLeftPageTranslationButtonTooltip", i18n.t("cauldron:cauldron.page" + Saving.loadNumber("cauldronBookCurrentPage") + (Saving.loadNumber("cauldronBookCurrentPage") == 10 && Archipelago.slotData.multiX == 1 ? "-multiple" : "")));
             this.renderArea.addTooltip("cauldronRightPageTranslationButtonTooltip", i18n.t("cauldron:cauldron.page" + (Saving.loadNumber("cauldronBookCurrentPage")+1)));
             // Links
             this.renderArea.addLinkOnHoverShowTooltip(".cauldronLeftPageTranslationButton", ".cauldronLeftPageTranslationButtonTooltip");
@@ -376,7 +377,7 @@ export class Cauldron extends Place{
         else if(lollipops > this.getGame().getLollipops().getCurrent()){
             this.lollipopsInputComment = "(not enough lollipops)";
             updateAndReturn = true;
-        } else if (Saving.loadNumber("lollipopFarmLollipopsPlanted") < 11) {
+        } else if (Saving.loadNumber("lollipopFarmLollipopsPlanted") < 11 && lollipops > 0) {
             this.lollipopsInputComment = "(cauldron rejected!)";
             this.lollipopsInputCommentToolip = "Perhaps you could use your lollipops elsewhere and then come back later?";
             updateAndReturn = true;
@@ -491,23 +492,8 @@ export class Cauldron extends Place{
         }
         
         // X potion check
-        else if(this.actionLog[4] != null && this.actionLog[3] != null && this.actionLog[2] != null && this.actionLog[1] != null && this.actionLog[0] != null && // There are five last actions
-            this.actionLog[4].getAction() == CauldronAction.BOILING && // All
-            this.actionLog[3].getAction() == CauldronAction.BOILING && // the
-            this.actionLog[2].getAction() == CauldronAction.BOILING && // actions
-            this.actionLog[1].getAction() == CauldronAction.BOILING && // are
-            this.actionLog[0].getAction() == CauldronAction.BOILING && // boiling.
-            this.actionLog[4].getTime() < 3 && // All the
-            this.actionLog[3].getTime() < 3 && // actions
-            this.actionLog[2].getTime() < 3 && // are
-            this.actionLog[1].getTime() < 3 && // cold
-            this.actionLog[0].getTime() >= 6 && // except the last one!
-            this.actionLog[4].getLollipops() == 0 && this.actionLog[4].getCandies() == 1 && // No lollipop, 1 candy
-            this.actionLog[3].getLollipops() == 0 && this.actionLog[3].getCandies() == 2 && // No lollipop, 1 candy
-            this.actionLog[2].getLollipops() == 0 && this.actionLog[2].getCandies() == 3 && // No lollipop, 1 candy
-            this.actionLog[1].getLollipops() == 0 && this.actionLog[1].getCandies() == 4 && // No lollipop, 1 candy
-            this.actionLog[0].getLollipops() == 1 && this.actionLog[0].getCandies() == 4){ // No lollipop, 1 candy
-             this.makePotions("questPlayerSpellXPotionHasSpell", "questPlayerSpellXPotionQuantity", 1, "X potion", "X potions");
+        else if(this.canMakeXPotion()){ // No lollipop, 1 candy
+             this.makePotions("questPlayerSpellXPotionHasSpell", "questPlayerSpellXPotionQuantity", this.actionLog[4].getCandies(), "X potion", "X potions");
         }
         
         // If the potions comment is null, it means we didn't manage to make anything
@@ -522,6 +508,44 @@ export class Cauldron extends Place{
         // Update
         this.update();
         this.getGame().updatePlace();
+    }
+
+    private canMakeXPotion() {
+        if (Archipelago.slotData.multiX == 0) {
+            return this.actionLog[4] != null && this.actionLog[3] != null && this.actionLog[2] != null && this.actionLog[1] != null && this.actionLog[0] != null && // There are five last actions
+                this.actionLog[4].getAction() == CauldronAction.BOILING && // All
+                this.actionLog[3].getAction() == CauldronAction.BOILING && // the
+                this.actionLog[2].getAction() == CauldronAction.BOILING && // actions
+                this.actionLog[1].getAction() == CauldronAction.BOILING && // are
+                this.actionLog[0].getAction() == CauldronAction.BOILING && // boiling.
+                this.actionLog[4].getTime() < 3 && // All the
+                this.actionLog[3].getTime() < 3 && // actions
+                this.actionLog[2].getTime() < 3 && // are
+                this.actionLog[1].getTime() < 3 && // cold
+                this.actionLog[0].getTime() >= 6 && // except the last one!
+                this.actionLog[4].getLollipops() == 0 && this.actionLog[4].getCandies() == 1 && // No lollipop, 1 candy
+                this.actionLog[3].getLollipops() == 0 && this.actionLog[3].getCandies() == 2 && // No lollipop, 1 candy
+                this.actionLog[2].getLollipops() == 0 && this.actionLog[2].getCandies() == 3 && // No lollipop, 1 candy
+                this.actionLog[1].getLollipops() == 0 && this.actionLog[1].getCandies() == 4 && // No lollipop, 1 candy
+                this.actionLog[0].getLollipops() == 1 && this.actionLog[0].getCandies() == 4;
+        } else {
+            return this.actionLog[4] != null && this.actionLog[3] != null && this.actionLog[2] != null && this.actionLog[1] != null && this.actionLog[0] != null && // There are five last actions
+                this.actionLog[4].getAction() == CauldronAction.BOILING && // All
+                this.actionLog[3].getAction() == CauldronAction.BOILING && // the
+                this.actionLog[2].getAction() == CauldronAction.BOILING && // actions
+                this.actionLog[1].getAction() == CauldronAction.BOILING && // are
+                this.actionLog[0].getAction() == CauldronAction.BOILING && // boiling.
+                this.actionLog[4].getTime() < 3 && // All the
+                this.actionLog[3].getTime() < 3 && // actions
+                this.actionLog[2].getTime() < 3 && // are
+                this.actionLog[1].getTime() < 3 && // cold
+                this.actionLog[0].getTime() >= 6 && // except the last one!
+                this.actionLog[4].getLollipops() == 0 && this.actionLog[4].getCandies() > 1 && // No lollipop, > 1 candy
+                this.actionLog[3].getLollipops() == 0 &&
+                this.actionLog[2].getLollipops() == 0 && this.actionLog[4].getCandies() - this.actionLog[3].getCandies() == this.actionLog[3].getCandies() - this.actionLog[2].getCandies() && // No lollipop, 1 candy
+                this.actionLog[1].getLollipops() == 0 && this.actionLog[3].getCandies() - this.actionLog[2].getCandies() == this.actionLog[2].getCandies() - this.actionLog[1].getCandies() && // No lollipop, 1 candy
+                this.actionLog[0].getCandies() == this.actionLog[1].getCandies() && this.actionLog[2].getCandies() - this.actionLog[1].getCandies() == -this.actionLog[0].getLollipops();
+        }
     }
     
     private resetFlamesArray(): void{
