@@ -11,6 +11,7 @@ import {TheComputerLineType} from "./TheComputerLineType";
 import {Database} from "./Database";
 import {Pos} from "./Pos";
 import {Bugs} from "./Bugs";
+import {Archipelago} from "../archipelago/Archipelago";
 
 export class TheComputer extends Place{
     // The render area
@@ -96,6 +97,12 @@ export class TheComputer extends Place{
         
         // Draw the lines
         this.drawLines(22, 16, 6);
+    }
+
+    private drawDisallowed() {
+        this.renderArea.resetAllButSize();
+
+        this.renderArea.drawString("The Computer is disabled in this game.", 30, 5);
     }
     
     private drawOnButton(x: number, y: number): void{
@@ -410,6 +417,11 @@ export class TheComputer extends Place{
     }
     
     private update(): void{
+        if (Archipelago.slotData.enableComputer == 0) {
+            this.drawDisallowed();
+            return;
+        }
+
         // If we have too much lines, delete some of them
         if(this.lines.length > 12){
             this.lines.splice(0, this.lines.length-12);

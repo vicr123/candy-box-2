@@ -47,6 +47,7 @@ interface ArchipelagoSlotData {
     gifting: number;
     expectedClientVersion: string;
     multiX: number;
+    enableComputer: number;
     multipliers: {
         candies: number;
         lollipops: number;
