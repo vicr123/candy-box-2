@@ -108,6 +108,7 @@ import {CastleRoom2} from "./CastleRoom2";
 import {Dragon} from "./Dragon";
 import {CastleTower} from "./CastleTower";
 import {StatusBarTabType} from "./StatusBarTabType";
+import {ArchipelagoNotificationDrawer} from "../archipelago/ArchipelagoNotificationTray";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerGlobalString("gameLanguage", "en");
@@ -175,6 +176,7 @@ export class Game{
     
     // Status bar
     private statusBar: StatusBar;
+    private apNotificationDrawer: ArchipelagoNotificationDrawer;
     
     // Base resources
     private candies: Candies;
@@ -256,6 +258,8 @@ export class Game{
         
         // We create the status bar
         this.statusBar = new StatusBar(this, 0);
+
+        this.apNotificationDrawer = new ArchipelagoNotificationDrawer();
         
         // We create the player
         this.player = new Player(this);
