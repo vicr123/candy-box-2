@@ -453,5 +453,9 @@
     "depositCandiesCustomAmount": "Deposit candies. How many? (you can deposit up to {{limit}})",
     "depositLollipopsCustomAmount": "Deposit lollipops. How many? (you can deposit up to {{limit}})",
     "withdrawCandiesCustomAmount": "Withdraw candies. How many? (you can withdraw up to {{limit}})",
-    "withdrawLollipopsCustomAmount": "Withdraw lollipops. How many? (you can withdraw up to {{limit}})"
+    "withdrawLollipopsCustomAmount": "Withdraw lollipops. How many? (you can withdraw up to {{limit}})",
+    "itemTrap": "(A trap!)",
+    "itemProgUseful": "(A useful progression item!)",
+    "itemUseful": "(A useful item!)",
+    "notificationDrawerDismiss": "Press ` to dismiss"
 }

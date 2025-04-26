@@ -239,6 +239,7 @@ export class ArchipelagoNotificationDrawer {
 
     updateArchipelagoUpdate() {
         this.archipelagoUpdate.innerText = Database.getTranslatedTextWithFallback("apArchipelagoUpdate")
+        this.notificationDismiss.innerText = Database.getTranslatedTextWithFallback("notificationDrawerDismiss")
         if (this.visibleNotifications.length == 0) {
             this.archipelagoUpdate.style.opacity = "0";
             this.notificationDismiss.style.opacity = "0";
@@ -297,15 +298,15 @@ export class ArchipelagoNotificationView {
                 });
 
                 if (notification.trap) {
-                    pre2.innerText = "(A trap!)";
+                    pre2.innerText = Database.getTranslatedTextWithFallback("itemTrap");
                     pre2.style.color = "white";
                     pre2.style.backgroundColor = "#FF0000";
                 } else if (notification.progression && notification.useful) {
-                    pre2.innerText = "(A useful progression item!)";
+                    pre2.innerText = Database.getTranslatedTextWithFallback("itemProgUseful");
                     pre2.style.color = "white";
                     pre2.style.backgroundColor = "#9c6400";
                 } else if (notification.useful) {
-                    pre2.innerText = "(A useful item!)";
+                    pre2.innerText = Database.getTranslatedTextWithFallback("itemUseful");
                     pre2.style.color = "white";
                     pre2.style.backgroundColor = "#009600";
                 }
