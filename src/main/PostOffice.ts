@@ -118,14 +118,14 @@ export class PostOffice extends House{
 
         this.renderArea.drawString(Database.getText("postOfficeSendLabel"), 20, 10, false);
         this.renderArea.addList(20, 70, 11, "potionRecipient", new CallbackCollection(this.changePlayer.bind(this)),
-            this.validPlayers.flatMap(player => [player.name, `${player.name} in ${player.game}`])
+            this.validPlayers.flatMap(player => [`gift_${player.team}_${player.slot}`, `${player.name} in ${player.game}`])
         );
 
         this.renderArea.addAsciiRealButton(Database.getText("wishingWellEnchantButton"), 20, 13, "postOfficeSendItem", Database.getTranslatedText("wishingWellEnchantButton"), true);
         this.renderArea.addLinkCall(".postOfficeSendItem", new CallbackCollection(this.sendItems.bind(this)))
 
         this.renderArea.addLinkCallbackCollection(new CallbackCollection(() => {
-            $("#" + this.validPlayers.find(player => player.slot == this.player[0] && player.team == this.player[1]).name).prop('selected', true)
+            $(`#gift_${this.player[1]}_${this.player[0]}`).prop('selected', true)
         }));
     }
 
@@ -239,7 +239,7 @@ export class PostOffice extends House{
     }
 
     private changePlayer() {
-        const player = this.validPlayers.find(x => x.name == $("#potionRecipient").find(":selected").attr("id"));
+        const player = this.validPlayers.find(x => `gift_${x.team}_${x.slot}` == $("#potionRecipient").find(":selected").attr("id"));
         this.player = [player.slot, player.team];
         this.update();
         this.getGame().updatePlace();
