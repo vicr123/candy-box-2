@@ -536,11 +536,14 @@ export class Game{
                 this.getStatusBar().selectTabByType(StatusBarTabType.FARM); // We select the farm tab
                 this.goToLollipopFarm();
                 break;
-            case "LIGHTHOUSE":
-                Saving.saveBool("mainMapDonePier", true);
-                // fallthrough
             default:
                 await this.setPlace(new Room(this));
+        }
+
+        if (entrance == "LIGHTHOUSE") {
+            Saving.saveBool("mainMapDonePier", true);
+        } else if (entrance == "DRAGON") {
+            Saving.saveBool("mainMapShowDragon", true);
         }
     }
 

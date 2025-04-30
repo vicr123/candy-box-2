@@ -33,6 +33,7 @@ Saving.registerApLocation("mainMapDoneCaveEntrance", "CAVE_EXIT");
 Saving.registerBool("mainMapDonePier", false);
 Saving.registerApLocation("mainMapDoneForest", "FOREST_QUEST");
 Saving.registerApLocation("mainMapDoneCastleEntrance", "CASTLE_ENTRANCE_QUEST");
+Saving.registerBool("mainMapShowDragon", false);
 
 export class MainMap extends Place{
     private renderArea: RenderArea = new RenderArea();
@@ -118,7 +119,7 @@ export class MainMap extends Place{
         if(mapState >= 6){
             this.loadCastle(87, 17);
         }
-        if(Saving.loadBool("dragonDone")){
+        if(Saving.loadBool("mainMapShowDragon")){
             this.loadDragon(92, 11);
         }
     }
