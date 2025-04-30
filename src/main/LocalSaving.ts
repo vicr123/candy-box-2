@@ -129,7 +129,6 @@ export module LocalSaving{
 
     export function eraseAll() {
         localStorage.clear();
-        window.location.reload();
     }
     
     export function supportsLocalSaving(): boolean{

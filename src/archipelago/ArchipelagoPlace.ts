@@ -15,6 +15,7 @@ import {LocalSaving} from "../main/LocalSaving";
 import {ArchipelagoSaving} from "./ArchipelagoSaving";
 import {Hint} from "archipelago.js";
 import {StatusBarTabType} from "../main/StatusBarTabType";
+import {OpfsSaving} from "../main/OpfsSaving";
 
 let chatMessage = "";
 
@@ -405,7 +406,7 @@ export class ArchipelagoPlace extends Place {
     private async connectToAp() {
         await Archipelago.connect();
 
-        if (!LocalSaving.haveSave() && ArchipelagoSaving.haveSave()) {
+        if (!(await OpfsSaving.haveSave()) && ArchipelagoSaving.haveSave()) {
             // We need to ask what the user wants to do
             Archipelago.apPage.current = "backupRestore";
             return;

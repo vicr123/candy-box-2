@@ -6,6 +6,7 @@ import {Random} from "./Random";
 import {Archipelago} from "../archipelago/Archipelago";
 import {ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
 import {ArchipelagoSaving} from "../archipelago/ArchipelagoSaving";
+import {OpfsSaving} from "./OpfsSaving";
 
 export module Saving {
     import saveGlobals = LocalSaving.saveGlobals;
@@ -159,7 +160,7 @@ export module Saving {
                     */
                     break;
                 case MainLoadingType.LOCAL:
-                    LocalSaving.load();
+                    await OpfsSaving.load();
                     break;
                 case MainLoadingType.ARCHIPELAGO:
                     await ArchipelagoSaving.load();
@@ -178,14 +179,15 @@ export module Saving {
         }
     }
 
-    export function erase() {
+    export async function erase() {
         saving = true; // Stop saving anything from here on out
-        return LocalSaving.erase();
+        return await OpfsSaving.erase();
     }
 
-    export function eraseAll() {
+    export async function eraseAll() {
         saving = true; // Stop saving anything from here on out
-        return LocalSaving.eraseAll();
+        LocalSaving.eraseAll();
+        await OpfsSaving.eraseAll()
     }
     
     export async function save(game: Game, savingType: MainLoadingType) {
@@ -201,7 +203,7 @@ export module Saving {
             // Do different things depending on the saving type
             switch (savingType) {
                 case MainLoadingType.LOCAL:
-                    return LocalSaving.save();
+                    return OpfsSaving.save();
                 case MainLoadingType.FILE:
                     return false;
                 case MainLoadingType.ARCHIPELAGO:

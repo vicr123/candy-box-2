@@ -272,13 +272,13 @@ export class Save extends Place{
 
     private eraseSave() {
         if (confirm([Database.getText("eraseDialog"), ...(Database.isTranslated() ? ["", Database.getTranslatedText("eraseDialog")] : [])].join("\n"))) {
-            Saving.erase();
+            void Saving.erase();
         }
     }
 
     private eraseAllSave() {
         if (confirm([Database.getText("eraseAllDialog"), ...(Database.isTranslated() ? ["", Database.getTranslatedText("eraseAllDialog")] : [])].join("\n"))) {
-            Saving.eraseAll();
+            void Saving.eraseAll();
         }
     }
     
