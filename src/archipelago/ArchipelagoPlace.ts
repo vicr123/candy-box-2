@@ -16,6 +16,7 @@ import {ArchipelagoSaving} from "./ArchipelagoSaving";
 import {Hint} from "archipelago.js";
 import {StatusBarTabType} from "../main/StatusBarTabType";
 import {OpfsSaving} from "../main/OpfsSaving";
+import {SaveManagementPlace} from "./SaveManagementPlace";
 
 let chatMessage = "";
 
@@ -191,6 +192,10 @@ export class ArchipelagoPlace extends Place {
             case "disconnected":
                 this.renderArea.addAsciiRealButton(Database.getText("apConnect"), 7, y + 15, "apConnect", Database.getTranslatedText("apConnect"));
                 this.renderArea.addLinkCall(".apConnect", new CallbackCollection(this.connectToAp.bind(this)));
+
+                this.renderArea.drawString("Other options:", 7, y + 23);
+                this.renderArea.addAsciiRealButton(Database.getText("apSaveManagement"), 7, y + 25, "apSaveManagement", Database.getTranslatedText("apSaveManagement"));
+                this.renderArea.addLinkCall(".apSaveManagement", new CallbackCollection(this.apSaveManagement.bind(this)));
                 break;
             case "connecting":
                 this.renderArea.drawString(Database.getText("apStatusConnecting"), 7, y + 15);
@@ -223,6 +228,10 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.addLinkCall(".apLoadCorrectVersion", new CallbackCollection(this.loadCorrectVersion.bind(this)))
             }
         }
+    }
+
+    private apSaveManagement() {
+        this.getGame().setPlace(new SaveManagementPlace(this.getGame()));
     }
 
     private loadCorrectVersion() {

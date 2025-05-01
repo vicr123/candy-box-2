@@ -1,9 +1,9 @@
 import {Archipelago} from "../archipelago/Archipelago";
 import {Saving} from "./Saving";
-import {loadString} from "./LocalSaving";
 
 interface SaveFile {
     date: string,
+    dateTime: number,
     slot: string,
     bools: Record<string, boolean>,
     numbers: Record<string, number>,
@@ -15,13 +15,7 @@ export module OpfsSaving {
         if (!Archipelago.localSaveSlot) return;
 
         try {
-            const rootOpfsDirectory = await navigator.storage.getDirectory();
-            const saveFilesDirectory = await rootOpfsDirectory.getDirectoryHandle("saves", {
-                create: true
-            });
-            const saveFile = await saveFilesDirectory.getFileHandle(Archipelago.localSaveSlot);
-            const file = await saveFile.getFile();
-            const saveFileData = JSON.parse(await file.text()) as SaveFile;
+            const saveFileData = await loadSaveFile(Archipelago.localSaveSlot);
 
             // Load bools
             for(const str in Saving.getAllBools()){
@@ -45,6 +39,16 @@ export module OpfsSaving {
         }
     }
 
+    export async function loadSaveFile(name: string) {
+        const rootOpfsDirectory = await navigator.storage.getDirectory();
+        const saveFilesDirectory = await rootOpfsDirectory.getDirectoryHandle("saves", {
+            create: true
+        });
+        const saveFile = await saveFilesDirectory.getFileHandle(name);
+        const file = await saveFile.getFile();
+        return JSON.parse(await file.text()) as SaveFile;
+    }
+
     export async function haveSave() {
         if (!Archipelago.localSaveSlot) return false;
 
@@ -60,6 +64,21 @@ export module OpfsSaving {
         }
     }
 
+    export async function getSaveFiles() {
+        const rootOpfsDirectory = await navigator.storage.getDirectory();
+        const saveFilesDirectory = await rootOpfsDirectory.getDirectoryHandle("saves", {
+            create: true
+        });
+
+        const filenames: string[] = [];
+        for await (const entry of saveFilesDirectory.values()) {
+            if (entry.kind == "file") {
+                filenames.push(entry.name);
+            }
+        }
+        return filenames;
+    }
+
     export async function save() {
         const rootOpfsDirectory = await navigator.storage.getDirectory();
         const saveFilesDirectory = await rootOpfsDirectory.getDirectoryHandle("saves", {
@@ -72,6 +91,7 @@ export module OpfsSaving {
         const stream = await saveFile.createWritable();
         await stream.write(JSON.stringify({
             date: getDateAsString(),
+            dateTime: new Date().getTime(),
             slot: Archipelago.client.name,
 
             bools: Saving.getAllBools(),
@@ -85,11 +105,7 @@ export module OpfsSaving {
     }
 
     export async function erase() {
-        const rootOpfsDirectory = await navigator.storage.getDirectory();
-        const saveFilesDirectory = await rootOpfsDirectory.getDirectoryHandle("saves", {
-            create: true
-        });
-        await saveFilesDirectory.removeEntry(Archipelago.localSaveSlot);
+        await eraseFile(Archipelago.localSaveSlot)
         window.location.reload();
     }
 
@@ -99,6 +115,14 @@ export module OpfsSaving {
             recursive: true
         })
         window.location.reload();
+    }
+
+    export async function eraseFile(name: string) {
+        const rootOpfsDirectory = await navigator.storage.getDirectory();
+        const saveFilesDirectory = await rootOpfsDirectory.getDirectoryHandle("saves", {
+            create: true
+        });
+        await saveFilesDirectory.removeEntry(name);
     }
 
     // Private functions

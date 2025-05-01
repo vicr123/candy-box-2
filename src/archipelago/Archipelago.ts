@@ -24,7 +24,7 @@ declare const __COMMITS_SINCE_LAST_TAG: string;
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
 type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged" | "energyLinkUpdated" | "saveDataUpdated";
-export type ArchipelagoPlacePage = "backupRestore" | "connection" | "chat" | "hint";
+export type ArchipelagoPlacePage = "backupRestore" | "connection" | "chat" | "hint" | "saves";
 
 export type ArchipelagoEntrance = "THE_CELLAR" | "THE_DESERT" | "THE_BRIDGE" | "THE_OCTOPUS_KING" |
     "THE_NAKED_MONKEY_WIZARD" | "THE_FOREST" | "THE_CASTLE_ENTRANCE" | "THE_GIANT_NOUGAT_MONSTER" | "THE_CASTLE_EGG_ROOM" |

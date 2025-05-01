@@ -457,5 +457,16 @@
     "itemTrap": "(A trap!)",
     "itemProgUseful": "(A useful progression item!)",
     "itemUseful": "(A useful item!)",
-    "notificationDrawerDismiss": "Press ` to dismiss"
+    "notificationDrawerDismiss": "Press ` to dismiss",
+    "apSaveManagement": "Save Management",
+    "back": "Go Back",
+    "saveManagementDescription": "Used save slots in this browser:",
+    "saveManagementErase": "Erase",
+    "saveManagementId": "Game ID",
+    "saveManagementDate": "Saved",
+    "eraseSlotDialog": "Are you sure you want to erase the save slot {{saveSlot}}?",
+    "saveManagementNoFiles": "No save slots used",
+    "saveManagementQuota": "Free space: {{storage}}",
+    "candies": "Candies",
+    "lollipops": "Lollipops"
 }
