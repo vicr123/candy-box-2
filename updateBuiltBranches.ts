@@ -19,14 +19,14 @@ if (process.argv.length != 3) {
 const builtTreeFolder = process.argv[2];
 
 const folders = [
-    versioningString,
+    // versioningString,
 ];
 if (latestCommitIsTag) {
     folders.push("latest");
 }
 if (!latestCommitIsTag) {
-    folders.push(`${lastTag}+`);
-    folders.push("latest-blueprint");
+    // folders.push(`${lastTag}+`);
+    // folders.push("latest-blueprint");
 }
 
 console.log(`Building client for commit ${headCommit}`)

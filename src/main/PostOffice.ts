@@ -214,7 +214,7 @@ export class PostOffice extends House{
                     return player;
                 }
 
-                if (potion.traits.some(trait => giftBox.desiredTraits.includes(trait))) {
+                if (potion.traits.some(trait => giftBox.desiredTraits?.includes(trait) ?? [])) {
                     return player;
                 }
 
