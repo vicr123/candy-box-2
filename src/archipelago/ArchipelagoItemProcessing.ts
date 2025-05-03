@@ -245,5 +245,12 @@ export function grantArchipelagoItem(game: Game, itemKey: keyof typeof Archipela
                 "eqItemBootsRocketBoots",
             ])
             break;
+        case "PROGRESSIVE_GRIMOIRE":
+            grantNextProgressiveItem(game, [
+                "gridItemPossessedBeginnersGrimoire",
+                "gridItemPossessedAdvancedGrimoire",
+                "gridItemPossessedBlackMagicGrimoire"
+            ])
+
     }
 }

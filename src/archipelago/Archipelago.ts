@@ -61,6 +61,7 @@ interface ArchipelagoSlotData {
     }
     defaults: {
         weapon: number;
+        grimoires: number;
     }
 }
 
