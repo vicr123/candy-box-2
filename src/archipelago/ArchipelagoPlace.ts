@@ -412,7 +412,11 @@ export class ArchipelagoPlace extends Place {
         })
     }
 
-    private async connectToAp() {
+    private async connectToAp(event: JQuery.MouseUpEvent | JQuery.TouchEndEvent) {
+        // if (event.type == "touchend") {
+        //     this.getGame().setTouchControls(confirm("Enable experimental touch controls?"))
+        // }
+
         await Archipelago.connect();
 
         if (!(await OpfsSaving.haveSave()) && ArchipelagoSaving.haveSave()) {

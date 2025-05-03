@@ -1,5 +1,5 @@
 export class CallbackCollection{
-    private callbacks: {(): void;}[] = []; // Array of functions returning void
+    private callbacks: {(...args: any[]): void;}[] = []; // Array of functions returning void
     
     // Constructor
     constructor(...callbacks: {(): void;}[]){
@@ -12,9 +12,9 @@ export class CallbackCollection{
         return this;
     }
     
-    public fire(): void{
+    public fire(...args: any[]): void{
         for(var i = 0; i < this.callbacks.length; i++){
-            this.callbacks[i]();
+            this.callbacks[i](...args);
         }
     }
     

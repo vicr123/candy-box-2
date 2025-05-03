@@ -244,6 +244,8 @@ export class Game{
     private isStatusBarAllowedToUseTheNKey: boolean = true;
 
     private blockRoomTransitions: boolean = false;
+
+    private touchControls: boolean = false;
     
     // Constructor
     constructor(gameMode: string){
@@ -1132,5 +1134,13 @@ export class Game{
             this.setPlace(this.savedPlace); // We set the saved place as the current place
             this.savedPlace = null; // There's no saved place anymore
         }
+    }
+
+    public setTouchControls(touchControls: boolean) {
+        this.touchControls = touchControls;
+    }
+
+    public haveTouchControls() {
+        return this.touchControls;
     }
 }

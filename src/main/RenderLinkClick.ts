@@ -18,7 +18,11 @@ export class RenderLinkClick extends RenderLink{
         var renderLink: RenderLinkClick = this;
         
         $(this.element).mouseup(function(event){
-            renderLink.callbackCollection.fire();
+            renderLink.callbackCollection.fire(event);
+            return false; // Avoid event bubbling
+        });
+        $(this.element).on("touchend", function(event){
+            renderLink.callbackCollection.fire(event);
             return false; // Avoid event bubbling
         });
     }
