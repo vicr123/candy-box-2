@@ -184,7 +184,8 @@ export const ArchipelagoItem = {
     WEAPON_NOTHING: 61,
     PROGRESSIVE_WEAPON: 62,
     PROGRESSIVE_JUMP: 63,
-    PROGRESSIVE_GRIMOIRE: 64
+    PROGRESSIVE_GRIMOIRE: 64,
+    TWO_PAINS_AU_CHOCOLAT: 65
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000

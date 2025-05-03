@@ -251,6 +251,9 @@ export function grantArchipelagoItem(game: Game, itemKey: keyof typeof Archipela
                 "gridItemPossessedAdvancedGrimoire",
                 "gridItemPossessedBlackMagicGrimoire"
             ])
-
+            break;
+        case "TWO_PAINS_AU_CHOCOLAT":
+            game.getPainsAuChocolat().add(2);
+            break;
     }
 }
