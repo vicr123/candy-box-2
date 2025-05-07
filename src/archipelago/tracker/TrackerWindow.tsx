@@ -10,7 +10,7 @@ import {LocationsTracker} from "./LocationsTracker";
 import {NavigationTracker} from "./NavigationTracker";
 
 export function TrackerWindow() {
-    const {currentTab} = useTracker();
+    const {currentTab, rolledUp} = useTracker();
     const nodeRef = useRef<HTMLDivElement>({} as any);
 
     return <Draggable
@@ -18,11 +18,13 @@ export function TrackerWindow() {
         defaultPosition={{x: 100, y: 100}}
         handle={`.${TrackerHeaderStyles.trackerHeader}`}
     >
-        <div ref={nodeRef} className={Styles.trackerWindow}>
+        <div ref={nodeRef} className={[Styles.trackerWindow, ...(rolledUp ? [Styles.rolledUp] : [])].join(" ")}>
             <TrackerHeader/>
-            {currentTab == "locations" && <LocationsTracker />}
-            {currentTab == "navigation" && <NavigationTracker />}
-            <TrackerFooter/>
+            {!rolledUp && <>
+                {currentTab == "locations" && <LocationsTracker />}
+                {currentTab == "navigation" && <NavigationTracker />}
+                <TrackerFooter/>
+            </>}
         </div>
     </Draggable>
 }

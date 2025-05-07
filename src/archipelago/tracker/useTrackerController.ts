@@ -7,6 +7,7 @@ import {useNavigationTracker} from "./navigation";
 type TrackerTab = "locations" | "navigation" | "items";
 
 export function useTrackerController() {
+    const [rolledUp, setRolledUp] = useState(false)
     const [currentTab, setCurrentTab] = useState<TrackerTab>("locations")
 
     const archipelagoData = useArchipelagoData();
@@ -17,6 +18,8 @@ export function useTrackerController() {
     return {
         currentTab,
         setCurrentTab,
+        rolledUp,
+        setRolledUp,
 
         archipelagoData,
         dataPackageManager,

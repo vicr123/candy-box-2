@@ -15,3 +15,8 @@
 
     z-index: 1000;
 }
+
+.rolledUp {
+    height: auto;
+    border-bottom: none;
+}
