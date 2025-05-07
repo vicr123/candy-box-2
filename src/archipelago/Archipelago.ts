@@ -23,8 +23,8 @@ declare const __LAST_TAG: string;
 declare const __COMMITS_SINCE_LAST_TAG: string;
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
-type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged" | "energyLinkUpdated" | "saveDataUpdated";
-export type ArchipelagoPlacePage = "backupRestore" | "connection" | "chat" | "hint" | "saves";
+type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged" | "energyLinkUpdated" | "saveDataUpdated" | "trackerOpenChanged";
+export type ArchipelagoPlacePage = "backupRestore" | "connection" | "chat" | "hint" | "tracker";
 
 export type ArchipelagoEntrance = "THE_CELLAR" | "THE_DESERT" | "THE_BRIDGE" | "THE_OCTOPUS_KING" |
     "THE_NAKED_MONKEY_WIZARD" | "THE_FOREST" | "THE_CASTLE_ENTRANCE" | "THE_GIANT_NOUGAT_MONSTER" | "THE_CASTLE_EGG_ROOM" |
@@ -98,6 +98,8 @@ export namespace Archipelago {
     export const connectionStatus = createObservable<ConnectionStatus>("disconnected", events, "connectionStatusChanged");
     export const connectionError = createObservable<string>("", events, "connectionErrorStringChanged");
     export const expectedClientVersion = createObservable("", events, "expectedClientVersionChanged");
+
+    export const trackerOpen = createObservable(false, events, "trackerOpenChanged");
 
     export let apPage = createObservable<ArchipelagoPlacePage>("connection", events, "apPageChanged");
 

@@ -1,0 +1,11 @@
+.footer {
+    grid-area: footer;
+}
+
+.tab {
+    cursor: pointer;
+}
+
+.selected {
+    background: var(--selection-color);
+}

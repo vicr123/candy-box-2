@@ -16,3 +16,5 @@ declare module 'virtual:ascii-art' {
         art: string[];
     }
 }
+
+declare module "*.module.css";

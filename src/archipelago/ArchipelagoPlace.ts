@@ -36,6 +36,10 @@ export class ArchipelagoPlace extends Place {
         {
             text: "apHintTab",
             page: "hint"
+        },
+        {
+            text: "apTrackerTab",
+            page: "tracker"
         }
     ]
 
@@ -167,6 +171,9 @@ export class ArchipelagoPlace extends Place {
             case "hint":
                 this.renderHints(y);
                 break;
+            case "tracker":
+                this.renderTracker(y);
+                break;
         }
     }
 
@@ -196,6 +203,9 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.drawString("Other options:", 7, y + 23);
                 this.renderArea.addAsciiRealButton(Database.getText("apSaveManagement"), 7, y + 25, "apSaveManagement", Database.getTranslatedText("apSaveManagement"));
                 this.renderArea.addLinkCall(".apSaveManagement", new CallbackCollection(this.apSaveManagement.bind(this)));
+
+                this.renderArea.addAsciiRealButton(Database.getText("apTrackerOpen"), 7, y + 27, "apTrackerOpen", Database.getTranslatedText("apTrackerOpen"));
+                this.renderArea.addLinkCall(".apTrackerOpen", new CallbackCollection(this.apTrackerOpen.bind(this)));
                 break;
             case "connecting":
                 this.renderArea.drawString(Database.getText("apStatusConnecting"), 7, y + 15);
@@ -232,6 +242,10 @@ export class ArchipelagoPlace extends Place {
 
     private apSaveManagement() {
         this.getGame().setPlace(new SaveManagementPlace(this.getGame()));
+    }
+
+    private apTrackerOpen() {
+        Archipelago.trackerOpen.current = !Archipelago.trackerOpen.current;
     }
 
     private loadCorrectVersion() {
@@ -380,6 +394,21 @@ export class ArchipelagoPlace extends Place {
     private async startNewGame() {
         await Saving.load(this.getGame(), MainLoadingType.LOCAL);
         this.gameLoaded();
+    }
+
+    private renderTracker(y: number) {
+        let yAdd = 0;
+        this.renderArea.drawString(Database.getText("apTrackerDescription"), 0, y);
+        this.renderArea.drawString(Database.getText("apTrackerDescription2"), 0, y + 1);
+
+        if (Database.isTranslated()) {
+            this.renderArea.drawString(Database.getTranslatedTextWithFallback("apTrackerDescription"), 0, y + 3, true);
+            this.renderArea.drawString(Database.getTranslatedTextWithFallback("apTrackerDescription2"), 0, y + 4, true);
+            yAdd += 2;
+        }
+
+        this.renderArea.addAsciiRealButton(Database.getText("apTrackerOpen"), 7, y + yAdd + 3, "apTrackerOpen", Database.getTranslatedText("apTrackerOpen"));
+        this.renderArea.addLinkCall(".apTrackerOpen", new CallbackCollection(this.apTrackerOpen.bind(this)));
     }
 
     private changeApUrl(): void{

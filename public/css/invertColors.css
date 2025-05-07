@@ -1,5 +1,11 @@
 /* Body */
 
+:root {
+    --foreground-color: white;
+    --background-color: black;
+    --selection-color: rgb(64, 64, 64);
+}
+
 body, #centeredContent{
     background-color: black;
     color: white;

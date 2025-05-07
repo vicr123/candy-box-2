@@ -468,5 +468,9 @@
     "saveManagementNoFiles": "No save slots used",
     "saveManagementQuota": "Free space: {{storage}}",
     "candies": "Candies",
-    "lollipops": "Lollipops"
+    "lollipops": "Lollipops",
+    "apTrackerOpen": "Open Tracker",
+    "apTrackerTab": "Tracker",
+    "apTrackerDescription": "The tracker lets you see what Archipelago considers to be in logic.",
+    "apTrackerDescription2": "It also lets you find your way to specific rooms."
 }

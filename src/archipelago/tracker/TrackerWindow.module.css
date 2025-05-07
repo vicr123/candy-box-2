@@ -1,0 +1,17 @@
+.trackerWindow {
+    width: 400px;
+    height: 700px;
+    border: 1px solid var(--foreground-color);
+    background: var(--background-color);
+
+    display: grid;
+    grid-template-areas: "header" "body" "footer";
+    grid-template-rows: max-content 1fr max-content;
+
+    font-family: monospace; /* The pre tag will use the generic "monospace" font family, which should be the default anyway */
+    font-size: 1em;
+
+    text-align: left;
+
+    z-index: 1000;
+}

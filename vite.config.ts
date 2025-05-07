@@ -2,11 +2,13 @@ import {defineConfig} from "vite";
 import {commitsSinceLastTag, lastTag, versioningString} from "./versioning";
 import i18nextLoader from "vite-plugin-i18next-loader"
 import {asciiArtProcessing} from "./asciiArtProcessing";
+import react from "@vitejs/plugin-react"
 
 const upstreamBaseVersion = "1.2.3";
 
 export default defineConfig({
     plugins: [
+        react(),
         i18nextLoader({
             paths: ["./translations"],
             namespaceResolution: "basename"

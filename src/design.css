@@ -1,5 +1,11 @@
 /* Body */
 
+:root {
+    --foreground-color: black;
+    --background-color: white;
+    --selection-color: rgb(191, 191, 191);
+}
+
 body{
     margin: 0; /* No margin ! */
     overflow-y: scroll; /* In order to always show the vertical scrolling bar */
@@ -189,6 +195,13 @@ pre{
 
 #notificationDismissText {
     margin-top: 8px;
+}
+
+#trackerRoot {
+    position: fixed;
+    z-index: 300;
+    width: 0;
+    height: 0;
 }
 
 @keyframes notification-slide-in {

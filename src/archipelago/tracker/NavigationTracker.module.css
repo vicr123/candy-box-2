@@ -1,0 +1,5 @@
+.navigation {
+    grid-area: body;
+
+    overflow-y: auto;
+}

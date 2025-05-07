@@ -1,0 +1,13 @@
+.trackerHeader {
+    grid-area: header;
+    border-bottom: 1px solid var(--foreground-color);
+    display: flex;
+
+    cursor: default;
+
+    padding: 2px;
+}
+
+.closeButton {
+    cursor: pointer;
+}

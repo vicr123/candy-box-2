@@ -10,9 +10,8 @@
   },
   "include": [
     "./public/libs/*.ts",
-    "./code/main/*.ts",
-    "./code/gen/*.ts",
-    "./code/arena/*/*"
+    "./src/**/*.ts",
+    "./src/arena/*/*"
   ],
   "extends": "./tsconfig.json"
 }

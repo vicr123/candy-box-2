@@ -4,8 +4,10 @@ import {Algo} from "./main/Algo";
 
 // @ts-ignore
 import resources from "virtual:i18next-loader";
+import {initReactI18next} from "react-i18next";
 
 await i18next
+    .use(initReactI18next)
     .init({
         lng: "en",
         resources: resources,

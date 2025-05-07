@@ -4,6 +4,7 @@ import {Main} from "./main/main";
 import "./main/string_prototype"
 
 import "./design.css"
+import "./archipelago/tracker/TrackerMain"
 
 declare const __VERSION: string;
 declare const __VERSIONSTRING: string;
