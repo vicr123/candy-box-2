@@ -3,3 +3,10 @@
 
     overflow-y: auto;
 }
+
+.noLocations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
