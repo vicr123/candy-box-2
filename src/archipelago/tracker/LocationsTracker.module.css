@@ -10,3 +10,14 @@
     justify-content: center;
     height: 100%;
 }
+
+.locationsGrid {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+}
+
+.locationLine {
+    display: grid;
+    grid-column: 1 / span 2;
+    grid-template-columns: subgrid;
+}

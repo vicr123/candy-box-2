@@ -2,7 +2,7 @@ import {useEffect, useMemo, useState} from "react";
 import {ArchipelagoData} from "./useArchipelagoData";
 import {TrackerDataPackageManager} from "./dataPackage";
 
-export function useLocationTracker({missingLocations, locationName}: ArchipelagoData, datapackage: TrackerDataPackageManager) {
+export function useLocationTracker({missingLocations}: ArchipelagoData, datapackage: TrackerDataPackageManager) {
     const availableLocations = useMemo(() => {
         return missingLocations
             .filter(location => datapackage.evaluateRule(datapackage.loadedDataPackage.rules.locations[location]))
@@ -14,8 +14,7 @@ export function useLocationTracker({missingLocations, locationName}: Archipelago
 
                 return datapackage.roomReachable(locationParent);
             })
-            .map(location => locationName(location))
-    }, [missingLocations, locationName]);
+    }, [missingLocations]);
 
     return {
         availableLocations,

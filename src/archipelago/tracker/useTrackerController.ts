@@ -18,6 +18,7 @@ export function useTrackerController() {
         currentTab,
         setCurrentTab,
 
+        archipelagoData,
         dataPackageManager,
         locations,
         navigation,
