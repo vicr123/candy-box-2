@@ -540,7 +540,7 @@ export class Cauldron extends Place{
                 this.actionLog[2].getTime() < 3 && // are
                 this.actionLog[1].getTime() < 3 && // cold
                 this.actionLog[0].getTime() >= 6 && // except the last one!
-                this.actionLog[4].getLollipops() == 0 && this.actionLog[4].getCandies() > 1 && // No lollipop, > 1 candy
+                this.actionLog[4].getLollipops() == 0 && this.actionLog[4].getCandies() >= 1 && // No lollipop, >= 1 candy
                 this.actionLog[3].getLollipops() == 0 &&
                 this.actionLog[2].getLollipops() == 0 && this.actionLog[4].getCandies() - this.actionLog[3].getCandies() == this.actionLog[3].getCandies() - this.actionLog[2].getCandies() && // No lollipop, 1 candy
                 this.actionLog[1].getLollipops() == 0 && this.actionLog[3].getCandies() - this.actionLog[2].getCandies() == this.actionLog[2].getCandies() - this.actionLog[1].getCandies() && // No lollipop, 1 candy
