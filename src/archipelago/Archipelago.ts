@@ -48,6 +48,7 @@ interface ArchipelagoSlotData {
     expectedClientVersion: string;
     multiX: number;
     enableComputer: number;
+    scouting: number;
     multipliers: {
         candies: number;
         lollipops: number;
@@ -231,7 +232,7 @@ export namespace Archipelago {
             }
         }
 
-        return new ScoutResults(await client.scout(scoutIds, shouldHint ? 2 : 0));
+        return new ScoutResults(await client.scout(scoutIds, shouldHint && slotData.scouting ? 2 : 0));
     }
 
     export function findExit(entrance: ArchipelagoEntrance) {
