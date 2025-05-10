@@ -103,7 +103,7 @@ export class Place{
             switch (parentEntrance) {
                 case "THE_DEVELOPER":
                 case "HELL":
-                    this.addBackButton(renderArea, otherClass, "DRAGON");
+                    this.addBackButton(renderArea, otherClass, "DRAGON", overrideText, y, x);
                     return;
                 case "VILLAGE_SHOP":
                 case "VILLAGE_QUEST_HOUSE":

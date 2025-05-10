@@ -85,7 +85,7 @@ export class Cellar extends Quest{
         this.preDraw();
         this.drawEntities();
         this.drawAroundQuest();
-        if(this.getQuestEnded()) this.addExitQuestButton(new CallbackCollection(this.goToFifthHouse.bind(this)), "buttonExitQuestKeeping", "THE_CELLAR");
+        this.addExitQuestButton(new CallbackCollection(this.goToFifthHouse.bind(this)), "buttonExitQuestKeeping", "THE_CELLAR");
         this.postDraw();
     }
     
