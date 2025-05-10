@@ -582,6 +582,8 @@ export class Quest extends Place{
         for(var savingName in this.getGame().getSelectedEqItems()){
             howMany = this.getGame().getSelectedEqItems()[savingName].foundCandies(this.getGame().getPlayer(), this, howMany);
         }
+
+        howMany *= Archipelago.slotData.multipliers.candyDrops;
         
         // We add the candies found
         this.candiesFound.add(howMany);

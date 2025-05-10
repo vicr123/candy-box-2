@@ -51,6 +51,7 @@ interface ArchipelagoSlotData {
     scouting: number;
     multipliers: {
         candies: number;
+        candyDrops: number;
         lollipops: number;
     };
     prices: {
