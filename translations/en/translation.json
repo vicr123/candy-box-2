@@ -450,6 +450,7 @@
     "apBackupFoundNewGame1": "You will keep all the items that you have been sent from Archipelago.",
     "apBackupFoundNewGame2": "Checks that you have already sent will remain sent.",
     "apBackupStartNewGame": "Start New Game",
+    "apStartInterstitialText": "Welcome. No save data was found for this game on this browser.",
     "depositCandiesCustomAmount": "Deposit candies. How many? (you can deposit up to {{limit}})",
     "depositLollipopsCustomAmount": "Deposit lollipops. How many? (you can deposit up to {{limit}})",
     "withdrawCandiesCustomAmount": "Withdraw candies. How many? (you can withdraw up to {{limit}})",

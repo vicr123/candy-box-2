@@ -17,6 +17,10 @@ import {Hint} from "archipelago.js";
 import {StatusBarTabType} from "../main/StatusBarTabType";
 import {OpfsSaving} from "../main/OpfsSaving";
 import {SaveManagementPlace} from "./SaveManagementPlace";
+import figlet from "figlet";
+import big from "figlet/importable-fonts/Big.js"
+
+figlet.parseFont("Big", big)
 
 let chatMessage = "";
 
@@ -70,6 +74,7 @@ export class ArchipelagoPlace extends Place {
                 }
             }
         });
+        Archipelago.events.on("apCountdownChanged", this.externalUpdate.bind(this));
         Archipelago.events.on("apLogUpdated", this.externalUpdate.bind(this));
     }
 
@@ -159,6 +164,9 @@ export class ArchipelagoPlace extends Place {
         }
 
         switch (Archipelago.apPage.current) {
+            case "startInterstitial":
+                this.renderStartInterstitial(y);
+                break;
             case "backupRestore":
                 this.renderBackupRestore(y);
                 break;
@@ -396,6 +404,25 @@ export class ArchipelagoPlace extends Place {
         this.gameLoaded();
     }
 
+    private renderStartInterstitial(y: number) {
+        let yAdd = 0;
+        this.renderArea.drawString(Database.getText("apStartInterstitialText"), 0, y + yAdd)
+        if (Database.isTranslated()) {
+            this.renderArea.drawString(Database.getTranslatedText("apStartInterstitialText"), 0, y + yAdd + 9, true)
+            yAdd += 1;
+        }
+
+        this.renderArea.addAsciiRealButton(Database.getText("apBackupStartNewGame"), 7, y + yAdd + 2, "startNewGame", Database.getTranslatedText("apBackupStartNewGame"));
+        this.renderArea.addLinkCall(".startNewGame", new CallbackCollection(this.startNewGame.bind(this)));
+
+        if (Archipelago.apCountdown.current) {
+            const countdownText = figlet.textSync(Archipelago.apCountdown.current.toString(), {
+                font: "Big"
+            }).split("\n");
+            this.renderArea.drawArray(countdownText, 50 - countdownText[0].length / 2, y + yAdd + 4);
+        }
+    }
+
     private renderTracker(y: number) {
         let yAdd = 0;
         this.renderArea.drawString(Database.getText("apTrackerDescription"), 0, y);
@@ -448,10 +475,15 @@ export class ArchipelagoPlace extends Place {
 
         await Archipelago.connect();
 
-        if (!(await OpfsSaving.haveSave()) && ArchipelagoSaving.haveSave()) {
-            // We need to ask what the user wants to do
-            Archipelago.apPage.current = "backupRestore";
-            return;
+        if (!await OpfsSaving.haveSave()) {
+            if (ArchipelagoSaving.haveSave()) {
+                // We need to ask what the user wants to do
+                Archipelago.apPage.current = "backupRestore";
+                return;
+            } else {
+                Archipelago.apPage.current = "startInterstitial";
+                return;
+            }
         }
 
         await this.startNewGame();
