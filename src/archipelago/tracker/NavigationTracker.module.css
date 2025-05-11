@@ -1,5 +1,30 @@
 .navigation {
     grid-area: body;
 
+    display: grid;
+    grid-template-areas: "selection" "navigation";
+    grid-template-rows: max-content 1fr;
+
     overflow-y: auto;
+}
+
+.selection {
+    grid-area: selection;
+}
+
+.navigationBody {
+    grid-area: navigation;
+}
+
+.navigationList {
+    display: flex;
+    flex-direction: column;
+}
+
+.navigationNotFound {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
 }

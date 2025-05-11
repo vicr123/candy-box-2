@@ -362,6 +362,21 @@ export namespace Archipelago {
             }
         }
     }
+
+    function visitedRoomStorageKey() {
+        return `CandyBox2VisitedRoom:${Archipelago.client.players.self.team}:${Archipelago.client.players.self.slot}`;
+    }
+
+    export function markVisitedRoom(room: ArchipelagoEntrance) {
+        void client.storage.prepare(visitedRoomStorageKey(), [])
+            .add([room])
+            .commit(false);
+    }
+
+    export async function isRoomVisited(room: ArchipelagoEntrance) {
+        const visitedRooms = await client.storage.fetch(visitedRoomStorageKey()) as ArchipelagoEntrance[];
+        return visitedRooms.includes(room);
+    }
 }
 
 export const sendableItems = [

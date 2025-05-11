@@ -530,6 +530,7 @@ export class Game{
         }
 
         const exit = Archipelago.findExit(entrance)
+        Archipelago.markVisitedRoom(exit);
         const Room = this.room(exit);
         switch (exit) {
             case "LOLLIPOP_FARM":

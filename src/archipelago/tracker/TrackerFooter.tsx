@@ -17,7 +17,7 @@ export function TrackerFooter() {
     return <div className={Styles.footer}>
         |<Tab onClick={() => setCurrentTab("locations")} text={t("tabLocations")} selected={currentTab == "locations"} />
         |<Tab onClick={() => setCurrentTab("navigation")} text={t("tabNavigation")} selected={currentTab == "navigation"} />
-        |<Tab onClick={() => setCurrentTab("items")} text={t("tabItems")} selected={currentTab == "items"} />
+        {/*|<Tab onClick={() => setCurrentTab("items")} text={t("tabItems")} selected={currentTab == "items"} />*/}
         |
     </div>
 }
