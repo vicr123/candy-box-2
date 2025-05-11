@@ -210,6 +210,10 @@ export class PostOffice extends House{
                     return undefined;
                 }
 
+                if (!giftBox.isOpen) {
+                    return undefined;
+                }
+
                 if (giftBox.acceptsAnyGift) {
                     return player;
                 }
