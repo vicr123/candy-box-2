@@ -111,7 +111,8 @@ function coreEvaluate(archipelagoData: ArchipelagoData, loadedDataPackage: Track
                     return false;
             }
         case "startWeapon":
-            return false;
+            const [, weaponItem] = expression;
+            return archipelagoData.startingWeapon == weaponItem - CandyBox2BaseId;
         case "and":
             return coreEvaluate(archipelagoData, loadedDataPackage, expression[1]) && coreEvaluate(archipelagoData, loadedDataPackage, expression[2]);
         case "or":

@@ -9,6 +9,7 @@ export function useArchipelagoData() {
     const [archipelagoClaimedItems, setArchipelagoClaimedItems] = useState<number[]>([])
     const [archipelagoEntranceRandomisation, setArchipelagoEntranceRandomisation] = useState<[ArchipelagoEntrance, ArchipelagoEntrance][]>([])
     const [archipelagoProgressiveWeaponsOn, setArchipelagoProgressiveWeaponsOn] = useState(false);
+    const [archipelagoStartingWeapon, setArchipelagoStartingWeapon] = useState<number>(0)
 
     const updateArchipelagoData = useCallback(() => {
         setAllArchipelagoLocations(Archipelago.client.room.allLocations)
@@ -17,6 +18,7 @@ export function useArchipelagoData() {
         setArchipelagoClaimedItems(Archipelago.client.items.received.map(item => item.id))
         setArchipelagoEntranceRandomisation(Archipelago.slotData?.entranceInformation ?? [])
         setArchipelagoProgressiveWeaponsOn(Archipelago.slotData?.defaults?.weapon === -1)
+        setArchipelagoStartingWeapon(Archipelago.slotData?.defaults?.weapon)
     }, []);
 
     useEffect(() => {
@@ -61,6 +63,10 @@ export function useArchipelagoData() {
         return syncWithArchipelago ? archipelagoProgressiveWeaponsOn : false;
     }, [syncWithArchipelago, archipelagoProgressiveWeaponsOn]);
 
+    const startingWeapon = useMemo(() => {
+        return syncWithArchipelago ? archipelagoStartingWeapon : false;
+    }, [syncWithArchipelago, archipelagoStartingWeapon]);
+
     const locationName = useCallback((location: number) => {
         return Archipelago.client.package.findPackage("Candy Box 2").reverseLocationTable[location];
     }, []);
@@ -78,7 +84,8 @@ export function useArchipelagoData() {
         claimedItems,
         claimedItemCount,
         entranceRandomisationData,
-        progressiveWeaponsOn
+        progressiveWeaponsOn,
+        startingWeapon
     }
 }
 
