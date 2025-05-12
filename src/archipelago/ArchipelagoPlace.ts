@@ -473,7 +473,9 @@ export class ArchipelagoPlace extends Place {
         //     this.getGame().setTouchControls(confirm("Enable experimental touch controls?"))
         // }
 
-        await Archipelago.connect();
+        if (!await Archipelago.connect()) {
+            return;
+        }
 
         if (!await OpfsSaving.haveSave()) {
             if (ArchipelagoSaving.haveSave()) {
