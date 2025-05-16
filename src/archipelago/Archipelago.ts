@@ -132,7 +132,7 @@ export namespace Archipelago {
                     connectionError.current = "apConnectErrorVersion";
                     expectedClientVersion.current = newEquivalence[newEquivalence.length - 1];
                     connectionStatus.current = "disconnected";
-                    return;
+                    return false;
                 }
             }
 
@@ -169,6 +169,7 @@ export namespace Archipelago {
                 connectionStatus.current = "disconnected";
                 interruptGame(true);
             })
+            return true;
         } catch (e) {
             connectionStatus.current = "disconnected";
 
@@ -196,6 +197,7 @@ export namespace Archipelago {
                 connectionError.current = "apConnectError";
             }
             console.log(e);
+            return false;
         }
     }
 
@@ -374,6 +376,10 @@ export namespace Archipelago {
     }
 
     export async function isRoomVisited(room: ArchipelagoEntrance) {
+        if (Archipelago.connectionStatus.current != "connected") {
+            return false;
+        }
+
         const visitedRooms = await client.storage.fetch(visitedRoomStorageKey()) as ArchipelagoEntrance[];
         return visitedRooms.includes(room);
     }

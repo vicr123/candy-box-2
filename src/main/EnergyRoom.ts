@@ -5,7 +5,7 @@ import {Database} from "./Database";
 import {Archipelago, candyCalorieExchangeRate, lollipopCalorieExchangeRate} from "../archipelago/Archipelago";
 import {RenderTransparency} from "./RenderTransparency";
 import {CallbackCollection} from "./CallbackCollection";
-import {depositEnergy, savedEnergy, withdrawEnergy} from "../archipelago/ArchipelagoEnergyLink";
+import {depositEnergy, savedEnergy, savedEnergyJoules, withdrawEnergy} from "../archipelago/ArchipelagoEnergyLink";
 import {Saving} from "./Saving";
 import game = Saving.game;
 
@@ -101,6 +101,7 @@ export class EnergyRoom extends House{
         this.renderArea.addLinkCall(`.withdrawLollipopOtherButton`, new CallbackCollection(this.withdraw.bind(this, -1, "lollipops")))
 
         this.renderArea.drawString(`${Database.getText("energyRemaining")} ${formatter.format(savedEnergy())} cal`, 55, 20)
+        this.renderArea.drawString(`= ${formatter.format(savedEnergyJoules())} J (1 cal = 4184 J)`, 55, 23)
 
         if (Database.isTranslated()) {
             this.renderArea.drawString(Database.getTranslatedText("depositCandies"), 55, 5, true)
