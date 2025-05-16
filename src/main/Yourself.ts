@@ -71,7 +71,6 @@ export class Yourself extends Quest{
         // We add some messages
         if(win){
             this.getGame().getQuestLog().addMessage(new QuestLogMessage("You managed to beat yourself!"));
-            Saving.saveBool("mainMapDoneDesert", true); // The desert is done
         }
         else{
             this.getGame().getQuestLog().addMessage(new QuestLogMessage("You died trying to beat yourself."));
