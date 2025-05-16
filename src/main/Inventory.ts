@@ -13,13 +13,17 @@ import {Saving} from "./Saving";
 export class Inventory extends Place{
     // Render area
     private renderArea: RenderArea = new RenderArea();
+
+    private inventoryRows: number = 0;
     
     // Constructor
     constructor(game: Game){
         super(game);
+
+        this.inventoryRows = 6;
         
         // Resize the area
-        this.renderArea.resize(99, 136);
+        this.renderArea.resize(99, 88 + (this.inventoryRows - 2) * 12);
         
         // Update
         this.update();
@@ -42,8 +46,12 @@ export class Inventory extends Place{
         // Draw statistics
         yGap += this.drawStats(0, 52);
         
-        // Draw the inventory bottom
-        this.renderArea.drawArray(Database.getAscii("general/inventoryBottom"), 0, 55 + yGap);
+        // Draw the inventory grid
+        this.renderArea.drawArray(Database.getAscii("general/inventoryGridTop"), 0, 55 + yGap);
+        for (let i = 0; i < this.inventoryRows - 2; i++) {
+            this.renderArea.drawArray(Database.getAscii("general/inventoryGridMid"), 0, 55 + yGap + 14 + 12 * i);
+        }
+        this.renderArea.drawArray(Database.getAscii("general/inventoryGridBottom"), 0, 55 + yGap + 14 + 12 * (this.inventoryRows - 2));
         
         // Draw items
         this.drawGridItems(4, 57 + yGap);
