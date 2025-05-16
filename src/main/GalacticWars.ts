@@ -8,6 +8,7 @@ import {Random} from "./Random";
 import {Database} from "./Database";
 import {Algo} from "./Algo";
 import {Keyboard} from "./Keyboard";
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerNumber("galacticWarsBestScore", 0);
 
@@ -259,7 +260,7 @@ export class GalacticWars extends ThirdHouseGame{
         
         // Draw the candies we won
         this.getRenderArea().drawString("Score : " + this.score + ".", 8, 7);
-        this.getRenderArea().drawString("You gain " + (this.score + Algo.correctIfUnderZero(this.score-1000)*30) + " candies.", 8, 8);
+        this.getRenderArea().drawString("You gain " + ((this.score + Algo.correctIfUnderZero(this.score-1000)*30) * Archipelago.slotData.multipliers.candyDrops) + " candies.", 8, 8);
         
         this.getRenderArea().drawString("Best score : " + Saving.loadNumber("galacticWarsBestScore") + ".", 8, 10);
     }
@@ -273,7 +274,7 @@ export class GalacticWars extends ThirdHouseGame{
         this.step = GalacticWarsStep.LOSE;
         
         // Get the candies
-        this.getThirdHouse().getGame().getCandies().add(this.score + Algo.correctIfUnderZero(this.score-1000)*30);
+        this.getThirdHouse().getGame().getCandies().add((this.score + Algo.correctIfUnderZero(this.score-1000)*30) * Archipelago.slotData.multipliers.candyDrops);
         
         // Update the best score
         if(this.score > Saving.loadNumber("galacticWarsBestScore")) Saving.saveNumber("galacticWarsBestScore", this.score);

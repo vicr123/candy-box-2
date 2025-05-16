@@ -10,6 +10,7 @@ import {SuperRPGMenu_Main} from "./SuperRPGMenu_Main";
 import {SuperRPGMenu_Monster} from "./SuperRPGMenu_Monster";
 import {Random} from "./Random";
 import {SuperRPGMenu_Shop} from "./SuperRPGMenu_Shop";
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerBool("SuperRPGReward1", false);
 Saving.registerBool("SuperRPGReward2", false);
@@ -257,7 +258,7 @@ export class SuperRPG extends ThirdHouseGame{
         this.step = SuperRPGStep.LOSE;
         
         // Get the candies
-        this.reward = this.getCandiesWeWillGain();
+        this.reward = this.getCandiesWeWillGain() * Archipelago.slotData.multipliers.candyDrops;
         this.getThirdHouse().getGame().getCandies().add(this.reward);
     }
     
