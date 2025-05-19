@@ -20,7 +20,7 @@ export class Inventory extends Place{
     constructor(game: Game){
         super(game);
 
-        this.inventoryRows = 6;
+        this.inventoryRows = Math.ceil(Object.keys(game.getGridItems()).length / 4);
         
         // Resize the area
         this.renderArea.resize(99, 88 + (this.inventoryRows - 2) * 12);

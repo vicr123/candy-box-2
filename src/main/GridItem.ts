@@ -7,22 +7,30 @@ import {Quest} from "./Quest";
 
 export class GridItem extends Item{
     // Position in the item grid
-    private position: Pos;
-    
+    private _position: Pos;
+    private _condition: { (): boolean };
+
     // Constructor
-    constructor(savingName: string, databaseName: string, databaseDescriptionName: string, ascii: string, position: Pos){
+    constructor(savingName: string, databaseName: string, databaseDescriptionName: string, ascii: string, condition: () => boolean = () => true){
         super(savingName, databaseName, databaseDescriptionName, ascii);
-        
-        this.position = position;
+        this._condition = condition;
     }
     
     // Public methods
     public update(player: Player, quest: Quest): void{
         
     }
+
+    public setPosition(pos: Pos) {
+        this._position = pos;
+    }
     
     // Public getters
     public getPosition(): Pos{
-        return this.position;
+        return this._position;
+    }
+
+    public isEnabled() {
+        return this._condition();
     }
 }

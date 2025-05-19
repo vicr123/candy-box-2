@@ -254,7 +254,7 @@ export class Game{
         
         // We create the grid items
         this.createGridItems();
-        
+
         // We create the eqItems
         this.createEqItems();
         
@@ -820,7 +820,13 @@ export class Game{
     }
     
     public getGridItems(): { [s: string]: GridItem; }{
-        return this.gridItems;
+        return Object.fromEntries(Object.entries(this.gridItems)
+            .filter(([,item]) => item.isEnabled())
+            .map(([name,item], i) => {
+                item.setPosition(new Pos(i % 4, Math.floor(i / 4)))
+                return [name, item];
+            })
+        );
     }
     
     public getIsStatusBarAllowedToUseTheNKey(): boolean{
@@ -963,42 +969,53 @@ export class Game{
         this.addEqItem(new BootsOfIntrospection(), this.boots);
     }
     
-    private createGridItems(): void{
+    public createGridItems(): void{
+        const haveGrimoires = () => Archipelago.slotData.defaults.grimoires == 0 || Archipelago.slotData.defaults.grimoires == 1;
+        const haveSpells = () => Archipelago.slotData.defaults.grimoires == 2
+
         // First line
-        this.addGridItem(new GridItem("gridItemPossessedMainMap", "gridItemMainMapName", "gridItemMainMapDescription", "gridItems/mainMap", new Pos(0, 0)));
-        this.addGridItem(new GridItem("gridItemPossessedTimeRing", "gridItemTimeRingName", "gridItemTimeRingDescription", "gridItems/timeRing", new Pos(1, 0)));
-        this.addGridItem(new GridItem("gridItemPossessedThirdHouseKey", "gridItemThirdHouseKeyName", "gridItemThirdHouseKeyDescription", "gridItems/thirdHouseKey", new Pos(2, 0)));
-        this.addGridItem(new GridItem("gridItemPossessedBeginnersGrimoire", "gridItemBeginnersGrimoireName", "gridItemBeginnersGrimoireDescription", "gridItems/beginnersGrimoire", new Pos(3, 0)));
-        
+        this.addGridItem(new GridItem("gridItemPossessedMainMap", "gridItemMainMapName", "gridItemMainMapDescription", "gridItems/mainMap"));
+        this.addGridItem(new GridItem("gridItemPossessedTimeRing", "gridItemTimeRingName", "gridItemTimeRingDescription", "gridItems/timeRing"));
+        this.addGridItem(new GridItem("gridItemPossessedThirdHouseKey", "gridItemThirdHouseKeyName", "gridItemThirdHouseKeyDescription", "gridItems/thirdHouseKey"));
+
+        this.addGridItem(new GridItem("gridItemPossessedBeginnersGrimoire", "gridItemBeginnersGrimoireName", "gridItemBeginnersGrimoireDescription", "gridItems/beginnersGrimoire", haveGrimoires));
+        this.addGridItem(new GridItem("gridItemPossessedAcidRainSpell", "gridItemAcidRainSpellName", "gridItemAcidRainSpellDescription", "gridItems/acidRainSpell", haveSpells));
+        this.addGridItem(new GridItem("gridItemPossessedFireballSpell", "gridItemFireballSpellName", "gridItemFireballSpellDescription", "gridItems/fireballSpell", haveSpells));
+        this.addGridItem(new GridItem("gridItemPossessedTeleportSpell", "gridItemTeleportSpellName", "gridItemTeleportSpellDescription", "gridItems/teleportSpell", haveSpells));
+
         // Second line
-        this.addGridItem(new Feather("gridItemPossessedFeather", "gridItemFeatherName", "gridItemFeatherDescription", "gridItems/feather", new Pos(0, 1)));
-        this.addGridItem(new GridItem("gridItemPossessedPogoStick", "gridItemPogoStickName", "gridItemPogoStickDescription", "gridItems/pogoStick", new Pos(1, 1)));
-        this.addGridItem(new GridItem("gridItemPossessedHeartPlug", "gridItemHeartPlugName", "gridItemHeartPlugDescription", "gridItems/heartPlug", new Pos(2, 1)));
-        this.addGridItem(new GridItem("gridItemPossessedAdvancedGrimoire", "gridItemAdvancedGrimoireName", "gridItemAdvancedGrimoireDescription", "gridItems/advancedGrimoire", new Pos(3, 1)));
-        
+        this.addGridItem(new Feather("gridItemPossessedFeather", "gridItemFeatherName", "gridItemFeatherDescription", "gridItems/feather"));
+        this.addGridItem(new GridItem("gridItemPossessedPogoStick", "gridItemPogoStickName", "gridItemPogoStickDescription", "gridItems/pogoStick"));
+        this.addGridItem(new GridItem("gridItemPossessedHeartPlug", "gridItemHeartPlugName", "gridItemHeartPlugDescription", "gridItems/heartPlug"));
+        this.addGridItem(new GridItem("gridItemPossessedAdvancedGrimoire", "gridItemAdvancedGrimoireName", "gridItemAdvancedGrimoireDescription", "gridItems/advancedGrimoire", haveGrimoires));
+        this.addGridItem(new GridItem("gridItemPossessedEraseMagicSpell", "gridItemEraseMagicSpellName", "gridItemEraseMagicSpellDescription", "gridItems/eraseMagicSpell", haveSpells));
+        this.addGridItem(new GridItem("gridItemPossessedThornsShieldSpell", "gridItemThornsShieldSpellName", "gridItemThornsShieldSpellDescription", "gridItems/thornsShieldSpell", haveSpells));
+
         // Third line
-        this.addGridItem(new GridItem("gridItemPossessedSponge", "gridItemSpongeName", "gridItemSpongeDescription", "gridItems/sponge", new Pos(0, 2)));
-        this.addGridItem(new GridItem("gridItemPossessedShellPowder", "gridItemShellPowderName", "gridItemShellPowderDescription", "gridItems/shellPowder", new Pos(1, 2)));
-        this.addGridItem(new GridItem("gridItemPossessedRedSharkFin", "gridItemRedSharkFinName", "gridItemRedSharkFinDescription", "gridItems/redSharkFin", new Pos(2, 2)));
-        this.addGridItem(new GridItem("gridItemPossessedBlackMagicGrimoire", "gridItemBlackMagicGrimoireName", "gridItemBlackMagicGrimoireDescription", "gridItems/blackMagicGrimoire", new Pos(3, 2)));
+        this.addGridItem(new GridItem("gridItemPossessedSponge", "gridItemSpongeName", "gridItemSpongeDescription", "gridItems/sponge"));
+        this.addGridItem(new GridItem("gridItemPossessedShellPowder", "gridItemShellPowderName", "gridItemShellPowderDescription", "gridItems/shellPowder"));
+        this.addGridItem(new GridItem("gridItemPossessedRedSharkFin", "gridItemRedSharkFinName", "gridItemRedSharkFinDescription", "gridItems/redSharkFin"));
+        this.addGridItem(new GridItem("gridItemPossessedBlackMagicGrimoire", "gridItemBlackMagicGrimoireName", "gridItemBlackMagicGrimoireDescription", "gridItems/blackMagicGrimoire", haveGrimoires));
+        this.addGridItem(new GridItem("gridItemPossessedObsidianWallSpell", "gridItemObsidianWallSpellName", "gridItemObsidianWallSpellDescription", "gridItems/obsidianWallSpell", haveSpells));
+        this.addGridItem(new GridItem("gridItemPossessedBlackDemonsSpell", "gridItemBlackDemonsSpellName", "gridItemBlackDemonsSpellDescription", "gridItems/blackDemonsSpell", haveSpells));
         
         // Fourth line
-        this.addGridItem(new GridItem("gridItemPossessedGreenSharkFin", "gridItemGreenSharkFinName", "gridItemGreenSharkFinDescription", "gridItems/greenSharkFin", new Pos(0, 3)));
-        this.addGridItem(new GridItem("gridItemPossessedPurpleSharkFin", "gridItemPurpleSharkFinName", "gridItemPurpleSharkFinDescription", "gridItems/purpleSharkFin", new Pos(1, 3)));
-        this.addGridItem(new GridItem("gridItemPossessedHeartPendant", "gridItemHeartPendantName", "gridItemHeartPendantDescription", "gridItems/heartPendant", new Pos(2, 3)));
-        this.addGridItem(new GridItem("gridItemPossessedFortressKey", "gridItemFortressKeyName", "gridItemFortressKeyDescription", "gridItems/fortressKey", new Pos(3, 3)));
+        this.addGridItem(new GridItem("gridItemPossessedGreenSharkFin", "gridItemGreenSharkFinName", "gridItemGreenSharkFinDescription", "gridItems/greenSharkFin"));
+        this.addGridItem(new GridItem("gridItemPossessedPurpleSharkFin", "gridItemPurpleSharkFinName", "gridItemPurpleSharkFinDescription", "gridItems/purpleSharkFin"));
+        this.addGridItem(new GridItem("gridItemPossessedHeartPendant", "gridItemHeartPendantName", "gridItemHeartPendantDescription", "gridItems/heartPendant"));
+        this.addGridItem(new GridItem("gridItemPossessedFortressKey", "gridItemFortressKeyName", "gridItemFortressKeyDescription", "gridItems/fortressKey"));
         
         // Fifth line
-        this.addGridItem(new UnicornHorn("gridItemPossessedUnicornHorn", "gridItemUnicornHornName", "gridItemUnicornHornDescription", "gridItems/unicornHorn", new Pos(0, 4)));
-        this.addGridItem(new XinopherydonClaw("gridItemPossessedXinopherydonClaw", "gridItemXinopherydonClawName", "gridItemXinopherydonClawDescription", "gridItems/xinopherydonClaw", new Pos(1, 4)));
-        this.addGridItem(new GridItem("gridItemPossessedPitchfork", "gridItemPitchforkName", "gridItemPitchforkDescription", "gridItems/pitchfork", new Pos(2, 4)));
-        this.addGridItem(new GridItem("gridItemPossessedTalkingCandy", "gridItemTalkingCandyName", "gridItemTalkingCandyDescription", "gridItems/talkingCandy", new Pos(3, 4)));
+        this.addGridItem(new UnicornHorn("gridItemPossessedUnicornHorn", "gridItemUnicornHornName", "gridItemUnicornHornDescription", "gridItems/unicornHorn"));
+        this.addGridItem(new XinopherydonClaw("gridItemPossessedXinopherydonClaw", "gridItemXinopherydonClawName", "gridItemXinopherydonClawDescription", "gridItems/xinopherydonClaw"));
+        this.addGridItem(new GridItem("gridItemPossessedPitchfork", "gridItemPitchforkName", "gridItemPitchforkDescription", "gridItems/pitchfork"));
+        this.addGridItem(new GridItem("gridItemPossessedTalkingCandy", "gridItemTalkingCandyName", "gridItemTalkingCandyDescription", "gridItems/talkingCandy"));
         
         // Sixth line
-        this.addGridItem(new GridItem("gridItemPossessedP", "gridItemPName", "gridItemPDescription", "gridItems/p", new Pos(0, 5)));
-        this.addGridItem(new GridItem("gridItemPossessedL", "gridItemLName", "gridItemLDescription", "gridItems/l", new Pos(1, 5)));
-        this.addGridItem(new GridItem("gridItemPossessedA", "gridItemAName", "gridItemADescription", "gridItems/a", new Pos(2, 5)));
-        this.addGridItem(new GridItem("gridItemPossessedY", "gridItemYName", "gridItemYDescription", "gridItems/y", new Pos(3, 5)));
+        this.addGridItem(new GridItem("gridItemPossessedP", "gridItemPName", "gridItemPDescription", "gridItems/p"));
+        this.addGridItem(new GridItem("gridItemPossessedL", "gridItemLName", "gridItemLDescription", "gridItems/l"));
+        this.addGridItem(new GridItem("gridItemPossessedA", "gridItemAName", "gridItemADescription", "gridItems/a"));
+        this.addGridItem(new GridItem("gridItemPossessedY", "gridItemYName", "gridItemYDescription", "gridItems/y"));
     }
     
     private displayArea(renderArea: RenderArea, scrolling: boolean = false, gap: number = 0, defaultScroll: number = 0): void{

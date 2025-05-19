@@ -255,5 +255,26 @@ export function grantArchipelagoItem(game: Game, itemKey: keyof typeof Archipela
         case "TWO_PAINS_AU_CHOCOLAT":
             game.getPainsAuChocolat().add(2);
             break;
+        case "ACID_RAIN_SPELL":
+            game.gainItem("gridItemPossessedAcidRainSpell");
+            break;
+        case "FIREBALL_SPELL":
+            game.gainItem("gridItemPossessedFireballSpell");
+            break;
+        case "TELEPORT_SPELL":
+            game.gainItem("gridItemPossessedTeleportSpell");
+            break;
+        case "THORNS_SHIELD_SPELL":
+            game.gainItem("gridItemPossessedThornsShieldSpell");
+            break;
+        case "ERASE_MAGIC_SPELL":
+            game.gainItem("gridItemPossessedEraseMagicSpell");
+            break;
+        case "BLACK_DEMONS_SPELL":
+            game.gainItem("gridItemPossessedBlackDemonsSpell");
+            break;
+        case "OBSIDIAN_WALL_SPELL":
+            game.gainItem("gridItemPossessedObsidianWallSpell");
+            break;
     }
 }

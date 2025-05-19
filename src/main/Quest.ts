@@ -854,20 +854,18 @@ export class Quest extends Place{
     
     private createPlayerSpells(): void{
         // Add the spells
-        if(Saving.loadBool("gridItemPossessedBeginnersGrimoire")){
-            this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellAcidRainButton", new Pos(0, 0), "Acid rain", new Color(ColorType.QUEST_BUTTON_ACID_RAIN), new CallbackCollection(this.castPlayerAcidRain.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 0, "a"));
-            this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellFireballButton", new Pos(11, 0), "Fireball", new Color(ColorType.QUEST_BUTTON_FIREBALL), new CallbackCollection(this.castPlayerFireball.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 0, "f"));
-            this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellTeleportButton", new Pos(21, 0), "Teleport", new Color(ColorType.QUEST_BUTTON_TELEPORT), new CallbackCollection(this.castPlayerTeleport.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 0, "t"));
-        }
-        if(Saving.loadBool("gridItemPossessedAdvancedGrimoire")){
-            this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellEraseMagicButton", new Pos(33, 0), "Erase magic", new Color(ColorType.QUEST_BUTTON_ERASE_MAGIC), new CallbackCollection(this.castPlayerEraseMagic.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 0, "e"));
-            this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellThornsShieldButton", new Pos(46, 0), "Thorns shield", new Color(ColorType.QUEST_BUTTON_THORNS_SHIELD), new CallbackCollection(this.castPlayerThornsShield.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 6, " "));
-        }
-        if(Saving.loadBool("gridItemPossessedBlackMagicGrimoire")){
-            this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellObsidianWallButton", new Pos(63, 0), "Obsidian wall", new Color(ColorType.QUEST_BUTTON_OBSIDIAN_WALL), new CallbackCollection(this.castPlayerObsidianWall.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 0, "o"));
-            this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellBlackDemonsButton", new Pos(78, 0), "Black demons", new Color(ColorType.QUEST_BUTTON_BLACK_DEMONS), new CallbackCollection(this.castPlayerBlackDemons.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 6, "d"));
-        }
-        
+        const haveBeginnersGrimoire = Saving.loadBool("gridItemPossessedBeginnersGrimoire");
+        const haveAdvancedGrimoire = Saving.loadBool("gridItemPossessedAdvancedGrimoire");
+        const haveBlackMagicGrimoire = Saving.loadBool("gridItemPossessedBlackMagicGrimoire");
+
+        if (haveBeginnersGrimoire || Saving.loadBool("gridItemPossessedAcidRainSpell")) this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellAcidRainButton", new Pos(0, 0), "Acid rain", new Color(ColorType.QUEST_BUTTON_ACID_RAIN), new CallbackCollection(this.castPlayerAcidRain.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 0, "a"));
+        if (haveBeginnersGrimoire || Saving.loadBool("gridItemPossessedFireballSpell")) this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellFireballButton", new Pos(11, 0), "Fireball", new Color(ColorType.QUEST_BUTTON_FIREBALL), new CallbackCollection(this.castPlayerFireball.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 0, "f"));
+        if (haveBeginnersGrimoire || Saving.loadBool("gridItemPossessedTeleportSpell")) this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellTeleportButton", new Pos(21, 0), "Teleport", new Color(ColorType.QUEST_BUTTON_TELEPORT), new CallbackCollection(this.castPlayerTeleport.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 0, "t"));
+        if (haveAdvancedGrimoire || Saving.loadBool("gridItemPossessedEraseMagicSpell")) this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellEraseMagicButton", new Pos(33, 0), "Erase magic", new Color(ColorType.QUEST_BUTTON_ERASE_MAGIC), new CallbackCollection(this.castPlayerEraseMagic.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 0, "e"));
+        if (haveAdvancedGrimoire || Saving.loadBool("gridItemPossessedThornsShieldSpell")) this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellThornsShieldButton", new Pos(46, 0), "Thorns shield", new Color(ColorType.QUEST_BUTTON_THORNS_SHIELD), new CallbackCollection(this.castPlayerThornsShield.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 6, " "));
+        if (haveBlackMagicGrimoire || Saving.loadBool("gridItemPossessedObsidianWallSpell")) this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellObsidianWallButton", new Pos(63, 0), "Obsidian wall", new Color(ColorType.QUEST_BUTTON_OBSIDIAN_WALL), new CallbackCollection(this.castPlayerObsidianWall.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 0, "o"));
+        if (haveBlackMagicGrimoire || Saving.loadBool("gridItemPossessedBlackDemonsSpell")) this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellBlackDemonsButton", new Pos(78, 0), "Black demons", new Color(ColorType.QUEST_BUTTON_BLACK_DEMONS), new CallbackCollection(this.castPlayerBlackDemons.bind(this)), QuestPlayerSpellCountdownType.SPELLS, this.getMagicCountdownTime(), 6, "d"));
+
         // Add the potions
         if(Saving.loadBool("questPlayerSpellHealthPotionHasSpell"))
             this.addPlayerSpell(new QuestPlayerSpell(this, "questPlayerSpellHealthPotionButton", new Pos(0, 2), "Health", new Color(ColorType.QUEST_BUTTON_HEALTH_POTION), new CallbackCollection(this.castPlayerHealthPotion.bind(this)), QuestPlayerSpellCountdownType.POTIONS, this.getMagicCountdownTime(), 0, "h", "questPlayerSpellHealthPotionQuantity"));
