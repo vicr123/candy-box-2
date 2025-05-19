@@ -21,11 +21,14 @@ import {Keyboard} from "./Keyboard";
 import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 import {Algo} from "./Algo";
 import itemName = Algo.itemName;
+import {Archipelago} from "../archipelago/Archipelago";
 
 Saving.registerApLocation("theHoleFirstChestFound", "HEART_PENDANT_ACQUIRED");
 Saving.registerApLocation("theHoleSecondChestFound", "DESERT_FORTRESS_KEY_ACQUIRED");
 Saving.registerApLocation("theHoleThirdChestFound", "BLACK_MAGIC_GRIMOIRE_ACQUIRED");
 Saving.registerApLocation("theHoleFourthChestFound", "HOLE_CHOCOLATE_BAR_4");
+Saving.registerApLocation("theHoleThirdChestFound_1", "BLACK_MAGIC_GRIMOIRE_ACQUIRED_OBSIDIAN_WALL");
+Saving.registerApLocation("theHoleThirdChestFound_2", "BLACK_MAGIC_GRIMOIRE_ACQUIRED_BLACK_DEMONS");
 
 export class TheHole extends Quest{
     // Variables which store the open states of the chests for the current quest
@@ -76,9 +79,11 @@ export class TheHole extends Quest{
         this.addSpikes(new Spikes(this, new Pos(64, 64), 4));
         
         // Add the chests
+        const isThirdChestOpened = (Archipelago.isGrimoireOption("GRIMOIRE") && Archipelago.isChecked("BLACK_MAGIC_GRIMOIRE_ACQUIRED")) ||
+            (Archipelago.isGrimoireOption("SPELL") && Archipelago.isChecked("BLACK_MAGIC_GRIMOIRE_ACQUIRED_OBSIDIAN_WALL") && Archipelago.isChecked("BLACK_MAGIC_GRIMOIRE_ACQUIRED_BLACK_DEMONS"));
         this.addChest(new Chest(this, new Pos(27, 67), true, new CallbackCollection(this.openFirstChest.bind(this)), Saving.loadBool("theHoleFirstChestFound")));
         this.addChest(new Chest(this, new Pos(59, 74), true, new CallbackCollection(this.openSecondChest.bind(this)), Saving.loadBool("theHoleSecondChestFound")));
-        this.addChest(new Chest(this, new Pos(37, 107), false, new CallbackCollection(this.openThirdChest.bind(this)), Saving.loadBool("theHoleThirdChestFound")));
+        this.addChest(new Chest(this, new Pos(37, 107), false, new CallbackCollection(this.openThirdChest.bind(this)), isThirdChestOpened));
         this.addChest(new Chest(this, new Pos(4, 129), true, new CallbackCollection(this.openFourthChest.bind(this)), Saving.loadBool("theHoleFourthChestFound")));
         
         // Add the lost tribe warrior alone in its room
@@ -446,7 +451,13 @@ export class TheHole extends Quest{
     
     private openThirdChest(): void{
         this.thirdChestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleThirdChestFound", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED"))}!`, this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED")));
+
+        if (Archipelago.isGrimoireOption("GRIMOIRE")) {
+            this.foundGridOrEqItem(new QuestItemFound(this, "theHoleThirdChestFound", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED"))}!`, this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED")));
+        } else {
+            this.foundGridOrEqItem(new QuestItemFound(this, "theHoleThirdChestFound_1", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED_OBSIDIAN_WALL"))}!`, this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED_OBSIDIAN_WALL")));
+            this.foundGridOrEqItem(new QuestItemFound(this, "theHoleThirdChestFound_2", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED_BLACK_DEMONS"))}!`, this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED_BLACK_DEMONS")));
+        }
     }
     
     private moveHorizontally(): void{

@@ -383,6 +383,26 @@ export namespace Archipelago {
         const visitedRooms = await client.storage.fetch(visitedRoomStorageKey()) as ArchipelagoEntrance[];
         return visitedRooms.includes(room);
     }
+
+    export function isGrimoireOption(type: "GRIMOIRE" | "SPELL", progressive?: boolean | undefined) {
+        if (type == "GRIMOIRE") {
+            if (progressive == true) {
+                return Archipelago.slotData.defaults.grimoires == 1;
+            } else if (progressive == false) {
+                return Archipelago.slotData.defaults.grimoires == 0;
+            } else {
+                return Archipelago.slotData.defaults.grimoires == 0 || Archipelago.slotData.defaults.grimoires == 1;
+            }
+        } else {
+            if (progressive == true) {
+                return Archipelago.slotData.defaults.grimoires == 3;
+            } else if (progressive == false) {
+                return Archipelago.slotData.defaults.grimoires == 2;
+            } else {
+                return Archipelago.slotData.defaults.grimoires == 2 || Archipelago.slotData.defaults.grimoires == 3;
+            }
+        }
+    }
 }
 
 export const sendableItems = [
