@@ -13,35 +13,38 @@ import {Database} from "./Database";
 import {Wall} from "./Wall";
 import {QuestItemFound} from "./QuestItemFound";
 import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
+import { Item } from "archipelago.js";
+import {Algo} from "./Algo";
+import itemName = Algo.itemName;
 
 Saving.registerApLocation("apRocketBootsFound", "ROCKET_BOOTS_ACQUIRED");
 
-export class FortressRoom3 extends Quest{
+export class FortressRoom3 extends Quest {
     // Did we open the chest?
     private chestOpened: boolean = false;
-    
+
     // Constructor
-    constructor(game: Game){
+    constructor(game: Game) {
         super(game);
-        
+
         // Resize the quest
         this.resizeQuest(100, 31);
-        
+
         // Add collision boxes around
         this.addPlayerCollisionBoxes(true, true, true, true);
-        
+
         // Add the player
         this.getGame().getPlayer().loadCandyBoxCharacter(this);
         this.getGame().getPlayer().setGlobalPosition(new Pos(0, 30));
         this.configPlayerOrClone(this.getGame().getPlayer());
         this.addEntity(this.getGame().getPlayer());
-        
+
         // Add the ground
         this.addWalls();
-        
+
         // Add the chest
         this.addEntity(new Chest(this, new Pos(87, 6), false, new CallbackCollection(this.openChest.bind(this)), Saving.loadBool("apRocketBootsFound")));
-        
+
         // Add the message
         this.getGame().getQuestLog().addMessage(new WelcomeQuestLogMessage(game, "THE_LEDGE_ROOM"));
     }
@@ -55,38 +58,38 @@ export class FortressRoom3 extends Quest{
     }
 
     // Public methods
-    public castPlayerTeleport(): void{
+    public castPlayerTeleport(): void {
         super.castPlayerTeleport(new Pos(2, 26), new Pos(1, 1));
     }
-    
-    public configPlayerOrClone(entity: QuestEntity): void{
+
+    public configPlayerOrClone(entity: QuestEntity): void {
         entity.setQuestEntityMovement(new QuestEntityMovement(new Pos(1, 0)));
         entity.getQuestEntityMovement().setGravity(true);
         entity.getQuestEntityMovement().setWormsLike(true);
     }
-    
-    public endQuest(win: boolean): void{
+
+    public endQuest(win: boolean): void {
         // We add some messages
-        if(win){
+        if (win) {
             this.getGame().getQuestLog().addMessage(new QuestLogMessage("You exit the room."));
         }
-        
+
         // We call the endQuest method of our mother class
         super.endQuest(win);
     }
-    
-    public update(): void{
-        if(this.getQuestEnded() == false){
+
+    public update(): void {
+        if (this.getQuestEnded() == false) {
             // Test if the player is dead, if so end the quest (he won) and return
-            if(this.getGame().getPlayer().shouldDie()){
+            if (this.getGame().getPlayer().shouldDie()) {
                 this.endQuest(true); // true because we always win
                 return;
             }
-            
+
             // Update entities
             this.updateEntities();
         }
-        
+
         // Draw
         this.preDraw();
         this.getRenderArea().drawArray(Database.getAscii("places/quests/fortress/room3"), this.getRealQuestPosition().x, this.getRealQuestPosition().y);
@@ -95,12 +98,12 @@ export class FortressRoom3 extends Quest{
         this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToInsideFortress.bind(this.getGame())), "buttonExitQuestKeeping", "THE_LEDGE_ROOM");
         this.postDraw();
     }
-    
+
     // Private methods
-    private addWalls(): void{
+    private addWalls(): void {
         // Create the wall entity
         var wall: Wall = new Wall(this, new Pos(0, 0));
-        
+
         // Add the boxes
         wall.addBox(new Pos(0, 0), new Pos(100, 2));
         wall.addBox(new Pos(0, 2), new Pos(16, 23));
@@ -109,13 +112,13 @@ export class FortressRoom3 extends Quest{
         wall.addBox(new Pos(90, 6), new Pos(10, 1));
         wall.addBox(new Pos(82, 7), new Pos(18, 24));
         wall.addBox(new Pos(0, 31), new Pos(100, 1));
-        
+
         // Add the wall entity
         this.addEntity(wall);
     }
-    
-    private openChest(): void{
+
+    private openChest(): void {
         this.chestOpened = true;
-        this.foundGridOrEqItem(new QuestItemFound(this, "apRocketBootsFound", `You opened a chest and found ${this.itemScoutResults.findItem("ROCKET_BOOTS_ACQUIRED")}!`, this.itemScoutResults.findItem("ROCKET_BOOTS_ACQUIRED")));
+        this.foundGridOrEqItem(new QuestItemFound(this, "apRocketBootsFound", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("ROCKET_BOOTS_ACQUIRED"))}!`, this.itemScoutResults.findItem("ROCKET_BOOTS_ACQUIRED")));
     }
 }
