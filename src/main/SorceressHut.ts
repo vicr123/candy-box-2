@@ -27,7 +27,7 @@ export class SorceressHut extends Place{
     // Current speech
     private currentSpeech: string;
 
-    private selectedItem: Item;
+    private selectedItem: Item[] = [];
     private selectedPrice: number;
     
     // Constructor
@@ -111,7 +111,7 @@ export class SorceressHut extends Place{
     }
     
     private clickedCauldron(): void{
-        this.selectedItem = this.itemScoutResults.findItem("SORCERESS_HUT_CAULDRON");
+        this.selectedItem = [this.itemScoutResults.findItem("SORCERESS_HUT_CAULDRON")];
         // Set the new speech
         this.currentSpeech = "sorceressHutClickedSpeech";
         this.selectedPrice = 100000;
@@ -123,9 +123,14 @@ export class SorceressHut extends Place{
     }
     
     private clickedGrimoire(): void{
-        this.selectedItem = this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNER_GRIMOIRE");
-        // Set the new speech
-        this.currentSpeech = "sorceressHutClickedSpeech";
+        if (Archipelago.slotData.defaults.grimoires == 0 || Archipelago.slotData.defaults.grimoires == 1) {
+            this.selectedItem = [this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNER_GRIMOIRE")];
+            this.currentSpeech = "sorceressHutClickedSpeech";
+        } else if (Archipelago.slotData.defaults.grimoires == 2) {
+            this.selectedItem = [this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNERS_GRIMOIRE_ACID_RAIN"), this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNERS_GRIMOIRE_FIREBALL"), this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNERS_GRIMOIRE_TELEPORT")];
+            this.currentSpeech = "sorceressHutClickedSpeechThreeInOne";
+        }
+
         this.selectedPrice = 5000;
         
         // Update
@@ -135,9 +140,14 @@ export class SorceressHut extends Place{
     }
     
     private clickedGrimoire2(): void{
-        this.selectedItem = this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE");
-        // Set the new speech
-        this.currentSpeech = "sorceressHutClickedSpeech";
+        if (Archipelago.slotData.defaults.grimoires == 0 || Archipelago.slotData.defaults.grimoires == 1) {
+            this.selectedItem = [this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE")];
+            this.currentSpeech = "sorceressHutClickedSpeech";
+        } else if (Archipelago.slotData.defaults.grimoires == 2) {
+            this.selectedItem = [this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE_ERASE_MAGIC"), this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE_THORNS_SHIELD")];
+            this.currentSpeech = "sorceressHutClickedSpeechTwoInOne";
+        }
+
         this.selectedPrice = 20000;
         
         // Update
@@ -147,7 +157,7 @@ export class SorceressHut extends Place{
     }
     
     private clickedHat(): void{
-        this.selectedItem = this.itemScoutResults.findItem("SORCERESS_HUT_HAT");
+        this.selectedItem = [this.itemScoutResults.findItem("SORCERESS_HUT_HAT")];
         // Set the new speech
         this.currentSpeech = "sorceressHutClickedSpeech";
         this.selectedPrice = Archipelago.slotData.prices.sorceressHat;
@@ -199,13 +209,46 @@ export class SorceressHut extends Place{
     
     private drawCurrentSpeech(x: number, y: number): void{
         if (this.currentSpeech) {
-            const args = {
-                player: this.selectedItem && posessive(this.selectedItem.receiver.name),
-                item: this.selectedItem?.name,
-                game: this.selectedItem?.game,
-                count: this.selectedPrice
-            };
-            this.renderArea.drawSpeech(Database.getText(this.currentSpeech, args), y, x, x + 27, "sorceressHutSpeech", Database.getTranslatedText(this.currentSpeech, args));
+            switch (this.selectedItem.length) {
+                case 0:
+                    this.renderArea.drawSpeech(Database.getText(this.currentSpeech), y, x, x + 27, "sorceressHutSpeech", Database.getTranslatedText(this.currentSpeech));
+                    break;
+                case 1: {
+                    const selectedItem = this.selectedItem[0];
+                    const args = {
+                        player: posessive(selectedItem.receiver.name),
+                        item: selectedItem.name,
+                        game: selectedItem.game,
+                        count: this.selectedPrice
+                    };
+                    this.renderArea.drawSpeech(Database.getText(this.currentSpeech, args), y, x, x + 27, "sorceressHutSpeech", Database.getTranslatedText(this.currentSpeech, args));
+                    break;
+                }
+                case 2: {
+                    const args = {
+                        player1: posessive(this.selectedItem[0].receiver.name),
+                        item1: this.selectedItem[0].name,
+                        player2: posessive(this.selectedItem[1].receiver.name),
+                        item2: this.selectedItem[1].name,
+                        count: this.selectedPrice
+                    };
+                    this.renderArea.drawSpeech(Database.getText(this.currentSpeech, args), y, x, x + 27, "sorceressHutSpeech", Database.getTranslatedText(this.currentSpeech, args));
+                    break;
+                }
+                case 3: {
+                    const args = {
+                        player1: posessive(this.selectedItem[0].receiver.name),
+                        item1: this.selectedItem[0].name,
+                        player2: posessive(this.selectedItem[1].receiver.name),
+                        item2: this.selectedItem[1].name,
+                        player3: posessive(this.selectedItem[2].receiver.name),
+                        item3: this.selectedItem[2].name,
+                        count: this.selectedPrice
+                    };
+                    this.renderArea.drawSpeech(Database.getText(this.currentSpeech, args), y, x, x + 27, "sorceressHutSpeech", Database.getTranslatedText(this.currentSpeech, args));
+                    break;
+                }
+            }
         }
     }
     

@@ -31,6 +31,11 @@
     "1802": "Sorceress' Hut: Advanced Grimoire",
     "1803": "Sorceress' Hut: Cauldron",
     "1804": "Sorceress' Hut: Sorceress' Hat",
+    "1805": "Sorceress' Hut: Beginner's Grimoire - Acid Rain",
+    "1806": "Sorceress' Hut: Beginner's Grimoire - Fireball",
+    "1807": "Sorceress' Hut: Beginner's Grimoire - Teleport",
+    "1808": "Sorceress' Hut: Advanced Grimoire - Erase Magic",
+    "1809": "Sorceress' Hut: Advanced Grimoire - Thorns Shield",
     "1900": "Octopus King Quest: Octopus King Defeated",
     "2000": "Monkey Wizard Quest: Money Wizard Defeated",
     "2100": "Egg Room Quest: Chest Opened",
@@ -56,6 +61,8 @@
     "3702": "Hole: Top Chest Opened",
     "3703": "Hole: Left Chest Opened",
     "3704": "Hole: Bottom Chest Opened",
+    "3705": "Hole: Left Chest Opened - Obsidian Wall",
+    "3706": "Hole: Left Chest Opened - Black Demons",
     "3900": "Teapot Quest: Teapot Defeated",
     "4000": "Xinopherydon Quest: Xinopherydon Defeated",
     "4001": "Xinopherydon Quest: Unicorn Horn Acquired",
@@ -121,6 +128,8 @@
     "2000": "THE_NAKED_MONKEY_WIZARD",
     "3702": "THE_HOLE",
     "3703": "THE_HOLE",
+    "3705": "THE_HOLE",
+    "3706": "THE_HOLE",
     "3701": "THE_HOLE",
     "3700": "THE_HOLE",
     "3704": "THE_HOLE",
@@ -133,7 +142,7 @@
     "4000": "THE_XINOPHERYDON",
     "4001": "THE_XINOPHERYDON",
     "3900": "THE_TEAPOT",
-    "4100": "THE_TEAPOT",
+    "4100": "THE_LEDGE_ROOM",
     "2300": "HELL",
     "2400": "THE_DEVELOPER",
     "4500": "THE_SEA",
@@ -149,7 +158,12 @@
     "4903": "CASTLE_BAKEHOUSE",
     "4904": "CASTLE_BAKEHOUSE",
     "1801": "SORCERESS_HUT",
+    "1805": "SORCERESS_HUT",
+    "1806": "SORCERESS_HUT",
+    "1807": "SORCERESS_HUT",
     "1802": "SORCERESS_HUT",
+    "1809": "SORCERESS_HUT",
+    "1808": "SORCERESS_HUT",
     "1804": "SORCERESS_HUT",
     "1803": "SORCERESS_HUT",
     "1800": "SORCERESS_HUT",
@@ -224,6 +238,50 @@
   "rules": {
     "locations": {
       "2": [
+        "and",
+        [
+          "and",
+          [
+            "and",
+            [
+              "and",
+              [
+                "and",
+                [
+                  "count",
+                  "lollipop",
+                  3,
+                  9
+                ],
+                [
+                  "room",
+                  "LOLLIPOP_FARM"
+                ]
+              ],
+              [
+                "room",
+                "LOLLIPOP_FARM"
+              ]
+            ],
+            [
+              "item",
+              7665046,
+              1
+            ]
+          ],
+          [
+            "item",
+            7665054,
+            1
+          ]
+        ],
+        [
+          "item",
+          7665056,
+          1
+        ]
+      ],
+      "1": [
         "and",
         [
           "and",
@@ -1806,13 +1864,21 @@
               [
                 "or",
                 [
-                  "item",
-                  7665011,
-                  1
+                  "or",
+                  [
+                    "item",
+                    7665011,
+                    1
+                  ],
+                  [
+                    "item",
+                    7665064,
+                    1
+                  ]
                 ],
                 [
                   "item",
-                  7665064,
+                  7665068,
                   1
                 ]
               ]
@@ -2038,13 +2104,127 @@
           [
             "or",
             [
-              "item",
-              7665011,
-              1
+              "or",
+              [
+                "item",
+                7665011,
+                1
+              ],
+              [
+                "item",
+                7665064,
+                1
+              ]
             ],
             [
               "item",
-              7665064,
+              7665068,
+              1
+            ]
+          ]
+        ],
+        [
+          "item",
+          7665053,
+          1
+        ]
+      ],
+      "3705": [
+        "and",
+        [
+          "or",
+          [
+            "or",
+            [
+              "and",
+              [
+                "item",
+                7665042,
+                1
+              ],
+              [
+                "item",
+                7665018,
+                1
+              ]
+            ],
+            [
+              "item",
+              7665063,
+              3
+            ]
+          ],
+          [
+            "or",
+            [
+              "or",
+              [
+                "item",
+                7665011,
+                1
+              ],
+              [
+                "item",
+                7665064,
+                1
+              ]
+            ],
+            [
+              "item",
+              7665068,
+              1
+            ]
+          ]
+        ],
+        [
+          "item",
+          7665053,
+          1
+        ]
+      ],
+      "3706": [
+        "and",
+        [
+          "or",
+          [
+            "or",
+            [
+              "and",
+              [
+                "item",
+                7665042,
+                1
+              ],
+              [
+                "item",
+                7665018,
+                1
+              ]
+            ],
+            [
+              "item",
+              7665063,
+              3
+            ]
+          ],
+          [
+            "or",
+            [
+              "or",
+              [
+                "item",
+                7665011,
+                1
+              ],
+              [
+                "item",
+                7665064,
+                1
+              ]
+            ],
+            [
+              "item",
+              7665068,
               1
             ]
           ]
@@ -2083,13 +2263,21 @@
           [
             "or",
             [
-              "item",
-              7665011,
-              1
+              "or",
+              [
+                "item",
+                7665011,
+                1
+              ],
+              [
+                "item",
+                7665064,
+                1
+              ]
             ],
             [
               "item",
-              7665064,
+              7665068,
               1
             ]
           ]
@@ -2219,13 +2407,21 @@
               [
                 "or",
                 [
-                  "item",
-                  7665011,
-                  1
+                  "or",
+                  [
+                    "item",
+                    7665011,
+                    1
+                  ],
+                  [
+                    "item",
+                    7665064,
+                    1
+                  ]
                 ],
                 [
                   "item",
-                  7665064,
+                  7665068,
                   1
                 ]
               ]
@@ -2357,13 +2553,21 @@
               [
                 "or",
                 [
-                  "item",
-                  7665011,
-                  1
+                  "or",
+                  [
+                    "item",
+                    7665011,
+                    1
+                  ],
+                  [
+                    "item",
+                    7665064,
+                    1
+                  ]
                 ],
                 [
                   "item",
-                  7665064,
+                  7665068,
                   1
                 ]
               ]
@@ -3255,13 +3459,21 @@
             [
               "or",
               [
-                "item",
-                7665011,
-                1
+                "or",
+                [
+                  "item",
+                  7665011,
+                  1
+                ],
+                [
+                  "item",
+                  7665064,
+                  1
+                ]
               ],
               [
                 "item",
-                7665064,
+                7665068,
                 1
               ]
             ]
@@ -3309,14 +3521,22 @@
                 [
                   "or",
                   [
-                    "item",
-                    7665044,
-                    1
+                    "or",
+                    [
+                      "item",
+                      7665044,
+                      1
+                    ],
+                    [
+                      "item",
+                      7665064,
+                      3
+                    ]
                   ],
                   [
                     "item",
-                    7665064,
-                    3
+                    7665072,
+                    1
                   ]
                 ],
                 [
@@ -3421,13 +3641,21 @@
         [
           "or",
           [
-            "item",
-            7665011,
-            1
+            "or",
+            [
+              "item",
+              7665011,
+              1
+            ],
+            [
+              "item",
+              7665064,
+              1
+            ]
           ],
           [
             "item",
-            7665064,
+            7665068,
             1
           ]
         ]
@@ -4479,14 +4707,22 @@
             [
               "or",
               [
-                "item",
-                7665012,
-                1
+                "or",
+                [
+                  "item",
+                  7665012,
+                  1
+                ],
+                [
+                  "item",
+                  7665064,
+                  2
+                ]
               ],
               [
                 "item",
-                7665064,
-                2
+                7665069,
+                1
               ]
             ]
           ],
@@ -4821,14 +5057,22 @@
               [
                 "or",
                 [
-                  "item",
-                  7665012,
-                  1
+                  "or",
+                  [
+                    "item",
+                    7665012,
+                    1
+                  ],
+                  [
+                    "item",
+                    7665064,
+                    2
+                  ]
                 ],
                 [
                   "item",
-                  7665064,
-                  2
+                  7665069,
+                  1
                 ]
               ]
             ],
@@ -4909,7 +5153,107 @@
           "LOLLIPOP_FARM"
         ]
       ],
+      "1805": [
+        "and",
+        [
+          "and",
+          [
+            "count",
+            "lollipop",
+            3,
+            9
+          ],
+          [
+            "room",
+            "LOLLIPOP_FARM"
+          ]
+        ],
+        [
+          "room",
+          "LOLLIPOP_FARM"
+        ]
+      ],
+      "1806": [
+        "and",
+        [
+          "and",
+          [
+            "count",
+            "lollipop",
+            3,
+            9
+          ],
+          [
+            "room",
+            "LOLLIPOP_FARM"
+          ]
+        ],
+        [
+          "room",
+          "LOLLIPOP_FARM"
+        ]
+      ],
+      "1807": [
+        "and",
+        [
+          "and",
+          [
+            "count",
+            "lollipop",
+            3,
+            9
+          ],
+          [
+            "room",
+            "LOLLIPOP_FARM"
+          ]
+        ],
+        [
+          "room",
+          "LOLLIPOP_FARM"
+        ]
+      ],
       "1802": [
+        "and",
+        [
+          "and",
+          [
+            "count",
+            "lollipop",
+            3,
+            9
+          ],
+          [
+            "room",
+            "LOLLIPOP_FARM"
+          ]
+        ],
+        [
+          "room",
+          "LOLLIPOP_FARM"
+        ]
+      ],
+      "1809": [
+        "and",
+        [
+          "and",
+          [
+            "count",
+            "lollipop",
+            3,
+            9
+          ],
+          [
+            "room",
+            "LOLLIPOP_FARM"
+          ]
+        ],
+        [
+          "room",
+          "LOLLIPOP_FARM"
+        ]
+      ],
+      "1808": [
         "and",
         [
           "and",

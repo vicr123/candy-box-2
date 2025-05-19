@@ -81,12 +81,19 @@ export module Database{
         return retval;
     }
 
-    export function getBuyText(item: Item, price: number, currency: "candies" | "lollipops") {
-        return getText(currency == "candies" ? "buyCandies" : "buyLollipops", {
-            item: item.name,
-            player: item.receiver.name,
-            count: price
-        });
+    export function getBuyText(item: Item | Item[], price: number, currency: "candies" | "lollipops") {
+        if (Array.isArray(item) && item.length > 1) {
+            return getText(currency == "candies" ? "buyCandiesMultiple" : "buyLollipopsMultiple", {
+                count: price
+            });
+        } else {
+            const selectedItem = Array.isArray(item) ? item[0] : item;
+            return getText(currency == "candies" ? "buyCandies" : "buyLollipops", {
+                item: selectedItem.name,
+                player: selectedItem.receiver.name,
+                count: price
+            });
+        }
     }
 
     export function getTranslatedBuyText(item: Item, price: number, currency: "candies" | "lollipops") {
