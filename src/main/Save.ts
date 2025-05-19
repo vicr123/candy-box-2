@@ -16,6 +16,7 @@ import {Algo} from "./Algo";
 import {ArchipelagoSaving} from "../archipelago/ArchipelagoSaving";
 import {Archipelago} from "../archipelago/Archipelago";
 import {SaveManagementPlace} from "../archipelago/SaveManagementPlace";
+import {OpfsSaving} from "./OpfsSaving";
 
 export class Save extends Place{
     // The render area
@@ -258,16 +259,22 @@ export class Save extends Place{
             this.renderArea.addLinkCall(".eraseSave", new CallbackCollection(this.eraseSave.bind(this)));
             this.renderArea.addAsciiRealButton(Database.getText("eraseAllSavesButton"), 7, y+yAdd+17, "eraseAllSave", Database.getTranslatedText("eraseAllSavesButton"));
             this.renderArea.addLinkCall(".eraseAllSave", new CallbackCollection(this.eraseAllSave.bind(this)));
-            this.renderArea.addAsciiRealButton(Database.getText("apSaveManagement"), 7, y+yAdd+18, "saveManagement", Database.getTranslatedText("apSaveManagement"));
-            this.renderArea.addLinkCall(".saveManagement", new CallbackCollection(this.saveManagement.bind(this)));
+
+            if (OpfsSaving.isSupported()) {
+                this.renderArea.addAsciiRealButton(Database.getText("apSaveManagement"), 7, y + yAdd + 18, "saveManagement", Database.getTranslatedText("apSaveManagement"));
+                this.renderArea.addLinkCall(".saveManagement", new CallbackCollection(this.saveManagement.bind(this)));
+            }
             yAdd += 8;
         } else {
             this.renderArea.addAsciiRealButton(Database.getText("eraseSaveButton"), 7, y+yAdd+10, "eraseSave");
             this.renderArea.addLinkCall(".eraseSave", new CallbackCollection(this.eraseSave.bind(this)));
             this.renderArea.addAsciiRealButton(Database.getText("eraseAllSavesButton"), 35, y+yAdd+10, "eraseAllSave");
             this.renderArea.addLinkCall(".eraseAllSave", new CallbackCollection(this.eraseAllSave.bind(this)));
-            this.renderArea.addAsciiRealButton(Database.getText("apSaveManagement"), 63, y+yAdd+10, "saveManagement");
-            this.renderArea.addLinkCall(".saveManagement", new CallbackCollection(this.saveManagement.bind(this)));
+
+            if (OpfsSaving.isSupported()) {
+                this.renderArea.addAsciiRealButton(Database.getText("apSaveManagement"), 63, y + yAdd + 10, "saveManagement");
+                this.renderArea.addLinkCall(".saveManagement", new CallbackCollection(this.saveManagement.bind(this)));
+            }
         }
         this.renderArea.drawHorizontalLine("-", x, x+100, y+yAdd+12);
 

@@ -160,7 +160,11 @@ export module Saving {
                     */
                     break;
                 case MainLoadingType.LOCAL:
-                    await OpfsSaving.load();
+                    if (OpfsSaving.isSupported()) {
+                        await OpfsSaving.load();
+                    } else {
+                        LocalSaving.load();
+                    }
                     break;
                 case MainLoadingType.ARCHIPELAGO:
                     await ArchipelagoSaving.load();
@@ -181,13 +185,21 @@ export module Saving {
 
     export async function erase() {
         saving = true; // Stop saving anything from here on out
-        return await OpfsSaving.erase();
+        if (OpfsSaving.isSupported()) {
+            return await OpfsSaving.erase();
+        } else {
+            return LocalSaving.erase();
+        }
     }
 
     export async function eraseAll() {
         saving = true; // Stop saving anything from here on out
         LocalSaving.eraseAll();
-        await OpfsSaving.eraseAll()
+        if (OpfsSaving.isSupported()) {
+            await OpfsSaving.eraseAll()
+        } else {
+            window.location.reload();
+        }
     }
     
     export async function save(game: Game, savingType: MainLoadingType) {
@@ -203,7 +215,11 @@ export module Saving {
             // Do different things depending on the saving type
             switch (savingType) {
                 case MainLoadingType.LOCAL:
-                    return OpfsSaving.save();
+                    if (OpfsSaving.isSupported()) {
+                        return OpfsSaving.save();
+                    } else {
+                        LocalSaving.save();
+                    }
                 case MainLoadingType.FILE:
                     return false;
                 case MainLoadingType.ARCHIPELAGO:

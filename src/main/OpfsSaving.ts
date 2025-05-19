@@ -11,6 +11,10 @@ interface SaveFile {
 }
 
 export module OpfsSaving {
+    export function isSupported() {
+        return !!navigator.storage && !!navigator.storage.getDirectory;
+    }
+
     export async function load() {
         if (!Archipelago.localSaveSlot) return;
 

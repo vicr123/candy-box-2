@@ -209,8 +209,10 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.addLinkCall(".apConnect", new CallbackCollection(this.connectToAp.bind(this)));
 
                 this.renderArea.drawString("Other options:", 7, y + 23);
-                this.renderArea.addAsciiRealButton(Database.getText("apSaveManagement"), 7, y + 25, "apSaveManagement", Database.getTranslatedText("apSaveManagement"));
-                this.renderArea.addLinkCall(".apSaveManagement", new CallbackCollection(this.apSaveManagement.bind(this)));
+                if (OpfsSaving.isSupported()) {
+                    this.renderArea.addAsciiRealButton(Database.getText("apSaveManagement"), 7, y + 25, "apSaveManagement", Database.getTranslatedText("apSaveManagement"));
+                    this.renderArea.addLinkCall(".apSaveManagement", new CallbackCollection(this.apSaveManagement.bind(this)));
+                }
 
                 this.renderArea.addAsciiRealButton(Database.getText("apTrackerOpen"), 7, y + 27, "apTrackerOpen", Database.getTranslatedText("apTrackerOpen"));
                 this.renderArea.addLinkCall(".apTrackerOpen", new CallbackCollection(this.apTrackerOpen.bind(this)));
@@ -477,7 +479,7 @@ export class ArchipelagoPlace extends Place {
             return;
         }
 
-        if (!await OpfsSaving.haveSave()) {
+        if ((OpfsSaving.isSupported() && !await OpfsSaving.haveSave()) || (!OpfsSaving.isSupported() && !LocalSaving.haveSave())) {
             if (ArchipelagoSaving.haveSave()) {
                 // We need to ask what the user wants to do
                 Archipelago.apPage.current = "backupRestore";
