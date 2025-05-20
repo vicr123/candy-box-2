@@ -98,15 +98,15 @@ function coreEvaluate(archipelagoData: ArchipelagoData, loadedDataPackage: Track
 
             switch (inequality) {
                 case 0:
-                    return itemCount === count;
-                case 1:
                     return itemCount < count;
-                case 2:
+                case 1:
                     return itemCount <= count;
+                case 2:
+                    return itemCount === count;
                 case 3:
-                    return itemCount > count;
-                case 4:
                     return itemCount >= count;
+                case 4:
+                    return itemCount > count;
                 default:
                     return false;
             }
