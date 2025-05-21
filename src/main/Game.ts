@@ -1045,14 +1045,20 @@ export class Game{
             else{
                 // If it's time for a new production
                 if(Saving.loadNumber("lollipopFarmTimeSinceLastProduction") >= Saving.loadNumber("lollipopFarmProduction") - 1){
+                    const newLollipops = Math.floor(Saving.loadNumber("lollipopFarmTimeSinceLastProduction") / (Saving.loadNumber("lollipopFarmProduction") - 1));
+                    const remainder = Saving.loadNumber("lollipopFarmTimeSinceLastProduction") % (Saving.loadNumber("lollipopFarmProduction") - 1);
                     // We reset the time
-                    Saving.saveNumber("lollipopFarmTimeSinceLastProduction", 0);
+                    Saving.saveNumber("lollipopFarmTimeSinceLastProduction", remainder);
                     // We add one lollipop
-                    this.lollipops.add(1);
+                    this.lollipops.add(newLollipops);
                 }
                 else{
                     // We increase the time
-                    Saving.saveNumber("lollipopFarmTimeSinceLastProduction", Saving.loadNumber("lollipopFarmTimeSinceLastProduction") + Archipelago.slotData.multipliers.lollipops);
+                    Saving.saveNumber("lollipopFarmTimeSinceLastProduction", Saving.loadNumber("lollipopFarmTimeSinceLastProduction") + Archipelago.slotData.multipliers.lollipops *
+                        (Saving.loadBool("gridItemPossessedShellPowder")? 3:1)*
+                        (Saving.loadBool("gridItemPossessedPitchfork")? 3:1)*
+                        (Saving.loadBool("gridItemPossessedGreenSharkFin")? 5:1)
+                    );
                 }
             }
         }

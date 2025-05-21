@@ -15,6 +15,7 @@ import {Random} from "./Random";
 import {Archipelago} from "../archipelago/Archipelago";
 import {Color} from "./Color";
 import { ColorType } from "./ColorType";
+import pluralFormat = Algo.pluralFormat;
 
 Saving.registerBool("lollipopFarmPlant1LollipopButtonUnlocked", false);
 Saving.registerBool("lollipopFarmPlant10LollipopsButtonUnlocked", false);
@@ -363,7 +364,10 @@ export class LollipopFarm extends Place{
             str = Algo.pluralFormat(Saving.loadNumber("lollipopFarmProduction"), " lollipop", " lollipops") + " each second";
         }
         else{
-            str = "1 lollipop every ";
+            const numberOfLollipopsPerTimeUnit = (Saving.loadBool("gridItemPossessedShellPowder")? 3:1)*
+                (Saving.loadBool("gridItemPossessedPitchfork")? 3:1)*
+                (Saving.loadBool("gridItemPossessedGreenSharkFin")? 5:1);
+            str = pluralFormat(numberOfLollipopsPerTimeUnit, " lollipop every ", " lollipops every ");
             // If the production is every hour
             if(Saving.loadNumber("lollipopFarmProduction") >= 3600){
                 if(Math.floor(Saving.loadNumber("lollipopFarmProduction")/3600) == 1)
@@ -385,6 +389,7 @@ export class LollipopFarm extends Place{
                 else
                     str += Saving.loadNumber("lollipopFarmProduction").toString() + " seconds";
             }
+            str += " (on average)"
         }
         
         // We return the string
