@@ -222,6 +222,19 @@ export namespace Archipelago {
         client.check(ArchipelagoLocation[check]);
     }
 
+    export async function scoutLocations(locations: (keyof typeof ArchipelagoLocation)[], shouldHint: boolean) {
+        if (connectionStatus.current != "connected") {
+            return new ScoutResults([]);
+        }
+
+        const scoutIds: number[] = [];
+        for (const location of locations) {
+            scoutIds.push(ArchipelagoLocation[location]);
+        }
+
+        return new ScoutResults(await client.scout(scoutIds, shouldHint && slotData.scouting ? 2 : 0));
+    }
+
     export async function scoutRoom(item: (keyof typeof ArchipelagoLocationRegion)[], shouldHint: boolean) {
         if (connectionStatus.current != "connected") {
             return new ScoutResults([]);

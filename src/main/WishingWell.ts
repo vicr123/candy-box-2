@@ -148,6 +148,12 @@ export class WishingWell extends Place{
             ];
         });
     }
+
+    private sendWishingWellHints() {
+        if (Saving.loadBool("wishingWellWeAreEnchanting")) {
+            void Archipelago.scoutLocations(this.possibleEnchantments.map(x => x.getBeforeApName()), true);
+        }
+    }
     
     private drawCandiesStuff(x: number, y: number): void{
         // If we didn't throw our first candy yet
@@ -428,5 +434,8 @@ export class WishingWell extends Place{
         if(this.getGame().getLollipops().getMax() >= 1) this.drawLollipopsStuff(0, 9);
         if(this.getGame().getChocolateBars().getMax() >= 1) this.drawChocolateBarsStuff(0, 14);
         if(this.getGame().getPainsAuChocolat().getMax() >= 1) this.drawPainsAuChocolatStuff(0, 24);
+
+        // Send wishing well hints
+        this.sendWishingWellHints();
     }
 }
