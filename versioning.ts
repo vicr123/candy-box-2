@@ -13,5 +13,13 @@ export const commitsSinceLastTag = commitsSinceLastTagOutput.trim();
 const {stdout: headCommitOutput} = await promisify(execFile)(git, ["rev-parse", "HEAD"])
 export const headCommit = headCommitOutput.trim();
 
+const mergeBase = promisify(execFile)(git, ["merge-base", "--is-ancestor", "HEAD", "archipelago"]);
+try {
+    await mergeBase;
+} catch {
+
+}
+export const isOnArchipelagoBranch = mergeBase.child.exitCode == 0;
+
 export const latestCommitIsTag = commitsSinceLastTag == "0";
-export const versioningString = latestCommitIsTag ? lastTag : `${lastTag}+${commitsSinceLastTag}`
+export const versioningString = latestCommitIsTag ? lastTag : isOnArchipelagoBranch ? `${lastTag}+${commitsSinceLastTag}` : headCommit

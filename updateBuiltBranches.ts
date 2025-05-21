@@ -1,5 +1,5 @@
 import * as process from "node:process";
-import {headCommit, lastTag, latestCommitIsTag, versioningString} from "./versioning.ts";
+import {headCommit, isOnArchipelagoBranch, lastTag, latestCommitIsTag, versioningString} from "./versioning.ts";
 import {findExecutable} from "./findExecutable.ts";
 import path from "node:path";
 import {execFile} from "node:child_process";
@@ -18,15 +18,16 @@ if (process.argv.length != 3) {
 
 const builtTreeFolder = process.argv[2];
 
-const folders = [
-    versioningString,
-];
+const folders = [];
+if (isOnArchipelagoBranch) {
+    folders.push(versioningString)
+    if (!latestCommitIsTag) {
+        folders.push(`${lastTag}+`);
+        folders.push("latest-blueprint");
+    }
+}
 if (latestCommitIsTag) {
     folders.push("latest");
-}
-if (!latestCommitIsTag) {
-    folders.push(`${lastTag}+`);
-    folders.push("latest-blueprint");
 }
 
 console.log(`Building client for commit ${headCommit}`)
