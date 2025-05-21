@@ -300,7 +300,13 @@ export class ArchipelagoPlace extends Place {
         this.renderArea.drawString(`${Archipelago.client.room.hintPoints}`, pointsX, hintPointsY);
         this.renderArea.drawString(`${Archipelago.client.room.hintCost}`, pointsX, hintCostY);
 
-        const hintList = Archipelago.client.items.hints.filter(x => x.item.receiver.name == Archipelago.client.name || x.item.sender.name == Archipelago.client.name);
+        const seenHints = new Set();
+        const hintList = Archipelago.client.items.hints
+            .filter(x => {
+                const hintDescriptor = JSON.stringify([x.item.locationId, x.item.sender.team, x.item.sender.slot]);
+                return seenHints.has(hintDescriptor) ? false : seenHints.add(hintDescriptor);
+            })
+            .filter(x => x.item.receiver.name == Archipelago.client.name || x.item.sender.name == Archipelago.client.name);
 
         if (hintList.length == 0) {
             this.renderArea.drawString(Database.getText("apNoHints"), 50 - Database.getText("apNoHints").length / 2, y + 1);
