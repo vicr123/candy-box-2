@@ -15,8 +15,6 @@ import {Algo} from "./Algo";
 import posessive = Algo.posessive;
 
 Saving.registerApLocation("sorceressHutTookLollipop", "SORCERESS_HUT_LOLLIPOP");
-Saving.registerApLocation("sorceressHutBoughtGrimoire", "SORCERESS_HUT_BEGINNER_GRIMOIRE");
-Saving.registerApLocation("sorceressHutBoughtGrimoire2", "SORCERESS_HUT_ADVANCED_GRIMOIRE");
 Saving.registerApLocation("sorceressHutBoughtCauldron", "SORCERESS_HUT_CAULDRON");
 Saving.registerApLocation("sorceressHutBoughtHat", "SORCERESS_HUT_HAT");
 
@@ -78,7 +76,13 @@ export class SorceressHut extends Place{
         // If we have enough lollipops
         if(this.getGame().getLollipops().getCurrent() >= 5000){
             this.getGame().getLollipops().add(-5000); // We spend the lollipops
-            Saving.saveBool("sorceressHutBoughtGrimoire", true); // We now bought the grimoire
+            if (Archipelago.isGrimoireOption("GRIMOIRE")) {
+                Archipelago.check("SORCERESS_HUT_BEGINNER_GRIMOIRE");
+            } else {
+                Archipelago.check("SORCERESS_HUT_BEGINNERS_GRIMOIRE_TELEPORT");
+                Archipelago.check("SORCERESS_HUT_BEGINNERS_GRIMOIRE_FIREBALL");
+                Archipelago.check("SORCERESS_HUT_BEGINNERS_GRIMOIRE_ACID_RAIN");
+            }
             this.currentSpeech = ""; // We set the speech
             // We update
             this.update();
@@ -90,7 +94,12 @@ export class SorceressHut extends Place{
         // If we have enough lollipops
         if(this.getGame().getLollipops().getCurrent() >= 20000){
             this.getGame().getLollipops().add(-20000); // We spend the lollipops
-            Saving.saveBool("sorceressHutBoughtGrimoire2", true); // We now bought the grimoire
+            if (Archipelago.isGrimoireOption("GRIMOIRE")) {
+                Archipelago.check("SORCERESS_HUT_ADVANCED_GRIMOIRE");
+            } else {
+                Archipelago.check("SORCERESS_HUT_ADVANCED_GRIMOIRE_ERASE_MAGIC");
+                Archipelago.check("SORCERESS_HUT_ADVANCED_GRIMOIRE_THORNS_SHIELD");
+            }
             this.currentSpeech = ""; // We set the speech
             // We update
             this.update();
@@ -276,6 +285,14 @@ export class SorceressHut extends Place{
     private drawShelves(x: number, y: number): void{
         // Draw the ascii art
         this.renderArea.drawArray(Database.getAscii("places/sorceressHut/shelves"), x, y);
+
+        const haveBeginnersGrimoire = Archipelago.isGrimoireOption("GRIMOIRE") ?
+            Archipelago.isChecked("SORCERESS_HUT_BEGINNER_GRIMOIRE") :
+            (Archipelago.isChecked("SORCERESS_HUT_BEGINNERS_GRIMOIRE_ACID_RAIN") && Archipelago.isChecked("SORCERESS_HUT_BEGINNERS_GRIMOIRE_FIREBALL") && Archipelago.isChecked("SORCERESS_HUT_BEGINNERS_GRIMOIRE_TELEPORT"))
+
+        const haveAdvancedGrimoire = Archipelago.isGrimoireOption("GRIMOIRE") ?
+            Archipelago.isChecked("SORCERESS_HUT_ADVANCED_GRIMOIRE") :
+            (Archipelago.isChecked("SORCERESS_HUT_ADVANCED_GRIMOIRE_THORNS_SHIELD") && Archipelago.isChecked("SORCERESS_HUT_ADVANCED_GRIMOIRE_ERASE_MAGIC"))
         
         // If we didn't take the lollipop yet
         if(Saving.loadBool("sorceressHutTookLollipop") == false){
@@ -287,7 +304,7 @@ export class SorceressHut extends Place{
         }
         
         // If we didn't buy the grimoire yet
-        if(Saving.loadBool("sorceressHutBoughtGrimoire") == false){
+        if(!haveBeginnersGrimoire){
             // Draw the grimoire
             this.renderArea.drawArray(Database.getAscii("places/sorceressHut/grimoire"), x + 18, y + 8);
             // Add the button and the link
@@ -298,7 +315,7 @@ export class SorceressHut extends Place{
         }
         
         // If we didn't buy the second grimoire yet
-        if(Saving.loadBool("sorceressHutBoughtGrimoire2") == false){
+        if(!haveAdvancedGrimoire){
             // Draw the grimoire
             this.renderArea.drawArray(Database.getAscii("places/sorceressHut/grimoire2"), x + 30, y + 1);
             // Add the button and the link
