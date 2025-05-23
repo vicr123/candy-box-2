@@ -332,9 +332,6 @@ export class SorceressHut extends Place{
         // We took the lollipop
         Saving.saveBool("sorceressHutTookLollipop", true);
         
-        // Add 1 lollipop
-        this.getGame().getLollipops().add(1);
-        
         // Update
         this.update();
         this.getGame().updatePlace();
