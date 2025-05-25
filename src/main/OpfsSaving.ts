@@ -12,7 +12,7 @@ interface SaveFile {
 
 export module OpfsSaving {
     export function isSupported() {
-        return !!navigator.storage && !!navigator.storage.getDirectory;
+        return !!navigator.storage && !!navigator.storage.getDirectory && FileSystemFileHandle.prototype.createWritable;
     }
 
     export async function load() {
