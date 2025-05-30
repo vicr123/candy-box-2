@@ -88,6 +88,11 @@ export const ArchipelagoLocation = {
     BAKE_PAIN_AU_CHOCOLAT_3: 4902,
     BAKE_PAIN_AU_CHOCOLAT_4: 4903,
     BAKE_PAIN_AU_CHOCOLAT_5: 4904,
+    LOLLIPOP_FARM_EXTRA_1: 5000,
+    LOLLIPOP_FARM_EXTRA_2: 5001,
+    LOLLIPOP_FARM_EXTRA_3: 5002,
+    LOLLIPOP_FARM_EXTRA_4: 5003,
+    LOLLIPOP_FARM_EXTRA_5: 5004,
 } satisfies Record<string, number>
 
 export const ArchipelagoLocationRegion = {
@@ -199,7 +204,8 @@ export const ArchipelagoItem = {
     ERASE_MAGIC_SPELL: 69,
     THORNS_SHIELD_SPELL: 70,
     OBSIDIAN_WALL_SPELL: 71,
-    BLACK_DEMONS_SPELL: 72
+    BLACK_DEMONS_SPELL: 72,
+    FONT_TRAP: 73
 } satisfies Record<string, number>
 
 export const ArchipelagoItemBaseId = 7665000

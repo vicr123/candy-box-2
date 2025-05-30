@@ -1,15 +1,22 @@
 /* Body */
+@import url('https://fonts.googleapis.com/css2?family=Barrio&family=Comic+Relief&display=swap');
 
 :root {
     --foreground-color: black;
     --background-color: white;
     --selection-color: rgb(191, 191, 191);
+
+    --font-family: monospace;
 }
 
 body{
     margin: 0; /* No margin ! */
     overflow-y: scroll; /* In order to always show the vertical scrolling bar */
     text-align: center;
+}
+
+.font-trap {
+    --font-family: "Comic Relief";
 }
 
 #aroundStatusBar{
@@ -42,7 +49,7 @@ body{
 /* Pre tag */
 
 pre{
-    font-family: monospace; /* The pre tag will use the generic "monospace" font family, which should be the default anyway */
+    font-family: var(--font-family); /* The pre tag will use the generic "monospace" font family, which should be the default anyway */
     font-size: 1em;
 }
 
@@ -115,7 +122,7 @@ pre{
 }
 
 .asciiSelect{
-    font-family: monospace;
+    font-family: var(--font-family);
     position: absolute;
 }
 
@@ -130,7 +137,7 @@ pre{
 }
 
 .asciiTextInput{
-    font-family: monospace;
+    font-family: var(--font-family);
     position: absolute;
 }
 

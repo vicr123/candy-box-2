@@ -1,5 +1,5 @@
 {
-  "expectedClientVersion": "20250430-1+",
+  "expectedClientVersion": "20250525-1+",
   "locations": {
     "1": "Candy Box: HP Bar Unlock",
     "2": "Candy Box: Throw 1630 candies",
@@ -37,7 +37,7 @@
     "1808": "Sorceress' Hut: Advanced Grimoire - Erase Magic",
     "1809": "Sorceress' Hut: Advanced Grimoire - Thorns Shield",
     "1900": "Octopus King Quest: Octopus King Defeated",
-    "2000": "Monkey Wizard Quest: Money Wizard Defeated",
+    "2000": "Monkey Wizard Quest: Monkey Wizard Defeated",
     "2100": "Egg Room Quest: Chest Opened",
     "2300": "Hell Quest: Devil Defeated",
     "2400": "Developer Quest: The Developer Defeated",
@@ -87,7 +87,12 @@
     "4902": "Castle Bakehouse: Bake Pain au Chocolat 3",
     "4903": "Castle Bakehouse: Bake Pain au Chocolat 4",
     "4904": "Castle Bakehouse: Bake Pain au Chocolat 5",
-    "500": "The Mountains: Pogo Stick"
+    "500": "The Mountains: Pogo Stick",
+    "5000": "Lollipop Farm: Planted 30000 Lollipops",
+    "5001": "Lollipop Farm: Planted 40000 Lollipops",
+    "5002": "Lollipop Farm: Planted 50000 Lollipops",
+    "5003": "Lollipop Farm: Planted 60000 Lollipops",
+    "5004": "Lollipop Farm: Planted 70000 Lollipops"
   },
   "locationParents": {
     "2600": "VILLAGE_FORGE",
@@ -143,6 +148,11 @@
     "4001": "THE_XINOPHERYDON",
     "3900": "THE_TEAPOT",
     "4100": "THE_LEDGE_ROOM",
+    "5000": "LOLLIPOP_FARM",
+    "5001": "LOLLIPOP_FARM",
+    "5002": "LOLLIPOP_FARM",
+    "5003": "LOLLIPOP_FARM",
+    "5004": "LOLLIPOP_FARM",
     "2300": "HELL",
     "2400": "THE_DEVELOPER",
     "4500": "THE_SEA",
@@ -3508,6 +3518,226 @@
           ]
         ]
       ],
+      "5000": [
+        "and",
+        [
+          "and",
+          [
+            "and",
+            [
+              "and",
+              [
+                "and",
+                [
+                  "count",
+                  "lollipop",
+                  3,
+                  9
+                ],
+                [
+                  "room",
+                  "LOLLIPOP_FARM"
+                ]
+              ],
+              [
+                "room",
+                "LOLLIPOP_FARM"
+              ]
+            ],
+            [
+              "item",
+              7665046,
+              1
+            ]
+          ],
+          [
+            "item",
+            7665054,
+            1
+          ]
+        ],
+        [
+          "item",
+          7665056,
+          1
+        ]
+      ],
+      "5001": [
+        "and",
+        [
+          "and",
+          [
+            "and",
+            [
+              "and",
+              [
+                "and",
+                [
+                  "count",
+                  "lollipop",
+                  3,
+                  9
+                ],
+                [
+                  "room",
+                  "LOLLIPOP_FARM"
+                ]
+              ],
+              [
+                "room",
+                "LOLLIPOP_FARM"
+              ]
+            ],
+            [
+              "item",
+              7665046,
+              1
+            ]
+          ],
+          [
+            "item",
+            7665054,
+            1
+          ]
+        ],
+        [
+          "item",
+          7665056,
+          1
+        ]
+      ],
+      "5002": [
+        "and",
+        [
+          "and",
+          [
+            "and",
+            [
+              "and",
+              [
+                "and",
+                [
+                  "count",
+                  "lollipop",
+                  3,
+                  9
+                ],
+                [
+                  "room",
+                  "LOLLIPOP_FARM"
+                ]
+              ],
+              [
+                "room",
+                "LOLLIPOP_FARM"
+              ]
+            ],
+            [
+              "item",
+              7665046,
+              1
+            ]
+          ],
+          [
+            "item",
+            7665054,
+            1
+          ]
+        ],
+        [
+          "item",
+          7665056,
+          1
+        ]
+      ],
+      "5003": [
+        "and",
+        [
+          "and",
+          [
+            "and",
+            [
+              "and",
+              [
+                "and",
+                [
+                  "count",
+                  "lollipop",
+                  3,
+                  9
+                ],
+                [
+                  "room",
+                  "LOLLIPOP_FARM"
+                ]
+              ],
+              [
+                "room",
+                "LOLLIPOP_FARM"
+              ]
+            ],
+            [
+              "item",
+              7665046,
+              1
+            ]
+          ],
+          [
+            "item",
+            7665054,
+            1
+          ]
+        ],
+        [
+          "item",
+          7665056,
+          1
+        ]
+      ],
+      "5004": [
+        "and",
+        [
+          "and",
+          [
+            "and",
+            [
+              "and",
+              [
+                "and",
+                [
+                  "count",
+                  "lollipop",
+                  3,
+                  9
+                ],
+                [
+                  "room",
+                  "LOLLIPOP_FARM"
+                ]
+              ],
+              [
+                "room",
+                "LOLLIPOP_FARM"
+              ]
+            ],
+            [
+              "item",
+              7665046,
+              1
+            ]
+          ],
+          [
+            "item",
+            7665054,
+            1
+          ]
+        ],
+        [
+          "item",
+          7665056,
+          1
+        ]
+      ],
       "2300": [
         "and",
         [
@@ -5520,9 +5750,17 @@
         1
       ],
       "DESERT_FORTRESS": [
-        "item",
-        7665038,
-        1
+        "and",
+        [
+          "item",
+          7665038,
+          1
+        ],
+        [
+          "item",
+          7665008,
+          1
+        ]
       ],
       "THE_CELLAR": [
         "or",

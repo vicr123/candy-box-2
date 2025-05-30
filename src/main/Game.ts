@@ -166,6 +166,9 @@ Saving.registerNumber("gameGiftPower", 0);
 Saving.registerNumber("gameGiftHealth", 0);
 Saving.registerNumber("gameGiftMagic", 0);
 
+// Traps
+Saving.registerNumber("trapFontTimer", 0);
+
 // The gamemode
 Saving.registerString("gameGameMode", "normal");
 
@@ -1117,6 +1120,7 @@ export class Game{
         this.handleCandiesProduction();
         this.handleLollipopProduction();
         this.handlePondConversion();
+        this.handleTrapTimers();
         this.localAutosave();
 
         // Save the game
@@ -1166,5 +1170,29 @@ export class Game{
 
     public haveTouchControls() {
         return this.touchControls;
+    }
+
+    public handleTrapTimers() {
+        let remainingTime = Saving.loadNumber("trapFontTimer");
+        if (remainingTime > 0) {
+            remainingTime -= 1;
+            Saving.saveNumber("trapFontTimer", remainingTime);
+
+            if (!document.body.classList.contains("font-trap")) {
+                document.body.classList.add("font-trap");
+            }
+        } else {
+            if (document.body.classList.contains("font-trap")) {
+                document.body.classList.remove("font-trap");
+            }
+        }
+    }
+
+    public activateTrap(trap: "FONT_TRAP") {
+        Saving.saveNumber("trapFontTimer", Saving.loadNumber("trapFontTimer") + 60);
+
+        if (!document.body.classList.contains("font-trap")) {
+            document.body.classList.add("font-trap");
+        }
     }
 }

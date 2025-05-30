@@ -276,5 +276,8 @@ export function grantArchipelagoItem(game: Game, itemKey: keyof typeof Archipela
         case "OBSIDIAN_WALL_SPELL":
             game.gainItem("gridItemPossessedObsidianWallSpell");
             break;
+        case "FONT_TRAP":
+            game.activateTrap(itemKey);
+            break;
     }
 }

@@ -210,6 +210,10 @@ export namespace Archipelago {
         client.messages.say(message);
     }
 
+    export function hasLocation(location: keyof typeof ArchipelagoLocation) {
+        return client.room.allLocations.includes(ArchipelagoLocation[location]);
+    }
+
     export function isChecked(location: keyof typeof ArchipelagoLocation) {
         return client.room.checkedLocations.includes(ArchipelagoLocation[location]);
     }

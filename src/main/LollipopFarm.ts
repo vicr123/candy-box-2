@@ -16,6 +16,7 @@ import {Archipelago} from "../archipelago/Archipelago";
 import {Color} from "./Color";
 import { ColorType } from "./ColorType";
 import pluralFormat = Algo.pluralFormat;
+import {ArchipelagoLocation} from "../archipelago/ArchipelagoLocation";
 
 Saving.registerBool("lollipopFarmPlant1LollipopButtonUnlocked", false);
 Saving.registerBool("lollipopFarmPlant10LollipopsButtonUnlocked", false);
@@ -45,6 +46,14 @@ Saving.registerNumber("lollipopFarmPondConversionRate", 0);
 Saving.registerNumber("lollipopFarmPreviousCandiesProduction", 1);
 Saving.registerNumber("lollipopFarmCurrentCandiesProduction", 1);
 
+const LollipopFarmChecks = [
+    [30000, "LOLLIPOP_FARM_EXTRA_1"],
+    [40000, "LOLLIPOP_FARM_EXTRA_2"],
+    [50000, "LOLLIPOP_FARM_EXTRA_3"],
+    [60000, "LOLLIPOP_FARM_EXTRA_4"],
+    [70000, "LOLLIPOP_FARM_EXTRA_5"],
+] satisfies [number, keyof typeof ArchipelagoLocation][]
+
 export class LollipopFarm extends Place{
     // Render area
     private renderArea: RenderArea = new RenderArea();
@@ -60,7 +69,7 @@ export class LollipopFarm extends Place{
         super(game);
         
         // Resize the area
-        this.renderArea.resizeFromArray(Database.getAscii("places/lollipopFarm/lollipopFarm"), 0, 12);
+        this.renderArea.resizeFromArray(Database.getAscii("places/lollipopFarm/lollipopFarm"), 0, 14);
         
         // Update
         this.update();
@@ -75,6 +84,11 @@ export class LollipopFarm extends Place{
         this.addPondLine(new PondLine(4, 48));
         this.addPondLine(new PondLine(9, 45));
         this.addPondLine(new PondLine(12, 44));
+
+        Archipelago.client.room.on("locationsChecked", () => {
+            this.update();
+            this.getGame().updatePlace();
+        });
     }
 
     public static get welcomeMessage() {
@@ -237,6 +251,15 @@ export class LollipopFarm extends Place{
                 const productionMultiplicationString = ` ×${Archipelago.slotData.multipliers.lollipops} (Archipelago) `
                 this.renderArea.drawString(productionMultiplicationString, x + productionString.length + 1, y + 4);
                 this.renderArea.addBackgroundColor(x + productionString.length + 1, x + productionString.length + 1 + productionMultiplicationString.length, y + 4, new Color(ColorType.HEALTH_GREEN));
+            }
+        }
+
+        if (Saving.loadNumber("lollipopFarmLollipopsPlanted") > 20000) {
+            for (const [requirement, location] of LollipopFarmChecks) {
+                if (Archipelago.hasLocation(location) && !Archipelago.isChecked(location)) {
+                    this.renderArea.drawString(`Next check at ${Algo.numberToStringButNicely(requirement)} lollipops`, x, y + 6);
+                    break;
+                }
             }
         }
     }
@@ -448,6 +471,16 @@ export class LollipopFarm extends Place{
             this.getGame().calcLollipopFarmProduction();
             this.update();
             this.getGame().updatePlace();
+
+            for (const [requirement, location] of LollipopFarmChecks) {
+                this.checkLollipopFarmLocation(requirement, location);
+            }
+        }
+    }
+
+    private checkLollipopFarmLocation(lollipopRequirement: number, location: keyof typeof ArchipelagoLocation) {
+        if (Saving.loadNumber("lollipopFarmLollipopsPlanted") >= lollipopRequirement && Archipelago.hasLocation(location) && !Archipelago.isChecked(location)) {
+            Archipelago.check(location);
         }
     }
     
