@@ -413,7 +413,7 @@ export class ArchipelagoPlace extends Place {
     }
 
     private async startNewGame() {
-        if (__COMMITS_SINCE_LAST_TAG != "0" && !this.isBetaWarningAcknowledged) {
+        if (__COMMITS_SINCE_LAST_TAG != "0" && !this.isBetaWarningAcknowledged && Archipelago.apPage.current == "startInterstitial") {
             this.isAcknowledgementRequiredError = true;
             this.update();
             this.getGame().updatePlace();
