@@ -6,7 +6,7 @@ import "./main/string_prototype"
 import "./design.css"
 import "./archipelago/tracker/TrackerMain"
 
-declare const __VERSION: string;
+declare const __HEAD_COMMIT: string;
 declare const __VERSIONSTRING: string;
 
 $(document).ready(function(){
@@ -16,4 +16,4 @@ $(document).ready(function(){
 
 document.getElementById("version").innerText = __VERSIONSTRING;
 const permalinkEl = document.getElementById("versionPermalink") as HTMLAnchorElement;
-permalinkEl.href = `/${__VERSION}`
+permalinkEl.href = `/${__HEAD_COMMIT}`

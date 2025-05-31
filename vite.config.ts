@@ -1,5 +1,5 @@
 import {defineConfig} from "vite";
-import {commitsSinceLastTag, lastTag, versioningString} from "./versioning";
+import {commitsSinceLastTag, headCommit, lastTag, versioningString} from "./versioning";
 import i18nextLoader from "vite-plugin-i18next-loader"
 import {asciiArtProcessing} from "./asciiArtProcessing";
 import react from "@vitejs/plugin-react"
@@ -25,6 +25,7 @@ export default defineConfig({
         __LAST_TAG: JSON.stringify(lastTag),
         __COMMITS_SINCE_LAST_TAG: JSON.stringify(commitsSinceLastTag),
         __VERSION: JSON.stringify(versioningString),
-        __VERSIONSTRING: JSON.stringify(`${versioningString} AP (base ${upstreamBaseVersion})`)
+        __VERSIONSTRING: JSON.stringify(`${versioningString} AP (base ${upstreamBaseVersion})`),
+        __HEAD_COMMIT: JSON.stringify(headCommit)
     }
 })

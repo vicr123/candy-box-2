@@ -20,6 +20,8 @@ import {SaveManagementPlace} from "./SaveManagementPlace";
 import figlet from "figlet";
 import big from "figlet/importable-fonts/Big.js"
 
+declare const __COMMITS_SINCE_LAST_TAG: string;
+
 figlet.parseFont("Big", big)
 
 let chatMessage = "";
@@ -27,6 +29,9 @@ let chatMessage = "";
 export class ArchipelagoPlace extends Place {
     // The render area
     private renderArea: RenderArea = new RenderArea();
+
+    private isBetaWarningAcknowledged = false;
+    private isAcknowledgementRequiredError = false;
 
     private tabs: {text: string, page: ArchipelagoPlacePage}[] = [
         {
@@ -408,12 +413,59 @@ export class ArchipelagoPlace extends Place {
     }
 
     private async startNewGame() {
+        if (__COMMITS_SINCE_LAST_TAG != "0" && !this.isBetaWarningAcknowledged) {
+            this.isAcknowledgementRequiredError = true;
+            this.update();
+            this.getGame().updatePlace();
+            return;
+        }
+
         await Saving.load(this.getGame(), MainLoadingType.LOCAL);
         this.gameLoaded();
     }
 
     private renderStartInterstitial(y: number) {
         let yAdd = 0;
+
+        if (__COMMITS_SINCE_LAST_TAG != "0") {
+            this.renderArea.drawString(" &lt;!&gt; WARNING", 0, y + yAdd)
+            this.renderArea.drawString("Before you start playing on this world, please be aware that you have generated this world on a beta.", 0, y + yAdd + 1)
+            this.renderArea.drawString("If you intend to play this version long-term, you need to bookmark the \"permalink to this version\"", 0, y + yAdd + 2)
+            this.renderArea.drawString("in the bottom left corner of this page NOW, and use this version every time you play on this world.", 0, y + yAdd + 3)
+            this.renderArea.drawString("However, please consider using the stable version of the apworld and generating a new world if you", 0, y + yAdd + 5)
+            this.renderArea.drawString("intend to play long-term. You can find the latest stable apworld here.", 0, y + yAdd + 6)
+            this.renderArea.drawString("If you decide to continue on this world, the automatic version redirection feature may not work.", 0, y + yAdd + 8)
+
+            this.renderArea.addBackgroundColor(1, 10, y + yAdd, new Color(ColorType.HEALTH_ORANGE));
+            this.renderArea.addColor(11, 18, y + yAdd, new Color(ColorType.HEALTH_ORANGE));
+            this.renderArea.addBold(11, 18, y + yAdd);
+            this.renderArea.addBackgroundColor(39, 42, y + yAdd + 3, new Color(ColorType.HEALTH_RED));
+            this.renderArea.addBold(39, 42, y + yAdd + 3)
+
+            this.renderArea.addBold(0, 99, y + yAdd + 5);
+            this.renderArea.addBold(0, 25, y + yAdd + 6);
+            this.renderArea.addHtmlLink(65, y + yAdd + 6, "https://github.com/vicr123/Archipelago/releases/tag/20250525-1", "here");
+
+            this.renderArea.addCheckbox(0, y + yAdd + 10, new CallbackCollection(() => this.isBetaWarningAcknowledged = true), new CallbackCollection(() => this.isBetaWarningAcknowledged = false), "betaWarningAcknowledged", this.isBetaWarningAcknowledged);
+            this.renderArea.drawString("I have read the above warning.", 4, y + yAdd + 10);
+
+            this.renderArea.addAsciiRealButton(Database.getText("apBackupStartNewGame"), 11, y + yAdd + 12, "startNewGame", Database.getTranslatedText("apBackupStartNewGame"));
+            this.renderArea.addLinkCall(".startNewGame", new CallbackCollection(this.startNewGame.bind(this)));
+
+            if (this.isAcknowledgementRequiredError) {
+                this.renderArea.drawString("Please read and acknowledge the above before starting.", 0, y + yAdd + 14)
+                this.renderArea.addColor(0, 54, y + yAdd + 14, new Color(ColorType.HEALTH_RED));
+            }
+
+            if (Archipelago.apCountdown.current) {
+                const countdownText = figlet.textSync(Archipelago.apCountdown.current.toString(), {
+                    font: "Big"
+                }).split("\n");
+                this.renderArea.drawArray(countdownText, 50 - countdownText[0].length / 2, y + yAdd + 16);
+            }
+            return;
+        }
+
         this.renderArea.drawString(Database.getText("apStartInterstitialText"), 0, y + yAdd)
         if (Database.isTranslated()) {
             this.renderArea.drawString(Database.getTranslatedText("apStartInterstitialText"), 0, y + yAdd + 9, true)
