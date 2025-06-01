@@ -7,6 +7,7 @@
   "locationNotDiscovered": "This location has not yet been discovered",
   "showRouteAnyway": "Show route anyway",
   "findLocation": "Nav",
+  "locationsChecked": "Locations checked: {{checked}}/{{total}}",
   "THE_CELLAR": "The Cellar",
   "THE_DESERT": "The Desert",
   "THE_BRIDGE": "The Bridge",

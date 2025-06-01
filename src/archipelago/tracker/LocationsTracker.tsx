@@ -15,7 +15,9 @@ export function LocationsTracker() {
             loadedDataPackage,
         },
         archipelagoData: {
-            locationName
+            locationName,
+            checkedLocations,
+            allLocations
         },
         setCurrentTab
     } = useTracker();
@@ -23,6 +25,10 @@ export function LocationsTracker() {
     const {t} = useTranslation();
 
     return <div className={Styles.locations}>
+        <span>{t("locationsChecked", {
+            checked: checkedLocations.length,
+            total: allLocations.length
+        })}</span>
         {availableLocations.length == 0 && <div className={Styles.noLocations}>{t("noLocations")}</div>}
         {availableLocations.length > 0 && <div className={Styles.locationsGrid}>
             {availableLocations.map(location => <div className={Styles.locationLine} key={location}>
