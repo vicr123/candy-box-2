@@ -189,14 +189,14 @@ export class ArchipelagoNotificationDrawer {
         })
         Archipelago.events.on("itemToBeProcessed",(item: Item) => {
             if (item.sender.name == Archipelago.client.name && item.receiver.name == Archipelago.client.name) {
-                this.enqueueNotification(new ArchipelagoNotification("selfgive", item.name, item.receiver.name));
+                this.enqueueNotification(new ArchipelagoNotification("selfgive", item.name, item.receiver.alias));
             } else if (item.receiver.name == Archipelago.client.name) {
-                this.enqueueNotification(new ArchipelagoNotification("get", item.name, item.sender.name));
+                this.enqueueNotification(new ArchipelagoNotification("get", item.name, item.sender.alias));
             }
         })
         Archipelago.client.messages.on("itemSent", (_, item) => {
             if (item.sender.name == Archipelago.client.name && item.receiver.name != Archipelago.client.name) {
-                this.enqueueNotification(new ArchipelagoNotification("give", item.name, item.receiver.name, item.progression, item.useful, item.trap));
+                this.enqueueNotification(new ArchipelagoNotification("give", item.name, item.receiver.alias, item.progression, item.useful, item.trap));
             }
         })
 

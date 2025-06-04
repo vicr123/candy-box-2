@@ -103,10 +103,10 @@ export module Algo{
     }
 
     export function itemName(item: Item) {
-        return `${posessive(item.receiver.name, "en")} ${item.name}`;
+        return `${posessive(item.receiver.alias, "en")} ${item.name}`;
     }
 
     export function sentItem(item: Item) {
-        return `${item.name} to ${item.receiver.name}`;
+        return `${item.name} to ${item.receiver.alias}`;
     }
 }
