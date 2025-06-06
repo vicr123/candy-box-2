@@ -408,7 +408,9 @@ export class ArchipelagoPlace extends Place {
     }
 
     private async startNewGame() {
+        console.log("Game start requested");
         await Saving.load(this.getGame(), MainLoadingType.LOCAL);
+        console.log("Loaded save file");
         this.gameLoaded();
     }
 
@@ -482,26 +484,38 @@ export class ArchipelagoPlace extends Place {
         // }
 
         if (!await Archipelago.connect()) {
+            console.log("Connection failed - Archipelago.connect() returned false")
             return;
         }
+
+        console.log("Checking save data");
+        console.log(`OPFS is supported: ${OpfsSaving.isSupported()}`)
+        console.log(`Have OPFS save: ${OpfsSaving.isSupported() && await OpfsSaving.haveSave()}`)
+        console.log(`Have local save: ${!OpfsSaving.isSupported() && LocalSaving.haveSave()}`)
 
         if ((OpfsSaving.isSupported() && !await OpfsSaving.haveSave()) || (!OpfsSaving.isSupported() && !LocalSaving.haveSave())) {
             if (ArchipelagoSaving.haveSave()) {
                 // We need to ask what the user wants to do
+                console.log("Asking user if they want to restore AP backup")
                 Archipelago.apPage.current = "backupRestore";
                 return;
             } else {
+                console.log("Showing start interstitial")
                 Archipelago.apPage.current = "startInterstitial";
                 return;
             }
         }
 
+        console.log("Found a save - starting game");
         await this.startNewGame();
     }
 
     private gameLoaded() {
+        console.log("Starting Post load");
         this.getGame().postLoad();
+        console.log("Finalising connection");
         Archipelago.finaliseConnection();
+        console.log("Game start complete");
     }
 
     private disconnectFromAp() {

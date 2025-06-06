@@ -169,6 +169,9 @@ export namespace Archipelago {
                 connectionStatus.current = "disconnected";
                 interruptGame(true);
             })
+
+            console.log("Connected to AP");
+
             return true;
         } catch (e) {
             connectionStatus.current = "disconnected";
