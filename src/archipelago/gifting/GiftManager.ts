@@ -70,6 +70,10 @@ export class GiftManager extends EventBasedManager<GiftEvents> {
         return motherbox[slot.toString()];
     }
 
+    public async fetchGifts() {
+        await this.client.storage.fetch([this.giftboxStorageKey()], false);
+    }
+
     public gifts() {
         const giftbox = this.client.storage.store[this.giftboxStorageKey()] as unknown as Record<string, NetworkGift> ?? [];
         return Object.values(giftbox).map((giftbox) => ({
