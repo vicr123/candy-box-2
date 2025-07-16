@@ -108,7 +108,7 @@ export class CandyMerchantItem{
     public getMerchantSpeechArgs() {
         return {
             player: posessive(this.merchantSpeech.receiver.alias),
-            item: this.merchantSpeech.name,
+            item: this.merchantSpeech.name.slice(0, 30),
             game: this.merchantSpeech.game,
             count: this.price
         }
