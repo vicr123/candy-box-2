@@ -18,6 +18,7 @@ import {GiftTraitType} from "./gifting/GiftTrait";
 import { Gift } from "./gifting/Gift";
 import {Game} from "../main/Game";
 import {ArchipelagoSaving} from "./ArchipelagoSaving";
+import {i18n} from "../i18n";
 
 declare const __LAST_TAG: string;
 declare const __COMMITS_SINCE_LAST_TAG: string;
@@ -84,10 +85,34 @@ function createObservable<T>(initialValue: T, eventEmitter: EventEmitter<Archipe
     })
 }
 
+function extractLoginArgument(type: "apUrl" | "apSlot" | "password") {
+    const url = new URL(window.location.href);
+    switch (type) {
+        case "apUrl":
+            if (url.searchParams.has("hostport")) {
+                return url.searchParams.get("hostport");
+            } else {
+                return localStorage.getItem("apUrl") ?? "";
+            }
+        case "apSlot":
+            if (url.searchParams.has("name")) {
+                return url.searchParams.get("name");
+            } else {
+                return localStorage.getItem("apSlot") ?? "";
+            }
+        case "password":
+            if (url.searchParams.has("password")) {
+                return url.searchParams.get("password");
+            } else {
+                return "";
+            }
+    }
+}
+
 export namespace Archipelago {
-    export let apLink = localStorage.getItem("apUrl") ?? "";
-    export let apSlot = localStorage.getItem("apSlot") ?? "";
-    export let apPassword = "";
+    export let apLink = extractLoginArgument("apUrl");
+    export let apSlot = extractLoginArgument("apSlot");
+    export let apPassword = extractLoginArgument("password");
     export let localSaveSlot = "";
     export let slotData: ArchipelagoSlotData;
 

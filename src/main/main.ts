@@ -72,6 +72,9 @@ export module Main{
         game.postLoad();
 
         // We go to Archipelago configuration
-        game.goToArchipelago();
+        const apPlace = game.goToArchipelago();
+
+        // Kick off Archipelago login if requested
+        apPlace.kickoff();
     }
 }

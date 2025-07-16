@@ -747,9 +747,12 @@ export class Game{
     //     this.setPlace(new TheArena(this));
     // }
 
-    public goToArchipelago(): void{
+    public goToArchipelago() {
+        const apPlace = new ArchipelagoPlace(this);
         this.saveCurrentMapPlace();
-        this.setPlace(new ArchipelagoPlace(this));
+        this.setPlace(apPlace);
+
+        return apPlace;
     }
     
     public goToTheCave(): void{

@@ -19,6 +19,7 @@ import {OpfsSaving} from "../main/OpfsSaving";
 import {SaveManagementPlace} from "./SaveManagementPlace";
 import figlet from "figlet";
 import big from "figlet/importable-fonts/Big.js"
+import {i18n} from "../i18n";
 
 declare const __COMMITS_SINCE_LAST_TAG: string;
 
@@ -93,6 +94,19 @@ export class ArchipelagoPlace extends Place {
         super.willStopBeingDisplayed();
 
         RenderAreaEvents.off("scrollChanged", this.scrollChanged);
+    }
+
+    kickoff() {
+        // Kickoff automatic login
+        const url = new URL(window.location.href);
+        if (url.searchParams.has("go", "LS")) {
+            if (!url.searchParams.has("hostport") || !url.searchParams.has("name")) {
+                alert(Database.getText("kickoffError"));
+                return;
+            }
+
+            this.connectToAp();
+        }
     }
 
     private scrollChanged = () => {
@@ -528,7 +542,7 @@ export class ArchipelagoPlace extends Place {
         })
     }
 
-    private async connectToAp(event: JQuery.MouseUpEvent | JQuery.TouchEndEvent) {
+    private async connectToAp(event?: JQuery.MouseUpEvent | JQuery.TouchEndEvent) {
         // if (event.type == "touchend") {
         //     this.getGame().setTouchControls(confirm("Enable experimental touch controls?"))
         // }
