@@ -9,6 +9,10 @@ import {Pos} from "./Pos";
 import {CallbackCollection} from "./CallbackCollection";
 import {GridItem} from "./GridItem";
 import {Saving} from "./Saving";
+import {Archipelago} from "../archipelago/Archipelago";
+import {Item} from "archipelago.js";
+import {ArchipelagoItem, ArchipelagoItemBaseId} from "../archipelago/ArchipelagoLocation";
+import {grantArchipelagoItem} from "../archipelago/ArchipelagoItemProcessing";
 
 export class Inventory extends Place{
     // Render area
@@ -24,7 +28,13 @@ export class Inventory extends Place{
         
         // Resize the area
         this.renderArea.resize(99, 88 + (this.inventoryRows - 2) * 12);
-        
+
+        Archipelago.events.on("itemToBeProcessed", () => {
+            this.update();
+            this.getGame().updatePlace();
+        })
+
+
         // Update
         this.update();
     }
