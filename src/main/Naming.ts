@@ -17,7 +17,10 @@ export class Naming{
         return this.anywhere;
     }
     
-    public getBeginning(): string{
+    public getBeginning(isDeathLink?: boolean, slotName?: string): string{
+        if (isDeathLink && this.beginning == "You") {
+            return slotName;
+        }
         return this.beginning;
     }
 }

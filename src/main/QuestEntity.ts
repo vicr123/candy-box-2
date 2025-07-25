@@ -245,10 +245,10 @@ export class QuestEntity{
         return this.spellCastingDamageReason;
     }
     
-    public getDeathMessage(slotName?: string): string{
+    public getDeathMessage(slotName?: string, isDeathLink?: boolean): string{
         // If there's a last damage reason
         if(this.getLastDamageReason() != null){
-            return this.getLastDamageReason().getWhoNaming().getBeginning() + " killed " + (slotName ?? this.naming.getAnywhere()) + " with " + this.getLastDamageReason().getWhatNaming().getAnywhere() + ".";
+            return this.getLastDamageReason().getWhoNaming().getBeginning(isDeathLink, slotName) + " killed " + (slotName ?? this.naming.getAnywhere()) + " with " + this.getLastDamageReason().getWhatNaming().getAnywhere() + ".";
         }
         
         // Else

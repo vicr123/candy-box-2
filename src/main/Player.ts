@@ -64,7 +64,7 @@ export class Player extends QuestEntity{
         super.willDie();
 
         if (!this.getLastDamageReason().isDeathLink) {
-            Archipelago.client.deathLink.sendDeathLink(Archipelago.client.name, this.getDeathMessage(Archipelago.client.name));
+            Archipelago.client.deathLink.sendDeathLink(Archipelago.client.name, this.getDeathMessage(Archipelago.client.name, true));
         }
     }
 
