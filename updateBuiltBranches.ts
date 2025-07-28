@@ -18,16 +18,17 @@ if (process.argv.length != 3) {
 
 const builtTreeFolder = process.argv[2];
 
-const folders = [];
+const folders = new Set<string>();
 if (isOnArchipelagoBranch) {
-    folders.push(versioningString)
+    folders.add(versioningString)
     if (!latestCommitIsTag) {
-        folders.push(`${lastTag}+`);
-        folders.push("latest-blueprint");
+        folders.add(`${lastTag}+`);
+        folders.add("latest-blueprint");
     }
 }
 if (latestCommitIsTag) {
-    folders.push("latest");
+    folders.add(versioningString)
+    folders.add("latest");
 }
 
 console.log(`Building client for commit ${headCommit}`)
