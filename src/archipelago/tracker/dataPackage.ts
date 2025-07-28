@@ -124,13 +124,13 @@ function coreEvaluate(archipelagoData: ArchipelagoData, loadedDataPackage: Track
 
 function coreRouteTo(archipelagoData: ArchipelagoData, loadedDataPackage: TrackerDataPackage, room: ArchipelagoEntrance): ArchipelagoRoom[] {
     // Find this room in ER and go to its entrance
-    const entranceTaken = archipelagoData.entranceRandomisationData.find(([, destination]) => destination == room)?.[0] as ArchipelagoEntrance;
+    const entranceTaken = archipelagoData.entranceRandomisationData.find(([, destination]) => destination == room)?.[0] as ArchipelagoEntrance ?? room;
     if (entranceTaken == "THE_X_POTION") {
         return [entranceTaken]
     }
 
     // Find the entrance in the possibility graph
-    const parentRoom = Object.entries(loadedDataPackage.roomExits).find(([, entrances]) => entrances.includes(entranceTaken))?.[0] as ArchipelagoRoom;
+    const parentRoom = Object.entries(loadedDataPackage.roomExits).find(([, entrances]) => entrances.includes(entranceTaken))?.[0] as ArchipelagoRoom ?? room;
     if (!parentRoom) {
         return [];
     }
