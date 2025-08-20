@@ -464,7 +464,7 @@
   "saveApLastSave": "Dernière sauvegarde Archipelago : {{date}}",
   "saveApLastSaveNone": "Aucune sauvegarde trouvée sur Archipelago",
   "loadApLoadTitle": "Charger depuis Archipelago",
-  "loadApLoadDescription": "Charger votre sauvegarde Archipelago will cause the current save to be overwritten.",
+  "loadApLoadDescription": "Charger votre sauvegarde Archipelago effacera votre sauvegarde locale.",
   "loadApLoadNow": "Charger la sauvegarde Archipelago",
   "loadApLastSaveNone": "Pour charger une sauvegarde Archipelago, vous devez créer une sauvegarde Archipelago ci-dessus.",
   "apBackupFoundText": "Aucune sauvegarde n\u0027a été trouvée sur ce navigateur, cependant, des données de sauvegarde ont été trouvées sur Archipelago.",
