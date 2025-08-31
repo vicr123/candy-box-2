@@ -1,5 +1,5 @@
 {
-  "expectedClientVersion": "20250525-1+",
+  "expectedClientVersion": "20250806-1+",
   "locations": {
     "1": "Candy Box: HP Bar Unlock",
     "2": "Candy Box: Throw 1630 candies",
@@ -336,51 +336,11 @@
           1
         ]
       ],
-      "2800": [
-        "and",
-        [
-          "and",
-          [
-            "and",
-            [
-              "and",
-              [
-                "and",
-                [
-                  "count",
-                  "lollipop",
-                  3,
-                  9
-                ],
-                [
-                  "room",
-                  "LOLLIPOP_FARM"
-                ]
-              ],
-              [
-                "room",
-                "LOLLIPOP_FARM"
-              ]
-            ],
-            [
-              "item",
-              7665046,
-              1
-            ]
-          ],
-          [
-            "item",
-            7665054,
-            1
-          ]
-        ],
-        [
-          "item",
-          7665056,
-          1
-        ]
+      "2700": [
+        "location",
+        2601
       ],
-      "2900": [
+      "2800": [
         "and",
         [
           "and",
@@ -427,9 +387,66 @@
           ]
         ],
         [
-          "item",
-          7665008,
-          3
+          "location",
+          2700
+        ]
+      ],
+      "2900": [
+        "and",
+        [
+          "and",
+          [
+            "and",
+            [
+              "and",
+              [
+                "and",
+                [
+                  "and",
+                  [
+                    "and",
+                    [
+                      "count",
+                      "lollipop",
+                      3,
+                      9
+                    ],
+                    [
+                      "room",
+                      "LOLLIPOP_FARM"
+                    ]
+                  ],
+                  [
+                    "room",
+                    "LOLLIPOP_FARM"
+                  ]
+                ],
+                [
+                  "item",
+                  7665046,
+                  1
+                ]
+              ],
+              [
+                "item",
+                7665054,
+                1
+              ]
+            ],
+            [
+              "item",
+              7665056,
+              1
+            ]
+          ],
+          [
+            "location",
+            1300
+          ]
+        ],
+        [
+          "location",
+          2800
         ]
       ],
       "3000": [
@@ -481,14 +498,13 @@
             ]
           ],
           [
-            "item",
-            7665008,
-            3
+            "room",
+            "DRAGON"
           ]
         ],
         [
-          "room",
-          "DRAGON"
+          "location",
+          2900
         ]
       ],
       "300": [

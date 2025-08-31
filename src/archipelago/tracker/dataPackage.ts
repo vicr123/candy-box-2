@@ -32,6 +32,10 @@ type TrackerRuleExpression =
     // "room", room code
     ["room", ArchipelagoRoom] |
 
+    // Location expression
+    // "location", location code
+    ["location", number] |
+
     // Count Expression
     // "count", item, inequality, number required
     // inequality: 0 = equal to
@@ -89,6 +93,9 @@ function coreEvaluate(archipelagoData: ArchipelagoData, loadedDataPackage: Track
         case "room":
             const [, room] = expression;
             return coreReachable(archipelagoData, loadedDataPackage, room);
+        case "location":
+            const [, locationId] = expression;
+            return archipelagoData.checkedLocations.includes(locationId);
         case "count":
             const [, item, inequality, count] = expression;
             const itemCount =
