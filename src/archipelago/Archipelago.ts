@@ -566,8 +566,9 @@ export function findCompatibleSendableItem(traits: GiftTraitType[]) {
 
     let maxDistance = items.reduce((acc, item ) => Math.max(acc, item.missing.length + item.surplus.length), 0)
     const weightedItems = items
-        .flatMap(item => Array(maxDistance + 1 - (item.surplus.length + item.surplus.length))
-        .map(() => item))
+        .flatMap(item =>
+            Array(maxDistance + 1 - (item.missing.length + item.surplus.length)).map(() => item)
+        )
         .filter(x => (x.missing.length + x.surplus.length) <= (traits.length * 1.5))
 
     if (weightedItems.length > 0)
