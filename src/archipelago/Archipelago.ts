@@ -559,7 +559,7 @@ export function findCompatibleSendableItem(traits: GiftTraitType[]) {
     }
 
     let maxSurplus = items.filter(item => item.missing.length == 0).reduce((acc, item )=> Math.max(acc, item.surplus.length), 0);
-    const surplusOnly = items.flatMap(item => Array(maxSurplus + 1 - item.surplus.length).map(() => item))
+    const surplusOnly = items.filter(item => item.missing.length == 0).flatMap(item => Array(maxSurplus + 1 - item.surplus.length).map(() => item))
 
     if (surplusOnly.length > 0)
         return surplusOnly[Math.floor(Math.random()*surplusOnly.length)].item
