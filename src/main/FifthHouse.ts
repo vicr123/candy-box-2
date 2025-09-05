@@ -63,7 +63,7 @@ export class FifthHouse extends House{
             this.renderArea.addLinkCall(".mapVillageFifthHouseAgreeButton", new CallbackCollection(this.beginQuest.bind(this)));
         }
         // Else if this quest is the egg quest
-        else if (Archipelago.findExit("THE_CELLAR") == "The Castle Egg Room") {
+        else if (Archipelago.findExit("THE_CELLAR") == "THE_CASTLE_EGG_ROOM") {
             // Draw the speech
             this.renderArea.drawSpeech(Database.getText("mapVillageFifthHouseEggSpeech"), 6, 44, 67, "fifthHouseSpeech", Database.getTranslatedText("mapVillageFifthHouseEggSpeech"));
 
