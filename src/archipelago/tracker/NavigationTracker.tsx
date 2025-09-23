@@ -22,7 +22,7 @@ export function NavigationTracker() {
 
     return <div className={Styles.navigation}>
         <select className={Styles.selection} onChange={e => setCurrentDestination(e.target.value as ArchipelagoEntrance)} value={currentDestination}>
-            {Object.values(loadedDataPackage?.roomExits ?? {}).flat().map(exit => <option key={exit} value={exit}>{t(exit)}</option>)}
+            {Object.values(loadedDataPackage?.roomExits ?? {}).flat().sort((a, b) => t(a).localeCompare(t(b))).map(exit => <option key={exit} value={exit}>{t(exit)}</option>)}
         </select>
         {hideUndiscoveredLocation && !locationDiscovered ? <div className={[Styles.navigationBody, Styles.navigationNotFound].join(" ")}>
             <div>{t("locationNotDiscovered")}</div>
