@@ -126,7 +126,8 @@ export const ArchipelagoLocationRegion = {
     TEAPOT_ROOM: ArchipelagoLocation.GIANT_SPOON_ACQUIRED,
     THE_BRIDGE: ArchipelagoLocation.BRIDGE_QUEST,
     X_ROOM: ArchipelagoLocation.BOOTS_OF_INTROSPECTION_ACQUIRED,
-    DIG_SPOT: ArchipelagoLocation.X_MARKS_THE_SPOT
+    DIG_SPOT: ArchipelagoLocation.X_MARKS_THE_SPOT,
+    LIGHTHOUSE: ArchipelagoLocation.SOLVE_CYCLOPS_PUZZLE
 } satisfies Record<string, number>
 
 export type ScoutKeys = (keyof typeof ArchipelagoLocationRegion)[];

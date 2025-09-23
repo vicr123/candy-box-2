@@ -8,6 +8,9 @@ import {Game} from "./Game";
 import {Database} from "./Database";
 import {CallbackCollection} from "./CallbackCollection";
 import {Pos} from "./Pos";
+import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
+import {Algo} from "./Algo";
+import posessive = Algo.posessive;
 
 Saving.registerBool("lighthousePuzzleDone", false);
 
@@ -42,10 +45,18 @@ export class Lighthouse extends Place{
         this.update();
     }
 
+    scoutKeys(): ScoutKeys {
+        return ["LIGHTHOUSE"]
+    }
+
+    scoutShouldHint(): boolean {
+        return false;
+    }
+
     public static get welcomeMessage() {
         return "You visit the lighthouse."
     }
-    
+
     // getRenderArea()
     public getRenderArea(): RenderArea{
         return this.renderArea;
@@ -71,7 +82,11 @@ export class Lighthouse extends Place{
         
         // Draw the speech if there's a speech id
         if(this.speechId != null){
-            this.renderArea.drawSpeech(Database.getText(this.speechId), 17, 75, 99, "lighthouseSpeech", Database.getTranslatedText(this.speechId));
+            const item = this.itemScoutResults.findItem("SOLVE_CYCLOPS_PUZZLE");
+            this.renderArea.drawSpeech(Database.getText(this.speechId, {
+                player: posessive(item.receiver.name, "en"),
+                item: item.name
+            }), 17, 75, 99, "lighthouseSpeech", Database.getTranslatedText(this.speechId));
         }
         
         // If we should show the puzzle

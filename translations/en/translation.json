@@ -244,7 +244,7 @@
     "lighthouseQuestionCandyBoxSpeech": "It is a very old box that is said to contain all the candies in the world. The legends say that whoever manages to open it would have so much candies that anything could be possible.",
     "lighthouseQuestionDragon": "The dragon told me to come here because I want candies.",
     "lighthouseQuestionDragonSpeech": "Oh, I see... Well, I cannot provide you candies directly, but I can give you something essential for you to ultimately get a LOT of candies. I just need to test you before that. Because what I have can't be given to everyone. Solve this puzzle and it will be yours.",
-    "lighthouseFoundStone": "Congratulations! You passed the test and found the stone. It's very precious, but is only useful if you have three other stones like this one. Good luck!",
+    "lighthouseFoundStone": "Congratulations! You passed the test. Here's {{player}} {{item}}. I hope they will like it. Good luck!",
     "lighthouseFoundStoneAgain": "Good job, you did the puzzle once again. You seem to like that.",
     "saveLocalSaveTitle": "Browser save",
     "saveLocalSaveWhy": "Choose local save if you want to keep playing on your current device and browser.",
