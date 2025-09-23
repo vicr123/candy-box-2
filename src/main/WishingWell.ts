@@ -251,6 +251,9 @@ export class WishingWell extends Place{
         
         // We re-create the lists
         this.createPossibleEnchantments();
+
+        // We reset the selected enchantment
+        this.selectedEnchantmentId = "wishingWellPossibleEnchantment0";
         
         // Set the speech
         this.currentSpeech = "wishingWellEnchantmentDoneSpeech";
