@@ -87,7 +87,7 @@ export function getItemString(occurrence: ItemTextOccurrence, item: Item, cost?:
                 // Special case: the Sorceress doesn't have anything to say after you buy normally
                 return "";
             case "hoven":
-                break;
+                return Database.getText("castleBigRoomHovenSpeechMadePainAuChocolat", args);
             case "cyclops":
                 break;
         }

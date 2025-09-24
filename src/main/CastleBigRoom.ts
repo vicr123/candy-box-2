@@ -10,6 +10,7 @@ import {CallbackCollection} from "./CallbackCollection";
 import {ArchipelagoLocation, ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
 import {Archipelago, ScoutResults} from "../archipelago/Archipelago";
 import { Algo } from "./Algo";
+import {getItemString} from "../item-text/ItemText";
 
 Saving.registerBool("castleBigRoomHovenHappy", false);
 Saving.registerBool("castleBigRoomHovenSadAgain", false);
@@ -107,13 +108,22 @@ export class CastleBigRoom extends CastleRoom{
         const nextAvailableCheck = this.nextAvailableCheck();
         const scoutedItem = this.itemScoutResults?.findItem(nextAvailableCheck);
 
-        this.renderArea.drawSpeech(Database.getText(this.currentSpeech, {
-            receiver: Algo.posessive(scoutedItem?.receiver.name ?? ""),
-            item: scoutedItem?.name
-        }), y, x, x + 30, "CastleBigRoomHovenSpeech", Database.getTranslatedText(this.currentSpeech, {
-            receiver: Algo.posessive(scoutedItem?.receiver.name ?? ""),
-            item: scoutedItem?.name
-        }));
+        let text: string;
+        let translatedText: string;
+        if (this.currentSpeech == "castleBigRoomHovenSpeechMadePainAuChocolat") {
+            text = getItemString("hoven", scoutedItem);
+        } else {
+            text = Database.getText(this.currentSpeech, {
+                receiver: Algo.posessive(scoutedItem?.receiver.name ?? ""),
+                item: scoutedItem?.name
+            });
+
+            translatedText = Database.getTranslatedText(this.currentSpeech, {
+                receiver: Algo.posessive(scoutedItem?.receiver.name ?? ""),
+                item: scoutedItem?.name
+            })
+        }
+        this.renderArea.drawSpeech(text, y, x, x + 30, "CastleBigRoomHovenSpeech", translatedText);
     }
 
     private nextAvailableCheck() {
