@@ -13,6 +13,7 @@ import {san} from "../utils";
 import {Item} from "archipelago.js";
 import {Algo} from "./Algo";
 import posessive = Algo.posessive;
+import {getItemString} from "../item-text/ItemText";
 
 Saving.registerApLocation("sorceressHutTookLollipop", "SORCERESS_HUT_LOLLIPOP");
 Saving.registerApLocation("sorceressHutBoughtCauldron", "SORCERESS_HUT_CAULDRON");
@@ -65,7 +66,7 @@ export class SorceressHut extends Place{
             this.getGame().getLollipops().add(-100000); // We spend the lollipops
             Saving.saveBool("sorceressHutBoughtCauldron", true); // We now bought the cauldron
             this.getGame().updateStatusBar(true); // We update the status bar
-            this.currentSpeech = ""; // We set the speech
+            this.currentSpeech = "sorceressHutBoughtSpeech"; // We set the speech
             // We update
             this.update();
             this.getGame().updatePlace();
@@ -83,7 +84,7 @@ export class SorceressHut extends Place{
                 Archipelago.check("SORCERESS_HUT_BEGINNERS_GRIMOIRE_FIREBALL");
                 Archipelago.check("SORCERESS_HUT_BEGINNERS_GRIMOIRE_ACID_RAIN");
             }
-            this.currentSpeech = ""; // We set the speech
+            this.currentSpeech = "sorceressHutBoughtSpeech"; // We set the speech
             // We update
             this.update();
             this.getGame().updatePlace();
@@ -100,7 +101,7 @@ export class SorceressHut extends Place{
                 Archipelago.check("SORCERESS_HUT_ADVANCED_GRIMOIRE_ERASE_MAGIC");
                 Archipelago.check("SORCERESS_HUT_ADVANCED_GRIMOIRE_THORNS_SHIELD");
             }
-            this.currentSpeech = ""; // We set the speech
+            this.currentSpeech = "sorceressHutBoughtSpeech"; // We set the speech
             // We update
             this.update();
             this.getGame().updatePlace();
@@ -112,7 +113,7 @@ export class SorceressHut extends Place{
         if(this.getGame().getLollipops().getCurrent() >= Archipelago.slotData.prices.sorceressHat){
             this.getGame().getLollipops().add(-Archipelago.slotData.prices.sorceressHat); // We spend the lollipops
             Saving.saveBool("sorceressHutBoughtHat", true); // We now bought the hat
-            this.currentSpeech = ""; // We set the speech
+            this.currentSpeech = "sorceressHutBoughtSpeech"; // We set the speech
             // We update
             this.update();
             this.getGame().updatePlace();
@@ -224,13 +225,15 @@ export class SorceressHut extends Place{
                     break;
                 case 1: {
                     const selectedItem = this.selectedItem[0];
-                    const args = {
-                        player: posessive(selectedItem.receiver.name),
-                        item: selectedItem.name,
-                        game: selectedItem.game,
-                        count: this.selectedPrice
-                    };
-                    this.renderArea.drawSpeech(Database.getText(this.currentSpeech, args), y, x, x + 27, "sorceressHutSpeech", Database.getTranslatedText(this.currentSpeech, args));
+                    if (this.currentSpeech == "sorceressHutClickedSpeech") {
+                        let text = getItemString("sorceressPre", selectedItem, this.selectedPrice);
+                        this.renderArea.drawSpeech(text, y, x, x + 27, "sorceressHutSpeech");
+                    } else if (this.currentSpeech == "sorceressHutBoughtSpeech") {
+                        let text = getItemString("sorceressPost", selectedItem);
+                        if (text) {
+                            this.renderArea.drawSpeech(text, y, x, x + 27, "sorceressHutSpeech");
+                        }
+                    }
                     break;
                 }
                 case 2: {

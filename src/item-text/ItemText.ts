@@ -82,9 +82,10 @@ export function getItemString(occurrence: ItemTextOccurrence, item: Item, cost?:
             case "forgePost":
                 return Database.getText("forgeBuySpeech", args);
             case "sorceressPre":
-                break;
+                return Database.getText("sorceressHutClickedSpeech", args);
             case "sorceressPost":
-                break;
+                // Special case: the Sorceress doesn't have anything to say after you buy normally
+                return "";
             case "hoven":
                 break;
             case "cyclops":
