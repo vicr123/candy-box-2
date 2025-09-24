@@ -89,9 +89,8 @@ export function getItemString(occurrence: ItemTextOccurrence, item: Item, cost?:
             case "hoven":
                 return Database.getText("castleBigRoomHovenSpeechMadePainAuChocolat", args);
             case "cyclops":
-                break;
+                return Database.getText("lighthouseFoundStone", args);
         }
-        return;
     }
 
     for (const arg in args) {

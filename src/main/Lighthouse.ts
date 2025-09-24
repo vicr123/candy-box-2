@@ -11,6 +11,7 @@ import {Pos} from "./Pos";
 import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
 import {Algo} from "./Algo";
 import posessive = Algo.posessive;
+import {getItemString} from "../item-text/ItemText";
 
 Saving.registerBool("lighthousePuzzleDone", false);
 
@@ -83,10 +84,14 @@ export class Lighthouse extends Place{
         // Draw the speech if there's a speech id
         if(this.speechId != null){
             const item = this.itemScoutResults.findItem("SOLVE_CYCLOPS_PUZZLE");
-            this.renderArea.drawSpeech(Database.getText(this.speechId, {
-                player: posessive(item.receiver.name, "en"),
-                item: item.name
-            }), 17, 75, 99, "lighthouseSpeech", Database.getTranslatedText(this.speechId));
+            if (this.speechId == "lighthouseFoundStone") {
+                this.renderArea.drawSpeech(getItemString("cyclops", item), 17, 75, 99, "lighthouseSpeech");
+            } else {
+                this.renderArea.drawSpeech(Database.getText(this.speechId, {
+                    player: posessive(item.receiver.name, "en"),
+                    item: item.name
+                }), 17, 75, 99, "lighthouseSpeech", Database.getTranslatedText(this.speechId));
+            }
         }
         
         // If we should show the puzzle
