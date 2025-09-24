@@ -12,6 +12,7 @@ import {Archipelago, ScoutResults} from "../archipelago/Archipelago";
 import {ArchipelagoLocationRegion} from "../archipelago/ArchipelagoLocation";
 import { Item } from "archipelago.js";
 import {san} from "../utils";
+import {getItemString} from "../item-text/ItemText";
 
 Saving.registerApLocation("forgeFoundLollipop", "FORGE_LOLLIPOP");
 
@@ -28,6 +29,8 @@ export class Forge extends House{
     
     // The speech, comes back to its default value each time we enter the forge
     private currentSpeech: string;
+
+    private currentSpeechIsString: boolean;
 
     private scoutedItems: ScoutResults;
     
@@ -53,6 +56,7 @@ export class Forge extends House{
             // We set the no more to sell introduction speech
             this.currentSpeech = "mapVillageForgeIntroductionSpeechNoMoreToSell";
         }
+        this.currentSpeechIsString = false;
 
         Archipelago.client.room.on("locationsChecked", () => {
             this.update();
@@ -150,14 +154,8 @@ export class Forge extends House{
     }
 
     private updateSpeechBuy(item: Item) {
-        let sentence = "";
-        if (item.useful || item.progression) {
-            sentence = `I'm sure ${item.receiver.name} will find it very useful.`;
-        } else if (item.trap) {
-            sentence = `I'm sure ${item.receiver.name} will have lots of fun with it(!)`;
-        }
-
-        this.currentSpeech = san`Thanks for the candies! I've just sent ${item.name} straight to ${item.game} - free of charge! ${sentence}`
+        this.currentSpeech = getItemString("forgePost", item);
+        this.currentSpeechIsString = true;
     }
     
     private drawLollipopStuff(x: number, y: number): void{
@@ -200,7 +198,13 @@ export class Forge extends House{
         this.drawLollipopStuff(18, 15);
         
         // Draw the blacksmith's speech
-        this.renderArea.drawSpeech(Database.getText(this.currentSpeech), 13, 44, 67, "forgeSpeech", Database.getTranslatedText(this.currentSpeech));
+        let text = this.currentSpeech;
+        let translatedText;
+        if (!this.currentSpeechIsString) {
+            text = Database.getText(this.currentSpeech);
+            translatedText = Database.getTranslatedText(this.currentSpeech);
+        }
+        this.renderArea.drawSpeech(text, 13, 44, 67, "forgeSpeech", translatedText);
         
         // Draw the buttons
             // If we never bought the wooden sword and we don't have one

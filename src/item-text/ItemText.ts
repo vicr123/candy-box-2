@@ -67,12 +67,12 @@ export async function loadGameItemText(game: string) {
     }
 }
 
-export function getItemString(occurrence: ItemTextOccurrence, item: Item, cost: number) {
+export function getItemString(occurrence: ItemTextOccurrence, item: Item, cost?: number) {
     const args = {
         player: posessive(item.receiver.alias),
         item: item.name.slice(0, 30),
         game: item.game,
-        count: cost
+        count: cost ?? 0
     }
     let placeholderText = LoadedItemText[item.game]?.[item.name]?.[occurrence];
     if (!placeholderText) {
@@ -80,7 +80,7 @@ export function getItemString(occurrence: ItemTextOccurrence, item: Item, cost: 
             case "merchantPre":
                 return Database.getText("secondHouseBuySpeech", args);
             case "forgePost":
-                break;
+                return Database.getText("forgeBuySpeech", args);
             case "sorceressPre":
                 break;
             case "sorceressPost":
