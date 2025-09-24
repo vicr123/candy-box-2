@@ -6,6 +6,7 @@ import {Database} from "./Database";
 import {san} from "../utils";
 import {Algo} from "./Algo";
 import posessive = Algo.posessive;
+import {getItemString} from "../item-text/ItemText";
 
 export class CandyMerchantItem{
     // The game
@@ -112,6 +113,10 @@ export class CandyMerchantItem{
             game: this.merchantSpeech.game,
             count: this.price
         }
+    }
+
+    public getMerchantSpeechString() {
+        return getItemString("merchantPre", this.merchantSpeech, this.getPrice());
     }
     
     public getPrice(): number{

@@ -161,7 +161,7 @@ export class SecondHouse extends House{
         
         // Draw the speech
         const item = this.items[this.selectedItemIndex];
-        yPos = this.drawSpeech(item.getMerchantSpeech(), item.getMerchantSpeechArgs());
+        yPos = this.drawSpeechString(item.getMerchantSpeechString());
         
         // If we can buy this item
         if(item.canBeBought()){
@@ -175,7 +175,11 @@ export class SecondHouse extends House{
     }
     
     private drawSpeech(speechName: string, args?: DatabaseTextReplacements): number{
-        return this.renderArea.drawSpeech(Database.getText(speechName, args), 3, 30, 60, "secondHouseMerchantSpeech", Database.getTranslatedText(speechName, args));
+        return this.drawSpeechString(Database.getText(speechName, args), Database.getTranslatedText(speechName, args));
+    }
+
+    private drawSpeechString(string: string, translatedString?: string): number{
+        return this.renderArea.drawSpeech(string, 3, 30, 60, "secondHouseMerchantSpeech", translatedString);
     }
     
     private update(): void{

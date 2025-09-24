@@ -19,6 +19,7 @@ import { Gift } from "./gifting/Gift";
 import {Game} from "../main/Game";
 import {ArchipelagoSaving} from "./ArchipelagoSaving";
 import {i18n} from "../i18n";
+import {loadGameItemText} from "../item-text/ItemText";
 
 declare const __LAST_TAG: string;
 declare const __COMMITS_SINCE_LAST_TAG: string;
@@ -163,6 +164,10 @@ export namespace Archipelago {
 
             localSaveSlot = slotData.uuid;
 
+            for (const game of client.room.games) {
+                await loadGameItemText(game);
+            }
+
             const tags = [];
             if (slotData.deathLink) {
                 tags.push("DeathLink")
@@ -195,6 +200,7 @@ export namespace Archipelago {
                 connectionStatus.current = "disconnected";
                 interruptGame(true);
             })
+
             return true;
         } catch (e) {
             connectionStatus.current = "disconnected";
