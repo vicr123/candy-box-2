@@ -20,6 +20,7 @@ import {SaveManagementPlace} from "./SaveManagementPlace";
 import figlet from "figlet";
 import big from "figlet/importable-fonts/Big.js"
 import {i18n} from "../i18n";
+import {lastTag} from "../../versioning";
 
 declare const __COMMITS_SINCE_LAST_TAG: string;
 
@@ -458,7 +459,7 @@ export class ArchipelagoPlace extends Place {
 
             this.renderArea.addBold(0, 99, y + yAdd + 5);
             this.renderArea.addBold(0, 25, y + yAdd + 6);
-            this.renderArea.addHtmlLink(65, y + yAdd + 6, "https://github.com/vicr123/Archipelago/releases/tag/20250525-1", "here");
+            this.renderArea.addHtmlLink(65, y + yAdd + 6, `https://github.com/vicr123/Archipelago/releases/latest`, "here");
 
             this.renderArea.addCheckbox(0, y + yAdd + 10, new CallbackCollection(() => this.isBetaWarningAcknowledged = true), new CallbackCollection(() => this.isBetaWarningAcknowledged = false), "betaWarningAcknowledged", this.isBetaWarningAcknowledged);
             this.renderArea.drawString("I have read the above warning.", 4, y + yAdd + 10);
