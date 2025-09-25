@@ -69,13 +69,14 @@ export async function loadGameItemText(game: string) {
 
 export function getItemString(occurrence: ItemTextOccurrence, item: Item, cost?: number) {
     const args = {
-        player: posessive(item.receiver.alias),
+        player: item.receiver.alias,
         item: item.name.slice(0, 30),
         game: item.game,
         count: cost ?? 0
     }
     let placeholderText = LoadedItemText[item.game]?.[item.name]?.[occurrence];
     if (!placeholderText) {
+        args.player = posessive(item.receiver.alias);
         switch (occurrence) {
             case "merchantPre":
                 return Database.getText("secondHouseBuySpeech", args);

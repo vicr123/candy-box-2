@@ -1,0 +1,29 @@
+.titlePage {
+    width: 600px;
+    height: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid var(--foreground-color);
+}
+
+.recents {
+    flex-grow: 1;
+}
+
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.recentsList {
+    display: flex;
+    flex-direction: column;
+}
+
+.recent {
+    cursor: pointer;
+}

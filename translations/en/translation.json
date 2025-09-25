@@ -497,5 +497,6 @@
     "apTrackerDescription": "The tracker lets you see what Archipelago considers to be in logic.",
     "apTrackerDescription2": "It also lets you find your way to specific rooms.",
     "kickoffError": "Sorry, we can't kickoff the game because the link is missing required parameters. Please fill in the Archipelago connection parameters and click \"Connect to Archipelago\" to connect.",
-    "forgeBuySpeech": "There! I sent {{player}} {{item}}. I hope they enjoy it - I spent a lot of time perfecting it just for them!"
+    "forgeBuySpeech": "There! I sent {{player}} {{item}}. I hope they enjoy it - I spent a lot of time perfecting it just for them!",
+    "dialogueEditorOpen": "Open Dialogue Editor"
 }

@@ -2,7 +2,7 @@ import Styles from "./NavigationTracker.module.css"
 import {useTracker} from "./useTrackerController";
 import {ArchipelagoEntrance} from "../Archipelago";
 import {useTranslation} from "react-i18next";
-import { Button } from "./Button";
+import { Button } from "../../react/Button";
 
 export function NavigationTracker() {
     const {

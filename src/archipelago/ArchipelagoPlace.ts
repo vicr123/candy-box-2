@@ -236,6 +236,9 @@ export class ArchipelagoPlace extends Place {
 
                 this.renderArea.addAsciiRealButton(Database.getText("apTrackerOpen"), 7, y + 27, "apTrackerOpen", Database.getTranslatedText("apTrackerOpen"));
                 this.renderArea.addLinkCall(".apTrackerOpen", new CallbackCollection(this.apTrackerOpen.bind(this)));
+
+                this.renderArea.addAsciiRealButton(Database.getText("dialogueEditorOpen"), 7, y + 29, "dialogueEditorOpen", Database.getTranslatedText("dialogueEditorOpen"));
+                this.renderArea.addLinkCall(".dialogueEditorOpen", new CallbackCollection(this.dialogueEditorOpen.bind(this)));
                 break;
             case "connecting":
                 this.renderArea.drawString(Database.getText("apStatusConnecting"), 7, y + 15);
@@ -276,6 +279,11 @@ export class ArchipelagoPlace extends Place {
 
     private apTrackerOpen() {
         Archipelago.trackerOpen.current = !Archipelago.trackerOpen.current;
+    }
+
+    private async dialogueEditorOpen() {
+        const {setupDialogueEditor} = await import("../item-text/editor/EditorRoot");
+        setupDialogueEditor();
     }
 
     private loadCorrectVersion() {

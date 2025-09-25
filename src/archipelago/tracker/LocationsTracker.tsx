@@ -1,4 +1,4 @@
-import { Button } from "./Button";
+import { Button } from "../../react/Button";
 import Styles from "./LocationsTracker.module.css"
 import {useTracker} from "./useTrackerController";
 import {useTranslation} from "react-i18next";

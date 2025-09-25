@@ -1,0 +1,171 @@
+import Styles from "./EditorMain.module.css";
+import {ItemTextOccurrence} from "../../ItemText";
+import {Dispatch, SetStateAction, useMemo} from "react";
+import {useEditor} from "../EditorContext";
+import {RenderArea} from "../../../main/RenderArea";
+import {ReactRenderArea} from "../../../react/ReactRenderArea";
+import {Database} from "../../../main/Database";
+import {Algo} from "../../../main/Algo";
+import {RenderTransparency} from "../../../main/RenderTransparency";
+
+function renderText(item: string, game: string, string: string, defaultString: string) {
+    const args = {
+        player: "Player1",
+        item: item.slice(0, 30),
+        game: game,
+        count: 300
+    };
+
+    if (string) {
+        let placeholderText = string;
+        for (const arg in args) {
+            placeholderText = placeholderText.replace(`{{${arg}}}`, args[arg]);
+        }
+        return placeholderText;
+    } else {
+        return Database.getText(defaultString, {
+            ...args,
+            player: Algo.posessive(args.player)
+        });
+    }
+}
+
+export const EditableOccurrences = {
+    merchantPre: {
+        name: "The Merchant (Before Purchase)",
+        render: ({itemName, gameName, string}) => {
+            const renderArea = new RenderArea();
+            renderArea.resizeFromArray(Database.getAscii("places/village/secondHouse"), 0, 3)
+
+            // Draw the house
+            renderArea.drawArray(Database.getAscii("places/village/secondHouse"), 0, 3);
+            renderArea.drawArray(Database.getAscii("places/village/candyMerchantItems/hat"), 53, 13);
+
+            const speech = renderText(itemName, gameName, string, "secondHouseBuySpeech");
+            const yPos = renderArea.drawSpeech(speech, 3, 30, 60, "secondHouseMerchantSpeech");
+
+            const buyText = Database.getText("buyCandies", {
+                item: itemName,
+                player: "Player1",
+                count: 300
+            });
+            renderArea.addAsciiRealButton(buyText, 45 - Math.floor(buyText.length/2), yPos + 2, "", "", true);
+            return renderArea;
+        }
+    },
+    sorceressPre: {
+        name: "The Sorceress (Before Purchase)",
+        render: ({itemName, gameName, string}) => {
+            const speech = renderText(itemName, gameName, string, "sorceressHutClickedSpeech");
+
+            const buyText = Database.getText("buyLollipops", {
+                item: itemName,
+                player: "Player1",
+                count: 20000
+            });
+
+            const renderArea = new RenderArea();
+            renderArea.resize(144, 48);
+            renderArea.drawArray(Database.getAscii("places/sorceressHut/background"), 0, 3);
+            renderArea.drawArray(Database.getAscii("places/sorceressHut/hat"), 14, 3, new RenderTransparency(" ", "%"));
+            renderArea.drawArray(Database.getAscii("places/sorceressHut/shelves"), 73, 3);
+            renderArea.drawArray(Database.getAscii("places/sorceressHut/cauldron"), 80, 27, new RenderTransparency(" ", "%"));
+            renderArea.drawArray(Database.getAscii("places/sorceressHut/broom"), 49, 18);
+            renderArea.addAsciiRealButton(buyText, 73, 22, "sorceressHutBuyingButton");
+            renderArea.drawSpeech(speech, 4, 43, 43 + 27, "sorceressHutSpeech");
+            return renderArea;
+        }
+    },
+    sorceressPost: {
+        name: "The Sorceress (After Purchase)",
+        render: ({}) => {
+            const renderArea = new RenderArea();
+            return renderArea;
+        }
+    },
+    forgePost: {
+        name: "The Forge (After Purchase)",
+        render: ({}) => {
+            const renderArea = new RenderArea();
+            return renderArea;
+        }
+    },
+    cyclops: {
+        name: "The Cyclops (After Puzzle Solved)",
+        render: ({}) => {
+            const renderArea = new RenderArea();
+            return renderArea;
+        }
+    },
+    hoven: {
+        name: "The Bakehouse (After Baked)",
+        render: ({}) => {
+            const renderArea = new RenderArea();
+            return renderArea;
+        }
+    }
+} satisfies Record<ItemTextOccurrence, {
+    name: string,
+    render: (args: {
+        itemName: string,
+        gameName: string,
+        string: string | undefined
+    }) => RenderArea
+}>
+
+export function EditorMain({
+    selectedItem,
+    selectedOccurrence,
+    setSelectedOccurrence
+}: {
+    selectedItem: string | undefined;
+    selectedOccurrence: ItemTextOccurrence;
+    setSelectedOccurrence: Dispatch<SetStateAction<ItemTextOccurrence>>
+}) {
+    const {store} = useEditor();
+
+    const string = store.store?.[selectedItem]?.[selectedOccurrence] ?? "";
+    const game = store.gameName;
+
+    const occurrence = useMemo(() => {
+        return EditableOccurrences[selectedOccurrence];
+    }, [selectedOccurrence]);
+
+    const renderArea = useMemo(() => {
+        return occurrence.render({
+            itemName: selectedItem ?? "",
+            gameName: game,
+            string: string
+        });
+    }, [occurrence, selectedItem, game, string]);
+
+    const onChange = (e) => {
+        store.edit(selectedItem, selectedOccurrence, e.target.value)
+        store.save()
+    }
+
+    if (!selectedItem) {
+        return <div className={Styles.main}>
+            Choose an item to edit its text
+        </div>
+    }
+
+    return <div className={Styles.main}>
+        <div className={Styles.editorHeader}>
+            <div>
+                Occurrence: <select value={selectedOccurrence} onChange={(e) => setSelectedOccurrence(e.target.value as ItemTextOccurrence)}>
+                {Object.entries(EditableOccurrences).map(([key, item]) => (
+                    <option key={key} value={key}>{item.name}</option>
+                ))}
+                </select>
+            </div>
+            <div className={Styles.textRow}>
+                String: <input type={"text"} value={string} onChange={onChange} />
+            </div>
+        </div>
+        <div className={Styles.preview}>
+            <b>PREVIEW</b>
+            <ReactRenderArea renderArea={renderArea} />
+        </div>
+    </div>
+}

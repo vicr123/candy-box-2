@@ -1,0 +1,21 @@
+.main {
+    grid-area: main;
+}
+
+.editorHeader {
+    padding: 12px;
+    border-bottom: 1px solid var(--foreground-color);
+}
+
+.preview {
+    padding: 12px;
+}
+
+.textRow {
+    display: flex;
+    gap: 8px;
+}
+
+.textRow input {
+    flex-grow: 1;
+}

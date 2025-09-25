@@ -1,0 +1,43 @@
+.sidebar {
+    grid-area: sidebar;
+
+    border-right: 1px solid var(--foreground-color);
+    min-width: 300px;
+    overflow-y: auto;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    padding: 2px 4px;
+
+    cursor: pointer;
+}
+
+.selected {
+    background:var(--selection-color);
+}
+
+.doneList {
+    display: flex;
+    gap: 2px;
+}
+
+.done {
+    border-radius: 50%;
+    background-color: var(--foreground-color);
+    aspect-ratio: 1 / 1;
+    width: 12px;
+    box-sizing: border-box;
+}
+
+.notDone {
+    border-radius: 50%;
+    border: 1px solid var(--foreground-color);
+    aspect-ratio: 1 / 1;
+    width: 12px;
+    box-sizing: border-box;
+}
