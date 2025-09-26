@@ -1,1 +1,10 @@
-{}
+{
+  "Shadow the Hedgehog": {
+    "strings": ["/item-text/shadow-the-hedgehog.json"],
+    "matureGame": false
+  },
+  "A Hat in Time": {
+    "strings": ["/item-text/a-hat-in-time.json"],
+    "matureGame": false
+  }
+}

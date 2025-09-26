@@ -1,0 +1,168 @@
+{
+  "Yarn": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's soft and colorful, and would probably make a good hat. Not as good as mine, though.",
+    "sorceressPre": "That's {{player}}'s {{item}}. They can use it to craft hats with special abilities."
+  },
+  "Time Piece": {
+    "merchantPre": "This is {{player}}'s {{item}}. I don't know what it does, but it seems important... and it's very shiny.",
+    "sorceressPre": "That's {{player}}'s {{item}}. With enough of those, they can explore more of their world."
+  },
+  "Sprint Hat": {
+    "merchantPre": "This is {{player}}'s {{item}}. It looks like a good exercise hat.",
+    "sorceressPre": "That's {{player}}'s {{item}}. They can use it to run faster!"
+  },
+  "Brewing Hat": {
+    "sorceressPre": "That's {{player}}'s {{item}}. They can use it to create explosive potions out of thin air!",
+    "merchantPre": "This is {{player}}'s {{item}}. Wearing it makes them good at looking like a witch."
+  },
+  "Ice Hat": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's cold to the touch, but it looks quite cute.",
+    "sorceressPre": "That's {{player}}'s {{item}}. With it, they can turn into an ice statue."
+  },
+  "Dweller Mask": {
+    "merchantPre": "This is {{player}}'s {{item}}. It looks a bit creepy...",
+    "sorceressPre": "That's {{player}}'s {{item}}. They can use it to make certain intangible objects tangible, and vice versa."
+  },
+  "Time Stop Hat": {
+    "sorceressPre": "That's {{player}}'s {{item}}. Ironically, it doesn't stop time. It just makes time very slow.",
+    "merchantPre": "This is {{player}}'s {{item}}. It almost reminds me of a certain ring..."
+  },
+  "Projectile Badge": {},
+  "Fast Hatter Badge": {
+    "merchantPre": "This is {{player}}'s {{item}}. I assume it allows them to hat faster. Whatever that means.",
+    "sorceressPre": "That's {{player}}'s {{item}}. With it, their hat abilities will recharge much faster."
+  },
+  "Hover Badge": {},
+  "Hookshot Badge": {},
+  "Item Magnet Badge": {},
+  "No Bonk Badge": {},
+  "Compass Badge": {},
+  "Scooter Badge": {},
+  "One-Hit Hero Badge": {},
+  "Camera Badge": {},
+  "Relic (Burger Patty)": {
+    "merchantPre": "This is a component of {{player}}'s Burger Relic. Despite its name, it tastes like fabric. Don't ask how I know that."
+  },
+  "Relic (Burger Cushion)": {
+    "merchantPre": "This is a component of {{player}}'s Burger Relic. Despite its name, it tastes like fabric. Don't ask how I know that."
+  },
+  "Relic (Mountain Set)": {
+    "merchantPre": "This is a component of {{player}}'s Train Relic. It's a nice scene for a toy train to drive around in, but it's missing a train..."
+  },
+  "Relic (Train)": {
+    "merchantPre": "This is a component of {{player}}'s Train Relic. It's a nice looking toy train, but it's missing somewhere to drive around..."
+  },
+  "Relic (UFO)": {
+    "merchantPre": "This is a component of {{player}}'s UFO Relic. I wonder if there's a tiny alien out there that can drive this tiny UFO?"
+  },
+  "Relic (Cow)": {
+    "merchantPre": "This is a component of {{player}}'s UFO Relic. It's a pretty ordinary looking toy cow."
+  },
+  "Relic (Cool Cow)": {
+    "merchantPre": "This is a component of {{player}}'s UFO Relic. This toy cow looks cool with those sunglasses..."
+  },
+  "Relic (Tin-foil Hat Cow)": {
+    "merchantPre": "This is a component of {{player}}'s UFO Relic. This toy cow seems to believe that aliens are real, or something like that."
+  },
+  "Relic (Crayon Box)": {
+    "merchantPre": "This is a component of {{player}}'s Crayon Relic. It's a crayon box, but someone seems to have stolen all the crayons."
+  },
+  "Relic (Red Crayon)": {
+    "merchantPre": "This is a component of {{player}}'s Crayon Relic. Its red color makes me think of a giant cake made of lava... but that's silly, isn't it?"
+  },
+  "Relic (Blue Crayon)": {
+    "merchantPre": "This is a component of {{player}}'s Crayon Relic. Its blue color makes me think of a giant windmill... but that's silly, isn't it?"
+  },
+  "Relic (Green Crayon)": {
+    "merchantPre": "This is a component of {{player}}'s Crayon Relic. Its green color makes me think of a giant bell... but that's silly, isn't it?"
+  },
+  "Relic (Cake Stand)": {
+    "merchantPre": "This is a component of {{player}}'s Cake Relic. The cake stand seems a bit empty without any cakes sitting on it."
+  },
+  "Relic (Shortcake)": {
+    "merchantPre": "This is a component of {{player}}'s Cake Relic. I almost ate it directly, but then I remembered I could get more sweets by selling it instead!",
+    "hoven": "I baked a {{item}} for {{player}}! Now that I've baked actual food, I feel as though my purpose has been fulfilled."
+  },
+  "Relic (Chocolate Cake Slice)": {
+    "merchantPre": "This is a component of {{player}}'s Cake Relic. This is just a slice of cake... where's the rest of the cake?",
+    "hoven": "I baked a {{item}} for {{player}}! This was going to be an entire cake, but I was hungry."
+  },
+  "Relic (Chocolate Cake)": {
+    "merchantPre": "This is a component of {{player}}'s Cake Relic. Someone appears to have taken a slice out of it already...",
+    "hoven": "I baked a {{item}} for {{player}}! I'm not sure what happened to the missing slice, though..."
+  },
+  "Relic (Necklace Bust)": {
+    "merchantPre": "This is a component of {{player}}'s Necklace Relic. It looks like a nice place to show off some jewelry, if you have any."
+  },
+  "Relic (Necklace)": {
+    "merchantPre": "This is a component of {{player}}'s Necklace Relic. These things are normally very expensive, this is a steal!"
+  },
+  "25 Pons": {
+    "merchantPre": "I'm running a currency exchange. You can exchange {{count}} candies for {{item}}, which I'll send to {{player}}.",
+    "sorceressPre": "I can use a magic spell to transmute {{count}} lollipops into {{item}} for {{player}}. I'll only do it once, though!"
+  },
+  "50 Pons": {
+    "merchantPre": "I'm running a currency exchange. You can exchange {{count}} candies for {{item}}, which I'll send to {{player}}.",
+    "sorceressPre": "I can use a magic spell to transmute {{count}} lollipops into {{item}} for {{player}}. I'll only do it once, though!"
+  },
+  "100 Pons": {
+    "merchantPre": "I'm running a currency exchange. You can exchange {{count}} candies for {{item}}, which I'll send to {{player}}.",
+    "sorceressPre": "I can use a magic spell to transmute {{count}} lollipops into {{item}} for {{player}}. I'll only do it once, though!"
+  },
+  "Health Pon": {
+    "sorceressPre": "That's {{player}}'s {{item}}. It recovers a bit of health. Potions seem more practical, though..."
+  },
+  "Random Cosmetic": {},
+  "Baby Trap": {
+    "merchantPre": "This is {{player}}'s Time Piece? I think? That's at least what it looks like to me...",
+    "sorceressPre": "That's a {{item}}. It looks like a Time Piece, but it actually forces {{player}} to carry several babies.",
+    "sorceressPost": "Several children have been summoned to burden {{player}}. I'm not sure why you wanted that."
+  },
+  "Laser Trap": {
+    "merchantPre": "This is {{player}}'s Time Piece. I think. It looks a bit off, though...",
+    "sorceressPre": "That's a {{item}}. It looks like a Time Piece, but it actually summons lasers to blast {{player}}.",
+    "sorceressPost": "Lasers have been summoned to attack {{player}}. I'm not sure why you wanted that."
+  },
+  "Parade Trap": {
+    "sorceressPre": "That's a {{item}}. It looks like a Time Piece, but it actually summons a parade of murderous owls to chase {{player}}.",
+    "merchantPre": "This might be {{player}}'s Time Piece. It doesn't look quite right, though...",
+    "sorceressPost": "A gang of murder birds has been summoned to attack {{player}}. I'm not sure why you wanted that."
+  },
+  "Badge Pin": {},
+  "Umbrella": {
+    "forgePost": "This {{item}} is for {{player}}. It looks innocent, but I promise you, it is a deadly weapon in the right hands."
+  },
+  "Progressive Painting Unlock": {},
+  "Metro Ticket - Yellow": {
+    "sorceressPre": "That's one of {{player}}'s Metro Tickets. It allows them to pass through places which require a yellow ticket."
+  },
+  "Metro Ticket - Green": {
+    "sorceressPre": "That's one of {{player}}'s Metro Tickets. It allows them to pass through places which require a green ticket."
+  },
+  "Metro Ticket - Blue": {
+    "sorceressPre": "That's one of {{player}}'s Metro Tickets. It allows them to pass through places which require a blue ticket."
+  },
+  "Metro Ticket - Pink": {
+    "sorceressPre": "That's one of {{player}}'s Metro Tickets. It allows them to pass through places which require a pink ticket."
+  },
+  "Snatcher's Contract - The Subcon Well": {
+    "sorceressPre": "Some creature resembling a ghost handed me this contract, saying it was for {{player}}. He told me not to worry about the details, so I haven't read what it's about.",
+    "merchantPre": "This is a contract from some guy called \"The Snatcher\". It's for {{player}}. Don't worry about the details, just have them sign it at the bottom."
+  },
+  "Snatcher's Contract - Toilet of Doom": {
+    "sorceressPre": "Some creature resembling a ghost handed me this contract, saying it was for {{player}}. He told me not to worry about the details, so I haven't read what it's about.",
+    "merchantPre": "This is a contract from some guy called \"The Snatcher\". It's for {{player}}. Don't worry about the details, just have them sign it at the bottom."
+  },
+  "Snatcher's Contract - Queen Vanessa's Manor": {
+    "sorceressPre": "Some creature resembling a ghost handed me this contract, saying it was for {{player}}. He told me not to worry about the details, so I haven't read what it's about.",
+    "merchantPre": "This is a contract from some guy called \"The Snatcher\". It's for {{player}}. Don't worry about the details, just have them sign it at the bottom."
+  },
+  "Snatcher's Contract - Mail Delivery Service": {
+    "sorceressPre": "Some creature resembling a ghost handed me this contract, saying it was for {{player}}. He told me not to worry about the details, so I haven't read what it's about.",
+    "merchantPre": "This is a contract from some guy called \"The Snatcher\". It's for {{player}}. Don't worry about the details, just have them sign it at the bottom."
+  },
+  "Zipline Unlock - The Birdhouse Path": {},
+  "Zipline Unlock - The Lava Cake Path": {},
+  "Zipline Unlock - The Windmill Path": {},
+  "Zipline Unlock - The Twilight Bell Path": {}
+}
