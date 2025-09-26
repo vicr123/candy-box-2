@@ -78,10 +78,10 @@ export function useFileStore() {
     }
 
     const fileExists = async (game: string) => {
-        const rootOpfsDirectory = await navigator.storage.getDirectory();
-        const dialogueEditorDirectory = await rootOpfsDirectory.getDirectoryHandle("dialogue-editor");
-        const savesDirectory = await dialogueEditorDirectory.getDirectoryHandle("saves");
         try {
+            const rootOpfsDirectory = await navigator.storage.getDirectory();
+            const dialogueEditorDirectory = await rootOpfsDirectory.getDirectoryHandle("dialogue-editor");
+            const savesDirectory = await dialogueEditorDirectory.getDirectoryHandle("saves");
             await savesDirectory.getFileHandle(game);
             return true;
         } catch {
