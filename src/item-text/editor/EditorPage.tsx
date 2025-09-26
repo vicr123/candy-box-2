@@ -68,9 +68,16 @@ export function EditorPage() {
             e.preventDefault();
             e.stopPropagation();
 
-            if (!goRight()) {
-                goDown();
-                setSelectedOccurrence(Object.keys(EditableOccurrences)[0] as keyof typeof EditableOccurrences)
+            if (e.getModifierState("Shift")) {
+                if (!goLeft()) {
+                    goUp();
+                    setSelectedOccurrence(Object.keys(EditableOccurrences).reverse()[0] as keyof typeof EditableOccurrences)
+                }
+            } else {
+                if (!goRight()) {
+                    goDown();
+                    setSelectedOccurrence(Object.keys(EditableOccurrences)[0] as keyof typeof EditableOccurrences)
+                }
             }
         } else if (e.getModifierState("Alt")) {
             if (e.key == "ArrowUp") {
