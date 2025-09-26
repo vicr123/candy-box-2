@@ -18,7 +18,7 @@ export function Guide() {
             return to this guide by choosing the Guide option at the top in the sidebar.
         </p>
         <p>
-            This guide is broken up into two parts:
+            This guide is broken up into three parts:
             <ul>
                 <li><b>The Style Guide</b> outlines the requirements for the text that you submit</li>
                 <li><b>The Dialogue Editor</b> contains information about how to use the Dialogue Editor.</li>
