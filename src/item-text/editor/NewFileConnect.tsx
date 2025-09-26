@@ -62,6 +62,12 @@ export function NewFileConnect() {
         <Button onClick={() => setCurrentPage("newFile")}>Go Back</Button>
         <AsciiArt name={"text/Archipelago"} />
 
+        Please create a multiworld with the game that you want to write dialogue for, and then enter the connection details for that slot below.
+        <div style={{height: "0px"}} />
+        The game options are not important - all items that the game can possibly send will be imported for editing.
+
+        <div style={{height: "20px"}} />
+
         Archipelago Server and port
         <input type={"text"} placeholder={"archipelago.gg:12345"} value={server} onChange={(e) => setServer(e.target.value)} />
 

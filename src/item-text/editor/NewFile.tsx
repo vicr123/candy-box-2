@@ -11,12 +11,12 @@ export function NewFile() {
         <AsciiArt name={"dialogue-editor/NewFile"} />
         How do you want to create a new file?
         <hr />
-        <b>CONNECT TO A GAME</b>
-        Connect to an Archipelago session and download the game data.
-        <Button onClick={() => setCurrentPage("newFileConnect")}>Connect to a game</Button>
-        <hr />
         <b>OPEN AN EXISTING GAME</b>
-        Choose from a list of games that already have strings
+        If you want to change the dialogue for an existing game, you can download the dialogue for that game here
         <Button onClick={() => setCurrentPage("existingGame")}>Open an existing game</Button>
+        <hr />
+        <b>CONNECT TO A GAME</b>
+        If Candy Box 2 doesn't have dialogue for the game you want to write for yet, connect to a multiworld with that game present.
+        <Button onClick={() => setCurrentPage("newFileConnect")}>Connect to a game</Button>
     </div>
 }
