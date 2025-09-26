@@ -35,6 +35,8 @@ export function NewFileConnect() {
 
             setCurrentPage("editor");
         } catch (e) {
+            console.log("Editor unable to connect to AP")
+            console.log(e);
             if (e instanceof LoginError) {
                 const loginError = e as LoginError;
                 switch (loginError.errors[0]) {
