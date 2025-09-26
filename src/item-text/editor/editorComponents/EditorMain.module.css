@@ -25,7 +25,7 @@
 .sentNotification {
     position: absolute;
     right: -50px;
-    top: 200px;
+    top: 100px;
     padding: 3px;
     background: blue;
     color: white;

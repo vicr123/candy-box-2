@@ -102,24 +102,44 @@ export const EditableOccurrences = {
     },
     forgePost: {
         name: "The Forge (After Purchase)",
-        render: ({}) => {
+        render: ({itemName, gameName, string}) => {
+            const speech = renderText(itemName, gameName, string, "forgeBuySpeech");
+
             const renderArea = new RenderArea();
+            renderArea.resizeFromArray(Database.getAscii("places/village/forge"), 0, 3);
+            renderArea.drawArray(Database.getAscii("places/village/forge"), 0, 3);
+            renderArea.drawSpeech(speech, 13, 44, 67, "forgeSpeech");
+            renderArea.addAsciiRealButton("Send The Next Item to Player2 for 300 Candies", 8, 35, "mapVillageForgeBuyWoodenSwordButton");
             return renderArea;
         },
         hasNotificationArea: true
     },
     cyclops: {
         name: "The Cyclops (After Puzzle Solved)",
-        render: ({}) => {
+        render: ({itemName, gameName, string}) => {
+            const speech = renderText(itemName, gameName, string, "lighthouseFoundStone");
+
             const renderArea = new RenderArea();
+            renderArea.resizeFromArray(Database.getAscii("places/lighthouse/lighthouse"), 0, 4); // 4 in order to add a space below the lighthouse, so that it looks nicer
+            renderArea.drawArray(Database.getAscii("places/lighthouse/lighthouse"), 0, 3);
+            renderArea.drawSpeech(speech, 17, 75, 99, "lighthouseSpeech");
             return renderArea;
         },
         hasNotificationArea: true
     },
     hoven: {
         name: "The Bakehouse (After Baked)",
-        render: ({}) => {
+        render: ({itemName, gameName, string}) => {
+            const speech = renderText(itemName, gameName, string, "castleBigRoomHovenSpeechMadePainAuChocolat");
+
             const renderArea = new RenderArea();
+            renderArea.resize(160, 30);
+            renderArea.drawArray(Database.getAscii("places/castle/bigRoom/background"), 0, 3);
+            renderArea.drawString("^       ^", 61, 12);
+            renderArea.drawString("         ", 61, 13);
+            renderArea.drawString("  '-.-'  ", 61, 14);
+            renderArea.drawSpeech(speech, 10, 83, 83 + 30, "CastleBigRoomHovenSpeech");
+            renderArea.addAsciiRealButton(Database.getText("castleBigRoomHovenThanks"), 83, 19, "castleBigRoomThanksButton", Database.getTranslatedText("castleBigRoomHovenThanks"), true);
             return renderArea;
         },
         hasNotificationArea: true

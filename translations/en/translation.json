@@ -349,7 +349,7 @@
     "buttonBackToTheCastle": "Back to the castle",
     "castleBigRoomHovenSpeechSad": "Hello! I'm a very old bread oven. I used to cook tons of good pastries, but no one is using me anymore. Maybe... maybe you could help me? Just let me take some sweets from you! Don't worry, you won't regret it! You can trust me.",
     "castleBigRoomHovenNotEnough": "Oh... you don't have enough sweets, I can't do anything. I'm just useless. I'm the useless bread oven, that's how you should call me.",
-    "castleBigRoomHovenSpeechMadePainAuChocolat": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... {{receiver}} {{item}}! I hope they'll enjoy it!",
+    "castleBigRoomHovenSpeechMadePainAuChocolat": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... {{player}} {{item}}! I hope they'll enjoy it!",
     "castleBigRoomHovenSpeechHappy": "Hey! If you want me to cook another pastry, just tell me! I'd love to help you.",
     "castleBigRoomHovenSpeechHappyNotEnough": "Oh, you don't have enough sweets, sadly. I need 100 candies and a chocolate bar. Come back when you'll have that!",
     "castleBigRoomHovenLetHovenTakeButton": "Let the oven take all the sweets it wants to take",

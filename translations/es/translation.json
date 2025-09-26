@@ -349,7 +349,7 @@
   "buttonBackToTheCastle": "Volver al Castillo",
   "castleBigRoomHovenSpeechSad": "¡Hola! Soy un horno de pan muy viejo. Solía hornear miles de pasteles muy ricos, pero ya no me usa nadie. Quizás... quizás puedas ayudarme. ¡Simplemente dame unos pocos dulces! No te preocupes, ¡no te arrepentirás! Puedes confiar en mí.",
   "castleBigRoomHovenNotEnough": "Vaya... No tienes suficientes dulces, no puedo hacer nada. Así soy inútil. Soy el horno de pan inútil, así es como deberías llamarme.",
-  "castleBigRoomHovenSpeechMadePainAuChocolat": "¡Sí! ¡Muchas gracias! He usado 100 caramelos y una tableta de chocolate, y he hecho... ¡un {{item}} para {{receiver}}! ¡Espero que les guste!",
+  "castleBigRoomHovenSpeechMadePainAuChocolat": "¡Sí! ¡Muchas gracias! He usado 100 caramelos y una tableta de chocolate, y he hecho... ¡un {{item}} para {{player}}! ¡Espero que les guste!",
   "castleBigRoomHovenSpeechHappy": "Si quieres que te haga más dulces, ¡solo dímelo! Me encantaría ayudarte.",
   "castleBigRoomHovenSpeechHappyNotEnough": "Vaya, es una pena que no tengas suficientes dulces. Necesito 100 caramelos y una Tableta de chocolate. ¡Vuelve cuando lo tengas!",
   "castleBigRoomHovenLetHovenTakeButton": "Darle al Horno los dulces que quiera",

@@ -349,7 +349,7 @@
   "buttonBackToTheCastle": "Zurück ins Schloss",
   "castleBigRoomHovenSpeechSad": "Hallo! Ich bin ein sehr alter Brotofen! Für gewöhnlich habe ich Tonnen leckerer Teigwaren gebacken, aber es benutzt mich keiner mehr. Vielleicht... vielleicht könntest du mir helfen? Gib mir einfach einige deiner Süßigkeiten. Keine Sorge, du wirst es nicht bereuen. Du kannst mir vertrauen.",
   "castleBigRoomHovenNotEnough": "Oh... du hast nicht genügend Bonbons, ich kann nichts für dich tun. Ich bin einfach nutzlos. Den nutzlosen Brotofen, so solltest du mich nennen.",
-  "castleBigRoomHovenSpeechMadePainAuChocolat": "Juhu! Danke vielmals! Ich habe 100 Bonbons und einen Schokoriegel benutzt, um für {{receiver}}... {{item}} zu holen! Ich hoffe sie mag es!",
+  "castleBigRoomHovenSpeechMadePainAuChocolat": "Juhu! Danke vielmals! Ich habe 100 Bonbons und einen Schokoriegel benutzt, um für {{player}}... {{item}} zu holen! Ich hoffe sie mag es!",
   "castleBigRoomHovenSpeechHappy": "Hey! Wenn ich dir weiteres Gebäck backen soll, sag einfach Bescheid. Ich würde dir gerne helfen.",
   "castleBigRoomHovenSpeechHappyNotEnough": "Oh, leider hast du nicht genügend Süßigkeiten. Du brauchst 100 Bonbons und einen Schokoriegel. Komm wieder, wenn du das hast.",
   "castleBigRoomHovenLetHovenTakeButton": "Gib dem Ofen alle Süßigkeiten, die er verlangt",

@@ -349,7 +349,7 @@
   "buttonBackToTheCastle": "Voltar ao castelo",
   "castleBigRoomHovenSpeechSad": "Olá! Sou um velho forno à lenha. Eu costumava assar toneladas de pães, mas nunca mais fui usado. Será... Será que você pode me ajudar? Só preciso de algumas das suas guloseimas! Você não vai se arrepender! Eu juro.",
   "castleBigRoomHovenNotEnough": "Ah... Você não tem guloseimas suficientes. Não posso fazer nada, sou inútil. Um forno totalmente imprestável, é isso o que sou.",
-  "castleBigRoomHovenSpeechMadePainAuChocolat": "Oba! Muito obrigado! Usei 100 doces e uma barra de chocolate e preparei... \u0022{{item}}\u0022 de {{receiver}}! É minha receita predileta. Espero que você goste!",
+  "castleBigRoomHovenSpeechMadePainAuChocolat": "Oba! Muito obrigado! Usei 100 doces e uma barra de chocolate e preparei... \u0022{{item}}\u0022 de {{player}}! É minha receita predileta. Espero que você goste!",
   "castleBigRoomHovenSpeechHappy": "Ei! Se quiser cozinhar mais, é só falar comigo! Será um prazer ajudar.",
   "castleBigRoomHovenSpeechHappyNotEnough": "Ah, você não tem guloseimas suficientes. Eu preciso de 100 doces e uma barra de chocolate. Volte quando tiver tudo.",
   "castleBigRoomHovenLetHovenTakeButton": "Deixar que o forno pegue tudo de que precisar.",

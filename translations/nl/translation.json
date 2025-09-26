@@ -327,7 +327,7 @@
   "buttonBackToTheCastle": "Terug naar het kasteel",
   "castleBigRoomHovenSpeechSad": "Hallo, Ik been een hele oude broodoven. Ik bakte vroeger heel veel lekker banket, maar niemand gebruikt mij meer. Misschien... misschien kun jij me helpen? Laat me een paar snoepjes van je gebruiken! Maak je geen zorgen, je zult er geen spijt van krijgen! Je kunt me vertrouwen.",
   "castleBigRoomHovenNotEnough": "Oh... je hebt niet genoeg snoepjes, ik kan niks doen. Ik ben gewoon nutteloos. Ik ben de nuttelozebrood oven, dat is hoe je mij zou moeten noemen.",
-  "castleBigRoomHovenSpeechMadePainAuChocolat": "Joepie! Heel erg bedankt! Ik gebruikte 100 snoepjes en een chocoladereep en maakte {{receiver}} {{item}}! Ik hoop dat zij het lekker vinden.",
+  "castleBigRoomHovenSpeechMadePainAuChocolat": "Joepie! Heel erg bedankt! Ik gebruikte 100 snoepjes en een chocoladereep en maakte {{player}} {{item}}! Ik hoop dat zij het lekker vinden.",
   "castleBigRoomHovenSpeechHappy": "Hey! Als je wil dat ik nog een banket bak, laat het me weten! Ik zou je graag helpen.",
   "castleBigRoomHovenSpeechHappyNotEnough": "Oh, je hebt niet genoeg snoepjes, helaas. Ik heb 100 snoepjes en een chocoladereep nodig. Kom terug als je dat hebt!",
   "castleBigRoomHovenLetHovenTakeButton": "Laat de oven alle snoepjes pakken dat het wil pakken",

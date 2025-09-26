@@ -349,7 +349,7 @@
   "buttonBackToTheCastle": "Revenir au château",
   "castleBigRoomHovenSpeechSad": "Salut ! Je suis un très vieux four à pain. J\u0027avais l\u0027habitude de cuire des tas de bonnes pâtisseries, mais plus personne ne m\u0027utilise. Peut-être... peut-être que tu pourrais m\u0027aider ? Laisse-moi juste te prendre quelques sucreries ! Ne t\u0027en fais pas, tu ne vas pas lre regretter. Tu peux me faire confiance.",
   "castleBigRoomHovenNotEnough": "Oh... tu n\u0027as pas assez de sucreries, je ne peux rien faire. Je suis juste inutile. Je suis le four à pain inutile, c\u0027est comme ça que tu devrais m\u0027appeler.",
-  "castleBigRoomHovenSpeechMadePainAuChocolat": "Yay ! Merci beaucoup ! J\u0027ai utilisé 100 bonbons et une barre de chocolat, et j\u0027ai fait... {{receiver}} {{item}} ! J\u0027espère qu\u0027ils l\u0027aimeront aussi !",
+  "castleBigRoomHovenSpeechMadePainAuChocolat": "Yay ! Merci beaucoup ! J\u0027ai utilisé 100 bonbons et une barre de chocolat, et j\u0027ai fait... {{player}} {{item}} ! J\u0027espère qu\u0027ils l\u0027aimeront aussi !",
   "castleBigRoomHovenSpeechHappy": "Hey ! Si tu veux que je cuise une autre pâtisserie, dis-le moi ! J\u0027adorerais t\u0027aider.",
   "castleBigRoomHovenSpeechHappyNotEnough": "Oh, tu n\u0027as pas assez de sucreries, malheureusement. J\u0027ai besoin de 100 bonbons et d\u0027une barre de chocolat. Reviens quand tu auras ça !",
   "castleBigRoomHovenLetHovenTakeButton": "Laisser le four prendre toutes les sucreries qu\u0027il veut prendre",
