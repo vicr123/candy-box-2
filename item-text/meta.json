@@ -10,5 +10,9 @@
   "DORONKO WANKO": {
     "strings": ["/item-text/doronko-wanko.json"],
     "matureGame": false
+  },
+  "Simon Tatham's Portable Puzzle Collection": {
+    "strings": ["/item-text/simon-tathams-portable-puzzle-collection.json"],
+    "matureGame": false
   }
 }
