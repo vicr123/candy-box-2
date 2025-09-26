@@ -21,3 +21,12 @@
 .textRow input {
     flex-grow: 1;
 }
+
+.sentNotification {
+    position: absolute;
+    right: -50px;
+    top: 200px;
+    padding: 3px;
+    background: blue;
+    color: white;
+}

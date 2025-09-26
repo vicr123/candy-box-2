@@ -22,6 +22,8 @@ function renderText(item: string, game: string, string: string, defaultString: s
             placeholderText = placeholderText.replace(`{{${arg}}}`, args[arg]);
         }
         return placeholderText;
+    } else if (!defaultString) {
+        return "";
     } else {
         return Database.getText(defaultString, {
             ...args,
@@ -51,7 +53,8 @@ export const EditableOccurrences = {
             });
             renderArea.addAsciiRealButton(buyText, 45 - Math.floor(buyText.length/2), yPos + 2, "", "", true);
             return renderArea;
-        }
+        },
+        hasNotificationArea: false
     },
     sorceressPre: {
         name: "The Sorceress (Before Purchase)",
@@ -74,35 +77,52 @@ export const EditableOccurrences = {
             renderArea.addAsciiRealButton(buyText, 73, 22, "sorceressHutBuyingButton");
             renderArea.drawSpeech(speech, 4, 43, 43 + 27, "sorceressHutSpeech");
             return renderArea;
-        }
+        },
+        hasNotificationArea: false
     },
     sorceressPost: {
         name: "The Sorceress (After Purchase)",
-        render: ({}) => {
+        render: ({itemName, gameName, string}) => {
+            const speech = renderText(itemName, gameName, string, "");
+
             const renderArea = new RenderArea();
+            renderArea.resize(144, 48);
+            renderArea.drawArray(Database.getAscii("places/sorceressHut/background"), 0, 3);
+            renderArea.drawArray(Database.getAscii("places/sorceressHut/hat"), 14, 3, new RenderTransparency(" ", "%"));
+            renderArea.drawArray(Database.getAscii("places/sorceressHut/shelves"), 73, 3);
+            renderArea.drawArray(Database.getAscii("places/sorceressHut/cauldron"), 80, 27, new RenderTransparency(" ", "%"));
+            renderArea.drawArray(Database.getAscii("places/sorceressHut/broom"), 49, 18);
+
+            if (speech) {
+                renderArea.drawSpeech(speech, 4, 43, 43 + 27, "sorceressHutSpeech");
+            }
             return renderArea;
-        }
+        },
+        hasNotificationArea: true
     },
     forgePost: {
         name: "The Forge (After Purchase)",
         render: ({}) => {
             const renderArea = new RenderArea();
             return renderArea;
-        }
+        },
+        hasNotificationArea: true
     },
     cyclops: {
         name: "The Cyclops (After Puzzle Solved)",
         render: ({}) => {
             const renderArea = new RenderArea();
             return renderArea;
-        }
+        },
+        hasNotificationArea: true
     },
     hoven: {
         name: "The Bakehouse (After Baked)",
         render: ({}) => {
             const renderArea = new RenderArea();
             return renderArea;
-        }
+        },
+        hasNotificationArea: true
     }
 } satisfies Record<ItemTextOccurrence, {
     name: string,
@@ -110,7 +130,8 @@ export const EditableOccurrences = {
         itemName: string,
         gameName: string,
         string: string | undefined
-    }) => RenderArea
+    }) => RenderArea,
+    hasNotificationArea: boolean
 }>
 
 export function EditorMain({
@@ -144,6 +165,9 @@ export function EditorMain({
         store.save()
     }
 
+    const notificationArea = occurrence.hasNotificationArea &&
+        <div className={Styles.sentNotification}>{selectedItem} was sent to Player1!</div>;
+
     if (!selectedItem) {
         return <div className={Styles.main}>
             Choose an item to edit its text
@@ -165,7 +189,7 @@ export function EditorMain({
         </div>
         <div className={Styles.preview}>
             <b>PREVIEW</b>
-            <ReactRenderArea renderArea={renderArea} />
+            <ReactRenderArea renderArea={renderArea} notificationArea={notificationArea} />
         </div>
     </div>
 }
