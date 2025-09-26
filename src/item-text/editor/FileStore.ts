@@ -77,6 +77,20 @@ export function useFileStore() {
         dispatchStore(["reset", fileContents]);
     }
 
+    const loadString = async (fileContents: string) => {
+        const fileJs = JSON.parse(fileContents) as {
+            name: string,
+            store: GameItemText
+        };
+
+        if (!fileJs.name || !fileJs.store || typeof fileJs.store != "object") {
+            throw new Error("Invalid File Format");
+        }
+
+        setGameName(fileJs.name);
+        dispatchStore(["reset", fileJs.store]);
+    };
+
     const fileExists = async (game: string) => {
         try {
             const rootOpfsDirectory = await navigator.storage.getDirectory();
@@ -98,6 +112,7 @@ export function useFileStore() {
         loadFile,
         fileExists,
         loadNetwork,
+        loadString,
 
         gameName,
         setGameName

@@ -27,3 +27,7 @@
 .recent {
     cursor: pointer;
 }
+
+.picker {
+    display: none;
+}
