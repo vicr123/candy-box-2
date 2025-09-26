@@ -1,7 +1,7 @@
 import {createContext, Dispatch, SetStateAction, useContext} from "react";
 import {FileStore} from "./FileStore";
 
-type EditorContextPage = "title" | "newFile" | "newFileConnect" | "editor";
+type EditorContextPage = "title" | "newFile" | "newFileConnect" | "editor" | "existingGame";
 
 export interface EditorContextInterface {
     currentPage: EditorContextPage,

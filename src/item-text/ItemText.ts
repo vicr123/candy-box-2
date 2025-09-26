@@ -99,3 +99,8 @@ export function getItemString(occurrence: ItemTextOccurrence, item: Item, cost?:
     }
     return placeholderText;
 }
+
+export async function fetchGameItemText(game: string) {
+    await loadGameItemText(game);
+    return LoadedItemText[game];
+}

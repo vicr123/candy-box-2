@@ -6,6 +6,7 @@ import {NewFile} from "./NewFile";
 import {NewFileConnect} from "./NewFileConnect";
 import {useFileStore} from "./FileStore";
 import {EditorPage} from "./EditorPage";
+import {ExistingGamePage} from "./ExistingGamePage";
 
 export function Editor() {
     const [currentPage, setCurrentPage] = useState<EditorContextInterface["currentPage"]>("title")
@@ -23,6 +24,8 @@ export function Editor() {
                 <NewFile />
             : currentPage == "newFileConnect" ?
                 <NewFileConnect />
+            : currentPage == "existingGame" ?
+                <ExistingGamePage />
             : currentPage == "editor" ?
                 <EditorPage />
             : null}

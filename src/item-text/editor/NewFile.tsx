@@ -17,6 +17,6 @@ export function NewFile() {
         <hr />
         <b>OPEN AN EXISTING GAME</b>
         Choose from a list of games that already have strings
-        <Button>Open an existing game</Button>
+        <Button onClick={() => setCurrentPage("existingGame")}>Open an existing game</Button>
     </div>
 }

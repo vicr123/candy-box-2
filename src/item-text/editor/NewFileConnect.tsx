@@ -23,6 +23,12 @@ export function NewFileConnect() {
                 tags: ["TextOnly"]
             });
 
+            if (await store.fileExists(client.game)) {
+                if (!confirm(`You already have a save file for ${client.game}. Creating a new file will overwrite your local changes. Continue to create a new file?`)) {
+                    return;
+                }
+            }
+
             const dataPackage = client.package.findPackage(client.game);
             store.setGameName(client.game);
             store.reset(Object.keys(dataPackage.itemTable));

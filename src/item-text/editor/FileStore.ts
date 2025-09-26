@@ -1,5 +1,5 @@
 import {useCallback, useMemo, useReducer, useState} from "react";
-import {GameItemText, ItemTextOccurrence} from "../ItemText";
+import {fetchGameItemText, GameItemText, ItemTextOccurrence} from "../ItemText";
 import {Archipelago} from "../../archipelago/Archipelago";
 import {Saving} from "../../main/Saving";
 
@@ -67,9 +67,26 @@ export function useFileStore() {
 
         const file = await saveFile.getFile();
         const contents = JSON.parse(await file.text());
-        console.log(contents);
         setGameName(contents.name);
         dispatchStore(["reset", contents.store]);
+    }
+
+    const loadNetwork = async (game: string) => {
+        const fileContents = await fetchGameItemText(game);
+        setGameName(game);
+        dispatchStore(["reset", fileContents]);
+    }
+
+    const fileExists = async (game: string) => {
+        const rootOpfsDirectory = await navigator.storage.getDirectory();
+        const dialogueEditorDirectory = await rootOpfsDirectory.getDirectoryHandle("dialogue-editor");
+        const savesDirectory = await dialogueEditorDirectory.getDirectoryHandle("saves");
+        try {
+            await savesDirectory.getFileHandle(game);
+            return true;
+        } catch {
+            return false;
+        }
     }
 
     return {
@@ -79,6 +96,8 @@ export function useFileStore() {
         save,
         getSaveFileContents,
         loadFile,
+        fileExists,
+        loadNetwork,
 
         gameName,
         setGameName

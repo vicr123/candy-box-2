@@ -1,0 +1,24 @@
+.page {
+    width: 600px;
+    height: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid var(--foreground-color);
+}
+
+.games {
+    flex-grow: 1;
+}
+
+.gamesList {
+    display: flex;
+    flex-direction: column;
+}
+
+.game {
+    cursor: pointer;
+}
