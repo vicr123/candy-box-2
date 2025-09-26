@@ -54,7 +54,13 @@ export const EditableOccurrences = {
             renderArea.addAsciiRealButton(buyText, 45 - Math.floor(buyText.length/2), yPos + 2, "", "", true);
             return renderArea;
         },
-        hasNotificationArea: false
+        hasNotificationArea: false,
+        placeholders: [
+            "player",
+            "item",
+            "game",
+            "count"
+        ]
     },
     sorceressPre: {
         name: "The Sorceress (Before Purchase)",
@@ -78,7 +84,13 @@ export const EditableOccurrences = {
             renderArea.drawSpeech(speech, 4, 43, 43 + 27, "sorceressHutSpeech");
             return renderArea;
         },
-        hasNotificationArea: false
+        hasNotificationArea: false,
+        placeholders: [
+            "player",
+            "item",
+            "game",
+            "count"
+        ]
     },
     sorceressPost: {
         name: "The Sorceress (After Purchase)",
@@ -98,7 +110,12 @@ export const EditableOccurrences = {
             }
             return renderArea;
         },
-        hasNotificationArea: true
+        hasNotificationArea: true,
+        placeholders: [
+            "player",
+            "item",
+            "game",
+        ]
     },
     forgePost: {
         name: "The Forge (After Purchase)",
@@ -112,7 +129,12 @@ export const EditableOccurrences = {
             renderArea.addAsciiRealButton("Send The Next Item to Player2 for 300 Candies", 8, 35, "mapVillageForgeBuyWoodenSwordButton");
             return renderArea;
         },
-        hasNotificationArea: true
+        hasNotificationArea: true,
+        placeholders: [
+            "player",
+            "item",
+            "game",
+        ]
     },
     cyclops: {
         name: "The Cyclops (After Puzzle Solved)",
@@ -125,7 +147,12 @@ export const EditableOccurrences = {
             renderArea.drawSpeech(speech, 17, 75, 99, "lighthouseSpeech");
             return renderArea;
         },
-        hasNotificationArea: true
+        hasNotificationArea: true,
+        placeholders: [
+            "player",
+            "item",
+            "game",
+        ]
     },
     hoven: {
         name: "The Bakehouse (After Baked)",
@@ -142,7 +169,12 @@ export const EditableOccurrences = {
             renderArea.addAsciiRealButton(Database.getText("castleBigRoomHovenThanks"), 83, 19, "castleBigRoomThanksButton", Database.getTranslatedText("castleBigRoomHovenThanks"), true);
             return renderArea;
         },
-        hasNotificationArea: true
+        hasNotificationArea: true,
+        placeholders: [
+            "player",
+            "item",
+            "game",
+        ]
     }
 } satisfies Record<ItemTextOccurrence, {
     name: string,
@@ -151,7 +183,8 @@ export const EditableOccurrences = {
         gameName: string,
         string: string | undefined
     }) => RenderArea,
-    hasNotificationArea: boolean
+    hasNotificationArea: boolean,
+    placeholders: string[]
 }>
 
 export function EditorMain({
@@ -191,6 +224,10 @@ export function EditorMain({
     const notificationArea = occurrence.hasNotificationArea &&
         <div className={Styles.sentNotification}>{selectedItem} was sent to Player1!</div>;
 
+    const remainingPlaceholders = useMemo(() => {
+        return occurrence.placeholders.filter(placeholder => !string.includes(`{{${placeholder}}}`));
+    }, [occurrence, string]);
+
     if (!selectedItem) {
         return <div className={Styles.main}>
             Choose an item to edit its text
@@ -208,6 +245,12 @@ export function EditorMain({
             </div>
             <div className={Styles.textRow}>
                 String: <input type={"text"} value={string} onChange={onChange} onBlur={onBlur} />
+            </div>
+            <div>
+                Remaining placeholders:{" "}
+                <div className={Styles.placeholderList}>
+                    {remainingPlaceholders.map(placeholder => <span className={Styles.placeholder}>{`{{${placeholder}}}`}</span>)}
+                </div>
             </div>
         </div>
         <div className={Styles.preview}>

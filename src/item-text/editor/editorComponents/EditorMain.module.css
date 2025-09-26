@@ -7,6 +7,10 @@
 .editorHeader {
     padding: 12px;
     border-bottom: 1px solid var(--foreground-color);
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .preview {
@@ -29,4 +33,13 @@
     padding: 3px;
     background: blue;
     color: white;
+}
+
+.placeholderList {
+    display: inline-flex;
+    gap: 4px;
+}
+
+.placeholder {
+    background: var(--selection-color)
 }
