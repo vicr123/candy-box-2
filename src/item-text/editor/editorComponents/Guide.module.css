@@ -1,0 +1,18 @@
+.guide {
+    padding: 12px;
+    max-width: 600px;
+}
+
+.admonition {
+    padding: 4px;
+}
+
+.warning {
+    color: black;
+    background: rgb(255, 200, 0);
+}
+
+.guide hr {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}

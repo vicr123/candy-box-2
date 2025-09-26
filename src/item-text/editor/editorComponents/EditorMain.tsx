@@ -7,6 +7,7 @@ import {ReactRenderArea} from "../../../react/ReactRenderArea";
 import {Database} from "../../../main/Database";
 import {Algo} from "../../../main/Algo";
 import {RenderTransparency} from "../../../main/RenderTransparency";
+import {Guide} from "./Guide";
 
 function renderText(item: string, game: string, string: string, defaultString: string) {
     const args = {
@@ -231,6 +232,12 @@ export function EditorMain({
     if (!selectedItem) {
         return <div className={Styles.main}>
             Choose an item to edit its text
+        </div>
+    }
+
+    if (selectedItem == "__instructions") {
+        return <div className={Styles.main}>
+            <Guide />
         </div>
     }
 

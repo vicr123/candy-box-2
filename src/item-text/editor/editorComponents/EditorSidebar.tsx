@@ -12,6 +12,8 @@ export function EditorSidebar({
     const {store} = useEditor();
 
     return <div className={Styles.sidebar}>
+        <div className={[Styles.item, ...(selectedItem == "__instructions" ? [Styles.selected] : [])].join(" ")} onClick={() => setSelectedItem("__instructions")}>Guide</div>
+        <div style={{height: "10px"}} />
         <b>ITEMS</b>
         <div className={Styles.items}>
             {Object.keys(store.store).map(item => <div

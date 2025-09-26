@@ -7,7 +7,7 @@ import {useState} from "react";
 import {ItemTextOccurrence} from "../ItemText";
 
 export function EditorPage() {
-    const [selectedItem, setSelectedItem] = useState<string>();
+    const [selectedItem, setSelectedItem] = useState("__instructions");
     const [selectedOccurrence, setSelectedOccurrence] = useState<ItemTextOccurrence>("merchantPre")
 
     return <div className={Styles.root}>
