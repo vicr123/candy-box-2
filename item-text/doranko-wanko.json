@@ -1,0 +1,162 @@
+{
+  "Living Room Fan": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a white fan, saying \"living room\" on the bottom. I think it's for {{player}}'s house, I hope they enjoy the breeze from it!",
+    "merchantPre": "This is a white fan that says \"living room\" on the bottom. I'll send it straight to {{player}}'s house with free express shipping for {{count}} candies!",
+    "sorceressPre": "That's a white fan that says \"living room\" on the bottom. I will magically summon it in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "I hope that fan provides a nice helpful breeze.",
+    "cyclops": "Congratulations! You passed the test. I, uh, found this fan in a garage sale. Do you think {{player}} would like it? Maybe it can fit in their living room. Good luck!",
+    "forgePost": "There! I have perfected the art of creating a fan. I will install it in {{player}}'s living room for them."
+  },
+  "Party Outfit": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a little {{item}} set for a pomeranian! I think it'll fit {{player}} nicely, they'll look really cute with it on!",
+    "merchantPre": "This is a cute {{item}} set for a pomeranian to wear. I'll send it straight to {{player}}'s house with free express shipping for {{count}} candies!",
+    "sorceressPre": "That's a cute {{item}} set for a pomeranian to wear. I will magically summon it in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "Please send me a photo of {{player}} wearing the {{item}}.",
+    "cyclops": "Congratulations! You passed the test. I think {{player}} wants to celebrate with you, so here's this {{item}} I found. Good luck!",
+    "forgePost": "I found this {{item}} when buying new forge materials, I hope {{player}} will enjoy wearing it."
+  },
+  "Train Wheel": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a little pink wheel, suited for a massive toy train! I hope {{player}} likes my gift!",
+    "merchantPre": "This is a small pink wheel, seemingly the perfect size for an over-sized toy train. I'll send it straight to {{player}}'s house with free express shipping for {{count}} candies!",
+    "sorceressPre": "That's a small pink wheel, seemingly the perfect size for an over-sized toy train. I will magically summon it in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "I hope {{player}} enjoys the wheel.",
+    "cyclops": "Congratulations! You passed the test. Here's a pink little {{item}} for {{player}} to enjoy. Good luck!",
+    "forgePost": "There! I heard that {{player}} wished for more {{item}}s, so I have worked hard and crafted one for them."
+  },
+  "Elephant Hat": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... an {{item}} suited for a pomeranian! I think it'll fit {{player}} nicely, they'll look really cute with it on!",
+    "merchantPre": "This is a cute {{item}} for a pomeranian to wear. I'll send it straight to {{player}}'s house with free express shipping for {{count}} candies!",
+    "sorceressPre": "That's a cute {{item}} for a pomeranian to wear. I will magically summon it in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "Please send me a photo of {{player}} wearing the {{item}}.",
+    "cyclops": "Congratulations! You passed the test. As a reward, you get to see {{player}} wear an {{item}}. Good luck!",
+    "forgePost": "I found this {{item}} when buying new forge materials, I hope {{player}} will enjoy wearing it."
+  },
+  "Nursery Box": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a cardboard box. Hm... tell me, do you think {{player}} would like it? I hope they will!",
+    "merchantPre": "This is a cardboard box.",
+    "sorceressPre": "I will magically summon a cardboard box in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "Y'know... I thought it was cats that liked cardboard boxes, not dogs.",
+    "cyclops": "Congratulations! You passed the test. I don't have much to offer you though. Perhaps this cardboard box for {{player}} might suffice? Good luck!",
+    "forgePost": "I am sorry, I was so busy crafting weaponry for others, I couldn't make anything for {{player}}. I hope this box suffices."
+  },
+  "Whale Hat": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a {{item}} suited for a pomeranian! I think it'll fit {{player}} nicely, they'll look really cute with it on!",
+    "merchantPre": "This is a cute {{item}} for a pomeranian to wear. I'll send it straight to {{player}}'s house with free express shipping for {{count}} candies!",
+    "sorceressPre": "That's a cute {{item}} for a pomeranian to wear. I will magically summon it in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "Please send me a photo of {{player}} wearing the {{item}}.",
+    "cyclops": "Congratulations! You passed the test. As a reward, you get to see {{player}} wear a {{item}}. Good luck!",
+    "forgePost": "I found this {{item}} when buying new forge materials, I hope {{player}} will enjoy wearing it."
+  },
+  "Nursery Fan": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made...a white fan, saying \"nursery\" on the bottom. I think it's for {{player}}'s house, I hope they enjoy the breeze from it!",
+    "merchantPre": "This is a white fan that says \"living room\" on the bottom. I'll send it straight to {{player}}'s house with free express shipping for {{count}} candies!",
+    "sorceressPre": "That's a white fan that says \"nursery\" on the bottom. I will magically summon it in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "I hope that fan provides a nice helpful breeze.",
+    "cyclops": "Congratulations! You passed the test. I, uh, found this fan in a garage sale. Do you think {{player}} would like it? Maybe it can fit in their nursery. Good luck!",
+    "forgePost": "There! I have perfected the art of creating a fan. I will install it in {{player}}'s nursery for them."
+  },
+  "Cannon Hat": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... an hat with a cannon attached suited for a pomeranian! I think it'll fit {{player}} nicely, they'll look really cute with it on!",
+    "merchantPre": "This is a hat with a cannon on top for a pomeranian to wear. I'll send it straight to {{player}}'s house with free express shipping for {{count}} candies!",
+    "sorceressPre": "This is a hat with a cannon on top for a pomeranian to wear. I will magically summon it in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "Please send me a photo of {{player}} wearing the {{item}}.",
+    "cyclops": "Congratulations! You passed the test. As a reward, you get to see {{player}} wear a {{item}}. Good luck!",
+    "forgePost": "I found this {{item}} when buying new forge materials, I hope {{player}} will enjoy wearing it."
+  },
+  "Paint Robot Cleaners": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... four very colourful robot cleaners! I sent them over to {{player}}'s house, maybe they can be friends!",
+    "merchantPre": "These are some very colourful robot cleaners, and definitely not off-brand roombas. I'll send them straight to {{player}}'s house with free express shipping for {{count}} candies!",
+    "sorceressPre": "I will magically summon four colourful off-brand roombas in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "GO MY OFF-BRAND ROOMBAS, BE FREE!",
+    "cyclops": "Congratulations! You passed the test. I have released some {{item}} in {{player}}'s home for you. Good luck!",
+    "forgePost": "Behold, my masterpiece: {{item}}! I spent countless years to create these, I hope {{player}} is pleased."
+  },
+  "Turret Gun": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a dirt-shooting {{item}}, with straps attached to be able to put it on a pomeranian! I... don't know why I did this, but I think {{player}} will love it!",
+    "merchantPre": "Why does a pomeranian need a {{item}}? I mean, I'll send it straight to {{player}}'s house with free express shipping for {{count}} candies, but... why do you need this?",
+    "sorceressPre": "Of course a pomeranian needs a {{item}}! I will magically summon one in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "I'm glad you agree with my belief in the importance of pomeranians having possession of {{item}}s.",
+    "cyclops": "Congratulations! You passed the test. Here is a {{item}} for your pomeranian friend {{player}}. I don't know why they need it, or what they will do with it. Good luck!",
+    "forgePost": "Behold, my masterpiece: a {{item}}! It took me months to create, I hope {{player}} will make great use of it."
+  },
+  "Trophy": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a {{item}}! Now, some ink did spill into it whilst I brought it to {{player}}'s house, but as long as they're careful with it, it should be ok!",
+    "merchantPre": "This is a {{item}} that for some reason is filled with ink. I'll send it straight to {{player}}'s house with free express shipping for {{count}} candies!",
+    "sorceressPre": "This is a {{item}} that I thought would be funny if I filled it with ink. I will magically summon it in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "Be careful not to spill all that ink. Or do spill it intentionally. That's up to {{player}}, really.",
+    "cyclops": "Congratulations! You passed the test. Here's a {{item}}! I think {{player}} wants it though, so I'll give it to them. Good luck!",
+    "forgePost": "There! I have forged a {{item}} for {{player}}. I hope they enjoy it - I spent a lot to obtain the gold to make it with."
+  },
+  "Giant Gold Statue": {
+    "merchantPre": "This is an enormous golden statue of a pomeranian. I'll send it straight to {{player}}'s house with free express shipping for {{count}} candies!",
+    "sorceressPre": "That's an ernomous golden statue of a pomeranian. I'll summon it in {{player}}'s house for the price of {{count}} lollipops!",
+    "sorceressPost": "I wonder what they needed that enormous golden statue for...",
+    "forgePost": "There! I sent {{player}}'s {{item}}. I hope they enjoy it - it cost a lot to get the gold to forge it for them.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. It looks a lot like them, so I hope they like it. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... {{player}}'s {{item}}! It kinda looks like them, so I hope they'll enjoy it!"
+  },
+  "Gold Statue Hat": {
+    "merchantPre": "This is a small golden pomeranian-shaped hat. I'll send it straight to {{player}}'s house with free express shipping for {{count}} candies!",
+    "sorceressPre": "That's a small golden pomeranian-shaped hat. I'll summon it in {{player}}'s house for the price of {{count}} lollipops!",
+    "sorceressPost": "I hope {{player}} feels very stylish with that hat.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. I hope they enjoy it - it cost a bit to get the gold to forge it for them.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. It looks a lot like them, so I hope they like wearing it. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... {{player}}'s {{item}}! It kinda looks like them, so I hope they'll enjoy wearing it!"
+  },
+  "Mom Unlock": {
+    "merchantPre": "This is {{player}}'s Mom. I am holding her ransom for {{count}} candies. Pay up.",
+    "sorceressPre": "This is {{player}}'s Mom. I am holding her ransom for {{count}} lollipops. Pay up.",
+    "sorceressPost": "{{player}}'s Mom has been released from my secret cage you can't see. Thank you for the lollipops.",
+    "forgePost": "There! I found {{player}}'s Mom, and have helped her get back home. I hope they appreciate her, she's very kind.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s Mom, she says she's very proud of you. I'm going to go help her get back home, but she wishes you good luck!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar... but I wasn't sure what to make. {{player}}'s Mom then showed up and gave me some real solid advice, so I gave her everything. I think she's heading home now!"
+  },
+  "Wine Button Unlock": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... two buttons. I then went and installed them in {{player}}'s house, they seemed like they'd fit there. I hope this helps!",
+    "merchantPre": "This is a pair of buttons that say \"do not press\" on them. I'll get them installed in {{player}}'s house for {{count}} candies with no extra costs!",
+    "sorceressPre": "This is a pair of buttons that say \"do not press\" on them. I will magically install them in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "The buttons have been magically installed.",
+    "cyclops": "Congratulations! You passed the test. I have sent someone to install some buttons in {{player}}'s house for you. Good luck!",
+    "forgePost": "There! I have spent a day at {{player}}'s home, and have installed some necessary buttons. I hope they appreciate my work."
+  },
+  "Train Unlock": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... an over-sized toy train! I hope {{player}} likes my gift!",
+    "merchantPre": "This is an over-sized toy train, missing three of it's four wheels. I'll send it straight to {{player}}'s house with free express shipping for {{count}} candies!",
+    "sorceressPre": "That's an over-sized toy train, missing three of it's four wheels. I will magically summon it in {{player}}'s house for {{count}} lollipops!",
+    "sorceressPost": "The train has been sent.",
+    "cyclops": "Congratulations! You passed the test. I have sent an oversized toy train to {{player}}'s house for you. Good luck!",
+    "forgePost": "There! I have crafted a massive wooden toy train. I hope that {{player}} will enjoy this."
+  },
+  "P$10 Damage": {
+    "merchantPre": "Seems your friend in {{game}} wants to cause some monetary damage. I know a guy I could hire to deal about {{item}}. I could hire them for {{player}} if you give me {{count}} candies.",
+    "sorceressPre": "Seems your friend in {{game}} wants to cause some monetary damage. I know a spell that could help deal about {{item}}. I could use it for {{player}}, but it'll cost you {{count}} lollipops.",
+    "sorceressPost": "Kaboom Kabosh! {{player}}'s family lose about P$10 in costs!",
+    "forgePost": "There! I smacked an orange in {{player}}'s house with my hammer, that should cost their family about P$10 in damages.",
+    "cyclops": "Congratulations! You passed the test. Uh, why is that pomeranian yapping- You want me to help destroy their family's home as a reward? Weird but uh.. sure. I'll... Squeeze a tomato. That should cost {{player}}'s family about P$10. ...Good luck?",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar and I... Caused property damage costing about P$10 in {{player}}'s home! I hope this helps!"
+  },
+  "P$100 Damage": {
+    "merchantPre": "Seems your friend in {{game}} wants to cause some monetary damage. I know a guy I could hire to deal about {{item}}. I could hire them for {{player}} if you give me {{count}} candies.",
+    "sorceressPre": "Seems your friend in {{game}} wants to cause some monetary damage. I know a spell that could help deal about {{item}}. I could use it for {{player}}, but it'll cost you {{count}} lollipops.",
+    "sorceressPost": "Kaboom Kabosh! {{player}}'s family lose about P$100 in costs!",
+    "forgePost": "There! I smacked a toaster in {{player}}'s house with my hammer, that should cost their family about P$100 in damages.",
+    "cyclops": "Congratulations! You passed the test. Uh, why is that pomeranian yapping- You want me to help destroy their family's home as a reward? Weird but uh.. sure. I'll... Punch their microwave. That should cost {{player}}'s family about P$100. ...Good luck?",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar and I... Caused property damage costing about P$100 in {{player}}'s home! I hope this helps!"
+  },
+  "P$250 Damage": {
+    "merchantPre": "Seems your friend in {{game}} wants to cause some monetary damage. I know a guy I could hire to deal about {{item}}. I could hire them for {{player}} if you give me {{count}} candies.",
+    "sorceressPre": "Seems your friend in {{game}} wants to cause some monetary damage. I know a spell that could help deal about {{item}}. I could use it for {{player}}, but it'll cost you {{count}} lollipops.",
+    "sorceressPost": "Kaboom Kabosh! {{player}}'s family lose about P$250 in costs!",
+    "forgePost": "There! I smacked one of the speakers in {{player}}'s house with my hammer, that should cost their family about P$250 in damages.",
+    "cyclops": "Congratulations! You passed the test. Uh, why is that pomeranian yapping- You want me to help destroy their family's home as a reward? Weird but uh.. sure. I'll... Hit their singular laptop. That should cost {{player}}'s family about P$250. ...Good luck?",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar and I... Caused property damage costing about P$250 in {{player}}'s home! I hope this helps!"
+  },
+  "P$500 Damage": {
+    "merchantPre": "Seems your friend in {{game}} wants to cause some monetary damage. I know a guy I could hire to deal about {{item}}. I could hire them for {{player}} if you give me {{count}} candies.",
+    "sorceressPre": "Seems your friend in {{game}} wants to cause some monetary damage. I know a spell that could help deal about {{item}}. I could use it for {{player}}, but it'll cost you {{count}} lollipops.",
+    "sorceressPost": "Kaboom Kabosh! {{player}}'s family lose about P$500 in costs!",
+    "forgePost": "There! I smacked both of the speakers in {{player}}'s house with my hammer, that should cost their family about P$500 in damages.",
+    "cyclops": "Congratulations! You passed the test. Uh, why is that pomeranian yapping- You want me to help destroy their family's home as a reward? Weird but uh.. sure. I'll... Punch their massive TV screen. That should cost {{player}}'s family about P$500. ...Good luck?",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar and I... Caused property damage costing about P$500 in {{player}}'s home! I hope this helps!"
+  }
+}

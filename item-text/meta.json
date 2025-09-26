@@ -6,5 +6,9 @@
   "A Hat in Time": {
     "strings": ["/item-text/a-hat-in-time.json"],
     "matureGame": false
+  },
+  "DORONKO WANKO": {
+    "strings": ["/item-text/doronko-wanko.json"],
+    "matureGame": false
   }
 }
