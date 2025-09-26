@@ -1,6 +1,6 @@
 import Styles from "./EditorMain.module.css";
 import {ItemTextOccurrence} from "../../ItemText";
-import {Dispatch, SetStateAction, useMemo} from "react";
+import {Dispatch, SetStateAction, useMemo, useState} from "react";
 import {useEditor} from "../EditorContext";
 import {RenderArea} from "../../../main/RenderArea";
 import {ReactRenderArea} from "../../../react/ReactRenderArea";
@@ -8,6 +8,7 @@ import {Database} from "../../../main/Database";
 import {Algo} from "../../../main/Algo";
 import {RenderTransparency} from "../../../main/RenderTransparency";
 import {Guide} from "./Guide";
+import {KeyboardEvent} from "react";
 
 function renderText(item: string, game: string, string: string, defaultString: string) {
     const args = {
@@ -61,6 +62,11 @@ export const EditableOccurrences = {
             "item",
             "game",
             "count"
+        ],
+        examples: [
+            "secondHouseLollipop1Speech",
+            "secondHouseLollipop2Speech",
+            "secondHouseLollipop3Speech"
         ]
     },
     sorceressPre: {
@@ -91,6 +97,9 @@ export const EditableOccurrences = {
             "item",
             "game",
             "count"
+        ],
+        examples: [
+            "sorceressHutClickedGrimoire"
         ]
     },
     sorceressPost: {
@@ -116,6 +125,9 @@ export const EditableOccurrences = {
             "player",
             "item",
             "game",
+        ],
+        examples: [
+            "sorceressHutBuyGrimoireSpeech"
         ]
     },
     forgePost: {
@@ -135,6 +147,13 @@ export const EditableOccurrences = {
             "player",
             "item",
             "game",
+        ],
+        examples: [
+            "mapVillageForgeBuyWoodenSwordSpeech",
+            "mapVillageForgeBuyIronAxeSpeech",
+            "mapVillageForgeBuyPolishedSilverSwordSpeech",
+            "mapVillageForgeBuyLightweightBodyArmourSpeech",
+            "mapVillageForgeBuyScytheSpeech"
         ]
     },
     cyclops: {
@@ -153,6 +172,9 @@ export const EditableOccurrences = {
             "player",
             "item",
             "game",
+        ],
+        examples: [
+            "Congratulations! You passed the test and found the stone. It's very precious, but is only useful if you have three other stones like this one. Good luck!"
         ]
     },
     hoven: {
@@ -175,6 +197,9 @@ export const EditableOccurrences = {
             "player",
             "item",
             "game",
+        ],
+        examples: [
+            "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made you... a pain au chocolat! It's my favourite pastry, I hope you'll like it too!"
         ]
     }
 } satisfies Record<ItemTextOccurrence, {
@@ -185,7 +210,8 @@ export const EditableOccurrences = {
         string: string | undefined
     }) => RenderArea,
     hasNotificationArea: boolean,
-    placeholders: string[]
+    placeholders: string[],
+    examples: string[]
 }>
 
 export function EditorMain({
@@ -198,6 +224,8 @@ export function EditorMain({
     setSelectedOccurrence: Dispatch<SetStateAction<ItemTextOccurrence>>
 }) {
     const {store} = useEditor();
+    const [showExample, setShowExample] = useState(false);
+    const [exampleNumber, setExampleNumber] = useState(0);
 
     const string = store.store?.[selectedItem]?.[selectedOccurrence] ?? "";
     const game = store.gameName;
@@ -206,13 +234,29 @@ export function EditorMain({
         return EditableOccurrences[selectedOccurrence];
     }, [selectedOccurrence]);
 
+    const normalisedExampleNumber = useMemo(() => {
+        if (exampleNumber < 0) {
+            return occurrence.examples.length - Math.abs(exampleNumber) % occurrence.examples.length - 1;
+        }
+        return exampleNumber % occurrence.examples.length;
+    }, [exampleNumber, occurrence]);
+
     const renderArea = useMemo(() => {
+        let s = string;
+        if (showExample) {
+            const example = occurrence.examples[normalisedExampleNumber];
+            s = Database.getText(example);
+            if (!s) {
+                s = example;
+            }
+        }
+
         return occurrence.render({
             itemName: selectedItem ?? "",
             gameName: game,
-            string: string
+            string: s
         });
-    }, [occurrence, selectedItem, game, string]);
+    }, [occurrence, selectedItem, game, string, showExample, normalisedExampleNumber]);
 
     const onChange = (e) => {
         store.edit(selectedItem, selectedOccurrence, e.target.value)
@@ -229,6 +273,26 @@ export function EditorMain({
         return occurrence.placeholders.filter(placeholder => !string.includes(`{{${placeholder}}}`));
     }, [occurrence, string]);
 
+    const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+        if (e.key == "Tab") {
+            e.preventDefault();
+            e.stopPropagation();
+            setShowExample(true);
+        } else if (e.key == "ArrowLeft" && showExample) {
+            setExampleNumber(n => n - 1);
+        } else if (e.key == "ArrowRight" && showExample) {
+            setExampleNumber(n => n + 1);
+        }
+    }
+
+    const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
+        if (e.key == "Tab") {
+            e.preventDefault();
+            e.stopPropagation();
+            setShowExample(false);
+        }
+    }
+
     if (!selectedItem) {
         return <div className={Styles.main}>
             Choose an item to edit its text
@@ -241,7 +305,7 @@ export function EditorMain({
         </div>
     }
 
-    return <div className={Styles.main}>
+    return <div className={Styles.main} onKeyUp={onKeyUp} onKeyDown={onKeyDown}>
         <div className={Styles.editorHeader}>
             <div>
                 Occurrence: <select value={selectedOccurrence} onChange={(e) => setSelectedOccurrence(e.target.value as ItemTextOccurrence)}>
@@ -261,7 +325,7 @@ export function EditorMain({
             </div>
         </div>
         <div className={Styles.preview}>
-            <b>PREVIEW</b>
+            <b>{showExample ? `EXAMPLE (${normalisedExampleNumber + 1}/${occurrence.examples.length})` : "PREVIEW"}</b>
             <ReactRenderArea renderArea={renderArea} notificationArea={notificationArea} />
         </div>
     </div>
