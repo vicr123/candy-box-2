@@ -182,6 +182,9 @@ export function EditorMain({
 
     const onChange = (e) => {
         store.edit(selectedItem, selectedOccurrence, e.target.value)
+    }
+
+    const onBlur = () => {
         store.save()
     }
 
@@ -204,7 +207,7 @@ export function EditorMain({
                 </select>
             </div>
             <div className={Styles.textRow}>
-                String: <input type={"text"} value={string} onChange={onChange} />
+                String: <input type={"text"} value={string} onChange={onChange} onBlur={onBlur} />
             </div>
         </div>
         <div className={Styles.preview}>
