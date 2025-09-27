@@ -1,0 +1,90 @@
+{
+  "Power Star": {
+    "sorceressPre": "That's {{player}}'s {{item}}. King Bowser asked me to hold onto it, but to be honest I don't care that much. I'll hand it back for a fair price. {{count}} lollipops will do.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. It is a powerful artifact that will let them... uh... open doors? Oh, and go up some stairs, too. I hope they will like it!"
+  },
+  "Basement Key": {},
+  "Second Floor Key": {},
+  "Progressive Key": {},
+  "Wing Cap": {},
+  "Metal Cap": {},
+  "Vanish Cap": {},
+  "1Up Mushroom": {
+    "sorceressPre": "That's a very rare kind of mushroom that only grows in a few worlds. It grants an extra life when eaten. I'll return it to {{player}} for {{count}} lollipops!",
+    "sorceressPost": "Honestly, I think that mushroom would have been more useful to you than to them. Too late!"
+  },
+  "Double Jump": {
+    "hoven": "Yay! Thanks a lot! I shared 100 candies and a chocolate bar with my good friend Mario, from {{player}}'s world... But I think all the sugar got to his head, he started Double Jumping all over the place!",
+    "forgePost": "There! I went to {{player}}'s world and taught Mario how to Double Jump."
+  },
+  "Triple Jump": {
+    "hoven": "Yay! Thanks a lot! I shared 100 candies and a chocolate bar with my good friend Mario, from {{player}}'s world... But I think all the sugar got to his head, he started Triple Jumping all over the place!",
+    "forgePost": "There! I went to {{player}}'s world and taught Mario how to Triple Jump."
+  },
+  "Long Jump": {
+    "hoven": "Yay! Thanks a lot! I shared 100 candies and a chocolate bar with my good friend Mario, from {{player}}'s world... But I think all the sugar got to his head, he started Long Jumping all over the place!",
+    "forgePost": "There! I went to {{player}}'s world and taught Mario how to Long Jump."
+  },
+  "Backflip": {
+    "hoven": "Yay! Thanks a lot! I shared 100 candies and a chocolate bar with my good friend Mario, from {{player}}'s world... But I think all the sugar got to his head, he started Backflipping all over the place!",
+    "forgePost": "There! I went to {{player}}'s world and taught Mario how to Backflip."
+  },
+  "Side Flip": {
+    "hoven": "Yay! Thanks a lot! I shared 100 candies and a chocolate bar with my good friend Mario, from {{player}}'s world... But I think all the sugar got to his head, he started Side Flipping all over the place!",
+    "forgePost": "There! I went to {{player}}'s world and taught Mario how to Side Flip."
+  },
+  "Wall Kick": {
+    "hoven": "Yay! Thanks a lot! I shared 100 candies and a chocolate bar with my good friend Mario, from {{player}}'s world... But I think all the sugar got to his head, he started Wall Kicking all over the place!",
+    "forgePost": "There! I went to {{player}}'s world and taught Mario how to Wall Kick."
+  },
+  "Dive": {
+    "hoven": "Yay! Thanks a lot! I shared 100 candies and a chocolate bar with my good friend Mario, from {{player}}'s world... But I think all the sugar got to his head, he started Diving all over the place!",
+    "forgePost": "There! I went to {{player}}'s world and taught Mario how to Dive."
+  },
+  "Ground Pound": {
+    "hoven": "Yay! Thanks a lot! I shared 100 candies and a chocolate bar with my good friend Mario, from {{player}}'s world... But I think all the sugar got to his head, he started Ground Pounding all over the place!",
+    "forgePost": "There! I went to {{player}}'s world and taught Mario how to Ground Pound."
+  },
+  "Kick": {
+    "hoven": "Yay! Thanks a lot! I shared 100 candies and a chocolate bar with my good friend Mario, from {{player}}'s world... But I think all the sugar got to his head, he started Kicking all over the place!",
+    "forgePost": "There! I went to {{player}}'s world and taught Mario how to Kick."
+  },
+  "Climb": {
+    "hoven": "Yay! Thanks a lot! I shared 100 candies and a chocolate bar with my good friend Mario, from {{player}}'s world... But I think all the sugar got to his head, he started Climbing all over the place!",
+    "forgePost": "There! I went to {{player}}'s world and taught Mario how to Climb."
+  },
+  "Ledge Grab": {
+    "hoven": "Yay! Thanks a lot! I shared 100 candies and a chocolate bar with my good friend Mario, from {{player}}'s world... But I think all the sugar got to his head, he started Ledge Grabbing all over the place!",
+    "forgePost": "There! I went to {{player}}'s world and taught Mario how to Ledge Grab."
+  },
+  "Cannon Unlock BoB": {
+    "forgePost": "There! I went to {{player}}'s world in Bob-omb Battlefield and taught the Bob-omb buddies how to use their cannons."
+  },
+  "Cannon Unlock WF": {
+    "forgePost": "There! I went to {{player}}'s world in Whomp's Fortress and taught the Bob-omb buddies how to use their cannons."
+  },
+  "Cannon Unlock JRB": {
+    "forgePost": "There! I went to {{player}}'s world in Jolly Roger Bay and taught the Bob-omb buddies how to use their cannons."
+  },
+  "Cannon Unlock CCM": {
+    "forgePost": "There! I went to {{player}}'s world in Cool Cool Mountain and taught the Bob-omb buddies how to use their cannons."
+  },
+  "Cannon Unlock SSL": {
+    "forgePost": "There! I went to {{player}}'s world in Shifting Sand Land and taught the Bob-omb buddies how to use their cannons."
+  },
+  "Cannon Unlock SL": {
+    "forgePost": "There! I went to {{player}}'s world in Snowman's Land and taught the Bob-omb buddies how to use their cannons."
+  },
+  "Cannon Unlock WDW": {
+    "forgePost": "There! I went to {{player}}'s world in Wet-Dry World and taught the Bob-omb buddies how to use their cannons."
+  },
+  "Cannon Unlock TTM": {
+    "forgePost": "There! I went to {{player}}'s world in Tall Tall Mountain and taught the Bob-omb buddies how to use their cannons."
+  },
+  "Cannon Unlock THI": {
+    "forgePost": "There! I went to {{player}}'s world in Tiny-Huge Island and taught the Bob-omb buddies how to use their cannons."
+  },
+  "Cannon Unlock RR": {
+    "forgePost": "There! I went to {{player}}'s world in Rainbow Ride and taught the Bob-omb buddies how to use their cannons."
+  }
+}

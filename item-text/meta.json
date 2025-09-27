@@ -18,5 +18,9 @@
   "Overcooked! 2": {
     "strings": ["/item-text/overcooked-2.json"],
     "matureGame": false
+  },
+  "Super Mario 64": {
+    "strings": ["/item-text/super-mario-64.json"],
+    "matureGame": false
   }
 }
