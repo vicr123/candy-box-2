@@ -14,5 +14,9 @@
   "Simon Tatham's Portable Puzzle Collection": {
     "strings": ["/item-text/simon-tathams-portable-puzzle-collection.json"],
     "matureGame": false
+  },
+  "Overcooked! 2": {
+    "strings": ["/item-text/overcooked-2.json"],
+    "matureGame": false
   }
 }

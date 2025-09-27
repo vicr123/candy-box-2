@@ -1,0 +1,240 @@
+{
+  "Wood": {
+    "merchantPre": "I have {{item}} to sell. For {{count}} candies, you can give it to {{player}} to cook at the campfire in {{game}}.",
+    "sorceressPre": "I have spare {{item}} to sell. For {{count}} lollipops, this allows {{player}} to cook at the campfire in {{game}}.",
+    "sorceressPost": "Thanks for buying! Now {{player}} can cook at the campfire in {{game}}.",
+    "forgePost": "There! I sent {{item}} to {{player}}. I hope they enjoy it - it is the result of my weapon testing on some trees.",
+    "cyclops": "Congratulations! You passed the test. Here's some {{item}} to give to {{player}}. This allows them to cook at the campfire in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I have some spare {{item}} to give to {{player}}. This allows them to cook at the campfire in {{game}}."
+  },
+  "Coal Bucket": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this allows them to cook faster on furnance levels in {{game}}.",
+    "sorceressPre": "This is {{player}}'s {{item}}. For {{count}} lollipops, this allows them to cook faster on furnance levels in {{game}}.",
+    "sorceressPost": "Thanks for buying! Now {{player}} can cook faster on furnance levels in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I have a {{item}} to give to {{player}}. This allows them to cook faster on furnance levels in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This allows them to cook faster on furnance levels in {{game}}.",
+    "forgePost": "There! I built a {{item}} for {{player}}. Now they can cook faster on furnance levels in {{game}}."
+  },
+  "Spare Plate": {
+    "merchantPre": "",
+    "sorceressPre": "",
+    "sorceressPost": "Thanks for buying! Now {{player}} has an extra plate in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I have a {{item}} to give to {{player}} in {{game}}. I hope they'll enjoy it!",
+    "cyclops": "",
+    "forgePost": ""
+  },
+  "Fire Extinguisher": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this allows them to extinguish fires in {{game}}.",
+    "sorceressPre": "This is {{player}}'s {{item}}. For {{count}} lollipops, this allows them to extinguish fires in {{game}}.",
+    "sorceressPost": "Thanks for buying! Now {{player}} can extinguish fires in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This allows them to extinguish fires in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I have a {{item}} to give to {{player}}. This allows them to extinguish fires in {{game}}.",
+    "forgePost": "There! I built a {{item}} for {{player}}. Now they can extinguish fires in {{game}}."
+  },
+  "Bellows": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this allows them to cook kebabs faster in {{game}}.",
+    "sorceressPre": "This is {{player}}'s {{item}}. For {{count}} lollipops, this allows them to cook kebabs faster in {{game}}.",
+    "sorceressPost": "Thanks for buying! Now {{player}} can cook kebabs faster in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This allows them to cook kebabs faster in {{game}}.",
+    "hoven": "Yay! Thanks a lot! Here, I have {{item}} to give to {{player}}. This allows them to cook kebabs faster in {{game}}.",
+    "forgePost": "There! I built {{item}} for {{player}}. Now they can cook kebabs faster in {{game}}."
+  },
+  "Clean Dishes": {
+    "merchantPre": "",
+    "sorceressPost": "Thanks for buying! Now {{player}} has pre-cleaned plates in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I have a {{item}} to give to {{player}} in {{game}}. I hope they'll enjoy it!"
+  },
+  "Larger Tip Jar": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this allows them to have a higher tip multiplier in {{game}}.",
+    "sorceressPost": "Thanks for buying! Now {{player}} can have a higher tip multiplier in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I have a {{item}} to give to {{player}}. This allows them to have higher a tip multiplier in {{game}}.",
+    "sorceressPre": "This is {{player}}'s {{item}}. For {{count}} lollipops, this allows them to have a higher tip multiplier in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This allows them to have a higher tip multiplier in {{game}}.",
+    "forgePost": "There! I built a {{item}} for {{player}}. Now they can have a higher tip multiplier in {{game}}."
+  },
+  "Progressive Dash": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, these shoes allow them to move faster in {{game}}.",
+    "sorceressPre": "For {{count}} lollipops, I will cast {{item}} on {{player}}, which allows them to move faster in {{game}}.",
+    "sorceressPost": "Thanks a lot! Now {{player}} can move faster in {{game}}.",
+    "forgePost": "There! I have taught {{player}} {{item}}. Now they can move faster in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This allows them to move faster in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a bread infused with {{item}} for {{player}}! I hope they'll enjoy it!"
+  },
+  "Progressive Throw/Catch": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a bread infused with {{item}} for {{player}}! I hope they'll enjoy it!",
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, these gloves allows them to learn how to throw or catch in {{game}}.",
+    "sorceressPre": "For {{count}} lollipops, I will cast {{item}} on {{player}}, which allows them to throw or catch in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This allows them to learn how to throw or catch in {{game}}.",
+    "forgePost": "There! I have taught {{player}} {{item}}. Now they can throw or catch in {{game}}.",
+    "sorceressPost": "Thanks a lot! Now {{player}} can throw or catch in {{game}}."
+  },
+  "Coin Purse": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this allows them to rebuild horde barriers and unlock coin gates in {{game}}.",
+    "sorceressPre": "This is {{player}}'s {{item}}. For {{count}} lollipops, this allows them to rebuild horde barriers and unlock coin gates in {{game}}.",
+    "sorceressPost": "Thanks for buying! Now {{player}} can rebuild horde barriers and unlock coin gates in {{game}}.",
+    "forgePost": "There! I built a {{item}} for {{player}}. Now they can rebuild horde barriers and unlock coin gates in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I have a {{item}} to give to {{player}}. This allows them to rebuild horde barriers and coin gates in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This allows them to rebuild horde barriers and unlock coin gates in {{game}}."
+  },
+  "Control Stick Batteries": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this allows them to move platforms in {{game}}.",
+    "sorceressPre": "This is {{player}}'s {{item}}. For {{count}} lollipops, this allows them to move platforms in {{game}}.",
+    "sorceressPost": "Thanks for buying! Now {{player}} can move platforms in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This allows them to move platforms in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. This allows them to move platforms in {{game}}.",
+    "forgePost": "There! I built a {{item}} for {{player}}. Now they can move platforms in {{game}}."
+  },
+  "Wok Wheels": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this allows them to move woks in {{game}}.",
+    "sorceressPre": "This is {{player}}'s {{item}}. For {{count}} lollipops, this allows them to move woks in {{game}}.",
+    "sorceressPost": "Thanks for buying! Now {{player}} can move woks in {{game}}.",
+    "forgePost": "There! I built {{item}} for {{player}}. Now they can move woks in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This allows them to move woks in {{game}}.",
+    "hoven": "Yay! Thanks a lot! Here, I found {{player}}'s {{item}}. This allows them to move woks in {{game}}."
+  },
+  "Dish Scrubber": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this allows them to wash dishes faster in {{game}}.",
+    "sorceressPre": "This is {{player}}'s {{item}}. For {{count}} lollipops, this allows them to wash dishes faster in {{game}}.",
+    "sorceressPost": "Thanks for buying! Now {{player}} can wash dishes faster in {{game}}.",
+    "forgePost": "There! I built a {{item}} for {{player}}. Now they can wash dishes faster in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This allows them to wash dishes faster in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I have a {{item}} to give to {{player}}. This allows them to wash dishes faster in {{game}}."
+  },
+  "Burn Leniency": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this gives them a bit more time before their food burns in {{game}}.",
+    "sorceressPost": "Thanks a lot! Now {{player}} has a bit more time before their food burns in {{game}}.",
+    "sorceressPre": "For {{count}} lollipops, I will cast {{item}} on {{player}}'s stoves, which gives them a bit more time before their food burns in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. This gives them a bit more time before their food burns in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now they have a bit more time before their food burns in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This gives them a bit more time before their food burns in {{game}}."
+  },
+  "Sharp Knife": {
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This allows them to chop faster in {{game}}.",
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this allows them to chop faster in {{game}}.",
+    "sorceressPre": "This is {{player}}'s {{item}}. For {{count}} lollipops, this allows them to chop faster in {{game}}.",
+    "sorceressPost": "Thanks for buying! Now {{player}} can chop food faster in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I have a {{item}} to give to {{player}}. This allows them to chop faster in {{game}}."
+  },
+  "Order Lookahead": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this allows them to forsee an extra order in {{game}}.",
+    "sorceressPre": "For {{count}} lollipops, I will cast {{item}} on {{player}}, which allows them to forsee an extra order in {{game}}.",
+    "sorceressPost": "Thanks a lot! Now {{player}} can forsee an extra order in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now they can forsee an extra order in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{item}} to give to {{player}}. This allows them to forsee an extra order in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a bread infused with {{item}} for {{player}}. Now they can forsee an extra order in {{game}}."
+  },
+  "Lightweight Backpack": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this allows them to move faster while carrying a heavy backpack in {{game}}.",
+    "sorceressPost": "Thanks for buying! Now {{player}} can move faster while carrying a heavy backpack in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. This allows them move faster while carrying a heavy backpack in {{game}}.",
+    "sorceressPre": "This is {{player}}'s {{item}}. For {{count}} lollipops, this allows them to move faster while carrying a heavy backpack in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{item}} to give to {{player}}. This allows them move faster while carrying a heavy backpack in {{game}}.",
+    "forgePost": "There! I built a {{item}} for {{player}}. Now they can move faster while carrying a heavy backpack in {{game}}."
+  },
+  "Faster Respawn Time": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a bread infused with {{item}} for {{player}}! I hope they'll enjoy it!",
+    "sorceressPre": "For {{count}} lollipops, I will cast {{item}} on {{player}} in {{game}}.",
+    "sorceressPost": "Thanks a lot! Now {{player}} can respawn faster after they die in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now they can respawn faster after they die in {{game}}.",
+    "cyclops": ""
+  },
+  "Faster Condiment/Drink Switch": {
+    "sorceressPost": "Thanks for buying! Now {{player}} can switch the settings on condiment or drink machine faster in {{game}}.",
+    "forgePost": "",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!"
+  },
+  "Guest Patience": {
+    "sorceressPre": "For {{count}} lollipops, I will cast {{item}} on customers in {{player}}'s world.",
+    "sorceressPost": "Thanks a lot! Now customers in {{player}}'s world are a lot more patient.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. I hope they like it!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!"
+  },
+  "Kevin-1": {
+    "sorceressPost": "Thanks a lot! Now {{player}} has access to {{item}} in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. I hope they like it!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!"
+  },
+  "Kevin-2": {
+    "sorceressPost": "Thanks a lot! Now {{player}} has access to {{item}} in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. I hope they like it!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!"
+  },
+  "Kevin-3": {
+    "sorceressPost": "Thanks a lot! Now {{player}} has access to {{item}} in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. I hope they like it!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!"
+  },
+  "Kevin-4": {
+    "sorceressPost": "Thanks a lot! Now {{player}} has access to {{item}} in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. I hope they like it!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!"
+  },
+  "Kevin-5": {
+    "sorceressPost": "Thanks a lot! Now {{player}} has access to {{item}} in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. I hope they like it!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!"
+  },
+  "Kevin-6": {
+    "sorceressPost": "Thanks a lot! Now {{player}} has access to {{item}} in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. I hope they like it!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!"
+  },
+  "Kevin-7": {
+    "sorceressPost": "Thanks a lot! Now {{player}} has access to {{item}} in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. I hope they like it!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!"
+  },
+  "Kevin-8": {
+    "sorceressPost": "Thanks a lot! Now {{player}} has access to {{item}} in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. I hope they like it!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!"
+  },
+  "Cooking Emote": {},
+  "Curse Emote": {},
+  "Serving Emote": {},
+  "Preparing Emote": {},
+  "Washing Up Emote": {},
+  "Ok Emote": {},
+  "Ramp Button": {},
+  "Bonus Star": {
+    "sorceressPost": "Thanks for buying! Now {{player}} has an extra star in {{game}}.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!"
+  },
+  "Calmer Unbread": {},
+  "Green Ramp": {
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!",
+    "sorceressPost": "Thanks for buying! Now {{player}} can activate {{item}} in {{game}}."
+  },
+  "Yellow Ramp": {
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!",
+    "sorceressPost": "Thanks for buying! Now {{player}} can activate {{item}} in {{game}}."
+  },
+  "Blue Ramp": {
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!",
+    "sorceressPost": "Thanks for buying! Now {{player}} can activate {{item}} in {{game}}."
+  },
+  "Pink Ramp": {
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!",
+    "sorceressPost": "Thanks for buying! Now {{player}} can activate {{item}} in {{game}}."
+  },
+  "Dark Green Ramp": {
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!",
+    "sorceressPost": "Thanks for buying! Now {{player}} can activate {{item}} in {{game}}."
+  },
+  "Red Ramp": {
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!",
+    "sorceressPost": "Thanks for buying! Now {{player}} can activate {{item}} in {{game}}."
+  },
+  "Purple Ramp": {
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}! I hope they'll enjoy it!",
+    "sorceressPost": "Thanks for buying! Now {{player}} can activate {{item}} in {{game}}."
+  },
+  "Emote Wheel": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a bread infused with {{item}} for {{player}}! Now, they can emote in {{game}}.",
+    "sorceressPre": "For {{count}} lollipops, I will cast {{item}} on {{player}}, which allows them to emote in {{game}}.",
+    "sorceressPost": "Thanks a lot! Now {{player}} can emote in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now, they can emote in {{game}}.",
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, this allows them to emote in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. This allows them to emote in {{game}}."
+  }
+}
