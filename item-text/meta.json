@@ -22,5 +22,9 @@
   "Super Mario 64": {
     "strings": ["/item-text/super-mario-64.json"],
     "matureGame": false
+  },
+  "Keep Talking and Nobody Explodes": {
+    "strings": ["/item-text/keep-talking.json"],
+    "matureGame": false
   }
 }

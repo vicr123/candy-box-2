@@ -1,0 +1,120 @@
+{
+  "Complicated Wires": {
+    "merchantPre": "This is {{player}}'s {{item}}. This bomb module from {{game}} requires the defuser to read a Venn Diagram. Only for {{count}} candies!",
+    "sorceressPre": "I'm selling {{player}}'s {{item}} for {{count}} lollipops. This is a bomb module from {{game}} that requires the defuser to read a Venn Diagram.",
+    "sorceressPost": "Thanks for buying! Now {{player}} has to read a Venn Diagram to defuse a bomb in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now, they have to read a Venn Diagram to defuse a bomb.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. I hope they know how to read a Venn Diagram in {{game}}. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they know how to read a Venn Diagram in {{game}}."
+  },
+  "Maze": {
+    "merchantPre": "This is {{player}}'s {{item}}. This bomb module from {{game}} requires the defuser to navigate through a maze. Only for {{count}} candies!",
+    "sorceressPre": "I'm selling {{player}}'s {{item}} for {{count}} lollipops. This is a bomb module from {{game}} that requires the defuser to navigate through a maze.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now, they have to navigate through a maze to defuse a bomb.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. I hope they don't get lost in {{game}}. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they don't get lost in {{game}}.",
+    "sorceressPost": "Thanks for buying! Now {{player}} has to navigate through a maze to defuse a bomb in {{game}}."
+  },
+  "Memory": {
+    "merchantPre": "This is {{player}}'s {{item}}. This bomb module from {{game}} requires the defuser to memorize. Only for {{count}} candies!",
+    "sorceressPre": "I'm selling {{player}}'s {{item}} for {{count}} lollipops. This is a bomb module from {{game}} that requires the defuser to memorize.",
+    "sorceressPost": "Thanks for buying! Now {{player}} has to memorize to defuse a bomb in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now, they have to memorize to defuse a bomb.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. I hope they know how to memorize in {{game}}. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they know how to memorize in {{game}}."
+  },
+  "Morse Code": {
+    "merchantPre": "This is {{player}}'s {{item}}. This bomb module from {{game}} requires the defuser to read morse code. Only for {{count}} candies!",
+    "sorceressPre": "I'm selling {{player}}'s {{item}} for {{count}} lollipops. This is a bomb module from {{game}} that requires the defuser to read morse code.",
+    "sorceressPost": "Thanks for buying! Now {{player}} has to read morse code to defuse a bomb in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now, they have to read morse code to defuse a bomb.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. I hope they know how to read morse code in {{game}}. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they know how to read morse code in {{game}}."
+  },
+  "Password": {
+    "merchantPre": "This is {{player}}'s {{item}}. This bomb module from {{game}} requires the defuser to form words with limited letters. Only for {{count}} candies!",
+    "sorceressPre": "I'm selling {{player}}'s {{item}} for {{count}} lollipops. This is a bomb module from {{game}} that requires the defuser to form words with limited letters",
+    "sorceressPost": "Thanks for buying! Now {{player}} has to form words with limited letters to defuse a bomb in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now, they have to form words with limited letters to defuse a bomb.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. I hope they know how to form words in {{game}}. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they know how to form words in {{game}}."
+  },
+  "Simon Says": {
+    "merchantPre": "This is {{player}}'s {{item}}. This bomb module from {{game}} requires the defuser to play Simon Says. Only for {{count}} candies!",
+    "sorceressPre": "I'm selling {{player}}'s {{item}} for {{count}} lollipops. This is a bomb module from {{game}} that requires the defuser to play Simon Says.",
+    "sorceressPost": "Thanks for buying! Now {{player}} has to play Simon Says to defuse a bomb in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now, they have to play Simon Says to defuse a bomb.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. I hope they know how to play Simon Says in {{game}}. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they know how to play Simon Says in {{game}}."
+  },
+  "Who's on First": {
+    "merchantPre": "This is {{player}}'s {{item}}. This bomb module from {{game}} requires the defuser to not get confuse with wordplay. Only for {{count}} candies!",
+    "sorceressPre": "I'm selling {{player}}'s {{item}} for {{count}} lollipops. This is a bomb module from {{game}} that requires the defuser to not get confuse with wordplay.",
+    "sorceressPost": "Thanks for buying! Now {{player}} has to not get confuse with wordplay to defuse a bomb in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now, they have to not get confuse with wordplay to defuse a bomb.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. I hope they don't get confused in {{game}}. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they don't get confused in {{game}}."
+  },
+  "Wire Sequence": {
+    "merchantPre": "This is {{player}}'s {{item}}. This bomb module from {{game}} requires the defuser to keep track on those wires. Only for {{count}} candies!",
+    "sorceressPre": "I'm selling {{player}}'s {{item}} for {{count}} lollipops. This is a bomb module from {{game}} that requires the defuser to keep track on those wires",
+    "sorceressPost": "Thanks for buying! Now {{player}} has to keep track on those wires to defuse a bomb in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now, they have to keep track on those wires to defuse a bomb.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. I hope they don't lose track on those wires in {{game}}. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they don't lost track on those wires in {{game}}."
+  },
+  "Capacitor": {
+    "merchantPre": "This is {{player}}'s {{item}}. This needy module from {{game}} requires defuser to constantly hold down the lever. Only for {{count}} candies!",
+    "sorceressPre": "I'm selling {{player}}'s {{item}} for {{count}} lollipops. This is a needy module from {{game}} that requires the defuser to constantly hold down this lever.",
+    "sorceressPost": "Thanks for buying! Now {{player}} has to constantly hold down this lever to defuse a bomb in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now, they have to constantly hold down this lever to defuse a bomb.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. I hope they know how to multitask in {{game}}. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they know how to multitask in {{game}}."
+  },
+  "Knob": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they know how to multitask in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. I hope they know how to multitask in {{game}}. Good luck!",
+    "merchantPre": "This is {{player}}'s {{item}}. This needy module from {{game}} requires defuser to constantly read a page on the manual. Only for {{count}} candies!",
+    "sorceressPre": "I'm selling {{player}}'s {{item}} for {{count}} lollipops. This is a needy module from {{game}} that requires the defuser to constantly read a page on the manual.",
+    "sorceressPost": "Thanks for buying! Now {{player}} has to constantly read a page on the manual to defuse a bomb in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now, they have to constantly read a page on the manual to defuse a bomb."
+  },
+  "Vent Gas": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they know how to multitask in {{game}}.",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. I hope they know how to multitask in {{game}}. Good luck!",
+    "merchantPre": "This is {{player}}'s {{item}}. This needy module from {{game}} requires defuser to quicky answer a question. Only for {{count}} candies!",
+    "sorceressPre": "I'm selling {{player}}'s {{item}} for {{count}} lollipops. This is a needy module from {{game}} that requires the defuser to quickly answer a question.",
+    "sorceressPost": "Thanks for buying! Now {{player}} has to constantly answer a question on the manual to defuse a bomb in {{game}}.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. Now, they have to quickly answer a question to defuse a bomb."
+  },
+  "Bomb Fragment": {
+    "merchantPre": "This is {{player}}'s {{item}}. The {{game}}' Bomb Factory needs many of those to produce new bombs. Only for {{count}} candies!",
+    "sorceressPre": "I'm selling {{player}}'s {{item}} for {{count}} lollipops. The {{game}}' Bomb Factory needs many of those to produce new bombs.",
+    "sorceressPost": "Thanks for buying! Now {{game}}' Bomb Factory in {{player}}'s world is one step closer to producing new bombs.",
+    "forgePost": "There! I sent {{player}}'s {{item}}. I hope the {{game}}' Bomb Factory like it!",
+    "cyclops": "Congratulations! You passed the test. Here's {{player}}'s {{item}}. I hope the {{game}}' Bomb Factory like it.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. Please get this away from me! I don't want the bomb to explode in me!"
+  },
+  "Time++": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, the defuser has an extra 30 seconds to defuse a bomb.",
+    "sorceressPre": "For {{count}} lollipops, I case {{item}} on {{player}}'s bomb, which gives the defuser an extra 30 seconds to defuse a bomb in {{game}}.",
+    "sorceressPost": "Thanks a lot! Now {{player}} has an extra 30 seconds to defuse a bomb in {{game}}.",
+    "forgePost": "There! I built {{item}} for {{player}}. Now they have an extra 30 seconds to defuse a bomb.",
+    "cyclops": "",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they'll enjoy the extra 30 seconds!"
+  },
+  "Time+": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, the defuser has an extra 10 seconds to defuse a bomb.",
+    "sorceressPre": "For {{count}} lollipops, I case {{item}} on {{player}}'s bomb, which gives the defuser an extra 10 seconds to defuse a bomb in {{game}}.",
+    "sorceressPost": "Thanks a lot! Now {{player}} has an extra 30 seconds to defuse a bomb in {{game}}.",
+    "forgePost": "There! I built {{item}} for {{player}}. Now they have an extra 10 seconds to defuse a bomb.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they'll enjoy the extra 10 seconds!"
+  },
+  "Strike+": {
+    "merchantPre": "This is {{player}}'s {{item}}. For {{count}} candies, the defuser can make another mistake without penalty while defusing their bomb.",
+    "sorceressPre": "For {{count}} lollipops, I case {{item}} on {{player}}'s bomb, which gives the defuser the chance to make an extra mistake before the bomb explodes in {{game}}.",
+    "sorceressPost": "Thanks a lot! Now {{player}} can make another mistake without worrying in {{game}}.",
+    "forgePost": "There! I built {{item}} for {{player}}. Now they can make another mistake without worrying.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I found {{player}}'s {{item}}. I hope they'll enjoy the extra mistake allowance!"
+  }
+}
