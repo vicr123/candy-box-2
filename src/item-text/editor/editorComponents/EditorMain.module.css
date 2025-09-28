@@ -43,3 +43,7 @@
 .placeholder {
     background: var(--selection-color)
 }
+
+.guidance ul {
+    margin: 0;
+}

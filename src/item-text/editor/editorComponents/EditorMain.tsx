@@ -1,6 +1,6 @@
 import Styles from "./EditorMain.module.css";
 import {ItemTextOccurrence} from "../../ItemText";
-import {Dispatch, SetStateAction, useMemo, useState} from "react";
+import {Dispatch, ReactNode, SetStateAction, useMemo, useState} from "react";
 import {useEditor} from "../EditorContext";
 import {RenderArea} from "../../../main/RenderArea";
 import {ReactRenderArea} from "../../../react/ReactRenderArea";
@@ -66,8 +66,14 @@ export const EditableOccurrences = {
         examples: [
             "secondHouseLollipop1Speech",
             "secondHouseLollipop2Speech",
-            "secondHouseLollipop3Speech"
-        ]
+            "secondHouseLollipop3Speech",
+            "secondHouseTimeRingSpeech",
+            "secondHouseLeatherGlovesSpeech",
+            "secondHouseLeatherBootsSpeech",
+            "secondHouseChocolateBarSpeech",
+            "secondHouseMerchantHatSpeech",
+        ],
+        guidance: undefined
     },
     sorceressPre: {
         name: "The Sorceress (Before Purchase)",
@@ -99,8 +105,12 @@ export const EditableOccurrences = {
             "count"
         ],
         examples: [
-            "sorceressHutClickedGrimoire"
-        ]
+            "sorceressHutClickedGrimoire",
+            "sorceressHutClickedGrimoire2",
+            "sorceressHutClickedCauldron",
+            "sorceressHutClickedHat"
+        ],
+        guidance: undefined
     },
     sorceressPost: {
         name: "The Sorceress (After Purchase)",
@@ -127,8 +137,12 @@ export const EditableOccurrences = {
             "game",
         ],
         examples: [
-            "sorceressHutBuyGrimoireSpeech"
-        ]
+            "sorceressHutBuyGrimoireSpeech",
+            "sorceressHutBuyGrimoire2Speech",
+            "sorceressHutBuyCauldronSpeech",
+            "sorceressHutBuyHatSpeech"
+        ],
+        guidance: undefined
     },
     forgePost: {
         name: "The Forge (After Purchase)",
@@ -154,7 +168,8 @@ export const EditableOccurrences = {
             "mapVillageForgeBuyPolishedSilverSwordSpeech",
             "mapVillageForgeBuyLightweightBodyArmourSpeech",
             "mapVillageForgeBuyScytheSpeech"
-        ]
+        ],
+        guidance: undefined
     },
     cyclops: {
         name: "The Cyclops (After Puzzle Solved)",
@@ -175,7 +190,10 @@ export const EditableOccurrences = {
         ],
         examples: [
             "Congratulations! You passed the test and found the stone. It's very precious, but is only useful if you have three other stones like this one. Good luck!"
-        ]
+        ],
+        guidance: <ul>
+            <li>The string should congratulate the user for passing the test.</li>
+        </ul>
     },
     hoven: {
         name: "The Bakehouse (After Baked)",
@@ -200,7 +218,10 @@ export const EditableOccurrences = {
         ],
         examples: [
             "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made you... a pain au chocolat! It's my favourite pastry, I hope you'll like it too!"
-        ]
+        ],
+        guidance: <ul>
+            <li>The string should mention that 100 candies and a chocolate bar were used.</li>
+        </ul>
     }
 } satisfies Record<ItemTextOccurrence, {
     name: string,
@@ -211,7 +232,8 @@ export const EditableOccurrences = {
     }) => RenderArea,
     hasNotificationArea: boolean,
     placeholders: string[],
-    examples: string[]
+    examples: string[],
+    guidance?: ReactNode
 }>
 
 export function EditorMain({
@@ -323,6 +345,9 @@ export function EditorMain({
                     {remainingPlaceholders.map(placeholder => <span className={Styles.placeholder}>{`{{${placeholder}}}`}</span>)}
                 </div>
             </div>
+            {occurrence.guidance && <div className={Styles.guidance}>
+                Guidance: {occurrence.guidance}
+            </div>}
         </div>
         <div className={Styles.preview}>
             <b>{showExample ? `EXAMPLE (${normalisedExampleNumber + 1}/${occurrence.examples.length})` : "PREVIEW"}</b>

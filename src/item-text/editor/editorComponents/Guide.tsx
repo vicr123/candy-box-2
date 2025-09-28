@@ -45,9 +45,13 @@ export function Guide() {
                             Exception: Games that are inherently for mature-age players have some leniency.
                         </li>
                         <li>
-                            Exception: Item names that contain profanity can be written verbatim.
+                            Exception: Item names can be written verbatim.
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <b>Spelling and grammar are important.</b> Double check your text to ensure that you have spelled
+                    everything correctly, and ensure that the sentences make sense.
                 </li>
                 <li>
                     <b>Test your text.</b> Pay attention to the preview as you are writing your dialogue.
@@ -58,7 +62,11 @@ export function Guide() {
                     <b>Inside jokes</b> which any player of the game is expected to understand are permissible - and recommended!
                 </li>
                 <li>
-                    <b>Don't trick the player.</b> For example:
+                    <b>Follow the guidance.</b> Some occurrences of text will have guidance points, which you need to follow
+                    to ensure the correctness of the dialogue.
+                </li>
+                <li>
+                    <b>Don't deceive the player.</b> For example:
                     <ul>
                         <li>Don't write dialogue implying that a different item will be sent.</li>
                         <li>Exception: Traps designed to trick the player into sending them (for example, "Time Plece"
