@@ -73,7 +73,7 @@ export const EditableOccurrences = {
             "secondHouseChocolateBarSpeech",
             "secondHouseMerchantHatSpeech",
         ],
-        guidance: undefined
+        guidance: <>The Candy Merchant is a villager who loves candies. He is kind-natured, but generally clueless.</>
     },
     sorceressPre: {
         name: "The Sorceress (Before Purchase)",
@@ -110,7 +110,7 @@ export const EditableOccurrences = {
             "sorceressHutClickedCauldron",
             "sorceressHutClickedHat"
         ],
-        guidance: undefined
+        guidance: <>The Sorceress lives past the bridge guarded by the troll. She is knowledgeable about many things, possibly even things outside of Candy Box 2. She is generally well-mannered, but can also be threatening.</>
     },
     sorceressPost: {
         name: "The Sorceress (After Purchase)",
@@ -142,7 +142,7 @@ export const EditableOccurrences = {
             "sorceressHutBuyCauldronSpeech",
             "sorceressHutBuyHatSpeech"
         ],
-        guidance: undefined
+        guidance: <>The Sorceress lives past the bridge guarded by the troll. She is knowledgeable about many things, possibly even things outside of Candy Box 2. She is generally well-mannered, but can also be threatening.</>
     },
     forgePost: {
         name: "The Forge (After Purchase)",
@@ -169,7 +169,7 @@ export const EditableOccurrences = {
             "mapVillageForgeBuyLightweightBodyArmourSpeech",
             "mapVillageForgeBuyScytheSpeech"
         ],
-        guidance: undefined
+        guidance: <>The Blacksmith is a villager who runs the forge. He has some experience with the world, as he has been on some adventures, but is generally clueless about bespoke items from outside Candy Box 2. He is very knowledgeable about tools, weapons, armour, and related objects, though.</>
     },
     cyclops: {
         name: "The Cyclops (After Puzzle Solved)",
@@ -191,9 +191,12 @@ export const EditableOccurrences = {
         examples: [
             "Congratulations! You passed the test and found the stone. It's very precious, but is only useful if you have three other stones like this one. Good luck!"
         ],
-        guidance: <ul>
-            <li>The string should congratulate the user for passing the test.</li>
-        </ul>
+        guidance: <>
+            The cyclops lives at the lighthouse, always watching the sea, never moving from that spot. He is very wise and very knowledgeable about everything,
+            <ul>
+                <li>The string should congratulate the user for passing the test.</li>
+            </ul>
+        </>
     },
     hoven: {
         name: "The Bakehouse (After Baked)",
@@ -219,9 +222,12 @@ export const EditableOccurrences = {
         examples: [
             "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made you... a pain au chocolat! It's my favourite pastry, I hope you'll like it too!"
         ],
-        guidance: <ul>
-            <li>The string should mention that 100 candies and a chocolate bar were used.</li>
-        </ul>
+        guidance: <>
+            The oven lives inside the castle. It is very lonely, and has a tendency to self-deprecate.
+            <ul>
+                <li>The string should mention that 100 candies and a chocolate bar were used.</li>
+            </ul>
+        </>
     }
 } satisfies Record<ItemTextOccurrence, {
     name: string,
