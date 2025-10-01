@@ -475,6 +475,8 @@
     "apStartInterstitialText": "Welcome. No save data was found for this game on this browser.",
     "depositCandiesCustomAmount": "Deposit candies. How many? (you can deposit up to {{limit}})",
     "depositLollipopsCustomAmount": "Deposit lollipops. How many? (you can deposit up to {{limit}})",
+    "depositAllCandies": "You are about to deposit {{limit}} candies.",
+    "depositAllLollipops": "You are about to deposit {{limit}} lollipops.",
     "withdrawCandiesCustomAmount": "Withdraw candies. How many? (you can withdraw up to {{limit}})",
     "withdrawLollipopsCustomAmount": "Withdraw lollipops. How many? (you can withdraw up to {{limit}})",
     "itemTrap": "(A trap!)",
