@@ -1,0 +1,569 @@
+{
+  "Candy": {
+    "merchantPre": "This is a peppermint candy for {{player}}. It's a delicious treat! {{count}} candies and it's theirs!",
+    "sorceressPre": "This is a pineapple candy. I dropped it while I was brewing, and it turns out I don't need it any more. {{player}} can have it for {{count}} lollipops.",
+    "cyclops": "Congratulations! You passed the test! I was going to eat this candy but as a reward, {{player}} can have it.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a chocolate candy! Just for {{player}}! I hope they enjoy it!",
+    "forgePost": "I always keep a jar of candy around. You never know when you're going to need one!",
+    "sorceressPost": "You know, there was once a time I gave someone a candy and they popped it straight into their mouth and choked on it. Please don't be that person."
+  },
+  "Lollipop": {
+    "merchantPre": "This is a lemon-flavoured lollipop. My favourite! It costs {{count}} candies to send - shipping and all!",
+    "sorceressPre": "This is a pumpkin-flavoured lollipop. It's a byproduct of a potion I was trying to brew earlier, and I don't need it any more. {{player}} can have it for {{count}} lollipops.",
+    "cyclops": "Congratulations! You passed the test! I was going to eat this lollipop but as a reward, {{player}} can have it.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a chocolate-flavoured lollipop! Just for {{player}}! I hope they enjoy it!",
+    "sorceressPost": "I don't really like the pumpkin flavoured ones anyway.",
+    "forgePost": "This lollipop is delicious! It will be very useful to {{player}}."
+  },
+  "Chocolate Bar": {
+    "merchantPre": "This is a chocolate bar. I don't know what it is used for, but it happens to be quite rare, which explains the price. {{count}} candies to ship it straight to {{player}}!",
+    "sorceressPre": "This is a chocolate bar. Legend has it that there is a wishing well somewhere that will enchant your gear, if you throw a chocolate bar in. But that's just a legend. Right?",
+    "cyclops": "Congratulations! You passed the test! I was going to eat this chocolate bar but as a reward, {{player}} can have it.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. I used the candies to open a portal to {{player}}'s world - and sent them the chocolate bar! I hope they enjoy it!",
+    "forgePost": "My son is a chocolatier! I get these chocolate bars from him for cheap.",
+    "sorceressPost": "I'm sure it's just a legend. I'm the No. 1 sorceress in these lands anyway!"
+  },
+  "HP Bar": {
+    "merchantPre": "The numbers on this thing keep going up and down, but I don't know what they mean. Do you know what they mean?",
+    "sorceressPre": "That's a device for measuring {{player}}'s life force. I made it myself, which wasn't easy. {{count}} lollipops and I'll send it to them. ",
+    "sorceressPost": "Thank you so much! I knew this device would be popular! I should make more of them.",
+    "forgePost": "It took me a lot of time to create this device. I guarantee that {{player}} will appreciate its functionality.",
+    "cyclops": "Congratulations! You passed the test. As a reward, I've sent a {{item}} to {{player}}. I'm sure they'll appreciate being able to keep an eye on their HP.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar and I made... a device for telling you how many injuries {{player}} has sustained! I hope they find it useful!"
+  },
+  "Time Ring": {
+    "merchantPre": "This is a time ring. It's kind of magical. It allows {{player}} to slow down the time when they're in trouble.",
+    "sorceressPre": "That's a ring imbued with the power to slow time itself. If things are happening too fast, one rub on the ring by {{player}} will instantly slow down the time, giving them room to breathe.",
+    "sorceressPost": "Thanks for buying! Don't worry, the time slowing only affects their world.",
+    "forgePost": "Tell {{player}} to treat this ring very carefully. The sorceress has imbued it with strange magic.",
+    "cyclops": "Congratulations! You passed the test! I promised {{player}} that if you could solve my puzzle, I would give him my ring. I guess I need to uphold my end of the deal now.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar and made... a golden ring! Do you think {{player}} would find it useful?"
+  },
+  "Candy Merchant's Hat": {
+    "merchantPre": "I could sell my hat, but it is very precious. Very precious indeed.",
+    "sorceressPre": "I found this worn-out hat sitting on the bridge the other day, when I was going for my daily flight. {{count}} lollipops, and it's yours!",
+    "sorceressPost": "Thanks! That hat had a slight touch of magic, but I couldn't figure out what it was. Maybe {{player}} could tell you once they find out?",
+    "forgePost": "I hope {{player}} will like this hat. I've repaired it and made it brand new!",
+    "cyclops": "Congratulations! You passed the test! While you were doing that, I dropped this hat I found in the sea. It seems to have made its way to {{player}}.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies to create some straw and bound it together into this really nice hat using the chocolate! I hope {{player}} likes it!"
+  },
+  "Leather Gloves": {
+    "merchantPre": "These leather gloves are made from camel leather, this is high quality. Only {{count}} candies!",
+    "sorceressPre": "These leather gloves are nothing special. No magic in them whatsoever. They will keep your hands warm though.",
+    "forgePost": "Thanks for the candies! I fixed up these gloves I had when I was a child. {{player}} can have them.",
+    "cyclops": "",
+    "sorceressPost": "Alternatively, if you want warmth, I can spawn fireballs for you. Just say the word."
+  },
+  "Leather Boots": {
+    "merchantPre": "These high quality leather boots, made from camel leather, will keep your feet warm.",
+    "sorceressPre": "These leather boots are nothing special. No magic in them whatsoever. They will keep your feet warm though.",
+    "forgePost": "Thanks for the candies! I made a new pair of boots for myself and {{player}} can have my old ones.",
+    "sorceressPost": "Alternatively, if you want warmth, I can spawn fireballs for you. Just say the word."
+  },
+  "Progressive World Map": {
+    "merchantPre": "This seems like a map, although I'm not sure what exactly is on it. Maybe you know?",
+    "sorceressPre": "This is a map from {{player}}'s world. If you buy it and send it to them, they can explore more of their world. Only {{count}} lollipops - what a steal!",
+    "sorceressPost": "Thanks a lot! The map will be very useful for {{player}}.",
+    "forgePost": "Thanks! A cartographer from {{player}}'s world sent me this map, but it was torn. I've fixed it now.",
+    "cyclops": "Congratulations! You passed the test! I sent {{player}} a bit of information on what's beyond their horizons.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar and made... a map! Of what, you say? {{player}}'s world of course!"
+  },
+  "Troll's Bludgeon": {
+    "merchantPre": "This weapon is an artifact passed down through many generations of my family. It used to belong to a troll, but my grandfather's grandfather's father won it from them in a legendary game of Mahjong.",
+    "sorceressPre": "I stole this from the troll on the bridge outside years ago. He doesn't know that I have it. I think he has a new one now, though, so {{player}} can have this one... for {{count}} lollipops of course!",
+    "sorceressPost": "Whatever you do, don't tell the troll. It would be unfortunate for you if the troll found out.",
+    "forgePost": "A troll taught me how to build these many years ago, but I never understood the language of trolls.",
+    "cyclops": "Congratulations! You passed the test! A friendly troll gave me this and told me to pass it on to someone who really needs it, so {{player}} can have it.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. The dragon came back yesterday with this, I think {{player}} would really like it."
+  },
+  "Desert bird feather": {
+    "sorceressPost": "Delivered! I didn't charge you shipping because the feather is almost weightless!",
+    "merchantPre": "I went hunting in the Desert, and found this feather the other day! I've been feeling quite jumpy ever since, and honestly, I don't like it! {{count}} candies and it can be {{player}}'s.",
+    "sorceressPre": "This feather straight from the Candian Desert is imbued with magical properties! Some say it's like being on the moon! For {{count}} lollipops, I'll mail it to {{player}}.",
+    "forgePost": "A bunch of desert birds came around the other day and I found this feather sitting outside. I know it will be useful!",
+    "cyclops": "Congratulations! You passed the test! One of the birds from the desert flew into the lighthouse the other day and lost some feathers. {{player}} can have one of them - it'll help them jump higher!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar! I found a feather in the chocolate bar you gave me, so I used the candies to open a portal to {{player}}'s world and I gave them the feather!"
+  },
+  "Beginners' Grimoire": {
+    "merchantPre": "I found this book in the basement the other day. I don't know how to read the language, but it looks useful, so I can send it to {{player}} for {{count}} candies.",
+    "sorceressPre": "This is a grimoire made for beginners. By carrying it with them in quests, {{player}} will be able to cast simple but useful spells. They need this! Only {{count}} lollipops.",
+    "sorceressPost": "Thanks for buying! {{player}} will be able to cast three spells with this grimoire. Good luck!",
+    "forgePost": "I got this from a mage in training who ended up failing mage school. I provided them with weapons to become a knight.",
+    "cyclops": "Congratulations! You passed the test and found the book! I taught {{player}} how to read the language of the sorcerers, so they might have a use for this.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Deep in the basement of the castle I found this grimoire. I know it will be very useful to {{player}}."
+  },
+  "Advanced Grimoire": {
+    "merchantPre": "I found this book in the attic the other day. I don't know how to read the language, but it looks useful, so I can send it to {{player}} for {{count}} candies.",
+    "sorceressPre": "This is an advanced grimoire. By carrying it with them in quests, {{player}} will be able to cast two advanced spells. I wrote it myself, which wasn't easy. {{count}} lollipops is a fair price.",
+    "sorceressPost": "Thanks for buying! {{player}} will be able to cast two spells with this grimoire. Use them wisely!",
+    "forgePost": "I got this from a wizard who wanted to change jobs. I provided them with weapons to become a knight.",
+    "cyclops": "Congratulations! You passed the test and found the book! I taught {{player}} how to read the language of the sorcerers, so they might have a use for this.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Deep in the basement of the castle I found this grimoire. I know it will be very useful to {{player}}."
+  },
+  "Sorceress' Cauldron": {
+    "merchantPre": "This is a massive pot that I bought the other day to cook noodle soup, but it turns out I'm actually really bad at cooking.",
+    "sorceressPre": "This is my cauldron. It allows me to brew magic potions. I could sell it to someone who needs it, but it's very precious... it will cost you {{count}} lollipops.",
+    "sorceressPost": "Thanks a lot! I included a brewing manual. It's going to be useful.",
+    "forgePost": "I forged this cauldron for a sorceress that came by two weeks back, but it turns out they couldn't pay!",
+    "cyclops": "Congratulations! You passed the test! I promised {{player}} that I'd send them a cauldron if you could pass the test, so I guess it's time to uphold my end of the deal.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. I've asked my brother to help {{player}} in their quest. I know he will be very helpful! Sorry? Brother? Yes, we were made in the same factory!"
+  },
+  "Sorceress' Hat": {
+    "merchantPre": "This is a funny shaped hat. It doesn't compare to mine. That's why {{player}} can have it. Only {{count}} candies! ",
+    "sorceressPre": "I have a nice hat, indeed! But I really can't sell it. It is waaaay too precious. Really, I can't. Don't insist. No. No no no I shouldn't do that. Oh, well, I'll trade it, but for {{count}} lollipops.",
+    "sorceressPost": "I don't have a hat any more. I hope {{player}} finds it useful.",
+    "forgePost": "This funny hat flew in the other day and came to rest on the extraction hood over there.",
+    "cyclops": "Congratulations! You passed the test! My friend the sorceress asked me to pass this to {{player}} if you could solve the test, so I'll do that now.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... wait, what's happening? Why is there a flying hat inside me??? *pbtthhh* I'm sorry, but could you take this and hand it to {{player}}?"
+  },
+  "Octopus King Crown": {
+    "sorceressPre": "This crown is said to have once belonged to the Octopus King. By wearing this crown, the wearer is imbued with the gift of confidence.",
+    "merchantPre": "When I went fishing a few months ago, I found an octopus wearing this crown. It doesn't compare to my hat, though!",
+    "sorceressPost": "Trust me, confidence is important!",
+    "forgePost": "I tried to melt this crown to make tools out of it, but it just wouldn't melt!",
+    "cyclops": "Congratulations! You passed the test! The Octopus King gave me this crown when I met him last. I'm sure he won't mind if I pass it on to {{player}}.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a beautiful crown! This crown should empower the wearer with confidence! Hmm? What? Yes, confidence is important!"
+  },
+  "Monkey Wizard Staff": {
+    "merchantPre": "Could you take this off me? I don't really want to burn down my shop but no one will take it!",
+    "sorceressPre": "Be careful with this one. When {{player}} carries this in a quest, it will send magical purple balls to their enemies. Only {{count}} lollipops!",
+    "sorceressPost": "Thanks for buying! Remind them it won't do anything until they equip it in the Inventory screen!",
+    "forgePost": "These purple balls keep emanating from the tip of the staff, so be careful with it!",
+    "cyclops": "Congratulations! You passed the test! My brother defeated one of those naked monkey wizards the other day and gave this to me. {{player}} can have it.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar and I made... this staff! It will keep shooting fireballs at nearby enemies!"
+  },
+  "Heart Plug": {
+    "merchantPre": "I don't know what this does, but when I hold it, I always feel more energetic. I don't need it though, because I don't want to get used to it. Maybe you know someone who would have a use for it?",
+    "sorceressPre": "I built this device to let {{player}} live longer! It took a lot of effort to get the spider legs and the Heart Liquor to make this! And it's only {{count}} lollipops - what a deal!",
+    "sorceressPost": "Heart Liquor is very rare, you know. {{player}} should be glad that I was selling it for super cheap!",
+    "forgePost": "I kind of wanted to keep this, but I figured it would be more important that {{player}} took it.",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s Heart Plug! This will be very useful to them, I assure you.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... some heart liquor! I put it in this container and sent it to {{player}}. I know it will be useful for them!"
+  },
+  "Pogo Stick": {
+    "merchantPre": "I've had this Pogo Stick since I was a wee little child. I don't use it any more, so if you someone who needs it, you can have it... for {{count}} candies of course!",
+    "sorceressPre": "Someone gave me this Pogo Stick many years ago. I'm not sure why though, because my magic broom can keep me in the air for longer!",
+    "sorceressPost": "Oh, make sure you maintain it! These can be pretty dangerous if they aren't maintained!",
+    "forgePost": "This pogo stick is an amalgamation of my blood, sweat and tears. I hope it is useful!",
+    "cyclops": "Congratulations! You passed the test! For your reward, I've sent this Pogo Stick to {{player}}. It should allow them to gain some height.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. This was left in the doorway the other day, do you think you could return it to {{player}} for me?"
+  },
+  "P Stone": {
+    "merchantPre": "I found this rock outside the other day. It caught my eye because of how the letter P seems to be carved inside.",
+    "sorceressPre": "This stone with a P shape carved into it is said to have the ability to summon the Magical Talking Candy. Not much is known about how this is done, but {{player}} might find it helpful.",
+    "sorceressPost": "Thanks! Oh, I just remembered a riddle that might help: \"In the tower, must you cower; Play the stones to reveal the throne... s?\" - If you can decipher this riddle, let me know!",
+    "forgePost": "I'm not sure what this does, but I hope it will be of use.",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s stone. It's very precious, but is only useful if they have three other stones like this one. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... something very special for {{player}}! A cyclops taught me how to make this. I hope they enjoy it!"
+  },
+  "L Stone": {
+    "merchantPre": "I found this rock outside the other day. It caught my eye because of how the letter L seems to be carved inside.",
+    "sorceressPre": "This stone with a L shape carved into it is said to have the ability to summon the Magical Talking Candy. Not much is known about how this is done, but {{player}} might find it helpful.",
+    "sorceressPost": "Thanks! Oh, I just remembered a riddle that might help: \"In the tower, must you cower; Play the stones to reveal the throne... s?\" - If you can decipher this riddle, let me know!",
+    "forgePost": "I'm not sure what this does, but I hope it will be of use.",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s stone. It's very precious, but is only useful if they have three other stones like this one. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... something very special for {{player}}! A cyclops taught me how to make this. I hope they enjoy it!"
+  },
+  "A Stone": {
+    "merchantPre": "I found this rock outside the other day. It caught my eye because of how the letter A seems to be carved inside.",
+    "sorceressPre": "This stone with an A shape carved into it is said to have the ability to summon the Magical Talking Candy. Not much is known about how this is done, but {{player}} might find it helpful.",
+    "sorceressPost": "Thanks! Oh, I just remembered a riddle that might help: \"In the tower, must you cower; Play the stones to reveal the throne... s?\" - If you can decipher this riddle, let me know!",
+    "forgePost": "I'm not sure what this does, but I hope it will be of use.",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s stone. It's very precious, but is only useful if they have three other stones like this one. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... something very special for {{player}}! A cyclops taught me how to make this. I hope they enjoy it!"
+  },
+  "Y Stone": {
+    "merchantPre": "I found this rock outside the other day. It caught my eye because of how the letter Y seems to be carved inside.",
+    "sorceressPre": "This stone with a Y shape carved into it is said to have the ability to summon the Magical Talking Candy. Not much is known about how this is done, but {{player}} might find it helpful.",
+    "sorceressPost": "Thanks! Oh, I just remembered a riddle that might help: \"In the tower, must you cower; Play the stones to reveal the throne... s?\" - If you can decipher this riddle, let me know!",
+    "forgePost": "I'm not sure what this does, but I hope it will be of use.",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s stone. It's very precious, but is only useful if they have three other stones like this one. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... something very special for {{player}}! A cyclops taught me how to make this. I hope they enjoy it!"
+  },
+  "Wooden Sword": {
+    "forgePost": "Thanks for buying! This wooden sword is quite weak, but it's a start.",
+    "merchantPre": "This is a wooden sword. {{player}} will need it if they are to get very far!",
+    "sorceressPre": "That's {{player}}'s wooden sword. A little weak, if you ask me.",
+    "sorceressPost": "Honestly, I think you should have saved your lollipops for something more... substantial."
+  },
+  "Iron Axe": {
+    "forgePost": "I hope they'll like this iron axe. I have just sharpened it for them!",
+    "merchantPre": "This is an axe made of iron. Perfect for chopping down trees and camels!",
+    "sorceressPre": "That's {{player}}'s iron axe. It's really heavy and unwieldy to use.",
+    "sorceressPost": "Honestly, I think you should have saved your lollipops for something less... heavy."
+  },
+  "Polished Silver Sword": {
+    "merchantPre": "This is a sharp sword. Perfect for killing enemies.",
+    "sorceressPre": "This is a sharp sword. It's a nice weapon to have, but unfortunately it has no magic abilities.",
+    "sorceressPost": "I'm not sure why you'd want a weapon without magical abilities.",
+    "forgePost": "It took me a lot of time to create this sword. I assure you that it's worth its price."
+  },
+  "Lightweight Body Armour": {
+    "merchantPre": "This is some armour. Whoever equips it will take a little less damage. Only {{count}} candies!",
+    "sorceressPre": "This metal thing? You want to buy this???",
+    "sorceressPost": "Well, as long as I get lollipops for it I guess...",
+    "forgePost": "This body armour will offer {{player}} a protection against their enemies.",
+    "cyclops": ""
+  },
+  "Scythe": {
+    "merchantPre": "This scythe is mighty sharp. I bet it could cut more than grass!",
+    "forgePost": "It took me several months to make this scythe. It's a real piece of art. This is probably the fastest weapon {{player}} will ever be able to use. Good luck!",
+    "sorceressPre": "I got this from a student who gave up farming. I have no use for it though, because it won't help my lollipop farm.",
+    "sorceressPost": "Actually, the guy who gave up farming didn't want to give it up: they failed farmer's school!"
+  },
+  "Red Enchanted Gloves": {
+    "merchantPre": "One day, I found these gloves scurrying along the floor. I think a spider was carrying it or something. When it returned, it had this weird red glow to it.",
+    "sorceressPre": "These gloves will randomly cast small fireballs everywhere while the wearer is in a quest. {{count}} lollipops - what a steal!",
+    "sorceressPost": "I can almost guarantee that these gloves were worth their money.",
+    "forgePost": "I lost these gloves in the desert the other day. When I found them and put them on, fireballs were coming out! Definitely useful."
+  },
+  "Pink Enchanted Gloves": {
+    "merchantPre": "One day, I found these gloves scurrying along the floor. I think an ant was carrying it or something. When it returned, it had this weird pink glow to it.",
+    "sorceressPre": "These gloves will constantly heal the wearer while they are in quests. Only {{count}} lollipops! You need this!",
+    "sorceressPost": "I can almost guarantee that these gloves were worth their money.",
+    "forgePost": "I accidentally dropped a chocolate bar in the wishing well while I was wearing these the other day, and they turned pink!"
+  },
+  "Summoning Tribal Spear": {
+    "merchantPre": "I have a weird feeling about this thing. Every time I hold it I hear sounds of people falling on the grass outside. But when I go check it out, there's never anyone out there.",
+    "sorceressPre": "This spear was blessed with the ability to spawn tribal warriors, who will greatly help the wielder in their quests!",
+    "sorceressPost": "Whatever you do though, don't jump into the sea with this. I mean it!",
+    "forgePost": "I make spears like this, but this one I made this with some special iron. Just for {{player}}!"
+  },
+  "Enchanted Monkey Wizard Staff": {
+    "merchantPre": "Could you take this off me? I don't really want to burn down my shop but no one will take it!",
+    "sorceressPre": "Be careful with this one. When {{player}} carries this in a quest, it will send lots of magical purple balls to their enemies. Only {{count}} lollipops! Great deal!",
+    "sorceressPost": "Thanks for buying! Remind them it won't do anything until they equip it in the Inventory screen!",
+    "forgePost": "These purple balls keep emanating from the tip of the staff, so be careful with it!",
+    "cyclops": "Congratulations! You passed the test! My brother found this near the wishing well the other day. {{player}} can have it."
+  },
+  "Enchanted Knight Body Armour": {
+    "merchantPre": "This is really heavy armour! It's also glowing! That must mean something!",
+    "sorceressPre": "When I was training a young sorceress, I asked her to enchant an object and make it useful. This is what she ended up enchanting - a useless hunk of metal! I couldn't believe it!",
+    "sorceressPost": "Needless to say, she did NOT pass sorcery school. Good riddance.",
+    "forgePost": "This is some really heavy armour, and it's enchanted too! {{player}} got that for a great price!"
+  },
+  "Octopus King Crown with Jaspers": {
+    "merchantPre": "When I went fishing a few months ago, I found an octopus wearing this crown. It doesn't compare to my hat, though!",
+    "sorceressPre": "This crown is said to have once belonged to the Octopus King. I added some red jaspers to it, which makes it throw fireballs everywhere in quests!",
+    "sorceressPost": "Did I forget to mention that you are not harmed by your own fireballs? That's a good tip, so keep that in mind!",
+    "forgePost": "I tried to melt this crown to make tools out of it, but it just wouldn't melt!"
+  },
+  "Octopus King Crown with Obsidian": {
+    "merchantPre": "When I went fishing a few months ago, I found an octopus wearing this crown. It doesn't compare to my hat, though!",
+    "forgePost": "I tried to melt this crown to make tools out of it, but it just wouldn't melt!",
+    "sorceressPre": "This crown is said to have once belonged to the Octopus King. I added obsidian to make it look nice! During a quest, it has a special ability too!",
+    "sorceressPost": "Do not be alarmed while wearing this crown. You will receive a lot of help!"
+  },
+  "Giant Spoon of Doom": {
+    "merchantPre": "I found this absolutely gigantic metal spoon dug into the ground outside. Surprisingly, it's not that heavy.",
+    "sorceressPre": "You could almost drink the ocean outside with this spoon. It's so refined! So luxurious! You'll never drink from a spoon like this ever again! It's absolutely gleaming with magic!",
+    "sorceressPost": "I implore you to disregard what I said before. Drinking the entire ocean is probably not a good idea. It's saltwater after all!",
+    "forgePost": "One day I was feeling really angry, so I whacked this sheet of metal until it looked like this. Huh? I'm sure it'll be useful for something!",
+    "cyclops": "Congratulations! You passed the test! I used to know a boy named Jack, and he asked me to remove this from his garden. Supposedly, it fell from the sky.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. A pot used to live next to me, until its nonstick coating wore off. They left the ladle though, here, {{player}} can have it."
+  },
+  "Tribal Spear": {
+    "merchantPre": "This is a spear. Great for fishing!",
+    "sorceressPre": "This is a basic spear. Kinda heavy. Not very special.",
+    "sorceressPost": "I'm honestly surprised you thought that was worth the lollipops.",
+    "forgePost": "This spear is one of my finest creations. I hope they'll like it!",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s spear! It's really useful for stabbing enemies.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a spear! Don't ask me how, the recipe is secret! But it's really useful for stabbing enemies!"
+  },
+  "Giant Spoon": {
+    "merchantPre": "I found this absolutely gigantic spoon dug into the ground outside. Surprisingly, it's not that heavy.",
+    "sorceressPre": "You could almost drink the ocean outside with this spoon. Just take a few sips and you'd be done!",
+    "sorceressPost": "I implore you to disregard what I said before. Drinking the entire ocean is probably not a good idea. It's saltwater after all!",
+    "forgePost": "One of my trainees tried to make a bathtub, but made this instead. Needless to say, they were not cut out for woodwork.",
+    "cyclops": "Congratulations! You passed the test! I used to know a boy named Jack, and he asked me to remove this from his garden. Supposedly, it fell from the sky.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. You know, I was once a pizza oven, but ever since the spider next door demanded pineapples, I never made any more. Here, {{player}} can have the pizza spoon."
+  },
+  "Desert Fortress Key": {
+    "merchantPre": "This golden key probably opens something. That's what keys do, right?",
+    "sorceressPre": "This key opens the ancient fortress near the desert in {{player}}'s world. What's inside? That's for me to know, and for you to find out!",
+    "sorceressPost": "Okay, I'll admit I lied about knowing what's inside. Come back and tell me all about it!",
+    "forgePost": "Someone asked me to clone their key, but they ended up not being able to pay for it. {{player}} can have this.",
+    "cyclops": "Congratulations! You passed the test! I have sent {{player}} the key to the ancient fortress near the desert in their world.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a key! What for, you ask? Well, it's for the ancient fortress in {{player}}'s world!"
+  },
+  "Knight Body Armour": {
+    "merchantPre": "This is really heavy armour. I would say it's super effective! Only {{count}} candies for ultimate protection!",
+    "sorceressPre": "This metal cage was worn by a poor knight who tried to cross the bridge, but was defeated by the troll.",
+    "sorceressPost": "Considering the knight didn't get past the bridge I'm not sure how useful this will be.",
+    "forgePost": "This body armour is made with 70% more metal, ensuring maximum protection!",
+    "cyclops": "Congratulations! You passed the test! I had some heavy armour in my basement, and I've given it to {{player}}. They will find it very useful indeed.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. I went to the secret armoury and found this - {{player}} can have it!"
+  },
+  "Xinopherydon Claw": {
+    "merchantPre": "I've never seen a tooth as big as this one. I wonder what creature it came from.",
+    "sorceressPre": "This is a claw of a xinopherydon. This might be the last one up for sale anywhere! These creatures are extinct, you know. And I'm only asking for {{count}} lollipops too! You can't get much better than that!",
+    "sorceressPost": "You know, I feel a little bad for the xinopherydons of the world. They used to be plentiful, but hunting brought them to extinction.",
+    "forgePost": "This claw will double the damage of the weapon {{player}} is using. I have just sharpened it too!",
+    "cyclops": "Congratulations! You passed the test! I have a source of sustainable and responsibly obtained xinopherydon claws, so as a reward, {{player}} can have one. I trust it will be very useful.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar! I found a claw in the chocolate bar you gave me, so I used the candies to open a portal to {{player}}'s world and I gave them the claw!"
+  },
+  "Unicorn Horn": {
+    "sorceressPre": "This is the horn of a common unicorn. Whoever holds it will be looked after by the unicorn who grew it. And by that, I mean that the unicorn will heal their wounds constantly during quests. Only {{count}} lollipops!",
+    "merchantPre": "This looks like a musical instrument of some description, but I'm not exactly sure. It seems to be made of bone.",
+    "sorceressPost": "Fun fact: unicorns can regrow their horn, and it doesn't hurt when you take it! So if you see a unicorn, ask nicely if you can have its horn and it might be willing to give it to you!",
+    "forgePost": "Thanks for buying! The unicorn that produced this horn will watch over {{player}}, accelerating the healing of their wounds!",
+    "cyclops": "Congratulations! You passed the test! I asked a unicorn very nicely if I could have its horn yesterday, and it said yes! As a reward for passing the test, {{player}} can have this horn.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. A long time ago, a unicorn came in and asked me to bake something, just like you did! As payment, it left me its horn. Here, {{player}} can have it!"
+  },
+  "Rocket Boots": {
+    "merchantPre": "These boots seem to have some sort of propulsion system built in. I can see them being very useful, if you can figure out how they work. I haven't managed to get them working.",
+    "sorceressPre": "These boots with a propulsion system will let the wearer reach great heights, as long as they have a pogo stick. Only {{count}} lollipops!",
+    "sorceressPost": "Why do you need a pogo stick to activate the propulsion system? Well, as you can see, the oscillating quantum crystal needs to vibrate at exactly the right frequency, and only a pogo stick can generate the required flux to resonate... Sorry, did I lose you?",
+    "forgePost": "I added a special propulsion system to these boots just for {{player}}! They will be very useful!",
+    "cyclops": "Congratulations! You passed the test and found the boots. Once {{player}} has both these boots and a pogo stick, they will be able to reach unrivaled heights. Probably even higher than this lighthouse.",
+    "hoven": ""
+  },
+  "Heart Pendant": {
+    "merchantPre": "This gem is really beautiful. Only {{count}} candies!",
+    "sorceressPre": "When {{player}} wears this pendant around their neck, they will be able to sustain more damage. Protection doesn't usually come this cheap - only {{count}} lollipops!",
+    "sorceressPost": "If I were {{player}}, I'd wear this all the time! It's always better safe than sorry!",
+    "forgePost": "This gem came out of some iron I was melting down the other day. I added a chain so {{player}} can wear it like a necklace!",
+    "cyclops": "Congratulations! You passed the test and found the pendant! This pendant will increase {{player}}'s HP while they are wearing it. It's very precious, so tell them to take care of it!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... this necklace! I hope {{player}} likes it!"
+  },
+  "Black Magic Grimoire": {
+    "merchantPre": "I found this book under my pillow the other day. I don't know how it got there. Is there a \"book fairy\" I don't know about? It looks useful, so I can send it to {{player}} for {{count}} candies.",
+    "sorceressPre": "This is a black magic grimoire. I'm technically not allowed to sell this, but if you know someone who really needs it, we can make an arrangement.",
+    "sorceressPost": "Don't tell anyone about this deal, understood? I could get in big trouble!",
+    "forgePost": "I beat a magician at his own game a few years ago, and this was my reward. I don't find myself needing to to summon demons though. Who does that?",
+    "cyclops": "Congratulations! You passed the test and found the book! I taught {{player}} how to read the language of the sorcerers, so they might have a use for this.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. Deep in the basement of the castle I found this grimoire. I know it will be very useful to {{player}}."
+  },
+  "4 Chocolate Bars": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I converted the candies into 3 more chocolate bars and gave them to {{player}}!",
+    "merchantPre": "I have 4 chocolate bars here. No idea what they're used for. Only {{count}} candies!",
+    "sorceressPre": "This is a box with 4 chocolate bars. Legend has it that there is a wishing well somewhere that will enchant your gear, if you throw a chocolate bar in. But that's just a legend. Right?",
+    "sorceressPost": "I'm sure it's just a legend. I'm the No. 1 sorceress in these lands anyway!",
+    "forgePost": "My son is a chocolatier! I get these chocolate bars from him for cheap.",
+    "cyclops": "Congratulations! You passed the test! I was going to eat these chocolate basr but as a reward, {{player}} can have them."
+  },
+  "Pitchfork": {
+    "forgePost": "The tines on this pitchfork took me three days to perfect! I hope {{player}} finds it useful!",
+    "merchantPre": "This pitchfork is perfect for tilling land! Trust me, anyone who takes care of their farm reaps the results!",
+    "sorceressPre": "This pitchfork is perfect for tilling a farm, tripling its output.",
+    "sorceressPost": "What? No, I don't know anything about gardening. You'll have to ask someone else.",
+    "cyclops": "Congratulations! You passed the test! A long time ago, I used to love gardening. {{player}} can have the pitchfork I used to use. It's old and worn, but it still does its job.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. {{player}} can have this pitchfork from the basement."
+  },
+  "20 Candies": {
+    "merchantPre": "How's this for a deal? Any {{count}} candies for 20 peppermint candies, sent straight to {{player}}. It doesn't get any better than this!",
+    "sorceressPre": "That's a jar of 20 candies for {{player}}.",
+    "sorceressPost": "Candies are overrated anyway.",
+    "forgePost": "I'm feeling generous, so I donated 20 of those candies to {{player}}.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I used the chocolate bar to open a portal to {{player}}'s world and sent them some candies!",
+    "cyclops": "Congratulations! You passed the test and found the candies! That's what you were looking for, right? Too bad you were too slow, there were 100 candies at the beginning and I ate most of them."
+  },
+  "100 Candies": {
+    "merchantPre": "I'm running an exchange and transfer service. {{count}} candies for 100 candies, sent instantly to {{player}}. Good deal, right?",
+    "sorceressPost": "Candies are overrated anyway.",
+    "sorceressPre": "That's a jar of 100 candies for {{player}}.",
+    "forgePost": "I'm feeling generous, so I donated 100 of those candies to {{player}}.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I used the chocolate bar to open a portal to {{player}}'s world and sent them the candies!",
+    "cyclops": "Congratulations! You passed the test and found the candies! That's what you were looking for, right?"
+  },
+  "500 Candies": {
+    "merchantPre": "I'm running an exchange and transfer service. {{count}} candies for 500 candies, sent instantly to {{player}}. Good deal, right?",
+    "sorceressPre": "That's a jar of 500 candies for {{player}}.",
+    "sorceressPost": "Candies are overrated anyway.",
+    "forgePost": "I made a donation to {{player}} on your behalf: 500 candies!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I used the chocolate bar to open a portal to {{player}}'s world and sent them lots of candies!",
+    "cyclops": "Congratulations! You passed the test and found the candies! That's what you were looking for, right? In fact, I know how to multiply these candies. There you go, 500 candies for {{player}}!"
+  },
+  "3 Lollipops": {
+    "merchantPre": "These lollipops all taste great! 3 for {{count}} candies!",
+    "sorceressPre": "I'm running an exchange and transfer service. {{count}} lollipops for 3 lollipops, sent instantly to {{player}}. Good deal, right?",
+    "sorceressPost": "Wow, I didn't think I'd convice you with such a terrible deal!",
+    "forgePost": "These lollipops are delicious! They will be very useful to {{player}}.",
+    "hoven": "Yay! Thanks a lot! I used a chocolate bar to open a portal to {{player}}'s world, and I melted 100 candies to make 3 lollipops to send to them!",
+    "cyclops": "Congratulations! You passed the test and found the lollipops! That's what you were looking for, right?"
+  },
+  "3 Chocolate Bars": {
+    "merchantPre": "I have 3 chocolate bars here. No idea what they're used for. Only {{count}} candies!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I converted the candies into 2 more chocolate bars and gave them to {{player}}!",
+    "sorceressPre": "This is a box with 3 chocolate bars. Legend has it that there is a wishing well somewhere that will enchant your gear, if you throw a chocolate bar in. But that's just a legend. Right?",
+    "sorceressPost": "I'm sure it's just a legend. I'm the No. 1 sorceress in these lands anyway!",
+    "forgePost": "My son is a chocolatier! I get these chocolate bars from him for cheap.",
+    "cyclops": "Congratulations! You passed the test! I was going to eat these chocolate basr but as a reward, {{player}} can have them."
+  },
+  "Third House Key": {
+    "merchantPre": "This key opens my arcade in the village in {{player}}'s world.",
+    "sorceressPre": "This is a key for the arcade in the village of {{player}}'s world.",
+    "sorceressPost": "When I was younger I used to frequent this arcade. I bet you'll never beat my high score!",
+    "forgePost": "When I was younger I would go to the arcade and play all the time. I don't go any more, so {{player}} can have this key.",
+    "cyclops": "Congratulations! You passed the test and found the key. It opens the arcade in {{player}}'s world. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar to make this key. It opens an arcade in {{player}}'s village."
+  },
+  "Sponge": {
+    "merchantPre": "This sponge is unused, but it's perfect for cleaning up liquid messes!",
+    "sorceressPre": "This sponge isn't just for cleaning up a mess: if you try hard enough, the holder can also squeeze themselves!",
+    "sorceressPost": "Look out for small spaces where you might fit!",
+    "forgePost": "This sponge was used before, but now it's been freshly baked to ensure that no liquid is left.",
+    "cyclops": "Congratulations! You passed the test and found the sponge! When {{player}} rolls themselves up, they will be a lot smaller now.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. I just cooked this sponge, fresh for {{player}}. I guarantee you that it is dry and ready for use!"
+  },
+  "Shell Powder": {
+    "merchantPre": "This is ground up shell powder, perfect for lollipop farms! One sprinkle and it will triple lollipop production!",
+    "sorceressPre": "This ground up shell powder will accelerate the speed of any lollipop farm by a factor of three!",
+    "sorceressPost": "Thanks for buying! Simply sprinkle this on any lollipop farm and watch your lollipops soar!",
+    "forgePost": "Thanks for buying! This shell powder is great for farming! I would use it as soon as I can!",
+    "cyclops": "Congratulations! You passed the test and found the mortar and pestle. Here, I'll grind up some shells. This will be very useful indeed!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. I heard shell powder is really useful, so {{player}} can have some of mine."
+  },
+  "Red Fin": {
+    "merchantPre": "I bought some shark fin the other day to cook some delicious shark fin soup, but this one was unusually red. I'm not sure what it means, but maybe {{player}} might have a use for it.",
+    "sorceressPre": "This red shark fin will make {{player}}'s fireballs more potent!",
+    "sorceressPost": "Thanks for buying! This is definitely a worthwhile investment.",
+    "forgePost": "I tried to cook some soup with this, but it tasted weird.",
+    "cyclops": "Congratulations! You passed the test and found the fin! This fin will make {{player}}'s fireballs more potent. Good luck!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. The chef came in here the other day to cook something, but he left this here after he tasted it because he didn't like it. Maybe {{player}} will have a use for it."
+  },
+  "Green Fin": {
+    "merchantPre": "I bought some shark fin the other day to cook some delicious shark fin soup, but this one was unusually green. I'm not sure what it means, but maybe {{player}} might have a use for it.",
+    "sorceressPre": "This green shark fin embodies the very essence of nature, and will multiply the production of {{player}}'s farm by a factor of five!",
+    "sorceressPost": "Thanks for buying! This is definitely a worthwhile investment.",
+    "forgePost": "I tried to cook some soup with this, but it tasted weird.",
+    "cyclops": "Congratulations! You passed the test and found the fin. This fin will multiply the production of {{player}}'s farm by a factor of five!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. The chef came in here the other day to cook something, but he left this here after he tasted it because he didn't like it. Maybe {{player}} will have a use for it."
+  },
+  "Purple Fin": {
+    "merchantPre": "I bought some shark fin the other day to cook some delicious shark fin soup, but this one was unusually purple. I'm not sure what it means, but maybe {{player}} might have a use for it.",
+    "sorceressPre": "I don't think I'm supposed to be selling this to you, so keep it a secret! This purple shark fin will allow {{player}} to spawn a black hole during quests! It's very dangerous, so use it responsibly!",
+    "sorceressPost": "If anyone asks, I didn't sell this to you. I mean it.",
+    "forgePost": "I tried to cook some soup with this, but it tasted weird.",
+    "cyclops": "Congratulations! You passed the test and found the fin! This will allow {{player}} to cast a very powerful spell, but it can only be cast once every time they enter a quest. Be careful with it!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar. The chef came in here the other day to cook something, but he left this here after he tasted it because he didn't like it. Maybe {{player}} will have a use for it."
+  },
+  "Locked Candy Box": {
+    "merchantPre": "Ever since I've owned this box, it's been locked, but I don't have the key for it.",
+    "sorceressPre": "This box was given to me by my mother. It has been said through generations that only the Magical Talking Candy can open this box. But I don't know where the Magical Talking Candy is.",
+    "sorceressPost": "I wish {{player}} great success in finding the Magical Talking Candy!",
+    "forgePost": "I found this box while I was walking outside the other day, but I couldn't open it, no matter what I tried!",
+    "cyclops": "Congratulations! You passed the test and found the box. It's very precious, but is only useful if you find the four special stones too. Good luck!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Here, I want {{player}} to have this - a box someone left in this room many years ago. To this day, I have never managed to discover what's inside."
+  },
+  "Boots of Introspection": {
+    "merchantPre": "These boots seem to have sticky soles.",
+    "sorceressPre": "It's always good to take some time to think and consider your next move very carefully. The wearer of these boots will constantly be reminded to stop and evaluate their decisions.",
+    "sorceressPost": "It's nice to be able to stop and think for a little, isn't it?",
+    "forgePost": "I hope {{player}} will like these boots. They are quite heavy, though.",
+    "cyclops": "Congratulations! You passed the test! Here, {{player}} can have these boots as a reward. It'll give them time to stop and think, which will be very helpful, I assure you.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. I found this box of shoes in one of the rooms the other day - {{player}} can have them!"
+  },
+  "Pain au Chocolat": {
+    "merchantPre": "This is a pain au chocolat. I don't know what it's used for, but it happens to be quite rare - rarer than chocolate bars! {{count}} candies and it's yours!",
+    "sorceressPre": "This is a pain au chocolat. Legend has it that there is a wishing well somewhere that will level up your abilities, if you throw a pain au chocolat in. But that's just a legend. Right?",
+    "cyclops": "Congratulations! You passed the test! I was going to eat this pain au chocolat but as a reward, {{player}} can have it.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made {{player}}... a pain au chocolat! It's my favourite pastry, I hope you'll like it too!",
+    "sorceressPost": "I'm sure it's just a legend. I'm the No. 1 sorceress in these lands anyway!",
+    "forgePost": "My son is a chocolatier! I get these pains au chocolat from him for cheap."
+  },
+  "Nothing (Weapon)": {
+    "cyclops": "Congratulations! You passed the test! As your reward, I will unlock {{player}}'s weapon from their hands. They can let go of their weapon now.",
+    "sorceressPre": "Hmm? Your friend is cursed? They can't let go of their weapon? Easy. I can fix that right up, really quickly. For a price, of course. Just {{count}} lollipops.",
+    "sorceressPost": "There you go! {{player}} can let go of their weapon now. I bet that's useful.",
+    "merchantPre": "What's wrong? Your friend stuck weapons to their hands? I have some isopropyl alcohol that might be of use. Only {{count}} candies!",
+    "forgePost": "I'm not a qualified doctor, so you should tell {{player}} to check with someone now. Prying a weapon off someone's hands really hurts!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar, and I opened a portal and took {{player}}'s weapon to give to you! What? You don't want it? Okay, I'll return it. At least they can let go of their weapon now."
+  },
+  "Progressive Weapon": {
+    "merchantPre": "This is a mystery box. Supposedly, it contains a weapon for {{player}}. {{count}} candies and it's yours!",
+    "sorceressPre": "This is a mystery package destined for {{player}}. What's inside? That's for me to know, for them to find out, and for you to discover from them!",
+    "sorceressPost": "If you really want to know what {{player}} received, you should go ask them.",
+    "forgePost": "Signed, sealed, delivered.",
+    "cyclops": "Congratulations! You passed the test! I sent a weapon to {{player}}. Hopefully that helps them defeat stronger enemies.",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar! I sent a new weapon to {{player}}. I hope they find it useful!"
+  },
+  "Progressive Jump": {
+    "sorceressPre": "This is a mystery package destined for {{player}}. What's inside? That's for me to know, for them to find out, and for you to discover from them!",
+    "sorceressPost": "If you really want to know what {{player}} received, you should go ask them.",
+    "forgePost": "Signed, sealed, delivered.",
+    "cyclops": "Congratulations! You passed the test! I sent hardware to {{player}}. Hopefully that helps them reach higher ground.",
+    "merchantPre": "This is a mystery box. Supposedly it contains useful hardware for {{player}}. {{count}} candies and it's yours!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar! I sent new jumping gear to {{player}}. I hope they find it useful!"
+  },
+  "Progressive Grimoire": {
+    "sorceressPre": "This is a mystery book destined for {{player}}. What's written inside? That's for me to know, for them to find out, and for you to discover from them!",
+    "sorceressPost": "If you really want to know what {{player}} received, you should go ask them.",
+    "forgePost": "Signed, sealed, delivered.",
+    "cyclops": "Congratulations! You passed the test! I sent a magic book to {{player}}. Hopefully they know how to use it!",
+    "merchantPre": "I found this mystery book under my bed yesterday. It's sealed and I can't open it, so I don't know what's inside. {{count}} candies and it's yours!",
+    "hoven": "Yay! Thanks a lot! I took 100 candies and a chocolate bar! I sent a grimoire to {{player}}. I hope they find it useful!"
+  },
+  "2 Pains au Chocolat": {
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made {{player}}... two pain au chocolats! It's my favourite pastry, I hope they'll like it too!",
+    "forgePost": "My son is a chocolatier! I get these pains au chocolat from him for cheap.",
+    "cyclops": "Congratulations! You passed the test! I was going to eat these pains au chocolat but as a reward, {{player}} can have it.",
+    "merchantPre": "This is a set of 2 pains au chocolat. I don't know what it's used for, but it happens to be quite rare - rarer than chocolate bars! {{count}} candies and it's yours!",
+    "sorceressPre": "This is a set of 2 pains au chocolat. Legend has it that there is a wishing well somewhere that will level up your abilities, if you throw a pain au chocolat in. But that's just a legend. Right?",
+    "sorceressPost": "I'm sure it's just a legend. I'm the No. 1 sorceress in these lands anyway!"
+  },
+  "Acid Rain Spell": {
+    "merchantPre": "This sheet of paper has some words on it, but I don't know what they say.",
+    "sorceressPre": "When {{player}} speaks the words on this sheet of paper, acid drops will fall from the sky, damaging any enemies. Only {{count}} lollipops!",
+    "sorceressPost": "You know, I haven't actually seen it rain here in centuries.",
+    "forgePost": "I found this sheet of paper with a magic spell in my office. I think {{player}} can have it.",
+    "cyclops": "Congratulations! You passed the test and found the spell! This spell will cause acid drops to fall from the sky when {{player}} reads it. Good luck with the rest of your adventure!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Tell you what, why don't I write this recipe down and give it to you? You might know someone who might find it useful!"
+  },
+  "Fireball Spell": {
+    "merchantPre": "This thick paper has some words on it, but I don't know what they say.",
+    "sorceressPre": "When {{player}} speaks the words on this paper, a fireball will appear in front of them and move away. Great for burning enemies!",
+    "sorceressPost": "Be careful around trees. I don't want to be responsible for the demise of the forest.",
+    "forgePost": "I found this sheet of paper with a magic spell in my office. I think {{player}} can have it.",
+    "cyclops": "Congratulations! You passed the test and found the spell! This spell will cause a fireball to spawn in front of {{player}} when they read it. Good luck with the rest of your adventure!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Tell you what, why don't I write this recipe down and give it to you? You might know someone who might find it useful!"
+  },
+  "Teleport Spell": {
+    "merchantPre": "This sheet of paper has some words on it, but I don't know what they say.",
+    "sorceressPre": "When {{player}} speaks these words, they will teleport somewhere else in the quest. Useful for getting out of tight spaces!",
+    "sorceressPost": "You should introduce {{player}} to me. Maybe by convincing them to telport here, perhaps?",
+    "forgePost": "I found this sheet of paper with a magic spell in my office. I think {{player}} can have it.",
+    "cyclops": "Congratulations! You passed the test and found the spell! This spell will cause {{player}} to teleport randomly. Good luck with the rest of your adventure!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Tell you what, why don't I write this recipe down and give it to you? You might know someone who might find it useful!"
+  },
+  "Erase Magic Spell": {
+    "merchantPre": "This tablet seems to have some writing on it, but I can't interpret it.",
+    "sorceressPre": "When {{player}} reads the words written on this stone tablet, all the magic around them will disappear.",
+    "sorceressPost": "Send my apologies in advance for the stone being broken. The troll shook my hut a bit and this tablet fell off the shelves.",
+    "forgePost": "I found this stone tablet with a magic spell in my office. I think {{player}} can have it.",
+    "cyclops": "Congratulations! You passed the test and found the spell! This spell will cause all the magic around {{player}} to disappear. Good luck with the rest of your adventure!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Tell you what, why don't I write this recipe down and give it to you? You might know someone who might find it useful!"
+  },
+  "Thorns Shield Spell": {
+    "merchantPre": "This tablet seems to have some writing on it, but I can't interpret it.",
+    "sorceressPre": "When {{player}} reads the incantation on this tablet, floating thorns will appear around them and damage their enemies.",
+    "sorceressPost": "To be honest, I think these thorns are not very useful whatsoever.",
+    "forgePost": "I found this stone tablet with a magic spell in my office. I think {{player}} can have it.",
+    "cyclops": "Congratulations! You passed the test and found the spell! This spell will cause thorns to appear near {{player}}, damaging their enemies. Good luck with the rest of your adventure!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Tell you what, why don't I write this recipe down and give it to you? You might know someone who might find it useful!"
+  },
+  "Obsidian Wall Spell": {
+    "merchantPre": "This tablet seems to have some writing on it, but I can't interpret it.",
+    "sorceressPre": "When {{player}} punches this tablet, a giant obsidian wall will appear in front of them, stopping enemies from passing!",
+    "sorceressPost": "If {{player}} needs to get past, they can simply smash the wall.",
+    "forgePost": "I found this stone tablet with a magic spell in my office. I think {{player}} can have it.",
+    "cyclops": "Congratulations! You passed the test and found the spell! This spell will cause a wall to be erected in front of {{player}}. Good luck with the rest of your adventure!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Tell you what, why don't I write this recipe down and give it to you? You might know someone who might find it useful!"
+  },
+  "Black Demons Spell": {
+    "merchantPre": "This tablet seems to have some writing on it, but I can't interpret it.",
+    "sorceressPre": "This tablet contains the incantation that {{player}} can speak in order to summon the demons of Elysium to attack everyone in the quest.",
+    "sorceressPost": "Be careful, the demons will also attack {{player}}!",
+    "forgePost": "I found this stone tablet with a magic spell in my office. I think {{player}} can have it.",
+    "cyclops": "Congratulations! You passed the test and found the spell! This spell will summon the demons of Elysium to attack everything in the quest. Good luck with the rest of your adventure!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar. Tell you what, why don't I write this recipe down and give it to you? You might know someone who might find it useful!"
+  },
+  "Font Trap": {
+    "merchantPre": "When I pinch this object, the entire world seems to blur for me. It's not very nice! Please take this away from me!",
+    "sorceressPre": "I was cursed with possession of this artifact by a demon from Elysium. As long as it's in my posession, the entire world seems to be blurry. I beg you, please take it away from me!",
+    "sorceressPost": "Good riddance.",
+    "forgePost": "Take this artifact and never come back with it.",
+    "cyclops": "Thank goodness you finished that quickly. I couldn't wait to be rid of this.",
+    "hoven": "Yay! Thank you SO MUCH! I can see clearly now!"
+  }
+}

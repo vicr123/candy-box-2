@@ -1,4 +1,8 @@
 {
+  "Candy Box 2": {
+    "strings": ["/item-test/candy-box-2.json"],
+    "matureGame": false
+  },
   "Shadow the Hedgehog": {
     "strings": ["/item-text/shadow-the-hedgehog.json"],
     "matureGame": false
