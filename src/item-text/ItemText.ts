@@ -2,6 +2,7 @@ import {Item} from "archipelago.js";
 import {Database} from "../main/Database";
 import {Algo} from "../main/Algo";
 import posessive = Algo.posessive;
+import {sanitiseText} from "../utils";
 
 export interface ItemText {
     /**
@@ -97,7 +98,7 @@ export function getItemString(occurrence: ItemTextOccurrence, item: Item, cost?:
     for (const arg in args) {
         placeholderText = placeholderText.replace(`{{${arg}}}`, args[arg]);
     }
-    return placeholderText;
+    return sanitiseText(placeholderText);
 }
 
 export async function fetchGameItemText(game: string) {

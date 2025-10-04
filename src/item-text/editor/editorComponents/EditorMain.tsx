@@ -9,6 +9,7 @@ import {Algo} from "../../../main/Algo";
 import {RenderTransparency} from "../../../main/RenderTransparency";
 import {Guide} from "./Guide";
 import {KeyboardEvent} from "react";
+import {sanitiseText} from "../../../utils";
 
 function renderText(item: string, game: string, string: string, defaultString: string) {
     const args = {
@@ -23,7 +24,7 @@ function renderText(item: string, game: string, string: string, defaultString: s
         for (const arg in args) {
             placeholderText = placeholderText.replace(`{{${arg}}}`, args[arg]);
         }
-        return placeholderText;
+        return sanitiseText(placeholderText);
     } else if (!defaultString) {
         return "";
     } else {
