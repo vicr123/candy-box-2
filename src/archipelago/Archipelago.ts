@@ -41,6 +41,9 @@ type EntrancePairing = [ArchipelagoEntrance, ArchipelagoEntrance];
 export const lollipopCalorieExchangeRate = 47.3;
 export const candyCalorieExchangeRate = 57.8;
 
+let interruptionElement: HTMLPreElement | undefined;
+let terminalInterrupt = false;
+
 interface ArchipelagoSlotData {
     uuid: string;
     entranceInformation: EntrancePairing[];
@@ -311,6 +314,13 @@ export namespace Archipelago {
         container.style.zIndex = "100";
         container.style.margin = "0";
 
+        if (terminalInterrupt) {
+            return container;
+        }
+        if (interruptionElement) {
+            interruptionElement.remove();
+        }
+
         if (isDisconnection) {
             const errorMessage = document.createElement("span");
             errorMessage.innerText = Database.getText("apLostConnection");
@@ -347,6 +357,8 @@ export namespace Archipelago {
             }
 
             document.body.style.pointerEvents = "initial";
+
+            terminalInterrupt = true;
         } else {
             const errorMessage = document.createElement("span");
             errorMessage.innerText = Database.getText("apWaitingForArchipelago");
@@ -360,6 +372,8 @@ export namespace Archipelago {
                 errorMessageTranslated.style.position = "static";
                 container.appendChild(errorMessageTranslated);
             }
+
+            interruptionElement = container;
         }
 
         document.body.appendChild(container);
