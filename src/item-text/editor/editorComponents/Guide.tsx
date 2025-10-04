@@ -2,6 +2,9 @@ import Styles from "./Guide.module.css"
 import {AsciiArt} from "../../../react/AsciiArt";
 
 import ExportImage from "./images/export.png"
+import ItemImage from "./images/item.png"
+import EditingAreaImage from "./images/editing-area.png"
+import {EditableOccurrences} from "./EditorMain";
 
 export function Guide() {
     return <div className={Styles.guide}>
@@ -94,7 +97,65 @@ export function Guide() {
 
         <hr />
         <AsciiArt name={"dialogue-editor/TheDialogueEditor"} />
-        <p>Help for using the dialogue editor is coming soon.</p>
+        <p>
+            Dialogue for a game can be defined for each item, and each <i>occurrence</i>. Each different scenario
+            where dialogue text for an item can appear is called an occurrence. The available occurrences are
+            <ul>
+                {Object.values(EditableOccurrences).map(x => <li>{x.name}</li>)}
+            </ul>
+        </p>
+        <p>The dialogue editor is split into two panes: the sidebar and the editing area.</p>
+
+        <b>The Sidebar</b>
+        <p>
+            The Sidebar contains a list of all the items available in the selected world. Select an item from the
+            Sidebar to activate it and start editing it in the editing area.
+        </p>
+        <img src={ItemImage} alt={"Item in the sidebar"} style={{width: "300px"}} />
+        <p>
+            Each item contains a row of circles beneath it. This describes which occurrences for that item have
+            completed dialogue text. A filled circle indicates that customised dialogue exists, while an
+            open circle indicates that no customised dialogue exists, and the standard fallback text
+            will be used instead.
+        </p>
+
+        <b>The Editing Area</b>
+        <p>
+            The Editing Area shows information about the item you have selected, and allows you to edit its dialogue.
+        </p>
+        <img src={EditingAreaImage} alt={"The Editing Area"} style={{width: "100%"}} />
+        <p>
+            At the top of the editing area is a pane that allows you to change the occurence that you are editing,
+            and information about the dialogue that you are editing.
+        </p>
+        <p>
+            Start by selecting an occurrence, and then enter the dialogue text for the item. Once you are satisfied
+            with the dialogue text, check the preview and ensure that the text renders correctly.
+        </p>
+        <p>
+            Placeholders are available to substitute in specific strings of text. The following placeholders are
+            available:
+            <ul>
+                <li><b>{"{{player}}"}</b> will be replaced with the name of the player the item is being sent to.</li>
+                <li><b>{"{{item}}"}</b> will be replaced with the name of the item that is being sent.</li>
+                <li><b>{"{{game}}"}</b> will be replaced with the name of the game that the item is being sent to.</li>
+                <li><b>{"{{count}}"}</b> will be replaced with the cost to send the item. This placeholder is only available in some occurrences.</li>
+            </ul>
+            To use a placeholder, enter its name, surrounded by two braces. It will disappear from the
+            "Remaining Placeholders" list, and an example will be reflected in the preview. You are not required
+            to use every placeholder.
+        </p>
+        <p>
+            While you are editing dialogue, you can use some keyboard shortcuts to make editing faster:
+            <ul>
+                <li><KeyboardShortcut shortcut={"CTRL+ENTER"} /> Go to the next dialogue in sequence</li>
+                <li><KeyboardShortcut shortcut={"CTRL+SHIFT+ENTER"} /> Go to the previous dialogue in sequence</li>
+                <li><KeyboardShortcut shortcut={"ALT+LEFT"} /> Go to the previous occurrence</li>
+                <li><KeyboardShortcut shortcut={"ALT+RIGHT"} /> Go to the next occurrence</li>
+                <li><KeyboardShortcut shortcut={"ALT+UP"} /> Go to the previous item</li>
+                <li><KeyboardShortcut shortcut={"ALT+DOWN"} /> Go to the next item</li>
+            </ul>
+        </p>
 
         <hr />
         <AsciiArt name={"dialogue-editor/SubmittingDialogue"} />
@@ -114,4 +175,23 @@ export function Guide() {
             Thank you for your contributions!
         </p>
     </div>
+}
+
+function KeyboardShortcut({shortcut}: {shortcut: string}) {
+    if (navigator.platform.includes("Mac")) {
+        return <b>{
+            shortcut
+                .replaceAll("CTRL", "⌘")
+                .replaceAll("ALT", "⌥")
+                .replaceAll("SHIFT", "⇧")
+                .replaceAll("UP", "↑")
+                .replaceAll("DOWN", "↓")
+                .replaceAll("LEFT", "←")
+                .replaceAll("RIGHT", "→")
+                .replaceAll("ENTER", "⏎")
+                .replaceAll("+", "")
+        }</b>
+    }
+
+    return <b>{shortcut}</b>
 }
