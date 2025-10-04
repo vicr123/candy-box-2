@@ -343,7 +343,7 @@ export namespace Archipelago {
             const button = document.createElement("span");
             button.classList.add("asciiRealButton");
             button.innerText = Database.getText("apReloadTryAgain")
-            button.style.color = "black"
+            button.style.color = "var(--foreground-color)"
             button.style.position = "static";
             button.onclick = () => window.location.reload()
             container.appendChild(button);
