@@ -1,0 +1,293 @@
+{
+  "Top Right Entry Jewel Piece": {
+    "merchantPre": "This is a corner piece of a purple jewel. I heard {{player}} is looking for jewels like this... but this one doesn't seem that important.",
+    "sorceressPre": "This is a corner piece of a purple jewel. {{player}} doesn't need this kind of jewel, though... unless they want to fight a boss for no reason.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a purple jewel for {{player}}. ...Wait a minute. I don't think they need this one. Sorry for wasting your time."
+  },
+  "Top Right Emerald Piece": {
+    "merchantPre": "This is a corner piece of an emerald. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of an emerald. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of an emerald for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Top Right Ruby Piece": {
+    "merchantPre": "This is a corner piece of a ruby. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of a ruby. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a ruby for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Top Right Topaz Piece": {
+    "merchantPre": "This is a corner piece of a topaz. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of a topaz. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a topaz for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Top Right Sapphire Piece": {
+    "merchantPre": "This is a corner piece of a sapphire. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of a sapphire. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a sapphire for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Top Right Golden Jewel Piece": {
+    "merchantPre": "This is a corner piece of a shiny, golden jewel. I heard {{player}} is looking for jewels like this, and this one seems important.",
+    "sorceressPre": "This is a corner piece of a shiny, golden jewel. Completing this jewel opens the door leading to {{player}}'s strongest foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a golden jewel for {{player}}. They need a completed gem to challenge their strongest foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Bottom Right Entry Jewel Piece": {
+    "merchantPre": "This is a corner piece of a purple jewel. I heard {{player}} is looking for jewels like this... but this one doesn't seem that important.",
+    "sorceressPre": "This is a corner piece of a purple jewel. {{player}} doesn't need this kind of jewel, though... unless they want to fight a boss for no reason.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a purple jewel for {{player}}. ...Wait a minute. I don't think they need this one. Sorry for wasting your time."
+  },
+  "Bottom Right Emerald Piece": {
+    "merchantPre": "This is a corner piece of an emerald. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of an emerald. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of an emerald for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Bottom Right Ruby Piece": {
+    "merchantPre": "This is a corner piece of a ruby. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of a ruby. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a ruby for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Bottom Right Topaz Piece": {
+    "merchantPre": "This is a corner piece of a topaz. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of a topaz. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a topaz for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Bottom Right Sapphire Piece": {
+    "merchantPre": "This is a corner piece of a sapphire. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of a sapphire. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a sapphire for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Bottom Right Golden Jewel Piece": {
+    "merchantPre": "This is a corner piece of a shiny, golden jewel. I heard {{player}} is looking for jewels like this, and this one seems important.",
+    "sorceressPre": "This is a corner piece of a shiny, golden jewel. Completing this jewel opens the door leading to {{player}}'s strongest foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a golden jewel for {{player}}. They need a completed gem to challenge their strongest foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Bottom Left Entry Jewel Piece": {
+    "merchantPre": "This is a corner piece of a purple jewel. I heard {{player}} is looking for jewels like this... but this one doesn't seem that important.",
+    "sorceressPre": "This is a corner piece of a purple jewel. {{player}} doesn't need this kind of jewel, though... unless they want to fight a boss for no reason.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a purple jewel for {{player}}. ...Wait a minute. I don't think they need this one. Sorry for wasting your time."
+  },
+  "Bottom Left Emerald Piece": {
+    "merchantPre": "This is a corner piece of an emerald. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of an emerald. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of an emerald for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Bottom Left Ruby Piece": {
+    "merchantPre": "This is a corner piece of a ruby. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of a ruby. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a ruby for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Bottom Left Topaz Piece": {
+    "merchantPre": "This is a corner piece of a topaz. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of a topaz. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a topaz for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Bottom Left Sapphire Piece": {
+    "merchantPre": "This is a corner piece of a sapphire. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of a sapphire. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a sapphire for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Bottom Left Golden Jewel Piece": {
+    "merchantPre": "This is a corner piece of a shiny, golden jewel. I heard {{player}} is looking for jewels like this, and this one seems important.",
+    "sorceressPre": "This is a corner piece of a shiny, golden jewel. Completing this jewel opens the door leading to {{player}}'s strongest foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a golden jewel for {{player}}. They need a completed gem to challenge their strongest foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Top Left Entry Jewel Piece": {
+    "merchantPre": "This is a corner piece of a purple jewel. I heard {{player}} is looking for jewels like this... but this one doesn't seem that important.",
+    "sorceressPre": "This is a corner piece of a purple jewel. {{player}} doesn't need this kind of jewel, though... unless they want to fight a boss for no reason.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a purple jewel for {{player}}. ...Wait a minute. I don't think they need this one. Sorry for wasting your time."
+  },
+  "Top Left Emerald Piece": {
+    "merchantPre": "This is a corner piece of an emerald. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of an emerald. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of an emerald for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Top Left Ruby Piece": {
+    "merchantPre": "This is a corner piece of a ruby. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of a ruby. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a ruby for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Top Left Topaz Piece": {
+    "merchantPre": "This is a corner piece of a topaz. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of a topaz. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a topaz for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Top Left Sapphire Piece": {
+    "merchantPre": "This is a corner piece of a sapphire. I heard {{player}} is looking for jewels like this...",
+    "sorceressPre": "This is a corner piece of a sapphire. {{player}} needs these to open the door to a powerful foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a sapphire for {{player}}. They need these to challenge a strong foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "Top Left Golden Jewel Piece": {
+    "merchantPre": "This is a corner piece of a shiny, golden jewel. I heard {{player}} is looking for jewels like this, and this one seems important.",
+    "sorceressPre": "This is a corner piece of a shiny, golden jewel. Completing this jewel opens the door leading to {{player}}'s strongest foe.",
+    "cyclops": "Congratulations! You passed the test and found a piece of a golden jewel for {{player}}. They need a completed gem to challenge their strongest foe, but it's only useful if they have the other pieces. Good luck to you, and them!"
+  },
+  "About that Shepherd CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "Things that Never Change CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "Tomorrow's Blood Pressure CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "Beyond the Headrush CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "Driftwood & the Island Dog CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "The Judge's Feet CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "The Moon's Lamppost CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "Soft Shell CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "So Sleepy CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "The Short Futon CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "Avocado Song CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "Mr. Fly CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "Yesterday's Words CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "The Errand CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "You and Your Shoes CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "Mr. Ether & Planaria CD": {
+    "merchantPre": "This is {{player}}'s {{item}}. It probably isn't important for them, but I'm sure this CD contains fun music, and wouldn't be strange to listen to at all!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It's a weird disc full of strange noises.",
+    "sorceressPost": "Here you go. Maybe you should ask for {{player}}'s opinion on this CD after they listen to it."
+  },
+  "Progressive Ground Pound": {
+    "merchantPre": "I've been told that this item allows {{player}} to perform a stronger ground pound."
+  },
+  "Swim": {
+    "merchantPre": "This item allows {{player}} to {{item}}. I don't know how much water they regularly deal with, but that sounds important."
+  },
+  "Head Smash": {
+    "merchantPre": "This helmet lets {{player}} perform a \"{{item}}\". I don't know what that means, but it sounds important.",
+    "forgePost": "I hope {{player}} enjoys this spiked helmet I made just for them. It's sharp enough to break solid rock!"
+  },
+  "Progressive Grab": {
+    "merchantPre": "This glove seems pretty sturdy... I can only imagine the kinds of things {{player}} could carry with it.",
+    "forgePost": "This sturdy glove will let {{player}} carry heavier objects than they could before. I hope it helps!"
+  },
+  "Dash Attack": {
+    "merchantPre": "This clove of garlic is said to allow {{player}} to perform a {{item}}. I don't know why garlic would do that. Maybe they just really like garlic."
+  },
+  "Stomp Jump": {
+    "merchantPre": "These boots are for {{player}}. I've heard they let them perform a \"{{item}}\"."
+  },
+  "Golden Tree Pot": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's very shiny, and looks incredibly valuable. For what it is, {{count}} candies is a steal!",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s {{item}}. Something tells me that golden artifacts such as this are very important to them."
+  },
+  "Golden Apple": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's very shiny, and looks incredibly valuable.",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s {{item}}. Something tells me that golden artifacts such as this are very important to them."
+  },
+  "Golden Fish": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's very shiny, and looks incredibly valuable. For what it is, {{count}} candies is a steal!",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s {{item}}. Something tells me that golden artifacts such as this are very important to them."
+  },
+  "Golden Candle Holder": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's very shiny, and looks incredibly valuable. For what it is, {{count}} candies is a steal!",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s {{item}}. Something tells me that golden artifacts such as this are very important to them."
+  },
+  "Golden Lamp": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's very shiny, and looks incredibly valuable. For what it is, {{count}} candies is a steal!",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s {{item}}. Something tells me that golden artifacts such as this are very important to them."
+  },
+  "Golden Crescent Moon Bed": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's very shiny, and looks incredibly valuable. For what it is, {{count}} candies is a steal!",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s {{item}}. Something tells me that golden artifacts such as this are very important to them."
+  },
+  "Golden Teddy Bear": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's very shiny, and looks incredibly valuable. For what it is, {{count}} candies is a steal!",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s {{item}}. Something tells me that golden artifacts such as this are very important to them."
+  },
+  "Golden Lollipop": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's very shiny, and looks incredibly valuable. For what it is, {{count}} candies is a steal!",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s {{item}}. Something tells me that golden artifacts such as this are very important to them."
+  },
+  "Golden Game Boy Advance": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's very shiny, and looks incredibly valuable. For what it is, {{count}} candies is a steal!",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s {{item}}. Something tells me that golden artifacts such as this are very important to them."
+  },
+  "Golden Robot": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's very shiny, and looks incredibly valuable. For what it is, {{count}} candies is a steal!",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s {{item}}. Something tells me that golden artifacts such as this are very important to them."
+  },
+  "Golden Rocket": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's very shiny, and looks incredibly valuable. For what it is, {{count}} candies is a steal!",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s {{item}}. Something tells me that golden artifacts such as this are very important to them."
+  },
+  "Golden Rocking Horse": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's very shiny, and looks incredibly valuable. For what it is, {{count}} candies is a steal!",
+    "cyclops": "Congratulations! You passed the test and found {{player}}'s {{item}}. Something tells me that golden artifacts such as this are very important to them."
+  },
+  "Full Health Item": {
+    "merchantPre": "This is {{player}}'s {{item}}. It recovers them to full health."
+  },
+  "Wario Form Trap": {
+    "merchantPre": "This is {{player}}'s {{item}}. Considering it has \"trap\" in its name, sending it to them might not be a good idea.",
+    "sorceressPre": "For the cost of {{count}} lollipops, I can inflict a transformation {{player}}. I don't know what it will do to them, it could be either harmful or beneficial.",
+    "sorceressPost": "Presto! I have transformed {{player}}. Hopefully that did something helpful."
+  },
+  "Heart": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's good for their health!",
+    "sorceressPre": "This is {{player}}'s {{item}}. It recovers a single heart of their health."
+  },
+  "Lightning Trap": {
+    "merchantPre": "This is {{player}}'s {{item}}. Getting struck by lightning sounds painful. Are you sure you want to buy this for them?",
+    "sorceressPre": "For the cost of {{count}} lollipops, I can strike {{player}} with lightning. I don't know why you would want to do that, but the option is there.",
+    "sorceressPost": "ZAP! I have just struck {{player}} with lightning. That probably hurt."
+  },
+  "Minigame Medal": {
+    "merchantPre": "This is {{player}}'s {{item}}. I've heard there are shops out there which accept these as currency."
+  },
+  "Diamond": {
+    "merchantPre": "This is {{player}}'s {{item}}. It's shiny, and is probably worth a fair bit of money, so I'm selling it for {{count}} candies!"
+  }
+}

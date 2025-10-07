@@ -30,5 +30,9 @@
   "Keep Talking and Nobody Explodes": {
     "strings": ["/item-text/keep-talking.json"],
     "matureGame": false
+  },
+  "Wario Land 4": {
+    "strings": ["/item-text/wario-land-4.json"],
+    "matureGame": false
   }
 }
