@@ -1,0 +1,26 @@
+{
+  "Feeling of Satisfaction": {
+    "merchantPre": "Money can't buy happiness, but candies can buy satisfaction! For just {{count}} candies, I can send that emotion to {{player}}!",
+    "sorceressPre": "For {{count}} lollipops, I can cast a spell that makes {{player}} spontaneously feel satisfied.",
+    "sorceressPost": "Presto! I hope you're satisfied, because {{player}} certainly is!",
+    "forgePost": "It took me a lot of time to make this item, and in the end, I'm satisfied about my work. I bet {{player}} will be, too!",
+    "cyclops": "Conglaturations! You passed the test. Isn't it satisfying to solve such a challenging puzzle? You should share the experience with {{player}}!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a cake! There's nothing important about it, but it makes me feel satisfied knowing that I did that. I bet {{player}} feels satisfied, too."
+  },
+  "Button Activation": {
+    "merchantPre": "This is {{player}}'s {{item}}. I assume it activates a button? What kind of importance does a button have? In any case, {{count}} candies for this.",
+    "sorceressPre": "That's {{player}}'s {{item}}. It's the most important thing you could buy for them. Their whole job is just to press this singular button! Only {{count}} lollipops.",
+    "sorceressPost": "Thanks for buying! {{player}} will be able to {{game}} their button now.",
+    "forgePost": "I hope {{player}} enjoys this {{item}}. I don't understand the importance of a single button, though.",
+    "cyclops": "Conglaturations! You passed the test, and now {{player}} can {{game}} their button. Now they can achieve their main goal.",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a nice button-shaped cookie! I wonder if {{player}} could {{game}} this..."
+  },
+  "A Cool Filler Item (No Satisfaction Guaranteed)": {
+    "merchantPre": "This item is really cool, but I can't guarantee that your friend {{player}} will be satisfied when they get it. I'll send it to them with free express shipping for {{count}} candies!",
+    "hoven": "Yay! Thanks a lot! I used 100 candies and a chocolate bar, and I made... a really cool item for {{player}}! I'm not sure if they'll be satisfied by this, but give it to them anyway.",
+    "forgePost": "This item is really cool, but I can't say I'm satisfied after making it. Why not show it to your friend, {{player}}?",
+    "sorceressPre": "That's a cool item, addressed to {{player}}. I can't guarantee that they'll feel satisfied if you buy this for them, but it could happen! And that's all that matters, right?",
+    "sorceressPost": "Thanks for buying! Make sure to tell me what they think about it.",
+    "cyclops": "Conglaturations! You passed the test and found a really cool item. It belongs to {{player}}. I'm not sure if it will satisfy them, though. Make sure not to try too hard chasing true satisfaction, or you could end up just burning yourself out."
+  }
+}

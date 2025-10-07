@@ -34,5 +34,9 @@
   "Wario Land 4": {
     "strings": ["/item-text/wario-land-4.json"],
     "matureGame": false
+  },
+  "Clique": {
+    "strings": ["/item-text/clique.json"],
+    "matureGame": false
   }
 }
