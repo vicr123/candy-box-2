@@ -38,5 +38,9 @@
   "Clique": {
     "strings": ["/item-text/clique.json"],
     "matureGame": false
+  },
+  "Mario Kart Double Dash": {
+    "strings": ["/item-text/mario-kart-double-dash.json"],
+    "matureGame": false
   }
 }
