@@ -394,6 +394,7 @@
     "apConnectError": "Unable to connect to Archipelago. Check your parameters and try again.",
     "apConnectErrorPassword": "Check the password and try again.",
     "apConnectErrorVersion": "This version of Candy Box 2 is not compatible with the server.",
+    "apConnectErrorVersionRedirect": "Redirecting to compatible Candy Box 2 version. Please wait...",
     "apConnectErrorGame": "This slot is not configured for Candy Box 2.",
     "apConnectErrorSlot": "Check the slot name and try again.",
     "buyCandies_one": "Send {{item}} to {{player}} for {{count}} candy",

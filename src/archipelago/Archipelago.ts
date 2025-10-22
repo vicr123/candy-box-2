@@ -155,13 +155,34 @@ export namespace Archipelago {
 
                 if (slotData.expectedClientVersion && !equivalence.includes(slotData.expectedClientVersion)) {
                     client.socket.disconnect();
-
                     const newVersion = slotData.expectedClientVersion;
                     const newEquivalence = Archipelago.equivalence.find(e => e.includes(newVersion)) ?? [newVersion];
-                    connectionError.current = "apConnectErrorVersion";
-                    expectedClientVersion.current = newEquivalence[newEquivalence.length - 1];
-                    connectionStatus.current = "disconnected";
-                    return false;
+                    const redirectVersion = newEquivalence[newEquivalence.length - 1];
+
+                    const search = window.location.search;
+                    const searchParams = new URLSearchParams(search);
+                    if (searchParams.get("do_not_redirect") == "1") {
+                        connectionError.current = "apConnectErrorVersion";
+                        expectedClientVersion.current = redirectVersion;
+                        connectionStatus.current = "disconnected";
+                        return false;
+                    } else {
+                        connectionError.current = "apConnectErrorVersionRedirect";
+
+                        const redirectSearchParams = new URLSearchParams();
+                        redirectSearchParams.set("hostport", apLink);
+                        redirectSearchParams.set("name", apSlot);
+                        if (apPassword) {
+                            redirectSearchParams.set("password", apPassword);
+                        }
+                        redirectSearchParams.set("go", "LS");
+                        redirectSearchParams.set("do_not_redirect", "1");
+
+                        window.location.assign(`/${redirectVersion}?${redirectSearchParams}`);
+
+                        await new Promise(() => {});
+                        return false;
+                    }
                 }
             }
 
