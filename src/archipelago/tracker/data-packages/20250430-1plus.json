@@ -1,5 +1,5 @@
 {
-  "expectedClientVersion": "20250912-1",
+  "expectedClientVersion": "20251006-1+",
   "locations": {
     "1": "Candy Box: HP Bar Unlock",
     "2": "Candy Box: Throw 1630 candies",
@@ -249,50 +249,6 @@
   "rules": {
     "locations": {
       "2": [
-        "and",
-        [
-          "and",
-          [
-            "and",
-            [
-              "and",
-              [
-                "and",
-                [
-                  "count",
-                  "lollipop",
-                  3,
-                  9
-                ],
-                [
-                  "room",
-                  "LOLLIPOP_FARM"
-                ]
-              ],
-              [
-                "room",
-                "LOLLIPOP_FARM"
-              ]
-            ],
-            [
-              "item",
-              7665046,
-              1
-            ]
-          ],
-          [
-            "item",
-            7665054,
-            1
-          ]
-        ],
-        [
-          "item",
-          7665056,
-          1
-        ]
-      ],
-      "1": [
         "and",
         [
           "and",
