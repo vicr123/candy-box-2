@@ -499,7 +499,7 @@ export const sendableItems = [
             Saving.saveNumber("questPlayerSpellHealthPotionQuantity", Saving.loadNumber("questPlayerSpellHealthPotionQuantity") + amount);
         },
         name: "Health Potion",
-        traits: ["Consumable", "Drink", "Heal"],
+        traits: ["Consumable", "Drink", "Potion", "Heal"],
         giftedAmount: (gift) => gift.amount
     },
     {
@@ -511,7 +511,7 @@ export const sendableItems = [
             Saving.saveNumber("questPlayerSpellTurtlePotionQuantity", Saving.loadNumber("questPlayerSpellTurtlePotionQuantity") + amount);
         },
         name: "Turtle Potion",
-        traits: ["Consumable", "Drink", "Slowness", "Armor"],
+        traits: ["Consumable", "Drink", "Potion", "Slowness", "Armor"],
         giftedAmount: (gift) => gift.amount
     },
     {
@@ -523,7 +523,7 @@ export const sendableItems = [
             Saving.saveNumber("questPlayerSpellBerserkPotionQuantity", Saving.loadNumber("questPlayerSpellBerserkPotionQuantity") + amount);
         },
         name: "Berserk Potion",
-        traits: ["Consumable", "Drink", "Damage", "Buff"],
+        traits: ["Consumable", "Drink", "Potion", "Damage", "Buff"],
         giftedAmount: (gift) => gift.amount
     },
     {
@@ -535,7 +535,7 @@ export const sendableItems = [
             Saving.saveNumber("questPlayerSpellCloningPotionQuantity", Saving.loadNumber("questPlayerSpellCloningPotionQuantity") + amount);
         },
         name: "Cloning Potion",
-        traits: ["Consumable", "Drink", "Copy"],
+        traits: ["Consumable", "Drink", "Potion", "Copy"],
         giftedAmount: (gift) => gift.amount
     },
     {
@@ -547,7 +547,7 @@ export const sendableItems = [
             Saving.saveNumber("questPlayerSpellPPotionQuantity", Saving.loadNumber("questPlayerSpellPPotionQuantity") + amount);
         },
         name: "P Potion",
-        traits: ["Consumable", "Drink", "Random"],
+        traits: ["Consumable", "Drink", "Potion", "Random"],
         giftedAmount: (gift) => gift.amount
     },
     {
@@ -559,7 +559,7 @@ export const sendableItems = [
             Saving.saveNumber("questPlayerSpellXPotionQuantity", Saving.loadNumber("questPlayerSpellXPotionQuantity") + amount);
         },
         name: "X Potion",
-        traits: ["Consumable", "Drink", "Teleport", "Quest"],
+        traits: ["Consumable", "Drink", "Potion", "Teleport", "Quest"],
         giftedAmount: (gift) => gift.amount
     },
     {
