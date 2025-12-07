@@ -301,10 +301,13 @@ export class Game{
     }
     
     public applyInvertedColorsToCss(): void{
-        if(Saving.loadBool("gameInvertedColors") == false)
+        if(Saving.loadBool("gameInvertedColors") == false) {
             $('#invertColorsStylesheet').remove();
-        else
-            $('head').append('<link href="css/invertColors.css" rel="stylesheet" id="invertColorsStylesheet"/>');
+        } else {
+            if (!document.getElementById('invertColorsStylesheet')) {
+                $('head').append('<link href="css/invertColors.css" rel="stylesheet" id="invertColorsStylesheet"/>');
+            }
+        }
     }
     
     public calcLollipopFarmProduction(): void{
