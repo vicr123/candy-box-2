@@ -103,6 +103,12 @@ export class Save extends Place{
     }
 
     private async clickedApLoad() {
+        if (!this.getGame().autosaveFileIsSame()) {
+            if (!confirm([Database.getText("loadApConflictWarning"), ...(Database.isTranslated() ? ["", Database.getTranslatedText("loadApConflictWarning")] : [])].join("\n"))) {
+                return;
+            }
+        }
+
         await Archipelago.interruptAfterTimeout(Saving.load(this.getGame(), MainLoadingType.ARCHIPELAGO));
         this.getGame().goToCandyBox()
     }
@@ -375,6 +381,10 @@ export class Save extends Place{
                     timeStyle: "medium"
                 }).format(lastSave)
             }), x+7, y+yAdd+8, false);
+
+            if (!this.getGame().autosavePossible()) {
+                this.drawWarning(Database.getTranslatedTextWithFallback("saveOutOfSync"), x+60, y+yAdd+8);
+            }
         } else {
             this.renderArea.drawString(Database.getText("saveApLastSaveNone"), x+7, y+yAdd+8, false);
             if (Database.isTranslated()){
@@ -423,7 +433,11 @@ export class Save extends Place{
             yAdd += 1;
         } else {
             this.renderArea.drawHorizontalLine("-", x, x + 100, y + yAdd + 12);
-            this.renderArea.addAsciiRealButton(Database.getText("saveApSaveNow"), x+7, y+yAdd+10, "saveApSaveButton", Database.getTranslatedText("saveApSaveNow"))
+            if (!this.getGame().autosavePossible()) {
+                this.renderArea.addAsciiRealButton(Database.getText("overwriteArchipelagoSaveButton"), x+7, y+yAdd+10, "saveApSaveButton", Database.getTranslatedText("overwriteArchipelagoSaveButton"))
+            } else {
+                this.renderArea.addAsciiRealButton(Database.getText("saveApSaveNow"), x+7, y+yAdd+10, "saveApSaveButton", Database.getTranslatedText("saveApSaveNow"))
+            }
             this.renderArea.addLinkCall(".saveApSaveButton", new CallbackCollection(this.clickedApSave.bind(this)));
 
             if(this.getGame().getLocalAutosaveEnabled()) {
