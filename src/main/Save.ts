@@ -178,6 +178,7 @@ export class Save extends Place{
     }
     
     private drawGreen(text: string, x: number, y: number, translated: boolean = false): void{
+        if (text.length == 0) return;
         this.renderArea.drawString(text, x, y, translated);
         this.renderArea.addColor(x, x + text.length, y, new Color(ColorType.SAVE_GREEN));
     }
@@ -385,12 +386,24 @@ export class Save extends Place{
         // Autosave enabled ?
         if(this.getGame().getLocalAutosaveEnabled()){
             if (this.getGame().autosavePossible()) {
+                const minutes = Math.ceil(this.getGame().getLocalAutosaveTime()/60);
                 this.drawGreen(Database.getText("saveLocalSaveAutosaveEnabled"), x+7, y+yAdd+10);
-                if(Database.getTranslatedText("saveLocalSaveAutosaveEnabled") != "") this.drawGreen("(" + Database.getTranslatedText("saveLocalSaveAutosaveEnabled") + ")", x+7, y+yAdd+10, true);
-                this.drawGreen("Next save in " + Algo.pluralFormat(Math.ceil(this.getGame().getLocalAutosaveTime()/60), " minute", " minutes"), x+7, y+yAdd+11);
+                this.drawGreen(Database.getText("saveLocalSaveAutosavePeriod", {minutes}), x+7, y+yAdd+11);
+
+                if (Database.isTranslated()) {
+                    this.drawGreen(Database.getTranslatedText("saveLocalSaveAutosaveEnabled"), x+7, y+yAdd+13, true);
+                    this.drawGreen(Database.getTranslatedText("saveLocalSaveAutosavePeriod", {minutes}), x+7, y+yAdd+14, true);
+                    yAdd += 3;
+                }
             } else {
                 this.drawWarning(Database.getText("saveLocalSaveAutosaveConflicting"), x+7, y+yAdd+10);
                 this.drawWarning(Database.getText("saveLocalSaveAutosaveConflictingResolution"), x+7, y+yAdd+11);
+
+                if (Database.isTranslated()) {
+                    this.drawWarning(Database.getTranslatedText("saveLocalSaveAutosaveConflicting"), x+7, y+yAdd+13, true);
+                    this.drawWarning(Database.getTranslatedText("saveLocalSaveAutosaveConflictingResolution"), x+7, y+yAdd+14, true);
+                    yAdd += 3;
+                }
             }
         }
         yAdd += 3;

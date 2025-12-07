@@ -252,6 +252,7 @@
     "saveLocalSaveWarning1": "You should update your browser in order to use the local saving feature.",
     "saveLocalSaveChooseSlot": "Choose a save slot :",
     "saveLocalSaveAutosaveEnabled": "Autosave enabled",
+    "saveLocalSaveAutosavePeriod": "Next save in {{minutes}} minute(s)",
     "saveLocalSaveChooseWhatToDo": "Choose what to do :",
     "saveLocalSaveSaveButton": "Save",
     "saveLocalSaveAutosaveButton": "Save every 10 minutes",
