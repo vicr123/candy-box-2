@@ -109,6 +109,7 @@ import {Dragon} from "./Dragon";
 import {CastleTower} from "./CastleTower";
 import {StatusBarTabType} from "./StatusBarTabType";
 import {ArchipelagoNotificationDrawer} from "../archipelago/ArchipelagoNotificationTray";
+import {ArchipelagoSaving} from "../archipelago/ArchipelagoSaving";
 
 Saving.registerBool("gameDebug", false);
 Saving.registerGlobalString("gameLanguage", "en");
@@ -171,6 +172,9 @@ Saving.registerNumber("trapFontTimer", 0);
 
 // The gamemode
 Saving.registerString("gameGameMode", "normal");
+
+Saving.registerBool("autosaveEnabled", false);
+Saving.registerString("apSaveId", "");
 
 export class Game{
     // Render locations
@@ -236,9 +240,7 @@ export class Game{
     private questSpeedUp: number;
     
     // Local autosave
-    private localAutosaveEnabled: boolean = false;
-    private localAutosaveSlot: string = null;
-    private localAutosaveTime: number = null; // Time in seconds before the next save
+    private localAutosaveTime: number = 0; // Time in seconds before the next save. Default to 0 to autosave immediately upon loading if enabled
     
     // Store the one second interval id (to clear it when we'll load our save from a file)
     private oneSecondIntervalId: number;
@@ -355,8 +357,7 @@ export class Game{
     }
     
     public disableLocalAutosave(): void{
-        this.localAutosaveEnabled = false;
-        this.localAutosaveSlot = null;
+        Saving.saveBool("autosaveEnabled", false);
     }
     
     public emptyAndFillSelectedEqItemsArray(): void{
@@ -386,9 +387,8 @@ export class Game{
         if(Saving.loadString("gameBootsSelected") != "inventorySpecialNothingBoots") this.selectedEqItems["boots"] = this.boots[Saving.loadString("gameBootsSelected")];
     }
     
-    public enableLocalAutosave(localAutosaveSlot: string): void{
-        this.localAutosaveEnabled = true;
-        this.localAutosaveSlot = localAutosaveSlot;
+    public enableLocalAutosave(): void{
+        Saving.saveBool("autosaveEnabled", true);
         this.setDefaultLocalAutosaveTime();
     }
     
@@ -463,6 +463,10 @@ export class Game{
         
         // Select correct items
         this.emptyAndFillSelectedEqItemsArray();
+
+        if (!Saving.loadString("apSaveId")) {
+            Saving.saveString("apSaveId", new Date().toISOString());
+        }
         
         // And we set the saved place (the village)
         this.savedPlace = new Village(this);
@@ -840,11 +844,7 @@ export class Game{
     }
     
     public getLocalAutosaveEnabled(): boolean{
-        return this.localAutosaveEnabled;
-    }
-    
-    public getLocalAutosaveSlot(): string{
-        return this.localAutosaveSlot;
+        return Saving.loadBool("autosaveEnabled");
     }
     
     public getLocalAutosaveTime(): number{
@@ -1090,12 +1090,11 @@ export class Game{
     }
     
     private localAutosave(): void{
-        // If local autosave is enabled and there's a local auto save slot and there's a local autosave time
-        if(this.localAutosaveEnabled == true && this.localAutosaveSlot != null && this.localAutosaveTime != null){
+        if(this.autosavePossible()){
             // If it's time to save
             if(this.localAutosaveTime <= 0){
                 // We save
-                Saving.save(this, MainLoadingType.LOCAL);
+                Saving.save(this, MainLoadingType.ARCHIPELAGO);
                 // We reset the time
                 this.setDefaultLocalAutosaveTime();
             }
@@ -1104,6 +1103,15 @@ export class Game{
                 this.localAutosaveTime -= 1;
         }
         
+    }
+
+    public autosavePossible(): boolean {
+        // If local autosave is enabled and there's a local auto save slot and there's a local autosave time
+        return this.getLocalAutosaveEnabled() && this.localAutosaveTime != null && this.autosaveFileIsSame();
+    }
+
+    public autosaveFileIsSame(): boolean {
+        return ArchipelagoSaving.lastApSaveId() == Saving.loadString("apSaveId");
     }
     
     private questMethod(): void{

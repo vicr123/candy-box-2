@@ -72,14 +72,17 @@ export class Save extends Place{
     
     // Private methods
     private clickedAutosave(): void{
-        // Save on the selected slot
-        Saving.save(this.getGame(), MainLoadingType.LOCAL);
+        if (!this.getGame().autosaveFileIsSame()) {
+            if (!this.confirmApSaveOverwrite()) {
+                return;
+            }
+        }
+
+        // Save on AP
+        Saving.save(this.getGame(), MainLoadingType.ARCHIPELAGO);
         
         // Enable autosaving
-        this.getGame().enableLocalAutosave(this.selectedSlot);
-        
-        // Re-create the slots array
-        this.createSlotsArray();
+        this.getGame().enableLocalAutosave();
         
         // Update
         this.update();
@@ -151,9 +154,18 @@ export class Save extends Place{
     }
 
     private async clickedApSave() {
+        if (!this.getGame().autosaveFileIsSame()) {
+            if (!this.confirmApSaveOverwrite()) {
+                return;
+            }
+        }
         await Archipelago.interruptAfterTimeout(Saving.save(this.getGame(), MainLoadingType.ARCHIPELAGO));
     }
-    
+
+    private confirmApSaveOverwrite(): boolean {
+        return confirm([Database.getText("saveApConflictWarning"), ...(Database.isTranslated() ? ["", Database.getTranslatedText("saveApConflictWarning")] : [])].join("\n"));
+    }
+
     private createSlotsArray(): void{
         // Reset the array
         this.slotsArray = [];
@@ -362,6 +374,19 @@ export class Save extends Place{
                     timeStyle: "medium"
                 }).format(lastSave)
             }), x+7, y+yAdd+8, false);
+
+            // Autosave enabled ?
+            if(this.getGame().getLocalAutosaveEnabled()){
+                if (this.getGame().autosavePossible()) {
+                    this.drawGreen(Database.getText("saveLocalSaveAutosaveEnabled"), x+7, y+yAdd+10);
+                    if(Database.getTranslatedText("saveLocalSaveAutosaveEnabled") != "") this.drawGreen("(" + Database.getTranslatedText("saveLocalSaveAutosaveEnabled") + ")", x+7, y+yAdd+10, true);
+                    this.drawGreen("Next save in " + Algo.pluralFormat(Math.ceil(this.getGame().getLocalAutosaveTime()/60), " minute", " minutes"), x+7, y+yAdd+11);
+                } else {
+                    this.drawWarning(Database.getText("saveLocalSaveAutosaveConflicting"), x+7, y+yAdd+10);
+                    this.drawWarning(Database.getText("saveLocalSaveAutosaveConflictingResolution"), x+7, y+yAdd+11);
+                }
+            }
+            yAdd += 3;
         } else {
             this.renderArea.drawString(Database.getText("saveApLastSaveNone"), x+7, y+yAdd+8, false);
             if (Database.isTranslated()){
@@ -370,9 +395,32 @@ export class Save extends Place{
             }
         }
 
-        this.renderArea.drawHorizontalLine("-", x, x + 100, y + yAdd + 12);
-        this.renderArea.addAsciiRealButton(Database.getText("saveApSaveNow"), x+7, y+yAdd+10, "saveApSaveButton", Database.getTranslatedText("saveApSaveNow"))
-        this.renderArea.addLinkCall(".saveApSaveButton", new CallbackCollection(this.clickedApSave.bind(this)));
+        if (Database.isTranslated()) {
+            this.renderArea.drawHorizontalLine("-", x, x + 100, y + yAdd + 13);
+            this.renderArea.addAsciiRealButton(Database.getText("saveApSaveNow"), x+7, y+yAdd+10, "saveApSaveButton", Database.getTranslatedText("saveApSaveNow"))
+            this.renderArea.addLinkCall(".saveApSaveButton", new CallbackCollection(this.clickedApSave.bind(this)));
+
+            if(this.getGame().getLocalAutosaveEnabled()) {
+                this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveDisableAutosaveButton"), x + 7, y + yAdd + 11, "saveApDisableAutosaveButton", Database.getTranslatedText("saveLocalSaveDisableAutosaveButton"))
+                this.renderArea.addLinkCall(".saveApDisableAutosaveButton", new CallbackCollection(this.clickedDisableAutosave.bind(this)));
+            } else {
+                this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveAutosaveButton"), x + 7, y + yAdd + 11, "saveApAutosaveButton", Database.getTranslatedText("saveLocalSaveAutosaveButton"))
+                this.renderArea.addLinkCall(".saveApAutosaveButton", new CallbackCollection(this.clickedAutosave.bind(this)));
+            }
+            yAdd += 1;
+        } else {
+            this.renderArea.drawHorizontalLine("-", x, x + 100, y + yAdd + 12);
+            this.renderArea.addAsciiRealButton(Database.getText("saveApSaveNow"), x+7, y+yAdd+10, "saveApSaveButton", Database.getTranslatedText("saveApSaveNow"))
+            this.renderArea.addLinkCall(".saveApSaveButton", new CallbackCollection(this.clickedApSave.bind(this)));
+
+            if(this.getGame().getLocalAutosaveEnabled()) {
+                this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveDisableAutosaveButton"), x + 35, y + yAdd + 10, "saveApDisableAutosaveButton", Database.getTranslatedText("saveLocalSaveDisableAutosaveButton"))
+                this.renderArea.addLinkCall(".saveApDisableAutosaveButton", new CallbackCollection(this.clickedDisableAutosave.bind(this)));
+            } else {
+                this.renderArea.addAsciiRealButton(Database.getText("saveLocalSaveAutosaveButton"), x + 35, y + yAdd + 10, "saveApAutosaveButton", Database.getTranslatedText("saveLocalSaveAutosaveButton"))
+                this.renderArea.addLinkCall(".saveApAutosaveButton", new CallbackCollection(this.clickedAutosave.bind(this)));
+            }
+        }
 
         // We return yAdd
         return yAdd;
@@ -462,7 +510,7 @@ export class Save extends Place{
     private resize(): void{
         // The size depends on if there's a translation or not
         if(Database.isTranslated())
-            this.renderArea.resize(100, 120);
+            this.renderArea.resize(100, 125);
         else
             this.renderArea.resize(100, 105);
     }

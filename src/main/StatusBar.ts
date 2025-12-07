@@ -11,6 +11,8 @@ import {Hotkey} from "./Hotkey";
 import {ArchipelagoNotificationTray} from "../archipelago/ArchipelagoNotificationTray";
 import {Archipelago} from "../archipelago/Archipelago";
 import {Item} from "archipelago.js";
+import {Color} from "./Color";
+import {ColorType} from "./ColorType";
 
 Saving.registerBool("statusBarUnlocked", false);
 
@@ -259,6 +261,11 @@ export class StatusBar{
             this.renderArea.drawString(" COUNT ", 81, 1);
             this.renderArea.drawString(` DOWN  `, 81, 2);
             this.renderArea.drawString(` ${Archipelago.apCountdown.current.toString().padEnd(6, " ")}`, 81, 3);
+        }
+
+        if (this.game.getLocalAutosaveEnabled() && !this.game.autosavePossible() && new Date().getSeconds() % 2) {
+            this.renderArea.drawString("(!)", 92, 3);
+            this.renderArea.addBackgroundColor(92, 95, 3, new Color(ColorType.SAVE_RED));
         }
     }
     

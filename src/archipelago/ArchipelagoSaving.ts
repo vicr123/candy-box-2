@@ -14,6 +14,9 @@ export namespace ArchipelagoSaving{
     }
 
     export async function save() {
+        // Update the save ID to guard against conflicts
+        Saving.saveString("apSaveId", new Date().toISOString());
+
         const savePackage = {
             date: new Date().getTime(),
             data: {
@@ -34,6 +37,15 @@ export namespace ArchipelagoSaving{
         }
 
         return new Date(savePackage.date);
+    }
+
+    export function lastApSaveId(): string {
+        const savePackage = Archipelago.client.storage.store[saveStorageKey()] as unknown as SavePackage;
+        if (!savePackage?.data?.apSaveId) {
+            return undefined;
+        }
+
+        return savePackage.data.apSaveId as string;
     }
 
     export async function load() {
