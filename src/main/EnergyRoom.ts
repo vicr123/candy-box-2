@@ -78,7 +78,7 @@ export class EnergyRoom extends House{
         this.renderArea.addLinkCall(`.depositCandy10Button`, new CallbackCollection(this.deposit.bind(this, 10, "candies")))
         this.renderArea.addLinkCall(`.depositCandy100Button`, new CallbackCollection(this.deposit.bind(this, 100, "candies")))
         this.renderArea.addLinkCall(`.depositCandy1000Button`, new CallbackCollection(this.deposit.bind(this, 1000, "candies")))
-        this.renderArea.addLinkCall(`.depositCandy1000Button`, new CallbackCollection(this.deposit.bind(this, 10000, "candies")))
+        this.renderArea.addLinkCall(`.depositCandy10000Button`, new CallbackCollection(this.deposit.bind(this, 10000, "candies")))
         this.renderArea.addLinkCall(`.depositCandyOtherButton`, new CallbackCollection(this.deposit.bind(this, -1, "candies")))
         this.renderArea.addLinkCall(`.depositCandyAllButton`, new CallbackCollection(this.deposit.bind(this, -2, "candies")))
 
@@ -88,7 +88,7 @@ export class EnergyRoom extends House{
         this.renderArea.addLinkCall(`.depositLollipop10Button`, new CallbackCollection(this.deposit.bind(this, 10, "lollipops")))
         this.renderArea.addLinkCall(`.depositLollipop100Button`, new CallbackCollection(this.deposit.bind(this, 100, "lollipops")))
         this.renderArea.addLinkCall(`.depositLollipop1000Button`, new CallbackCollection(this.deposit.bind(this, 1000, "lollipops")))
-        this.renderArea.addLinkCall(`.depositLollipop1000Button`, new CallbackCollection(this.deposit.bind(this, 10000, "lollipops")))
+        this.renderArea.addLinkCall(`.depositLollipop10000Button`, new CallbackCollection(this.deposit.bind(this, 10000, "lollipops")))
         this.renderArea.addLinkCall(`.depositLollipopOtherButton`, new CallbackCollection(this.deposit.bind(this, -1, "lollipops")))
         this.renderArea.addLinkCall(`.depositLollipopAllButton`, new CallbackCollection(this.deposit.bind(this, -2, "lollipops")))
 
@@ -98,7 +98,7 @@ export class EnergyRoom extends House{
         this.renderArea.addLinkCall(`.withdrawCandy10Button`, new CallbackCollection(this.withdraw.bind(this, 10, "candies")))
         this.renderArea.addLinkCall(`.withdrawCandy100Button`, new CallbackCollection(this.withdraw.bind(this, 100, "candies")))
         this.renderArea.addLinkCall(`.withdrawCandy1000Button`, new CallbackCollection(this.withdraw.bind(this, 1000, "candies")))
-        this.renderArea.addLinkCall(`.withdrawCandy1000Button`, new CallbackCollection(this.withdraw.bind(this, 10000, "candies")))
+        this.renderArea.addLinkCall(`.withdrawCandy10000Button`, new CallbackCollection(this.withdraw.bind(this, 10000, "candies")))
         this.renderArea.addLinkCall(`.withdrawCandyOtherButton`, new CallbackCollection(this.withdraw.bind(this, -1, "candies")))
 
         this.renderArea.drawString(`${Database.getText("withdrawLollipops")} ${lollipopCalorieExchangeRate} cal = 1`, 55, 16)
@@ -107,7 +107,7 @@ export class EnergyRoom extends House{
         this.renderArea.addLinkCall(`.withdrawLollipop10Button`, new CallbackCollection(this.withdraw.bind(this, 10, "lollipops")))
         this.renderArea.addLinkCall(`.withdrawLollipop100Button`, new CallbackCollection(this.withdraw.bind(this, 100, "lollipops")))
         this.renderArea.addLinkCall(`.withdrawLollipop1000Button`, new CallbackCollection(this.withdraw.bind(this, 1000, "lollipops")))
-        this.renderArea.addLinkCall(`.withdrawLollipop1000Button`, new CallbackCollection(this.withdraw.bind(this, 10000, "lollipops")))
+        this.renderArea.addLinkCall(`.withdrawLollipop10000Button`, new CallbackCollection(this.withdraw.bind(this, 10000, "lollipops")))
         this.renderArea.addLinkCall(`.withdrawLollipopOtherButton`, new CallbackCollection(this.withdraw.bind(this, -1, "lollipops")))
 
         this.renderArea.drawString(`${Database.getText("energyRemaining")} ${formatter.format(savedEnergy())} cal`, 55, 20)
