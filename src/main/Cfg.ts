@@ -8,6 +8,9 @@ import {Algo} from "./Algo";
 import {CallbackCollection} from "./CallbackCollection";
 import {Saving} from "./Saving";
 import {i18n} from "../i18n";
+import {Archipelago} from "../archipelago/Archipelago";
+import {ArchipelagoPlace} from "../archipelago/ArchipelagoPlace";
+import {Save} from "./Save";
 
 export class Cfg extends Place{
     // The render area
@@ -183,21 +186,36 @@ export class Cfg extends Place{
         this.getGame().updateStatusBar(); // We also update the status bar to fix the selected tab's color
         this.getGame().updatePlace();
     }
-    
+
+    private quitCfg() {
+        this.getGame().setPlace(new ArchipelagoPlace(this.getGame()));
+    }
+
+    isArchipelagoPlace(): boolean {
+        return true;
+    }
+
     private update(): void{
         // Erase everything
         this.renderArea.resetAllButSize();
         
         // The "Configuration" text
         this.drawConfigurationText(0, 0);
-        
+
+        let yAdd = 0;
+        if (Archipelago.connectionStatus.current == "disconnected") {
+            this.renderArea.addAsciiRealButton(Database.getText("back"), 0, 8, "backButton", Database.getTranslatedText("back"));
+            this.renderArea.addLinkCall(".backButton", new CallbackCollection(this.quitCfg.bind(this)));
+            yAdd = 2;
+        }
+
         // Language selection
-        this.drawCfgLanguage(0, 8);
+        this.drawCfgLanguage(0, 8 + yAdd);
         
         // Invert colors checkbox
-        this.drawCfgInvertColors(0, 12);
+        this.drawCfgInvertColors(0, 12 + yAdd);
         
         // "About" section
-        this.drawAbout(0, 18);
+        this.drawAbout(0, 18 + yAdd);
     }
 }

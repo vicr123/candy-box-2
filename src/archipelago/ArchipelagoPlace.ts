@@ -21,6 +21,7 @@ import figlet from "figlet";
 import big from "figlet/importable-fonts/Big.js"
 import {i18n} from "../i18n";
 import {lastTag} from "../../versioning";
+import {Cfg} from "../main/Cfg";
 
 declare const __COMMITS_SINCE_LAST_TAG: string;
 
@@ -239,6 +240,9 @@ export class ArchipelagoPlace extends Place {
 
                 this.renderArea.addAsciiRealButton(Database.getText("dialogueEditorOpen"), 7, y + 29, "dialogueEditorOpen", Database.getTranslatedText("dialogueEditorOpen"));
                 this.renderArea.addLinkCall(".dialogueEditorOpen", new CallbackCollection(this.dialogueEditorOpen.bind(this)));
+
+                this.renderArea.addAsciiRealButton(Database.getText("configuration"), 7, y + 31, "configurationOpen", Database.getTranslatedText("configuration"));
+                this.renderArea.addLinkCall(".configurationOpen", new CallbackCollection(this.configurationOpen.bind(this)));
                 break;
             case "connecting":
                 this.renderArea.drawString(Database.getText("apStatusConnecting"), 7, y + 15);
@@ -288,6 +292,10 @@ export class ArchipelagoPlace extends Place {
 
     private loadCorrectVersion() {
         window.location.pathname = `/${Archipelago.expectedClientVersion.current}`
+    }
+
+    private configurationOpen() {
+        this.getGame().setPlace(new Cfg(this.getGame()));
     }
 
     private renderApLog(y: number) {
