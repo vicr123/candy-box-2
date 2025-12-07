@@ -34,10 +34,10 @@ export class Egg extends QuestEntity{
         // Set gravity
         this.getQuestEntityMovement().setGravity(true);
         
-        // Set destructible
-        this.setDestructible(true);
-        this.setMaxHp(4);
-        this.setHp(4);
+        // Set destructible if the player doesn't have everything unequipped
+        this.setDestructible(!!quest.getGame().getSelectedEqItems()["weapon"] || !!quest.getGame().getSelectedEqItems()["hat"] || !!quest.getGame().getSelectedEqItems()["bodyArmour"] || !!quest.getGame().getSelectedEqItems()["gloves"] || !!quest.getGame().getSelectedEqItems()["boots"]);
+        this.setMaxHp(1);
+        this.setHp(1);
         
         // Set the ascii art
         this.getRenderArea().drawArray(Database.getAscii("places/quests/castle/room3/egg"));
