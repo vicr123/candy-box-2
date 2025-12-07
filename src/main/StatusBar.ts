@@ -263,7 +263,7 @@ export class StatusBar{
             this.renderArea.drawString(` ${Archipelago.apCountdown.current.toString().padEnd(6, " ")}`, 81, 3);
         }
 
-        if (this.game.getLocalAutosaveEnabled() && !this.game.autosavePossible()) {
+        if (this.game.getLocalAutosaveEnabled() && !this.game.autosavePossible() && Saving.loadBool("statusBarUnlockedSave")) {
             this.renderArea.drawString("(!)", 92, 3);
             if (new Date().getSeconds() % 2) {
                 this.renderArea.addBackgroundColor(92, 95, 3, new Color(ColorType.SAVE_RED));

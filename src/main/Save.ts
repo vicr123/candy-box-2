@@ -374,19 +374,6 @@ export class Save extends Place{
                     timeStyle: "medium"
                 }).format(lastSave)
             }), x+7, y+yAdd+8, false);
-
-            // Autosave enabled ?
-            if(this.getGame().getLocalAutosaveEnabled()){
-                if (this.getGame().autosavePossible()) {
-                    this.drawGreen(Database.getText("saveLocalSaveAutosaveEnabled"), x+7, y+yAdd+10);
-                    if(Database.getTranslatedText("saveLocalSaveAutosaveEnabled") != "") this.drawGreen("(" + Database.getTranslatedText("saveLocalSaveAutosaveEnabled") + ")", x+7, y+yAdd+10, true);
-                    this.drawGreen("Next save in " + Algo.pluralFormat(Math.ceil(this.getGame().getLocalAutosaveTime()/60), " minute", " minutes"), x+7, y+yAdd+11);
-                } else {
-                    this.drawWarning(Database.getText("saveLocalSaveAutosaveConflicting"), x+7, y+yAdd+10);
-                    this.drawWarning(Database.getText("saveLocalSaveAutosaveConflictingResolution"), x+7, y+yAdd+11);
-                }
-            }
-            yAdd += 3;
         } else {
             this.renderArea.drawString(Database.getText("saveApLastSaveNone"), x+7, y+yAdd+8, false);
             if (Database.isTranslated()){
@@ -394,6 +381,19 @@ export class Save extends Place{
                 yAdd += 1;
             }
         }
+
+        // Autosave enabled ?
+        if(this.getGame().getLocalAutosaveEnabled()){
+            if (this.getGame().autosavePossible()) {
+                this.drawGreen(Database.getText("saveLocalSaveAutosaveEnabled"), x+7, y+yAdd+10);
+                if(Database.getTranslatedText("saveLocalSaveAutosaveEnabled") != "") this.drawGreen("(" + Database.getTranslatedText("saveLocalSaveAutosaveEnabled") + ")", x+7, y+yAdd+10, true);
+                this.drawGreen("Next save in " + Algo.pluralFormat(Math.ceil(this.getGame().getLocalAutosaveTime()/60), " minute", " minutes"), x+7, y+yAdd+11);
+            } else {
+                this.drawWarning(Database.getText("saveLocalSaveAutosaveConflicting"), x+7, y+yAdd+10);
+                this.drawWarning(Database.getText("saveLocalSaveAutosaveConflictingResolution"), x+7, y+yAdd+11);
+            }
+        }
+        yAdd += 3;
 
         if (Database.isTranslated()) {
             this.renderArea.drawHorizontalLine("-", x, x + 100, y + yAdd + 13);

@@ -468,7 +468,7 @@ export class Game{
         this.emptyAndFillSelectedEqItemsArray();
 
         if (!Saving.loadString("apSaveId")) {
-            Saving.saveString("apSaveId", new Date().toISOString());
+            this.enableLocalAutosave();
         }
         
         // And we set the saved place (the village)
@@ -1114,7 +1114,12 @@ export class Game{
     }
 
     public autosaveFileIsSame(): boolean {
-        return ArchipelagoSaving.lastApSaveId() == Saving.loadString("apSaveId");
+        const lastApSaveId = ArchipelagoSaving.lastApSaveId();
+        if (!lastApSaveId) {
+            return true;
+        } else {
+            return lastApSaveId == Saving.loadString("apSaveId");
+        }
     }
     
     private questMethod(): void{
