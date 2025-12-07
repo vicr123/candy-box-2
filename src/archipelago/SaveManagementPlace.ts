@@ -139,15 +139,25 @@ export class SaveManagementPlace extends Place {
     private async updateSaveFiles() {
         const saveFileNames = await OpfsSaving.getSaveFiles();
         const saveFiles = await Promise.all(saveFileNames.map(async fileName => {
-            const saveFile = await OpfsSaving.loadSaveFile(fileName);
+            try {
+                const saveFile = await OpfsSaving.loadSaveFile(fileName);
 
-            return {
-                name: fileName,
-                dateString: saveFile.date,
-                date: saveFile.dateTime,
-                candies: saveFile.numbers["gameCandiesCurrent"],
-                lollipops: saveFile.numbers["gameLollipopsCurrent"]
-            } satisfies SaveFile;
+                return {
+                    name: fileName,
+                    dateString: saveFile.date,
+                    date: saveFile.dateTime,
+                    candies: saveFile.numbers["gameCandiesCurrent"],
+                    lollipops: saveFile.numbers["gameLollipopsCurrent"]
+                } satisfies SaveFile;
+            } catch {
+                return {
+                    name: fileName,
+                    dateString: "CORRUPT FILE",
+                    date: 0,
+                    candies: 0,
+                    lollipops: 0
+                }
+            }
         }));
         this.saveFiles = saveFiles.sort((a, b) => b.date - a.date);
 
