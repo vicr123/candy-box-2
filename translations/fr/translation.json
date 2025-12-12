@@ -504,7 +504,7 @@
   "lollipops": "Sucettes",
   "apTrackerOpen": "Ouvrir le pisteur",
   "apTrackerTab": "Pisteur",
-  "apTrackerDescription": "Le pisteur vous permet de voir les localisations qu\u0027Archipelago considère comme étant à l\u0027intérieur de la logique.",
+  "apTrackerDescription": "Le pisteur vous permet de voir les emplacements qu\u0027Archipelago considère comme étant logiquement atteignable.",
   "apTrackerDescription2": "Il vous indique également le chemin vers des salles spécifiques.",
   "kickoffError": "Désolé, nous ne pouvons pas lancer le jeu car le lien ne contient pas tous les paramètres requis. Veuillez renseigner les paramètres de connexion à Archipelago et cliquer sur «\u00A0Se connecter à Archipelago\u00A0» pour vous connecter.",
   "forgeBuySpeech": "Voilà! J\u0027ai envoyé l\u0027objet {{item}} appartenant à {{player}}. J\u0027espère qu\u0027il l\u0027aimera, car j\u0027ai passé beaucoup de temps à perfectionner tout ses petit recoins pour lui.",
