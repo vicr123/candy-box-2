@@ -91,10 +91,4 @@ export class ChocolateBars extends StatusBarResource{
         
         return prefix + base + suffix;
     }
-
-    getMax(): number {
-        return Archipelago.itemCount("CHOCOLATE_BAR") +
-            Archipelago.itemCount("CHOCOLATE_BAR_3") * 3 +
-            Archipelago.itemCount("CHOCOLATE_BAR_4") * 4;
-    }
 }
