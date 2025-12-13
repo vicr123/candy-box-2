@@ -32,7 +32,7 @@ export class ChocolateBars extends StatusBarResource{
         super.setCurrent(
             Archipelago.itemCount("CHOCOLATE_BAR") +
             Archipelago.itemCount("CHOCOLATE_BAR_3") * 3 +
-            Archipelago.itemCount("CHOCOLATE_BAR_4") * 4 -
+            Archipelago.itemCount("CHOCOLATE_BAR_4") -
 
             (Archipelago.isChecked("ENCHANT_ENCHANTED_KNIGHT_BODY_ARMOUR") ? 1 : 0) -
             (Archipelago.isChecked("ENCHANT_ENCHANTED_MONKEY_WIZARD_STAFF") ? 1 : 0) -
