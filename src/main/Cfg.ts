@@ -34,7 +34,8 @@ export class Cfg extends Place{
         "cfgLanguageUk": "uk",
         "cfgLanguageRu": "ru",
         "cfgLanguageTr": "tr",
-        "cfgLanguageEl": "el"
+        "cfgLanguageEl": "el",
+        "cfgLanguageFrCa": "fr-CA"
         };
     
     // Constructor
@@ -111,6 +112,7 @@ export class Cfg extends Place{
             "cfgLanguagePtBr", "Brazilian Portuguese (by TranslaCAT, Archipelago fork translations by Vrabbers and Nyunte)",
             "cfgLanguageNl", "Dutch (by Noël Wierema and Vincent van Gennep, corrections by Wessel van den Putte, Archipelago fork translations by Aren Merzoian)",
             "cfgLanguageFr", "French (by aniwey, Archipelago fork translations by Léana Terakopiantz, bennydreamly and Meowdoleon)",
+            "cfgLanguageFrCa", "Canadian French (by Meowdoleon)",
             "cfgLanguageDe", "German (by Kai Kubasta, Archipelago fork translations by funnyna.me and palex00)",
             "cfgLanguageEs", "Spanish (by Saúl Ruiz Calleja and Tania López Camino, Archipelago fork translations by Eg)",
             "category", "Out of Date Translations",
