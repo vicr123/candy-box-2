@@ -76,4 +76,8 @@ export class QuestEntityDamageReason{
         this.spellNaming = naming;
         return this;
     }
+
+    public getQuestEntityWeapon() {
+        return this.questEntityWeapon;
+    }
 }

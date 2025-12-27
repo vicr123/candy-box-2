@@ -11,6 +11,7 @@ import {CollisionBox} from "./CollisionBox";
 import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Database} from "./Database";
 import {QuestLogMessage} from "./QuestLogMessage";
+import {QuestEntityDamageReason} from "./QuestEntityDamageReason";
 
 export class Egg extends QuestEntity{
     // The callback we need to call when we die
@@ -42,7 +43,14 @@ export class Egg extends QuestEntity{
         // Set the ascii art
         this.getRenderArea().drawArray(Database.getAscii("places/quests/castle/room3/egg"));
     }
-    
+
+    inflictDamage(damage: number, reason: QuestEntityDamageReason) {
+        // Special case fists
+        if (reason.getQuestEntityWeapon().getNaming().getAnywhere() != "your fists") {
+            super.inflictDamage(damage, reason);
+        }
+    }
+
     // willDie()
     public willDie(): void{
         this.getQuest().getGame().getQuestLog().addMessage(new QuestLogMessage("An egg was destroyed."));
