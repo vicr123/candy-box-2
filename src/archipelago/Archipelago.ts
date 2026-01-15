@@ -665,6 +665,12 @@ Archipelago.client.messages.on("adminCommand", (message) => {
     }
     Archipelago.events.emit("apLogUpdated");
 })
+Archipelago.client.messages.on("goaled", (message) => {
+    for (const line of message.split("\n")) {
+        Archipelago.apLog.addMessage(new QuestLogMessage(sanitiseText(line)));
+    }
+    Archipelago.events.emit("apLogUpdated");
+})
 Archipelago.client.messages.on("itemSent", (_, item) => {
     Archipelago.apLog.addMessage(new QuestLogMessage(san`${item.sender.name} sent ${item.name} to ${item.receiver.name} (found at ${item.locationName})`));
 })
