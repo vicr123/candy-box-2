@@ -12,6 +12,7 @@ interface TrackerDataPackage {
     locationParents: Record<string, ArchipelagoEntrance>
     roomExits: Record<ArchipelagoRoom, ArchipelagoEntrance[]>
     rules: TrackerRulesDataPackage;
+    goal: TrackerRuleExpression;
 }
 
 interface TrackerRulesDataPackage {

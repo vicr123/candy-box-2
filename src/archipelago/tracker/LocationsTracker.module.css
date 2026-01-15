@@ -21,3 +21,7 @@
     grid-column: 1 / span 2;
     grid-template-columns: subgrid;
 }
+
+.goMode {
+    background-color: #00FF00;
+}

@@ -6,7 +6,8 @@ import {useTranslation} from "react-i18next";
 export function LocationsTracker() {
     const {
         locations: {
-            availableLocations
+            availableLocations,
+            isGoMode
         },
         navigation: {
             setCurrentDestination
@@ -28,7 +29,7 @@ export function LocationsTracker() {
         <span>{t("locationsChecked", {
             checked: checkedLocations.length,
             total: allLocations.length
-        })}</span>
+        })}{isGoMode && <>&nbsp;<span className={Styles.goMode}>GO MODE!</span></>}</span>
         {availableLocations.length == 0 && <div className={Styles.noLocations}>{t("noLocations")}</div>}
         {availableLocations.length > 0 && <div className={Styles.locationsGrid}>
             {availableLocations.map(location => <div className={Styles.locationLine} key={location}>

@@ -16,7 +16,16 @@ export function useLocationTracker({missingLocations}: ArchipelagoData, datapack
             })
     }, [missingLocations]);
 
+    const isGoMode = useMemo(() => {
+        if (datapackage.loadedDataPackage) {
+            return datapackage.evaluateRule(datapackage.loadedDataPackage.goal);
+        } else {
+            return false;
+        }
+    }, [missingLocations]);
+
     return {
         availableLocations,
+        isGoMode
     }
 }

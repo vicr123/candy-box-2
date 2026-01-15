@@ -1,5 +1,5 @@
 {
-  "expectedClientVersion": "20251006-1+",
+  "expectedClientVersion": "20251208-1+",
   "locations": {
     "1": "Candy Box: HP Bar Unlock",
     "2": "Candy Box: Throw 1630 candies",
@@ -5899,5 +5899,49 @@
         ]
       ]
     }
-  }
+  },
+  "goal": [
+    "and",
+    [
+      "and",
+      [
+        "and",
+        [
+          "and",
+          [
+            "and",
+            [
+              "room",
+              "TOWER"
+            ],
+            [
+              "item",
+              7665019,
+              1
+            ]
+          ],
+          [
+            "item",
+            7665020,
+            1
+          ]
+        ],
+        [
+          "item",
+          7665021,
+          1
+        ]
+      ],
+      [
+        "item",
+        7665022,
+        1
+      ]
+    ],
+    [
+      "item",
+      7665058,
+      1
+    ]
+  ]
 }
