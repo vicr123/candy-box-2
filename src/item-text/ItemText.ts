@@ -54,7 +54,13 @@ export async function loadGameItemText(game: string) {
         const response = await fetch("/item-text/meta.json", {
 
         });
-        itemTextMeta = await response.json();
+
+        try {
+            itemTextMeta = await response.json();
+        } catch (e) {
+            // Unable to load meta so ignore for now
+            return;
+        }
     }
 
     const gameMeta = itemTextMeta[game];
