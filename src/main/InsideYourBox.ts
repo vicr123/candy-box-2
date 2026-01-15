@@ -6,6 +6,9 @@ import {RenderArea} from "./RenderArea";
 import {Game} from "./Game";
 import {Database} from "./Database";
 import {RenderTransparency} from "./RenderTransparency";
+import {Archipelago} from "../archipelago/Archipelago";
+import {permissions} from "archipelago.js";
+import {CallbackCollection} from "./CallbackCollection";
 
 export class InsideYourBox extends Place{
     // The render area
@@ -27,6 +30,15 @@ export class InsideYourBox extends Place{
         // Resize and update
         this.renderArea.resize(100, 40);
         this.update();
+
+        Archipelago.client.room.on("locationsChecked", () => {
+            this.update();
+            this.getGame().updatePlace();
+        });
+        Archipelago.events.on("itemToBeProcessed", () => {
+            this.update();
+            this.getGame().updatePlace();
+        })
     }
     
     // getRenderArea()
@@ -68,5 +80,18 @@ export class InsideYourBox extends Place{
         
         // Draw the text
         this.renderArea.drawArray(Database.getAscii("general/insideYourBox/text"), 0, 5, new RenderTransparency(" ", "%"));
+
+        // Add AP buttons as needed
+        const apPerms = Archipelago.client.room.permissions;
+        if (apPerms.release == permissions.goal && Archipelago.client.room.missingLocations.length > 0) {
+            this.renderArea.addAsciiRealButton(Database.getText("apReleaseButton"), 40, 20, "candyBoxApReleaseButton", Database.getTranslatedText("apReleaseButton"), true, -1, null, true);
+            this.renderArea.addLinkCall(".candyBoxApReleaseButton", new CallbackCollection(this.apRelease.bind(this)));
+        }
+    }
+
+    private apRelease(): void {
+        queueMicrotask(() => {
+            Archipelago.sendMessage("!release");
+        })
     }
 }

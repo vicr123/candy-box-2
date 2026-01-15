@@ -1,4 +1,4 @@
-import {Client, Item, itemsHandlingFlags, LoginError} from "archipelago.js";
+import {Client, clientStatuses, Item, itemsHandlingFlags, LoginError} from "archipelago.js";
 import EventEmitter from "eventemitter3";
 import {QuestLog} from "../main/QuestLog";
 import {QuestLogMessage} from "../main/QuestLogMessage";
@@ -25,7 +25,7 @@ declare const __LAST_TAG: string;
 declare const __COMMITS_SINCE_LAST_TAG: string;
 
 type ConnectionStatus = "disconnected" | "connecting" | "connected";
-type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged" | "energyLinkUpdated" | "saveDataUpdated" | "trackerOpenChanged";
+type ArchipelagoEventTypes = "connectionStatusChanged" | "apLogUpdated" | "itemToBeProcessed" | "connectionErrorStringChanged" | "apCountdownChanged" | "expectedClientVersionChanged" | "apPageChanged" | "energyLinkUpdated" | "saveDataUpdated" | "trackerOpenChanged" | "selfGoaledChanged";
 export type ArchipelagoPlacePage = "backupRestore" | "connection" | "chat" | "hint" | "tracker" | "startInterstitial";
 
 export type ArchipelagoEntrance = "THE_CELLAR" | "THE_DESERT" | "THE_BRIDGE" | "THE_OCTOPUS_KING" |
@@ -125,6 +125,7 @@ export namespace Archipelago {
     export const events = new EventEmitter<ArchipelagoEventTypes>();
     export const apLog = new QuestLog(30, false);
     export const apCountdown = createObservable(0, events, "apCountdownChanged");
+    export const goaled = createObservable(false, events, "selfGoaledChanged");
 
     export const connectionStatus = createObservable<ConnectionStatus>("disconnected", events, "connectionStatusChanged");
     export const connectionError = createObservable<string>("", events, "connectionErrorStringChanged");
@@ -224,6 +225,8 @@ export namespace Archipelago {
                 connectionStatus.current = "disconnected";
                 interruptGame(true);
             })
+
+            Archipelago.goaled.current = await client.players.self.fetchStatus() == clientStatuses.goal;
 
             return true;
         } catch (e) {

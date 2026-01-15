@@ -8,6 +8,7 @@ import {Hotkey} from "./Hotkey";
 import {CallbackCollection} from "./CallbackCollection";
 import {Database} from "./Database";
 import {Archipelago} from "../archipelago/Archipelago";
+import {permissions} from "archipelago.js";
 
 Saving.registerBool("candyBoxBoxOpened", false);
 
@@ -23,7 +24,7 @@ export class CandyBox extends Place{
         super(game);
         
         // Resize the area
-        this.renderArea.resize(100, 40);
+        this.renderArea.resize(100, 50);
         
         // Update
         this.update();
@@ -32,6 +33,14 @@ export class CandyBox extends Place{
             this.update();
             this.getGame().updatePlace();
         });
+        Archipelago.events.on("selfGoaledChanged", () => {
+            this.update();
+            this.getGame().updatePlace();
+        });
+        Archipelago.events.on("itemToBeProcessed", () => {
+            this.update();
+            this.getGame().updatePlace();
+        })
     }
     
     // willBeDisplayed()
@@ -57,7 +66,7 @@ export class CandyBox extends Place{
         
         // Draw the box
         if(Archipelago.itemCount("LOCKED_CANDY_BOX") != 0){
-            if(Saving.loadBool("candyBoxBoxOpened") == true)
+            if(Archipelago.goaled.current)
                 this.renderArea.drawArray(Database.getAscii("general/openBox"), 68, 4);
             else
                 this.renderArea.drawArray(Database.getAscii("general/box"), 68, 4);
@@ -76,9 +85,16 @@ export class CandyBox extends Place{
             // Else, we have the box
             else{
                 // If the talking candy already opened the box
-                if(Saving.loadBool("candyBoxBoxOpened")){
+                if(Archipelago.goaled.current){
                     // Draw the speech
                     this.renderArea.drawSpeech(Database.getText("talkingCandySpeech2"), 34, 72, 98, "candyBoxTalkingCandySpeech", Database.getTranslatedText("talkingCandySpeech2"));
+
+                    // Add AP buttons as needed
+                    const apPerms = Archipelago.client.room.permissions;
+                    if (apPerms.release == permissions.goal && Archipelago.client.room.missingLocations.length > 0) {
+                        this.renderArea.addAsciiRealButton(Database.getText("apReleaseButton"), 80, 39, "candyBoxApReleaseButton", Database.getTranslatedText("apReleaseButton"));
+                        this.renderArea.addLinkCall(".candyBoxApReleaseButton", new CallbackCollection(this.apRelease.bind(this)));
+                    }
                 }
                 // Else, the box is still closed
                 else{
@@ -200,6 +216,7 @@ export class CandyBox extends Place{
 
         // We win the game
         Archipelago.client.goal();
+        Archipelago.goaled.current = true;
         
         // The tabs are unlocked
         Saving.saveBool("statusBarUnlockedInsideYourBox", true);
@@ -210,6 +227,18 @@ export class CandyBox extends Place{
         // Update
         this.update();
         this.getGame().updatePlace();
+    }
+
+    private apRelease(): void {
+        queueMicrotask(() => {
+            Archipelago.sendMessage("!release");
+        })
+    }
+
+    private apCollect(): void {
+        queueMicrotask(() => {
+            Archipelago.sendMessage("!collect");
+        })
     }
     
     private requestStatusBarUnlocked(): void{
