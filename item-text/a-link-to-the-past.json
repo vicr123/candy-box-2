@@ -1,0 +1,310 @@
+{
+  "name": "A Link to the Past",
+  "store": {
+    "Bow": {},
+    "Progressive Bow": {
+      "cyclops": ""
+    },
+    "Progressive Bow (Alt)": {},
+    "Silver Arrows": {
+      "cyclops": "Congratulations! You passed the test and found {{item}}. They're very powerful, and {{player}} needs them to give Ganon his last moment. Good luck!"
+    },
+    "Silver Bow": {
+      "cyclops": "Congratulations! You passed the test and found a Bow with Silver Arrows. They're very powerful, and {{player}} needs them to give Ganon his last moment. Good luck!"
+    },
+    "Book of Mudora": {
+      "merchantPre": "This is {{player}}'s {{item}}. It appears to be some sort of language translation guide. I don't understand the symbols in it, but maybe they will.",
+      "sorceressPre": "That's {{player}}'s {{item}}. It lets them decipher the Hylian language."
+    },
+    "Hammer": {
+      "forgePost": "I made a strong {{item}} for {{player}}. I went outside to test it, and knocked someone's fence into the ground! Whoops..."
+    },
+    "Hookshot": {},
+    "Magic Mirror": {},
+    "Flute": {
+      "sorceressPre": "That's a {{item}}. Whenever I play it, a duck starts chasing me! I have no use for it. For {{count}} lollipops, I can give it to {{player}}."
+    },
+    "Pegasus Boots": {
+      "merchantPre": "These are {{player}}'s {{item}}. They have a nice red color, and I feel like I could go running in them.",
+      "sorceressPre": "These are {{player}}'s {{item}}. They will let them run much faster!"
+    },
+    "Power Glove": {},
+    "Cape": {},
+    "Mushroom": {
+      "sorceressPre": "This {{item}} is for my friend, the witch in {{player}}'s world. She needs it to craft an item. Unfortunately, multiworld shipping costs are expensive, so I will need you to help me cover the {{count}} lollipop fee.",
+      "sorceressPost": "Thanks! Make sure {{player}} delivers the {{item}} safely."
+    },
+    "Shovel": {},
+    "Lamp": {},
+    "Magic Powder": {
+      "sorceressPre": "I made this {{item}} for {{player}}, using a recipe that I learned from a friend. I'll send it to them for {{count}} lollipops!"
+    },
+    "Moon Pearl": {
+      "cyclops": "Congratulations! You passed the test and found the {{item}}. {{player}} can use this to enter the other half of their world. Good luck!",
+      "merchantPre": "This is {{player}}'s {{item}}. It would probably look amazing in a rock collection. {{count}} candies for this beautiful gem.",
+      "sorceressPre": "That's {{player}}'s {{item}}. It is a powerful artifact that resists shapeshifting magic."
+    },
+    "Cane of Somaria": {},
+    "Fire Rod": {},
+    "Flippers": {},
+    "Ice Rod": {},
+    "Titans Mitts": {},
+    "Bombos": {},
+    "Ether": {},
+    "Quake": {},
+    "Bottle": {
+      "sorceressPre": "That's {{player}}'s {{item}}. It can hold many things, such as potions or small creatures."
+    },
+    "Bottle (Red Potion)": {
+      "sorceressPre": "That's {{player}}'s Bottle. This one even contains some delicious red goop which heals them!"
+    },
+    "Bottle (Green Potion)": {
+      "sorceressPre": "That's {{player}}'s Bottle. This one even contains some delicious green goop which recovers their magic!"
+    },
+    "Bottle (Blue Potion)": {
+      "sorceressPre": "That's {{player}}'s Bottle. This one even contains some delicious blue goop, which heals them and recovers their magic!"
+    },
+    "Bottle (Fairy)": {
+      "sorceressPre": "That's {{player}}'s Bottle. This one holds a fairy which will revive them if they meet an untimely demise."
+    },
+    "Bottle (Bee)": {
+      "sorceressPre": "That's {{player}}'s Bottle. This one holds a bee which stings their foes a few times."
+    },
+    "Bottle (Good Bee)": {
+      "sorceressPre": "That's {{player}}'s Bottle. This one holds a special bee which stings their foes many times."
+    },
+    "Master Sword": {
+      "forgePost": "I found this {{item}} one day. I fixed it up, and now I feel it's ready to be wielded by {{player}}."
+    },
+    "Tempered Sword": {
+      "forgePost": "I spent hours perfecting this {{item}} for {{player}} to wield. I'm sure they'll be glad to get it."
+    },
+    "Fighter Sword": {
+      "forgePost": "Thanks for buying! This {{item}} is a bit weak, but it's better than having no sword at all."
+    },
+    "Golden Sword": {
+      "forgePost": "This is as good as it gets. I cannot make a sword better than this {{item}}. Now, {{player}} can use it to save the day!",
+      "merchantPre": "This is a very deadly looking stick of butter. {{player}} might be able to put it to good use!"
+    },
+    "Progressive Sword": {
+      "forgePost": "I spent some time upgrading {{player}}'s sword. It should be a lot stronger now!"
+    },
+    "Progressive Glove": {},
+    "Triforce": {
+      "merchantPre": "This is {{player}}'s {{item}}. It looks very important. You should probably buy it for them. Only {{count}} candies!",
+      "sorceressPre": "That's {{player}}'s {{item}}. It's a legendary artifact which they need in order to save the land."
+    },
+    "Power Star": {},
+    "Triforce Piece": {},
+    "Single Arrow": {},
+    "Arrows (10)": {},
+    "Arrow Upgrade (+10)": {},
+    "Arrow Upgrade (+5)": {},
+    "Arrow Upgrade (70)": {},
+    "Single Bomb": {
+      "merchantPre": "This is a {{item}} for {{player}}. You want it? It's yours, my friend, as long as you have enough candies."
+    },
+    "Bombs (3)": {
+      "merchantPre": "This is a bundle of three Bombs for {{player}}. You want it? It's yours, my friend, as long as you have enough candies."
+    },
+    "Bombs (10)": {
+      "merchantPre": "This is a bundle of ten Bombs for {{player}}. You want it? It's yours, my friend, as long as you have enough candies."
+    },
+    "Bomb Upgrade (+10)": {},
+    "Bomb Upgrade (+5)": {},
+    "Bomb Upgrade (50)": {},
+    "Blue Mail": {
+      "sorceressPre": "For only {{count}} lollipops, I will enchant {{player}}'s armor to be twice as resistant to attacks, compared to their green armor. I'll also make it blue. Everyone knows blue is better than green.",
+      "merchantPre": "This is a blue tunic and yellow hat, designed to fit {{player}}. Only {{count}} candies!"
+    },
+    "Red Mail": {
+      "sorceressPre": "For only {{count}} lollipops, I will enchant {{player}}'s armor to be four times as resistant to attacks, compared to their green armor. I'll also make it red. Everyone knows red is better than green.",
+      "merchantPre": "This is a red tunic and purple hat, designed to fit {{player}}. The hat looks kind of like an eggplant. Only {{count}} candies!"
+    },
+    "Progressive Mail": {
+      "sorceressPre": "For only {{count}} lollipops, I will enchant {{player}}'s armor to be twice as resistant to attacks compared to before. I'll also change its color.",
+      "merchantPre": "This is a pair of clothes designed to fit {{player}}. Only {{count}} candies!"
+    },
+    "Blue Boomerang": {
+      "merchantPre": "This is {{player}}'s {{item}}. It makes for a great toy; you can't lose it, because it always comes back!"
+    },
+    "Red Boomerang": {
+      "merchantPre": "This is {{player}}'s {{item}}. It makes for a great toy; you can't lose it, because it always comes back! It even sparkles!"
+    },
+    "Blue Shield": {
+      "forgePost": "This {{item}} will let {{player}} protect themselves against arrows, and some other things."
+    },
+    "Red Shield": {
+      "forgePost": "This {{item}} is strong enough to stop fireballs! I hope {{player}} enjoys it."
+    },
+    "Mirror Shield": {
+      "forgePost": "This {{item}} will stop even strong lasers from making a dent in {{player}}."
+    },
+    "Progressive Shield": {
+      "forgePost": "I spent some time upgrading {{player}}'s shield. It should be better at protecting them now!"
+    },
+    "Bug Catching Net": {
+      "merchantPre": "This net is really sturdy. Probably very good for catching bugs, or other small creatures. I'll send it to {{player}} for only {{count}} candies!"
+    },
+    "Cane of Byrna": {},
+    "Boss Heart Container": {},
+    "Sanctuary Heart Container": {},
+    "Piece of Heart": {},
+    "Rupee (1)": {
+      "sorceressPre": "That's a singular Rupee. We call him Greg. I'm sure {{player}} would be happy to be blessed with Greg's presence."
+    },
+    "Rupees (5)": {
+      "sorceressPre": "I can use a magic spell to turn {{count}} lollipops into 5 Rupees, and then send them to {{player}}. How does that sound?"
+    },
+    "Rupees (20)": {
+      "sorceressPre": "I can use a magic spell to turn {{count}} lollipops into 20 Rupees, and then send them to {{player}}. How does that sound?"
+    },
+    "Rupees (50)": {
+      "sorceressPre": "I can use a magic spell to turn {{count}} lollipops into 50 Rupees, and then send them to {{player}}. How does that sound?"
+    },
+    "Rupees (100)": {
+      "sorceressPre": "I can use a magic spell to turn {{count}} lollipops into 100 Rupees, and then send them to {{player}}. How does that sound?"
+    },
+    "Rupees (300)": {
+      "sorceressPre": "I can use a magic spell to turn {{count}} lollipops into 300 Rupees, and then send them to {{player}}. How does that sound?"
+    },
+    "Rupoor": {
+      "sorceressPre": "I can perform a magic trick in which I take {{count}} lollipops from you and also make {{player}} lose rupees, using an ancient technique known as \"stealing\".",
+      "sorceressPost": "...why?"
+    },
+    "Red Clock": {},
+    "Blue Clock": {},
+    "Green Clock": {},
+    "Single RNG": {},
+    "Multi RNG": {},
+    "Magic Upgrade (1/2)": {
+      "sorceressPre": "For only {{count}} lollipops, I will enchant {{player}} to be twice as efficient with their magic usage."
+    },
+    "Magic Upgrade (1/4)": {
+      "sorceressPre": "For only {{count}} lollipops, I will enchant {{player}} to be four times as efficient with their magic usage."
+    },
+    "Small Key (Eastern Palace)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one of the small locked doors in Eastern Palace."
+    },
+    "Big Key (Eastern Palace)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the big chest and the big locked door in Eastern Palace."
+    },
+    "Compass (Eastern Palace)": {},
+    "Map (Eastern Palace)": {},
+    "Small Key (Desert Palace)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one of the small locked doors in Desert Palace."
+    },
+    "Big Key (Desert Palace)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the big chest and the big locked door in Desert Palace."
+    },
+    "Compass (Desert Palace)": {},
+    "Map (Desert Palace)": {},
+    "Small Key (Tower of Hera)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open the small locked door in Tower of Hera."
+    },
+    "Big Key (Tower of Hera)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the big chest and the big locked door in Tower of Hera."
+    },
+    "Compass (Tower of Hera)": {},
+    "Map (Tower of Hera)": {},
+    "Small Key (Hyrule Castle)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one of the small locked doors in Hyrule Castle."
+    },
+    "Big Key (Hyrule Castle)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the big locked door in Hyrule Castle."
+    },
+    "Compass (Hyrule Castle)": {},
+    "Map (Hyrule Castle)": {},
+    "Small Key (Agahnims Tower)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one of the locked doors in Agahnim's Tower."
+    },
+    "Big Key (Agahnims Tower)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the...wait, what? Agahnim's Tower isn't supposed to have a big key! How did this happen?"
+    },
+    "Compass (Agahnims Tower)": {},
+    "Map (Agahnims Tower)": {},
+    "Small Key (Palace of Darkness)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one of the small locked doors in Palace of Darkness."
+    },
+    "Big Key (Palace of Darkness)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the big chest and the big locked door in Palace of Darkness."
+    },
+    "Compass (Palace of Darkness)": {},
+    "Map (Palace of Darkness)": {},
+    "Small Key (Thieves Town)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one of the small locked doors in Thieves Town."
+    },
+    "Big Key (Thieves Town)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the big chest and the big locked door in Thieves Town."
+    },
+    "Compass (Thieves Town)": {},
+    "Map (Thieves Town)": {},
+    "Small Key (Skull Woods)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one of the small locked doors in Skull Woods."
+    },
+    "Big Key (Skull Woods)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the big chest in Skull Woods."
+    },
+    "Compass (Skull Woods)": {},
+    "Map (Skull Woods)": {},
+    "Small Key (Swamp Palace)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one of the small locked doors in Swamp Palace."
+    },
+    "Big Key (Swamp Palace)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the big chest in Swamp Palace."
+    },
+    "Compass (Swamp Palace)": {},
+    "Map (Swamp Palace)": {},
+    "Small Key (Ice Palace)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one of the small locked doors in the Ice Palace."
+    },
+    "Big Key (Ice Palace)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the big chest and the big locked door in the Ice Palace."
+    },
+    "Compass (Ice Palace)": {},
+    "Map (Ice Palace)": {},
+    "Small Key (Misery Mire)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one of the small locked doors in Misery Mire."
+    },
+    "Big Key (Misery Mire)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the big chest and the big locked door in Misery Mire."
+    },
+    "Compass (Misery Mire)": {},
+    "Map (Misery Mire)": {},
+    "Small Key (Turtle Rock)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one of the small locked doors in Turtle Rock."
+    },
+    "Big Key (Turtle Rock)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the big chest and the big locked door in Turtle Rock."
+    },
+    "Compass (Turtle Rock)": {},
+    "Map (Turtle Rock)": {},
+    "Small Key (Ganons Tower)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one of the small locked doors in Ganon's Tower."
+    },
+    "Big Key (Ganons Tower)": {
+      "sorceressPre": "That's a big key for {{player}}. It can open the big chest and the big locked door in Ganon's Tower."
+    },
+    "Compass (Ganons Tower)": {},
+    "Map (Ganons Tower)": {},
+    "Small Key (Universal)": {
+      "sorceressPre": "That's a small key for {{player}}. It can open one small locked door in any dungeon."
+    },
+    "Nothing": {
+      "sorceressPre": "This is just air. Do you really want to spend {{count}} lollipops just to get some air? I suppose I won't judge you if it means I get to profit."
+    },
+    "Bee Trap": {},
+    "Faerie": {},
+    "Good Bee": {},
+    "Magic Jar": {},
+    "Apple": {},
+    "Red Potion": {},
+    "Green Potion": {},
+    "Blue Potion": {},
+    "Bee": {},
+    "Small Heart": {},
+    "Activated Flute": {
+      "sorceressPre": "That's a {{item}}. Whenever I play it, a duck starts chasing me! I have no use for it. For {{count}} lollipops, I can give it to {{player}}."
+    }
+  }
+}

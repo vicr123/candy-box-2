@@ -42,5 +42,9 @@
   "Mario Kart Double Dash": {
     "strings": ["/item-text/mario-kart-double-dash.json"],
     "matureGame": false
+  },
+  "A Link to the Past": {
+    "strings": ["/item-text/a-link-to-the-past.json"],
+    "matureGame": false
   }
 }
