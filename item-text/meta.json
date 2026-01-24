@@ -50,5 +50,13 @@
   "Sly 2: Band of Thieves": {
     "strings": ["/item-text/sly-2-band-of-thieves.json"],
     "matureGame": false
+  },
+  "DOOM 1993": {
+    "strings": ["/item-text/doom-1993.json"],
+    "matureGame": false
+  },
+  "DOOM II": {
+    "strings": ["/item-text/doom-ii.json"],
+    "matureGame": false
   }
 }
