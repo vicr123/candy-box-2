@@ -46,5 +46,9 @@
   "A Link to the Past": {
     "strings": ["/item-text/a-link-to-the-past.json"],
     "matureGame": false
+  },
+  "Sly 2: Band of Thieves": {
+    "strings": ["/item-text/sly-2-band-of-thieves.json"],
+    "matureGame": false
   }
 }

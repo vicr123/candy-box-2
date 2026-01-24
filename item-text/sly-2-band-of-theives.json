@@ -1,0 +1,1431 @@
+{
+  "name": "Sly 2: Band of Thieves",
+  "store": {
+    "Coins": {
+      "merchantPre": "I'm told {{player}} is starting a business in France. They won't tell me what industry it is, but would you like to invest {{count}} candies towards the company anyway?",
+      "sorceressPre": "This is a small bag of coins from various currencies. I hear it's useful on the black market.",
+      "sorceressPost": "Don't spend it all in one place! Seriously, you could get in trouble."
+    },
+    "Smoke Bomb": {
+      "merchantPre": "These bombs don't hurt, only creating a burst of smoke - an essential component in any magician's toolkit.",
+      "sorceressPre": "Just some smoke bombs. Light work to make.",
+      "sorceressPost": "Tell {{player}} that they can always order more from here! I have a lot of these from failed potion brewing."
+    },
+    "Combat Dodge": {
+      "merchantPre": "This little gadget allows you to dodge attacks in the nick of time.",
+      "sorceressPre": "This technological spell allows one to dodge enemy attacks with ease."
+    },
+    "Stealth Slide": {
+      "merchantPre": "These soles allow you to slide around at high speed without being noticed."
+    },
+    "Alarm Clock": {
+      "merchantPre": "A time-keeping device. When it rings, it's very noisy - just the thing if you tend to sleep in!"
+    },
+    "Paraglider": {
+      "merchantPre": "This parachute lets you glide for long distances. Much too dangerous for me, personally."
+    },
+    "Silent Obliteration": {
+      "merchantPre": "This device muffles the sound of your attacks. I've found it's also great for keeping squeaky doors quiet!"
+    },
+    "Thief Reflexes": {
+      "merchantPre": "This is a time gadget, so it's not so magical, but it does allow {{player}} to slow down time when they're in trouble.",
+      "sorceressPre": "A cheap metal knockoff of the Time Ring. I guess if {{player}} wants it, they can have it.",
+      "sorceressPost": "If {{player}} is unsatisfied, I have a spare Time Ring I can hook them up with!"
+    },
+    "Feral Pounce": {},
+    "Knockout Dive": {},
+    "Insanity Strike": {
+      "merchantPre": "This device makes enemies think they're supposed to be fighting each other! Only {{count}} candies and it's {{player}}'s!",
+      "sorceressPre": "This technological spell causes enemies to target each other, leaving them too occupied to go after you.",
+      "sorceressPost": "You know, this reminds me of a spell I was working on to get people into arguments. All I managed to do was get people arguing with ME!"
+    },
+    "Voltage Attack": {},
+    "Long Toss": {},
+    "Rage Bomb": {},
+    "Music Box": {
+      "merchantPre": "I'd love to tell you I found it in the attic, but it's just from a warehouse the next town over.",
+      "sorceressPre": "An enchanted music box that puts anyone to sleep upon listening. And- Hey! Don't go turning the crank! Did you hear what I said??",
+      "sorceressPost": ""
+    },
+    "Lightning Spin": {
+      "merchantPre": "This device allows you to do a spinning electrical attack."
+    },
+    "Shadow Power": {
+      "merchantPre": "This device makes you invisible! I'm sure there's countless uses for that."
+    },
+    "TOM": {
+      "merchantPre": "This robotic action figure is a priceless vintage! It's quite loud, though."
+    },
+    "Mega Jump": {
+      "merchantPre": "It may look like some kind of battery, but if you press this button it shoots a huge jet of compressed air. Be careful!"
+    },
+    "Time Rush": {},
+    "Trigger Bomb": {
+      "merchantPre": "This is a remote-detonation bomb! I have no use for such things, so I'll send it to {{player}} for {{count}} candies."
+    },
+    "Size Destabilizer": {
+      "merchantPre": "This device shrinks enemies down to miniscule size!"
+    },
+    "Snooze Bomb": {},
+    "Adrenaline Burst": {},
+    "Health Extractor": {},
+    "Hover Pack": {},
+    "Reduction Bomb": {},
+    "Temporal Lock": {},
+    "Fists of Flame": {
+      "merchantPre": "This device enhances your weapons with fire! Useful for cooking."
+    },
+    "Turnbuckle Launch": {},
+    "Juggernaut Throw": {},
+    "Atlas Strength": {},
+    "Raging Inferno Flop": {},
+    "Berserker Charge": {},
+    "Guttural Roar": {},
+    "Diablo Fire Slam": {},
+    "Clockwerk Tail Feathers": {
+      "merchantPre": "A friend in Paris sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. No matter how much they're attacked, they never wear down.",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!"
+    },
+    "Clockwerk Wing (Right)": {
+      "merchantPre": "A friend in India sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. They glisten with an unnatural light."
+    },
+    "Clockwerk Wing (Left)": {
+      "merchantPre": "A friend in India sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. They glisten with an unnatural light."
+    },
+    "Clockwerk Heart (Right Half)": {
+      "merchantPre": "A friend in India sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. It never stops pumping, even when separated from its other half."
+    },
+    "Clockwerk Heart (Left Half)": {
+      "merchantPre": "A friend in India sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. It never stops pumping, even when separated from its other half."
+    },
+    "Clockwerk Eye (Right)": {
+      "merchantPre": "A friend in Prague sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. Just staring into these will drive the weak-minded mad!"
+    },
+    "Clockwerk Eye (Left)": {
+      "merchantPre": "A friend in Prague sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. Just staring into these will drive the weak-minded mad!"
+    },
+    "Clockwerk Lung (Right)": {
+      "merchantPre": "A friend in Canada sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. It produces endless electrical energy from thin air."
+    },
+    "Clockwerk Lung (Left)": {
+      "merchantPre": "A friend in Canada sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. It produces endless electrical energy from thin air."
+    },
+    "Clockwerk Stomach": {
+      "merchantPre": "A friend in Canada sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. It produces clear electrical energy from dirty fuel."
+    },
+    "Clockwerk Talons": {
+      "merchantPre": "A friend in Canada sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. They slice cleanly through anything without getting a scratch on them."
+    },
+    "Clockwerk Hate Chip": {
+      "merchantPre": "This came to me in an unadressed package. It looks like some kind of computer chip.",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. This is the central power unit of the beast - destroy it when the time is right!"
+    },
+    "Clockwerk Brain": {
+      "merchantPre": "This came to me in an unadressed package. It looks like some kind of newfangled CPU.",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. It's able to process trillions of calculations per second."
+    },
+    "Clockwerk Beak": {
+      "merchantPre": "A foreign friend sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. These could snap bone like twigs with just the slightest force!"
+    },
+    "Clockwerk Ribcage": {
+      "merchantPre": "A foreign friend sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. If given power, it's truly impossible for anything inside to escape."
+    },
+    "Clockwerk Skull": {
+      "merchantPre": "A foreign friend sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. It can break rock and cement without so much as a scratch."
+    },
+    "Clockwerk Leg (Right)": {
+      "merchantPre": "A foreign friend sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. The impact strength from this joint when powered is impossible to overstate."
+    },
+    "Clockwerk Leg (Left)": {
+      "merchantPre": "A foreign friend sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. The impact strength from this joint when powered is impossible to overstate."
+    },
+    "Clockwerk Neck": {
+      "merchantPre": "A foreign friend sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. It... yeah, honestly. I don't know what good this is either. It's still a vital part though, so I know you're going to buy it sooner or later."
+    },
+    "Clockwerk Pelvis": {
+      "merchantPre": "A foreign friend sent me this. They said it's just a valuable art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "This is an ancient artifact from another world, part of an immortal beast with a grudge. It... yeah, honestly. I don't know what good this is either. It's still a vital part though, so I know you're going to buy it sooner or later."
+    },
+    "Clockwerk Feather": {
+      "merchantPre": "A foreign friend sent me this. They said it's part of an art piece, but I'm starting to suspect there's something more to it...",
+      "sorceressPost": "Make sure this doesn't fall in the wrong hands!",
+      "sorceressPre": "A single metal feather from an immortal beast, made from an unbreakable alloy."
+    },
+    "Bottle - The Black Chateau": {
+      "merchantPre": "I found this in my attic, but I can't decipher it - I know neither algebra nor French. I can send it to {{player}} for {{count}} candies!",
+      "sorceressPre": "This clue may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep that close! If the owner of that safe knew {{player}} had it, they'd DEFINITELY be dead."
+    },
+    "Bottle - A Starry Eyed Encounter": {
+      "merchantPre": "I found this in my attic, but I can't decipher it - I know neither algebra nor Hindi. I can send it to {{player}} for {{count}} candies!",
+      "sorceressPre": "This clue may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep that close! If the owner of that safe knew {{player}} had it, they'd DEFINITELY be dead."
+    },
+    "Bottle - The Predator Awakens": {
+      "merchantPre": "I found this in my attic, but I can't decipher it - I know neither algebra nor Hindi. I can send it to {{player}} for {{count}} candies!",
+      "sorceressPre": "This clue may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep that close! If the owner of that safe knew {{player}} had it, they'd DEFINITELY be dead."
+    },
+    "Bottle - Jailbreak": {
+      "merchantPre": "I found this in my attic, but I can't decipher it - I know neither algebra nor Czech. I can send it to {{player}} for {{count}} candies!",
+      "sorceressPre": "This clue may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep that close! If the owner of that safe knew {{player}} had it, they'd DEFINITELY be dead."
+    },
+    "Bottle - A Tangled Web": {
+      "merchantPre": "I found this in my attic, but I can't decipher it - I know neither algebra nor Czech. I can send it to {{player}} for {{count}} candies!",
+      "sorceressPre": "This clue may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep that close! If the owner of that safe knew {{player}} had it, they'd DEFINITELY be dead."
+    },
+    "Bottle - He Who Tames the Iron Horse": {
+      "merchantPre": "I found this in my attic, but I can't decipher it - I know neither algebra nor French. I can send it to {{player}} for {{count}} candies!",
+      "sorceressPre": "This clue may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep that close! If the owner of that safe knew {{player}} had it, they'd DEFINITELY be dead."
+    },
+    "Bottle - Menace from the North, Eh!": {
+      "merchantPre": "I found this in my attic, but I can't decipher it - I know neither algebra nor French. I can send it to {{player}} for {{count}} candies!",
+      "sorceressPre": "This clue may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep that close! If the owner of that safe knew {{player}} had it, they'd DEFINITELY be dead."
+    },
+    "Bottle - Anatomy for Disaster": {
+      "merchantPre": "I found this in my attic, but I can't decipher it - I know neither algebra nor calculus. I can send it to {{player}} for {{count}} candies!",
+      "sorceressPre": "This clue may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep that close! If the owner of that safe knew {{player}} had it, they'd DEFINITELY be dead."
+    },
+    "2 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "3 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "4 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "5 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "6 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "7 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "8 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "9 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "10 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "11 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "12 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "13 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "14 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "15 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "16 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "17 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "18 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "19 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "20 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "21 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "22 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "23 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "24 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "25 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "26 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "27 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "28 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "29 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "30 bottles - The Black Chateau": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Paris.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "2 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "3 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "4 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "5 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "6 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "7 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "8 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "9 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "10 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "11 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "12 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "13 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "14 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "15 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "16 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "17 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "18 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "19 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "20 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "21 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "22 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "23 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "24 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "25 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "26 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "27 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "28 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "29 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "30 bottles - A Starry Eyed Encounter": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "2 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "3 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "4 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "5 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "6 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "7 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "8 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "9 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "10 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "11 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "12 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "13 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "14 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "15 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "16 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "17 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "18 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "19 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "20 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "21 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "22 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "23 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "24 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "25 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "26 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "27 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "28 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "29 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "30 bottles - The Predator Awakens": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Hindi. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in India.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "2 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "3 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "4 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "5 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "6 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "7 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "8 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "9 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "10 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "11 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "12 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "13 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "14 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "15 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "16 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "17 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "18 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "19 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "20 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "21 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "22 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "23 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "24 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "25 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "26 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "27 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "28 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "29 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "30 bottles - Jailbreak": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "2 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "3 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "4 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "5 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "6 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "7 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "8 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "9 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "10 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "11 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "12 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "13 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "14 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "15 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "16 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "17 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "18 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "19 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "20 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "21 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "22 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "23 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "24 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "25 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "26 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "27 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "28 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "29 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "30 bottles - A Tangled Web": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor Czech. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Prague.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "2 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "3 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "4 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "5 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "6 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "7 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "8 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "9 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "10 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "11 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "12 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "13 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "14 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "15 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "16 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "17 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "18 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "19 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "20 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "21 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "22 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "23 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "24 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "25 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "26 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "27 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "28 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "29 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "30 bottles - He Who Tames the Iron Horse": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "2 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "3 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "4 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "5 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "6 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "7 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "8 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "9 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "10 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "11 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "12 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "13 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "14 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "15 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "16 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "17 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "18 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "19 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "20 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "21 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "22 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "23 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "24 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "25 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "26 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "27 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "28 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "29 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "30 bottles - Menace from the North, Eh!": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor French. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe in Canada.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "2 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "3 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "4 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "5 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "6 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "7 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "8 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "9 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "10 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "11 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "12 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "13 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "14 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "15 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "16 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "17 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "18 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "19 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "20 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "21 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "22 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "23 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "24 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "25 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "26 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "27 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "28 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "29 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "30 bottles - Anatomy for Disaster": {
+      "merchantPre": "I found these in my attic, but I can't decipher any of it - I know neither algebra nor calculus. I can send them to {{player}} for {{count}} candies!",
+      "sorceressPre": "These clues may help {{player}} learn the code to a hidden safe on an airship.",
+      "sorceressPost": "Keep those close! If the owner of that safe knew {{player}} had them, they'd DEFINITELY be dead."
+    },
+    "Progressive The Black Chateau": {
+      "merchantPre": "A friend told me not to let this letter get into the wrong hands! I'm not sure what's in it, but I do know that {{player}} needs it in France.",
+      "sorceressPre": "These are plans for a heist in Paris. {{player}}'s going to need these badly if they want any chance at defeating the ancient owl.",
+      "sorceressPost": "Tell {{player}} I bid them good luck! They're going to need it."
+    },
+    "Progressive A Starry Eyed Encounter": {
+      "merchantPre": "A friend told me not to let this letter get into the wrong hands! I'm not sure what's in it, but I do know that {{player}} needs it in India.",
+      "sorceressPre": "These are plans for a heist in India. {{player}}'s going to need these badly if they want any chance at defeating the ancient owl.",
+      "sorceressPost": "Tell {{player}} I bid them good luck! They're going to need it."
+    },
+    "Progressive The Predator Awakens": {
+      "merchantPre": "A friend told me not to let this letter get into the wrong hands! I'm not sure what's in it, but I do know that {{player}} needs it in India.",
+      "sorceressPre": "These are plans for a heist in India. {{player}}'s going to need these badly if they want any chance at defeating the ancient owl.",
+      "sorceressPost": "Tell {{player}} I bid them good luck! They're going to need it."
+    },
+    "Progressive Jailbreak": {
+      "merchantPre": "A friend told me not to let this letter get into the wrong hands! I'm not sure what's in it, but I do know that {{player}} needs it in Prague.",
+      "sorceressPre": "These are plans for a jailbreak in Prague. {{player}}'s going to need these badly if they want any chance at defeating the ancient owl.",
+      "sorceressPost": "Tell {{player}} I bid them good luck! They're going to need it."
+    },
+    "Progressive A Tangled Web": {
+      "merchantPre": "A friend told me not to let this letter get into the wrong hands! I'm not sure what's in it, but I do know that {{player}} needs it in Prague.",
+      "sorceressPre": "These are plans for a heist in Prague. {{player}}'s going to need these badly if they want any chance at defeating the ancient owl.",
+      "sorceressPost": "Tell {{player}} I bid them good luck! They're going to need it."
+    },
+    "Progressive He Who Tames the Iron Horse": {
+      "merchantPre": "A friend told me not to let this letter get into the wrong hands! I'm not sure what's in it, but I do know that {{player}} needs it in Canada.",
+      "sorceressPre": "These are plans for a heist in Canada. {{player}}'s going to need these badly if they want any chance at defeating the ancient owl.",
+      "sorceressPost": "Tell {{player}} I bid them good luck! They're going to need it."
+    },
+    "Progressive Menace from the North, Eh!": {
+      "merchantPre": "A friend told me not to let this letter get into the wrong hands! I'm not sure what's in it, but I do know that {{player}} needs it in Canada.",
+      "sorceressPre": "These are plans for a heist in Canada. {{player}}'s going to need these badly if they want any chance at defeating the ancient owl.",
+      "sorceressPost": "Tell {{player}} I bid them good luck! They're going to need it."
+    },
+    "Progressive Anatomy for Disaster": {
+      "merchantPre": "A friend told me not to let this letter get into the wrong hands! I'm not sure what's in it, but I do know that {{player}} needs it A-S-A-P.",
+      "sorceressPre": "These are plans for an airship sabatoge operation. {{player}}'s going to need these badly if they want any chance at defeating the ancient owl.",
+      "sorceressPost": "Tell {{player}} I bid them good luck! They're going to need it."
+    }
+  }
+}
