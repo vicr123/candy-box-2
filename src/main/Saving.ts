@@ -203,30 +203,24 @@ export module Saving {
     }
     
     export async function save(game: Game, savingType: MainLoadingType) {
-        if (saving) return true;
         if (Archipelago.localSaveSlot == "") return false;
-        saving = true;
 
-        try {
-            // Save some special variables by calling the save() methods of various objects
-            game.save(); // Various variables owned by the game object
-            game.getPlayer().save(); // The player
+        // Save some special variables by calling the save() methods of various objects
+        game.save(); // Various variables owned by the game object
+        game.getPlayer().save(); // The player
 
-            // Do different things depending on the saving type
-            switch (savingType) {
-                case MainLoadingType.LOCAL:
-                    if (OpfsSaving.isSupported()) {
-                        return await OpfsSaving.save();
-                    } else {
-                        LocalSaving.save();
-                    }
-                case MainLoadingType.FILE:
-                    return false;
-                case MainLoadingType.ARCHIPELAGO:
-                    return await ArchipelagoSaving.save();
-            }
-        } finally {
-            saving = false;
+        // Do different things depending on the saving type
+        switch (savingType) {
+            case MainLoadingType.LOCAL:
+                if (OpfsSaving.isSupported()) {
+                    return await OpfsSaving.save();
+                } else {
+                    LocalSaving.save();
+                }
+            case MainLoadingType.FILE:
+                return false;
+            case MainLoadingType.ARCHIPELAGO:
+                return await ArchipelagoSaving.save();
         }
     }
     

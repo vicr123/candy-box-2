@@ -505,6 +505,10 @@ export class Game{
         this.candiesInCauldron.save();
         this.lollipopsInCauldron.save();
     }
+
+    public forceSave() {
+        Saving.save();
+    }
     
     public async setPlace(place: Place): Promise<void>{
         if (this.blockRoomTransitions) return;
