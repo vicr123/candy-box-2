@@ -216,7 +216,7 @@ export module Saving {
             switch (savingType) {
                 case MainLoadingType.LOCAL:
                     if (OpfsSaving.isSupported()) {
-                        return OpfsSaving.save();
+                        return await OpfsSaving.save();
                     } else {
                         LocalSaving.save();
                     }
