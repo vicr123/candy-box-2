@@ -147,7 +147,10 @@ export namespace Archipelago {
                 items: itemsHandlingFlags.all
             });
 
-            if (import.meta.env.PROD) {
+            const search = window.location.search;
+            const searchParams = new URLSearchParams(search);
+
+            if (import.meta.env.PROD && searchParams.get("force_wrong_version") != "1") {
                 // Determine if the client version is acceptable
                 const expectedVersion = `${__LAST_TAG}${__COMMITS_SINCE_LAST_TAG != "0" ? "+" : ""}`;
 
@@ -160,8 +163,6 @@ export namespace Archipelago {
                     const newEquivalence = Archipelago.equivalence.find(e => e.includes(newVersion)) ?? [newVersion];
                     const redirectVersion = newEquivalence[newEquivalence.length - 1];
 
-                    const search = window.location.search;
-                    const searchParams = new URLSearchParams(search);
                     if (searchParams.get("do_not_redirect") == "1") {
                         connectionError.current = "apConnectErrorVersion";
                         expectedClientVersion.current = redirectVersion;
