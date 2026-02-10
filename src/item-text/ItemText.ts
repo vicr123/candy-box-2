@@ -66,9 +66,14 @@ export async function loadGameItemText(game: string) {
     const gameMeta = itemTextMeta[game];
     if (gameMeta) {
         const strings = await Promise.all(gameMeta.strings.map(async stringsUrl => {
-            const response = await fetch(stringsUrl);
-            const json = await response.json() as GameItemText;
-            return Object.entries(json);
+            try {
+                const response = await fetch(stringsUrl);
+                const json = await response.json() as GameItemText;
+                return Object.entries(json);
+            } catch {
+                // If there is a problem, return no strings
+                return []
+            }
         }))
         LoadedItemText[game] = Object.fromEntries(strings.flat());
     }
