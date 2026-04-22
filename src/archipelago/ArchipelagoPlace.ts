@@ -404,25 +404,25 @@ export class ArchipelagoPlace extends Place {
             }
 
             this.renderArea.drawString("|", 0, y + 1);
-            this.renderArea.drawScrollingString(hint.item.receiver.alias, 1,  y + 1, 15);
+            this.renderArea.drawScrollingString(hint.item.receiver.alias, 2,  y + 1, 14);
             this.renderArea.drawString("|", 16,  y + 1);
-            this.renderArea.drawScrollingString(hint.item.name, 17,  y + 1, 15);
+            this.renderArea.drawScrollingString(hint.item.name, 18,  y + 1, 14);
             this.renderArea.drawString("|", 31,  y + 1);
-            this.renderArea.drawScrollingString(hint.item.sender.name, 32,  y + 1, 15);
+            this.renderArea.drawScrollingString(hint.item.sender.name, 33,  y + 1, 14);
             this.renderArea.drawString("|", 47,  y + 1);
             if (hint.entrance == "Vanilla") {
-                this.renderArea.drawScrollingString(hint.item.locationName, 48,  y + 1, 31);
+                this.renderArea.drawScrollingString(hint.item.locationName, 49,  y + 1, 30);
             } else {
-                this.renderArea.drawScrollingString(`${hint.item.locationName} (${hint.entrance})`, 48,  y + 1, 31);
+                this.renderArea.drawScrollingString(`${hint.item.locationName} (${hint.entrance})`, 49,  y + 1, 30);
             }
             this.renderArea.drawString("|", 78,  y + 1);
-            this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback(hintStatus), 79,  y + 1, 15);
+            this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback(hintStatus), 80,  y + 1, 14);
             this.renderArea.drawString("|", 94,  y + 1);
 
             if (hint.status == hintStatuses.priority) {
-                this.renderArea.addColor(79, 93, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
+                this.renderArea.addColor(80, 90, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
             } else if (hint.status == hintStatuses.avoid) {
-                this.renderArea.addColor(79, 90, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
+                this.renderArea.addColor(80, 90, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
             }
 
             if (hint.item.receiver.slot == Archipelago.client.players.self.slot && hint.item.receiver.team == Archipelago.client.players.self.team) {
@@ -448,15 +448,15 @@ export class ArchipelagoPlace extends Place {
         }
 
         this.renderArea.drawString("|", 0, y + 1);
-        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientReceiver"), 1,  y + 1, 15);
+        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientReceiver"), 2,  y + 1, 14);
         this.renderArea.drawString("|", 16,  y + 1);
-        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientItem"), 17,  y + 1, 15);
+        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientItem"), 18,  y + 1, 14);
         this.renderArea.drawString("|", 31,  y + 1);
-        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientFinder"), 32,  y + 1, 15);
+        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientFinder"), 33,  y + 1, 14);
         this.renderArea.drawString("|", 47,  y + 1);
-        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientLocation"), 48,  y + 1, 31);
+        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientLocation"), 49,  y + 1, 30);
         this.renderArea.drawString("|", 78,  y + 1);
-        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientStatus"), 79,  y + 1, 15);
+        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientStatus"), 80,  y + 1, 14);
         this.renderArea.drawString("|", 94,  y + 1);
 
         y += 2;
