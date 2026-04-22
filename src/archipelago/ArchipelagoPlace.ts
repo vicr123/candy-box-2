@@ -416,21 +416,21 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.drawScrollingString(`${hint.item.locationName} (${hint.entrance})`, 49,  y + 1, 30);
             }
             this.renderArea.drawString("|", 78,  y + 1);
-            this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback(hintStatus), 80,  y + 1, 14);
-            this.renderArea.drawString("|", 94,  y + 1);
+            this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback(hintStatus), 80,  y + 1, 15);
+            this.renderArea.drawString("|", 99,  y + 1);
 
             if (hint.status == hintStatuses.priority) {
-                this.renderArea.addColor(80, 90, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
+                this.renderArea.addColor(80, 94, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
             } else if (hint.status == hintStatuses.avoid) {
-                this.renderArea.addColor(80, 90, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
+                this.renderArea.addColor(80, 94, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
             }
 
             if (hint.item.receiver.slot == Archipelago.client.players.self.slot && hint.item.receiver.team == Archipelago.client.players.self.team) {
                 this.renderArea.addColor(1, 15, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_SELF));
 
-                this.renderArea.addAsciiRealButton("i", 91, y + 1, `hintSetUnspecified-${index}`);
-                this.renderArea.addAsciiRealButton("!", 92, y + 1, `hintSetPriority-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
-                this.renderArea.addAsciiRealButton("X", 93, y + 1, `hintSetAvoid-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
+                this.renderArea.addAsciiRealButton("i", 95, y + 1, `hintSetUnspecified-${index}`);
+                this.renderArea.addAsciiRealButton("!", 96, y + 1, `hintSetPriority-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
+                this.renderArea.addAsciiRealButton("X", 97, y + 1, `hintSetAvoid-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
 
                 this.renderArea.addLinkCall(`.hintSetUnspecified-${index}`, new CallbackCollection(() => {
                     hint.updateStatus(hintStatuses.unspecified);
@@ -456,8 +456,8 @@ export class ArchipelagoPlace extends Place {
         this.renderArea.drawString("|", 47,  y + 1);
         this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientLocation"), 49,  y + 1, 30);
         this.renderArea.drawString("|", 78,  y + 1);
-        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientStatus"), 80,  y + 1, 14);
-        this.renderArea.drawString("|", 94,  y + 1);
+        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientStatus"), 80,  y + 1, 19);
+        this.renderArea.drawString("|", 99,  y + 1);
 
         y += 2;
 
