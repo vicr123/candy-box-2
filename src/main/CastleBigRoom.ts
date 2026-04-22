@@ -114,12 +114,12 @@ export class CastleBigRoom extends CastleRoom{
             text = getItemString("hoven", scoutedItem);
         } else {
             text = Database.getText(this.currentSpeech, {
-                player: Algo.posessive(scoutedItem?.receiver.name ?? ""),
+                player: Algo.posessive(scoutedItem?.receiver.alias ?? ""),
                 item: scoutedItem?.name
             });
 
             translatedText = Database.getTranslatedText(this.currentSpeech, {
-                player: Algo.posessive(scoutedItem?.receiver.name ?? ""),
+                player: Algo.posessive(scoutedItem?.receiver.alias ?? ""),
                 item: scoutedItem?.name
             })
         }

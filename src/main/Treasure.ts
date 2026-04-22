@@ -76,11 +76,11 @@ export class Treasure extends Place{
 
             // Add the text
             this.renderArea.drawString(Database.getText("treasureButtonYouFound", {
-                player: posessive(item.receiver.name, "en"),
+                player: posessive(item.receiver.alias, "en"),
                 item: item.name
             }), 49, 14);
             this.renderArea.drawString(Database.getTranslatedText("treasureButtonYouFound", {
-                player: posessive(item.receiver.name),
+                player: posessive(item.receiver.alias),
                 item: item.name
             }), 49, 15, true);
         }

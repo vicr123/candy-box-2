@@ -88,7 +88,7 @@ export class Lighthouse extends Place{
                 this.renderArea.drawSpeech(getItemString("cyclops", item), 17, 75, 99, "lighthouseSpeech");
             } else {
                 this.renderArea.drawSpeech(Database.getText(this.speechId, {
-                    player: posessive(item.receiver.name, "en"),
+                    player: posessive(item.receiver.alias, "en"),
                     item: item.name
                 }), 17, 75, 99, "lighthouseSpeech", Database.getTranslatedText(this.speechId));
             }

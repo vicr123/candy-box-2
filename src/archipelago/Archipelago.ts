@@ -640,7 +640,7 @@ Archipelago.client.messages.on("chat", (message, player) => {
         if (player.name == Archipelago.client.name) {
             Archipelago.apLog.addMessage(new QuestLogMessage("", sanitiseText(line)));
         } else {
-            Archipelago.apLog.addMessage(new QuestLogMessage(san`${player.name}: ${line}`));
+            Archipelago.apLog.addMessage(new QuestLogMessage(san`${player.alias}: ${line}`));
         }
     }
     Archipelago.events.emit("apLogUpdated");
@@ -676,18 +676,18 @@ Archipelago.client.messages.on("goaled", (message) => {
     Archipelago.events.emit("apLogUpdated");
 })
 Archipelago.client.messages.on("itemSent", (_, item) => {
-    Archipelago.apLog.addMessage(new QuestLogMessage(san`${item.sender.name} sent ${item.name} to ${item.receiver.name} (found at ${item.locationName})`));
+    Archipelago.apLog.addMessage(new QuestLogMessage(san`${item.sender.alias} sent ${item.name} to ${item.receiver.alias} (found at ${item.locationName})`));
 })
 Archipelago.client.messages.on("itemHinted", (_, item, found) => {
-    Archipelago.apLog.addMessage(new QuestLogMessage(san`${item.name} is at ${item.sender.name}'s ${item.locationName}${found ? " (found)" : ""}`));
+    Archipelago.apLog.addMessage(new QuestLogMessage(san`${item.name} is at ${item.sender.alias}'s ${item.locationName}${found ? " (found)" : ""}`));
     Archipelago.events.emit("apLogUpdated");
 })
 Archipelago.client.messages.on("connected", (_, player, tags) => {
-    Archipelago.apLog.addMessage(new QuestLogMessage(san`${player.name} joined playing ${player.game} - ${JSON.stringify(tags)}`));
+    Archipelago.apLog.addMessage(new QuestLogMessage(san`${player.alias} joined playing ${player.game} - ${JSON.stringify(tags)}`));
     Archipelago.events.emit("apLogUpdated");
 })
 Archipelago.client.messages.on("disconnected", (_, player) => {
-    Archipelago.apLog.addMessage(new QuestLogMessage(san`${player.name} playing ${player.game} left.`));
+    Archipelago.apLog.addMessage(new QuestLogMessage(san`${player.alias} playing ${player.game} left.`));
     Archipelago.events.emit("apLogUpdated");
 })
 Archipelago.client.messages.on("countdown", (_, value, tags) => {

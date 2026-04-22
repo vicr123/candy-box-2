@@ -20,6 +20,6 @@ export class CandiesThrownSmileyCaveObject{
     }
     
     public getStr(item: Item): string{
-        return this.str.replace("{player}", item.receiver.name).replace("{item}", item.name);
+        return this.str.replace("{player}", item.receiver.alias).replace("{item}", item.name);
     }
 }

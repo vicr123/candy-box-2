@@ -86,13 +86,13 @@ export class Moutains extends Place{
         else{
             this.renderArea.drawString(i18n.t("mountainsTextAfter", {
                 lng: "en",
-                player: posessive(this.scoutItem.receiver.name),
+                player: posessive(this.scoutItem.receiver.alias),
                 item: this.scoutItem.name
             }), 19, 22);
 
             if (Saving.loadString("gameLanguage") != "en") {
                 this.renderArea.drawString(i18n.t("mountainsTextAfter", {
-                    player: posessive(this.scoutItem.receiver.name),
+                    player: posessive(this.scoutItem.receiver.alias),
                     item: this.scoutItem.name
                 }), 19, 24, true);
             }

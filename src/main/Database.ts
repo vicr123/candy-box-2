@@ -90,7 +90,7 @@ export module Database{
             const selectedItem = Array.isArray(item) ? item[0] : item;
             return getText(currency == "candies" ? "buyCandies" : "buyLollipops", {
                 item: selectedItem.name,
-                player: selectedItem.receiver.name,
+                player: selectedItem.receiver.alias,
                 count: price
             });
         }
@@ -99,7 +99,7 @@ export module Database{
     export function getTranslatedBuyText(item: Item, price: number, currency: "candies" | "lollipops") {
         return getTranslatedText(currency == "candies" ? "buyCandies" : "buyLollipops", {
             item: item.name,
-            player: item.receiver.name,
+            player: item.receiver.alias,
             count: price
         });
     }

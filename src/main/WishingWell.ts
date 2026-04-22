@@ -144,7 +144,7 @@ export class WishingWell extends Place{
             const item = this.itemScoutResults.findItem(enchant.getBeforeApName());
             return [
                 "wishingWellPossibleEnchantment" + i,
-                san`${item.receiver.name}'s ${item.name}`
+                san`${item.receiver.alias}'s ${item.name}`
             ];
         });
     }

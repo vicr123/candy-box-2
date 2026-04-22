@@ -118,7 +118,7 @@ export class PostOffice extends House{
 
         this.renderArea.drawString(Database.getText("postOfficeSendLabel"), 20, 10, false);
         this.renderArea.addList(20, 70, 11, "potionRecipient", new CallbackCollection(this.changePlayer.bind(this)),
-            this.validPlayers.flatMap(player => [`gift_${player.team}_${player.slot}`, `${player.name} in ${player.game}`])
+            this.validPlayers.flatMap(player => [`gift_${player.team}_${player.slot}`, `${player.alias} in ${player.game}`])
         );
 
         this.renderArea.addAsciiRealButton(Database.getText("wishingWellEnchantButton"), 20, 13, "postOfficeSendItem", Database.getTranslatedText("wishingWellEnchantButton"), true);
@@ -144,7 +144,7 @@ export class PostOffice extends House{
         const speechArgs = {
             item: compatibleItem.name,
             game: player.game,
-            player: player.name,
+            player: player.alias,
             count: nextGift.amount
         }
         this.renderArea.drawSpeech(Database.getText(nextGift.isRefund ? "postOfficeRefunded" : "postOfficeReceived", speechArgs), 3, 30, 60, "postmanSpeech", Database.getTranslatedText(nextGift.isRefund ? "postOfficeRefunded" : "postOfficeReceived", speechArgs));

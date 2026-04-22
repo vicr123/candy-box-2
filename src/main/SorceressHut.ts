@@ -238,9 +238,9 @@ export class SorceressHut extends Place{
                 }
                 case 2: {
                     const args = {
-                        player1: posessive(this.selectedItem[0].receiver.name),
+                        player1: posessive(this.selectedItem[0].receiver.alias),
                         item1: this.selectedItem[0].name,
-                        player2: posessive(this.selectedItem[1].receiver.name),
+                        player2: posessive(this.selectedItem[1].receiver.alias),
                         item2: this.selectedItem[1].name,
                         count: this.selectedPrice
                     };
@@ -249,11 +249,11 @@ export class SorceressHut extends Place{
                 }
                 case 3: {
                     const args = {
-                        player1: posessive(this.selectedItem[0].receiver.name),
+                        player1: posessive(this.selectedItem[0].receiver.alias),
                         item1: this.selectedItem[0].name,
-                        player2: posessive(this.selectedItem[1].receiver.name),
+                        player2: posessive(this.selectedItem[1].receiver.alias),
                         item2: this.selectedItem[1].name,
-                        player3: posessive(this.selectedItem[2].receiver.name),
+                        player3: posessive(this.selectedItem[2].receiver.alias),
                         item3: this.selectedItem[2].name,
                         count: this.selectedPrice
                     };
