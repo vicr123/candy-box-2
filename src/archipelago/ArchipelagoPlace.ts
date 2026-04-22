@@ -445,6 +445,10 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.addLinkOnHoverShowTooltip(`.hintSetPriority-${index}`, ".hintSetPriorityTooltip");
                 this.renderArea.addLinkOnHoverShowTooltip(`.hintSetAvoid-${index}`, ".hintSetAvoidTooltip");
             }
+
+            if (hint.item.sender.slot == Archipelago.client.players.self.slot && hint.item.sender.team == Archipelago.client.players.self.team) {
+                this.renderArea.addColor(33, 47, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_SELF));
+            }
         }
 
         this.renderArea.drawString("|", 0, y + 1);
