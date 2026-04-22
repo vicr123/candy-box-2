@@ -115,6 +115,9 @@ export class Color{
             case ColorType.ARCHIPELAGO_NOTIFICATION: this.setRGB(0, 0, 255); break;
             case ColorType.ARCHIPELAGO_NOTIFICATION_FOREGROUND: this.setRGB(255, 255, 255); break;
             case ColorType.ARCHIPELAGO_DEATHLINK: this.setRGB(255, 0, 0); break;
+            case ColorType.ARCHIPELAGO_HINT_CLIENT_SELF: this.setRGB(150, 0, 255); break;
+            case ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID: this.setRGB(255, 0, 0); break;
+            case ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY: this.setRGB(150, 0, 255); break;
         }
     }
     

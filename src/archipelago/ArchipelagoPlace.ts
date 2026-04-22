@@ -29,6 +29,20 @@ figlet.parseFont("Big", big)
 
 let chatMessage = "";
 
+// HACK: This should be in archipelago.js but it is not exported
+const hintStatuses = {
+    /** The receiving player has not set a status. */
+    unspecified: 0,
+    /** The receiving player has specified this item is unnecessary. */
+    noPriority: 10,
+    /** The receiving player has specified this item is detrimental. */
+    avoid: 20,
+    /** The receiving player has specified this item is required/important. */
+    priority: 30,
+    /** The receiving player has received this item. */
+    found: 40,
+} as const;
+
 export class ArchipelagoPlace extends Place {
     // The render area
     private renderArea: RenderArea = new RenderArea();
@@ -355,25 +369,90 @@ export class ArchipelagoPlace extends Place {
         const notFoundHints = hintList.filter(x => !x.found);
         const foundHints = hintList.filter(x => x.found);
 
-        const drawHint = (hint: Hint, x: number, y: number, width: number) => {
+        this.renderArea.addTooltip("hintSetUnspecifiedTooltip", `${Database.getText("apHintSetUnspecifiedDescription")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("apHintSetUnspecifiedDescription")}</i>` : ""}`);
+        this.renderArea.addTooltip("hintSetPriorityTooltip", `${Database.getText("apHintSetPriorityDescription")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("apHintSetPriorityDescription")}</i>` : ""}`);
+        this.renderArea.addTooltip("hintSetAvoidTooltip", `${Database.getText("apHintSetAvoidDescription")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("apHintSetAvoidDescription")}</i>` : ""}`);
+
+        const drawHint = (hint: Hint, x: number, y: number, width: number, index: number) => {
+
+            let hintStatus = "apHintStatusUnspecified";
+            switch (hint.status) {
+                case hintStatuses.unspecified:
+                    hintStatus = "apHintStatusUnspecified";
+                    break;
+                case hintStatuses.noPriority:
+                    hintStatus = "apHintStatusNoPriority";
+                    break;
+                case hintStatuses.avoid:
+                    hintStatus = "apHintStatusAvoid";
+                    break;
+                case hintStatuses.priority:
+                    hintStatus = "apHintStatusPriority";
+                    break;
+                case hintStatuses.found:
+                    hintStatus = "apHintStatusFound";
+                    break;
+            }
+
+            this.renderArea.drawString("|", 0, y + 1);
+            this.renderArea.drawScrollingString(hint.item.receiver.alias, 1,  y + 1, 15);
+            this.renderArea.drawString("|", 16,  y + 1);
+            this.renderArea.drawScrollingString(hint.item.name, 17,  y + 1, 15);
+            this.renderArea.drawString("|", 31,  y + 1);
+            this.renderArea.drawScrollingString(hint.item.sender.name, 32,  y + 1, 15);
+            this.renderArea.drawString("|", 47,  y + 1);
             if (hint.entrance == "Vanilla") {
-                this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintText", {
-                    player: posessive(hint.item.receiver.name),
-                    item: hint.item.name,
-                    location: hint.item.locationName,
-                    sender: posessive(hint.item.sender.name)
-                }), x, y, width)
+                this.renderArea.drawScrollingString(hint.item.locationName, 48,  y + 1, 31);
             } else {
-                this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintTextWithEntrance", {
-                    player: posessive(hint.item.receiver.name),
-                    item: hint.item.name,
-                    location: hint.item.locationName,
-                    entrance: hint.entrance,
-                    sender: posessive(hint.item.sender.name)
-                }), x, y, width)
+                this.renderArea.drawScrollingString(`${hint.item.locationName} (${hint.entrance})`, 48,  y + 1, 31);
+            }
+            this.renderArea.drawString("|", 78,  y + 1);
+            this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback(hintStatus), 79,  y + 1, 15);
+            this.renderArea.drawString("|", 94,  y + 1);
+
+            if (hint.status == hintStatuses.priority) {
+                this.renderArea.addColor(79, 93, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
+            } else if (hint.status == hintStatuses.avoid) {
+                this.renderArea.addColor(79, 90, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
+            }
+
+            if (hint.item.receiver.slot == Archipelago.client.players.self.slot && hint.item.receiver.team == Archipelago.client.players.self.team) {
+                this.renderArea.addColor(1, 15, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_SELF));
+
+                this.renderArea.addAsciiRealButton("i", 91, y + 1, `hintSetUnspecified-${index}`);
+                this.renderArea.addAsciiRealButton("!", 92, y + 1, `hintSetPriority-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
+                this.renderArea.addAsciiRealButton("X", 93, y + 1, `hintSetAvoid-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
+
+                this.renderArea.addLinkCall(`.hintSetUnspecified-${index}`, new CallbackCollection(() => {
+                    hint.updateStatus(hintStatuses.unspecified);
+                }))
+                this.renderArea.addLinkCall(`.hintSetPriority-${index}`, new CallbackCollection(() => {
+                    hint.updateStatus(hintStatuses.priority);
+                }))
+                this.renderArea.addLinkCall(`.hintSetAvoid-${index}`, new CallbackCollection(() => {
+                    hint.updateStatus(hintStatuses.avoid);
+                }))
+                this.renderArea.addLinkOnHoverShowTooltip(`.hintSetUnspecified-${index}`, ".hintSetUnspecifiedTooltip");
+                this.renderArea.addLinkOnHoverShowTooltip(`.hintSetPriority-${index}`, ".hintSetPriorityTooltip");
+                this.renderArea.addLinkOnHoverShowTooltip(`.hintSetAvoid-${index}`, ".hintSetAvoidTooltip");
             }
         }
 
+        this.renderArea.drawString("|", 0, y + 1);
+        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientReceiver"), 1,  y + 1, 15);
+        this.renderArea.drawString("|", 16,  y + 1);
+        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientItem"), 17,  y + 1, 15);
+        this.renderArea.drawString("|", 31,  y + 1);
+        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientFinder"), 32,  y + 1, 15);
+        this.renderArea.drawString("|", 47,  y + 1);
+        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientLocation"), 48,  y + 1, 31);
+        this.renderArea.drawString("|", 78,  y + 1);
+        this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback("apHintClientStatus"), 79,  y + 1, 15);
+        this.renderArea.drawString("|", 94,  y + 1);
+
+        y += 2;
+
+        let index = 0;
         if (notFoundHints.length > 0) {
             this.renderArea.drawString(Database.getText("apHintNotFound"), 0, y + 1);
             this.renderArea.addBold(0, Database.getText("apHintNotFound").length, y + 1);
@@ -381,7 +460,7 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.drawString(Database.getTranslatedText("apHintNotFound"), Database.getText("apHintNotFound").length + 2, y + 1, true);
             }
             for (const hint of notFoundHints) {
-                drawHint(hint, 2, y + 3, 98);
+                drawHint(hint, 2, y + 2, 98, index++);
                 y += 1;
             }
             y += 4;
@@ -394,7 +473,7 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.drawString(Database.getTranslatedText("apHintFound"), Database.getText("apHintFound").length + 2, y + 1, true);
             }
             for (const hint of foundHints) {
-                drawHint(hint, 2, y + 3, 98);
+                drawHint(hint, 2, y + 2, 98, index++);
                 y += 1;
             }
         }
