@@ -417,7 +417,7 @@ export class RenderArea{
         return y;
     }
 
-    public drawScrollingString(str: string, x: number = 0, y: number = 0, width: number = 0, translated: boolean = false) {
+    public drawScrollingString(str: string, x: number = 0, y: number = 0, width: number = 0, translated: boolean = false, tooltip: boolean = true) {
         if (str.length < width) {
             this.drawString(str, x, y, translated);
             return;
@@ -433,6 +433,13 @@ export class RenderArea{
         const stringToDraw = doubleString.substring(firstLetter, firstLetter + width);
 
         this.drawString(stringToDraw, x, y, translated);
+
+        if (tooltip) {
+            const cls = window.btoa(str).replaceAll("=", "");
+            this.addTooltip(`tooltip-${cls}`, str);
+            this.addClass(x, x + width, y, `text-${cls}`);
+            this.addLinkOnHoverShowTooltip(`.text-${cls}`, `.tooltip-${cls}`);
+        }
     }
     
     public drawString(str: string, x: number = 0, y: number = 0, translated: boolean = false, transparency: RenderTransparency = null): boolean{
