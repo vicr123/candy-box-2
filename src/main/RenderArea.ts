@@ -50,6 +50,8 @@ export class RenderArea{
     private height: number = 0; // Height of the area = number of strings
     private tags: RenderTag[][] = []; // Array of array of tags
     private links: RenderLink[] = []; // Array of links
+
+    private oldTooltips: Record<string, typeof HTMLSpanElement.prototype.style> = {};
     
     // Constructor : by default, it creates en empty drawing area
     constructor(width: number = 0, height: number = 0, character: string = " "){
@@ -312,6 +314,10 @@ export class RenderArea{
     }
     
     public addTooltip(tooltipClass: string, tooltipText: string): boolean{
+        const style = this.oldTooltips[tooltipClass];
+        if (style) {
+            return this.addTag(new RenderTag(0, "<span class=\"tooltip " + tooltipClass + "\" style=\"left:" + style.left + "; top:" + style.top + "\">" + tooltipText + "</span>"), 0);
+        }
         return this.addTag(new RenderTag(0, "<span class=\"tooltip " + tooltipClass + "\">" + tooltipText + "</span>"), 0);
     }
     
@@ -533,6 +539,14 @@ export class RenderArea{
     }
     
     public resetAllButSize(character: string = " "): void{
+        // Look for all tooltips and save them
+        this.oldTooltips = {};
+        const temporaryDom = document.createElement("div");
+        temporaryDom.innerHTML = $("#mainContent").html();
+        for (const tooltip of temporaryDom.querySelectorAll(".tooltip")) {
+            this.oldTooltips[tooltip.classList.item(1)] = (tooltip as HTMLSpanElement).style;
+        }
+
         this.eraseEverything(character);
         this.removeAllTags();
         this.removeAllLinks();
