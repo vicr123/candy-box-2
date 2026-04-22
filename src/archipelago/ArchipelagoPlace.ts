@@ -22,6 +22,8 @@ import big from "figlet/importable-fonts/Big.js"
 import {i18n} from "../i18n";
 import {lastTag} from "../../versioning";
 import {Cfg} from "../main/Cfg";
+import {QuestLogMessage} from "../main/QuestLogMessage";
+import {sanitiseText} from "../utils";
 
 declare const __COMMITS_SINCE_LAST_TAG: string;
 
@@ -49,6 +51,8 @@ export class ArchipelagoPlace extends Place {
 
     private isBetaWarningAcknowledged = false;
     private isAcknowledgementRequiredError = false;
+
+    private hintError = "";
 
     private tabs: {text: string, page: ArchipelagoPlacePage}[] = [
         {
@@ -350,6 +354,11 @@ export class ArchipelagoPlace extends Place {
         this.renderArea.drawString(`${Archipelago.client.room.hintPoints}`, pointsX, hintPointsY);
         this.renderArea.drawString(`${Archipelago.client.room.hintCost}`, pointsX, hintCostY);
 
+        this.renderArea.addAsciiRealButton(Database.getText("apHintRequestNewHint"), pointsX + 6, hintPointsY, "requestNewHintButton");
+        this.renderArea.addLinkCall(".requestNewHintButton", new CallbackCollection(this.requestHint.bind(this)));
+        this.renderArea.drawScrollingString(this.hintError, pointsX + 6, hintCostY, 99 - pointsX + 6, false, false);
+        this.renderArea.addColor(pointsX + 5, 100, hintCostY, new Color(ColorType.HEALTH_RED));
+
         const seenHints = new Set();
         const hintList = Archipelago.client.items.hints
             .filter(x => {
@@ -476,6 +485,21 @@ export class ArchipelagoPlace extends Place {
                 drawHint(hint, 2, y + 2, 98, index++);
                 y += 1;
             }
+        }
+    }
+
+    private requestHint() {
+        const response = prompt([Database.getText("apHintRequestNewHintPrompt"), ...(Database.isTranslated() ? ["", Database.getTranslatedText("apHintRequestNewHintPrompt")] : [])].join("\n"));
+        if (response) {
+            queueMicrotask(() => {
+                const callback = (message) => {
+                    this.hintError = message;
+                    Archipelago.client.messages.off("userCommand", callback);
+                }
+                Archipelago.client.messages.on("userCommand", callback);
+
+                Archipelago.sendMessage(`!hint ${response}`);
+            })
         }
     }
 
