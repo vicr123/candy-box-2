@@ -679,7 +679,12 @@ Archipelago.client.messages.on("itemSent", (_, item) => {
     Archipelago.apLog.addMessage(new QuestLogMessage(san`${item.sender.alias} sent ${item.name} to ${item.receiver.alias} (found at ${item.locationName})`));
 })
 Archipelago.client.messages.on("itemHinted", (_, item, found) => {
-    Archipelago.apLog.addMessage(new QuestLogMessage(san`${item.name} is at ${item.sender.alias}'s ${item.locationName}${found ? " (found)" : ""}`));
+    const hint = Archipelago.client.items.hints.find(hint => hint.item.id == item.id && hint.item.receiver.team == item.receiver.team && hint.item.receiver.slot == item.receiver.slot);
+    if (hint?.entrance && hint.entrance != "Vanilla") {
+        Archipelago.apLog.addMessage(new QuestLogMessage(san`${item.name} is at ${item.sender.alias}'s ${item.locationName} (${hint.entrance})${found ? " (found)" : ""}`));
+    } else {
+        Archipelago.apLog.addMessage(new QuestLogMessage(san`${item.name} is at ${item.sender.alias}'s ${item.locationName}${found ? " (found)" : ""}`));
+    }
     Archipelago.events.emit("apLogUpdated");
 })
 Archipelago.client.messages.on("connected", (_, player, tags) => {
