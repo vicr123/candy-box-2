@@ -428,22 +428,24 @@ export class ArchipelagoPlace extends Place {
             if (hint.item.receiver.slot == Archipelago.client.players.self.slot && hint.item.receiver.team == Archipelago.client.players.self.team) {
                 this.renderArea.addColor(1, 15, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_SELF));
 
-                this.renderArea.addAsciiRealButton("i", 95, y + 1, `hintSetNoPriority-${index}`);
-                this.renderArea.addAsciiRealButton("!", 96, y + 1, `hintSetPriority-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
-                this.renderArea.addAsciiRealButton("X", 97, y + 1, `hintSetAvoid-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
+                if (!hint.found) {
+                    this.renderArea.addAsciiRealButton("i", 95, y + 1, `hintSetNoPriority-${index}`);
+                    this.renderArea.addAsciiRealButton("!", 96, y + 1, `hintSetPriority-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
+                    this.renderArea.addAsciiRealButton("X", 97, y + 1, `hintSetAvoid-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
 
-                this.renderArea.addLinkCall(`.hintSetNoPriority-${index}`, new CallbackCollection(() => {
-                    hint.updateStatus(hintStatuses.noPriority);
-                }))
-                this.renderArea.addLinkCall(`.hintSetPriority-${index}`, new CallbackCollection(() => {
-                    hint.updateStatus(hintStatuses.priority);
-                }))
-                this.renderArea.addLinkCall(`.hintSetAvoid-${index}`, new CallbackCollection(() => {
-                    hint.updateStatus(hintStatuses.avoid);
-                }))
-                this.renderArea.addLinkOnHoverShowTooltip(`.hintSetNoPriority-${index}`, ".hintSetNoPriorityTooltip");
-                this.renderArea.addLinkOnHoverShowTooltip(`.hintSetPriority-${index}`, ".hintSetPriorityTooltip");
-                this.renderArea.addLinkOnHoverShowTooltip(`.hintSetAvoid-${index}`, ".hintSetAvoidTooltip");
+                    this.renderArea.addLinkCall(`.hintSetNoPriority-${index}`, new CallbackCollection(() => {
+                        hint.updateStatus(hintStatuses.noPriority);
+                    }))
+                    this.renderArea.addLinkCall(`.hintSetPriority-${index}`, new CallbackCollection(() => {
+                        hint.updateStatus(hintStatuses.priority);
+                    }))
+                    this.renderArea.addLinkCall(`.hintSetAvoid-${index}`, new CallbackCollection(() => {
+                        hint.updateStatus(hintStatuses.avoid);
+                    }))
+                    this.renderArea.addLinkOnHoverShowTooltip(`.hintSetNoPriority-${index}`, ".hintSetNoPriorityTooltip");
+                    this.renderArea.addLinkOnHoverShowTooltip(`.hintSetPriority-${index}`, ".hintSetPriorityTooltip");
+                    this.renderArea.addLinkOnHoverShowTooltip(`.hintSetAvoid-${index}`, ".hintSetAvoidTooltip");
+                }
             }
 
             if (hint.item.sender.slot == Archipelago.client.players.self.slot && hint.item.sender.team == Archipelago.client.players.self.team) {
