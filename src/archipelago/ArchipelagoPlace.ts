@@ -378,7 +378,7 @@ export class ArchipelagoPlace extends Place {
         const notFoundHints = hintList.filter(x => !x.found);
         const foundHints = hintList.filter(x => x.found);
 
-        this.renderArea.addTooltip("hintSetUnspecifiedTooltip", `${Database.getText("apHintSetUnspecifiedDescription")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("apHintSetUnspecifiedDescription")}</i>` : ""}`);
+        this.renderArea.addTooltip("hintSetNoPriorityTooltip", `${Database.getText("apHintSetNoPriorityDescription")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("apHintSetNoPriorityDescription")}</i>` : ""}`);
         this.renderArea.addTooltip("hintSetPriorityTooltip", `${Database.getText("apHintSetPriorityDescription")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("apHintSetPriorityDescription")}</i>` : ""}`);
         this.renderArea.addTooltip("hintSetAvoidTooltip", `${Database.getText("apHintSetAvoidDescription")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("apHintSetAvoidDescription")}</i>` : ""}`);
 
@@ -428,12 +428,12 @@ export class ArchipelagoPlace extends Place {
             if (hint.item.receiver.slot == Archipelago.client.players.self.slot && hint.item.receiver.team == Archipelago.client.players.self.team) {
                 this.renderArea.addColor(1, 15, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_SELF));
 
-                this.renderArea.addAsciiRealButton("i", 95, y + 1, `hintSetUnspecified-${index}`);
+                this.renderArea.addAsciiRealButton("i", 95, y + 1, `hintSetNoPriority-${index}`);
                 this.renderArea.addAsciiRealButton("!", 96, y + 1, `hintSetPriority-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
                 this.renderArea.addAsciiRealButton("X", 97, y + 1, `hintSetAvoid-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
 
-                this.renderArea.addLinkCall(`.hintSetUnspecified-${index}`, new CallbackCollection(() => {
-                    hint.updateStatus(hintStatuses.unspecified);
+                this.renderArea.addLinkCall(`.hintSetNoPriority-${index}`, new CallbackCollection(() => {
+                    hint.updateStatus(hintStatuses.noPriority);
                 }))
                 this.renderArea.addLinkCall(`.hintSetPriority-${index}`, new CallbackCollection(() => {
                     hint.updateStatus(hintStatuses.priority);
@@ -441,7 +441,7 @@ export class ArchipelagoPlace extends Place {
                 this.renderArea.addLinkCall(`.hintSetAvoid-${index}`, new CallbackCollection(() => {
                     hint.updateStatus(hintStatuses.avoid);
                 }))
-                this.renderArea.addLinkOnHoverShowTooltip(`.hintSetUnspecified-${index}`, ".hintSetUnspecifiedTooltip");
+                this.renderArea.addLinkOnHoverShowTooltip(`.hintSetNoPriority-${index}`, ".hintSetNoPriorityTooltip");
                 this.renderArea.addLinkOnHoverShowTooltip(`.hintSetPriority-${index}`, ".hintSetPriorityTooltip");
                 this.renderArea.addLinkOnHoverShowTooltip(`.hintSetAvoid-${index}`, ".hintSetAvoidTooltip");
             }

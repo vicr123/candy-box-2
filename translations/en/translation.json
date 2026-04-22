@@ -521,7 +521,7 @@
     "apHintStatusAvoid": "Avoid",
     "apHintStatusPriority": "Priority",
     "apHintStatusFound": "Found",
-    "apHintSetUnspecifiedDescription": "Set as Unspecified",
+    "apHintSetNoPriorityDescription": "Set as No Priority",
     "apHintSetPriorityDescription": "Set as Priority",
     "apHintSetAvoidDescription": "Set as Avoid",
     "apHintRequestNewHint": "Request New Hint",
