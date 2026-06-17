@@ -1,0 +1,37 @@
+{
+  "name": "APQuest",
+  "store": {
+    "Key": {
+      "merchantPre": "This is {{player}}'s {{item}}. Where does it lead? Why don't you buy it for {{count}} candies and find out?",
+      "sorceressPre": "{{player}} needs this {{item}} to open the path to their final encounter. I can let them have it for {{count}} lollipops."
+    },
+    "Sword": {
+      "merchantPre": "This {{item}} is perfect for cutting down plants that are in your way. I suppose you could also cut up an enemy with it as well. It costs {{count}} candies.",
+      "forgePost": "This {{item}} is a fine piece of work. I hope {{player}} is pleased with it as much as I am.",
+      "cyclops": "Congratulations! You passed the test. This {{item}} is strong enough to cut through any living thing in the world of {{game}}, and I feel that {{player}} is ready to wield it. Good luck!"
+    },
+    "Shield": {
+      "merchantPre": "This is a {{item}}. Holding it makes me feel safe, but no one would dare to hurt me from behind this counter anyway. For {{count}} candies, I would gladly give it to {{player}}.",
+      "forgePost": "This {{item}} can protect {{player}} from just about anything; even a dragon! I even got help from the dragon to check."
+    },
+    "Hammer": {
+      "merchantPre": "This {{item}} is really big! I bet you could smash a wall with it. {{count}} candies, and I'll send it to {{player}}!",
+      "forgePost": "{{player}} should careful with this {{item}}. While I was testing it out, I almost knocked down an entire wall."
+    },
+    "Health Upgrade": {
+      "merchantPre": "Eating candies is good for your health, but this thing is as well. I don't see the point of it, but maybe {{player}} would find it useful? It costs {{count}} candies.",
+      "sorceressPre": "Candies are good for your health, but only in our world. This, however, is good for {{player}}'s health. They can have it for {{count}} lollipop."
+    },
+    "Confetti Cannon": {
+      "merchantPre": "This deluxe {{item}} is perfect for celebrating any occasion, even if that occasion is nothing at all! Only {{count}} candies to send one to {{player}}!",
+      "sorceressPre": "This strange artifact spills confetti everywhere when used. For {{count}} lollipops, {{player}} can have it.",
+      "cyclops": "Congratulations! You passed the test. Why not celebrate with a {{item}}? Here's one for {{player}}."
+    },
+    "Math Trap": {
+      "merchantPre": "Everyone loves math, right? For the low price of {{count}} candies, you can send {{player}} a surprise that will test their math skills.",
+      "sorceressPre": "For {{count}} lollipops, I can challenge {{player}} on their math skills.",
+      "cyclops": "Congratulations! You passed the test. Now, {{player}} can get their own test. I hope they do as well as you did.",
+      "sorceressPost": "I never really liked math myself. I like spelling better. It's more magical."
+    }
+  }
+}

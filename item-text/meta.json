@@ -58,5 +58,9 @@
   "DOOM II": {
     "strings": ["/item-text/doom-ii.json"],
     "matureGame": false
+  },
+  "APQuest": {
+    "strings": ["/item-text/apquest.json"],
+    "matureGame": false
   }
 }
