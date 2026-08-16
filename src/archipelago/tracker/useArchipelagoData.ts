@@ -1,12 +1,13 @@
 import {useCallback, useEffect, useMemo, useState} from "react";
 import {Archipelago, ArchipelagoEntrance} from "../Archipelago";
+import {Item} from "archipelago.js";
 
 export function useArchipelagoData() {
     const [syncWithArchipelago, setSyncWithArchipelago] = useState(true);
     const [allArchipelagoLocations, setAllArchipelagoLocations] = useState<number[]>([]);
     const [archipelagoCheckedLocations, setArchipelagoCheckedLocations] = useState<number[]>([]);
     const [archipelagoMissingLocations, setArchipelagoMissingLocations] = useState<number[]>([]);
-    const [archipelagoClaimedItems, setArchipelagoClaimedItems] = useState<number[]>([])
+    const [archipelagoClaimedItems, setArchipelagoClaimedItems] = useState<Item[]>([])
     const [archipelagoEntranceRandomisation, setArchipelagoEntranceRandomisation] = useState<[ArchipelagoEntrance, ArchipelagoEntrance][]>([])
     const [archipelagoProgressiveWeaponsOn, setArchipelagoProgressiveWeaponsOn] = useState(false);
     const [archipelagoStartingWeapon, setArchipelagoStartingWeapon] = useState<number>(0)
@@ -15,7 +16,7 @@ export function useArchipelagoData() {
         setAllArchipelagoLocations(Archipelago.client.room.allLocations)
         setArchipelagoCheckedLocations(Archipelago.client.room.checkedLocations)
         setArchipelagoMissingLocations(Archipelago.client.room.missingLocations)
-        setArchipelagoClaimedItems(Archipelago.client.items.received.map(item => item.id))
+        setArchipelagoClaimedItems(Archipelago.client.items.received)
         setArchipelagoEntranceRandomisation(Archipelago.slotData?.entranceInformation ?? [])
         setArchipelagoProgressiveWeaponsOn(Archipelago.slotData?.defaults?.weapon === -1)
         setArchipelagoStartingWeapon(Archipelago.slotData?.defaults?.weapon)
@@ -71,8 +72,12 @@ export function useArchipelagoData() {
         return Archipelago.client.package.findPackage("Candy Box 2").reverseLocationTable[location];
     }, []);
 
-    const claimedItemCount = useCallback((itemId: number) => {
-        return archipelagoClaimedItems.filter(item => item === itemId).length;
+    const claimedItemCount = useCallback((itemId: number | string) => {
+        if (typeof itemId == "number") {
+            return archipelagoClaimedItems.filter(item => item.id === itemId).length;
+        } else {
+            return archipelagoClaimedItems.filter(item => item.name === itemId).length;
+        }
     }, [archipelagoClaimedItems])
 
     return {

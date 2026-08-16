@@ -13,6 +13,8 @@ interface TrackerDataPackage {
     roomExits: Record<ArchipelagoRoom, ArchipelagoEntrance[]>
     rules: TrackerRulesDataPackage;
     goal: TrackerRuleExpression;
+    items: Record<string, string>;
+    regions: Record<ArchipelagoRoom, string>;
 }
 
 interface TrackerRulesDataPackage {
@@ -20,44 +22,92 @@ interface TrackerRulesDataPackage {
     rooms: Record<string, TrackerRuleExpression>
 }
 
-type TrackerRuleExpression =
-    // Constant Expression
-    // "constant", true/false
-    ["constant", boolean] |
+// type TrackerRuleExpression =
+//     // Constant Expression
+//     // "constant", true/false
+//     ["constant", boolean] |
+//
+//     // Item Expression
+//     // "item", item code, number required
+//     ["item", number, number] |
+//
+//     // Room Expression
+//     // "room", room code
+//     ["room", ArchipelagoRoom] |
+//
+//     // Location expression
+//     // "location", location code
+//     ["location", number] |
+//
+//     // Count Expression
+//     // "count", item, inequality, number required
+//     // inequality: 0 = equal to
+//     //             1 = less than
+//     //             2 = less than or equal to
+//     //             3 = greater than
+//     //             4 = greater than or equal to
+//     ["count", string, 0 | 1 | 2 | 3 | 4, number] |
+//
+//     // Start Weapon Expression
+//     // "startWeapon", item code
+//     ["startWeapon", number] |
+//
+//     // Boolean Expression
+//     // expression type, operand 1, operand 2
+//     ["and", TrackerRuleExpression, TrackerRuleExpression] |
+//     ["or", TrackerRuleExpression, TrackerRuleExpression] |
+//
+//     // Unary Expression
+//     // expression type, operand
+//     ["not", TrackerRuleExpression];
 
-    // Item Expression
-    // "item", item code, number required
-    ["item", number, number] |
+type TrackerRuleExpression = {
+    rule: "And",
+    children: TrackerRuleExpression[]
+} | {
+    rule: "Or",
+    children: TrackerRuleExpression[]
+} | {
+    rule: "HasCount",
+    args: {
+        item: string,
+        required: number,
 
-    // Room Expression
-    // "room", room code
-    ["room", ArchipelagoRoom] |
-
-    // Location expression
-    // "location", location code
-    ["location", number] |
-
-    // Count Expression
-    // "count", item, inequality, number required
-    // inequality: 0 = equal to
-    //             1 = less than
-    //             2 = less than or equal to
-    //             3 = greater than
-    //             4 = greater than or equal to
-    ["count", string, 0 | 1 | 2 | 3 | 4, number] |
-
-    // Start Weapon Expression
-    // "startWeapon", item code
-    ["startWeapon", number] |
-
-    // Boolean Expression
-    // expression type, operand 1, operand 2
-    ["and", TrackerRuleExpression, TrackerRuleExpression] |
-    ["or", TrackerRuleExpression, TrackerRuleExpression] |
-
-    // Unary Expression
-    // expression type, operand
-    ["not", TrackerRuleExpression];
+        // inequality: 0 = equal to
+        //             1 = less than
+        //             2 = less than or equal to
+        //             3 = greater than
+        //             4 = greater than or equal to
+        inequality: 0 | 1 | 2 | 3 | 4 | 5
+    }
+} | {
+    rule: "CanReachRegion",
+    args: {
+        region_name: string
+    }
+} | {
+    rule: "Has",
+    args: {
+        item_name: string,
+        count: number
+    }
+} | {
+    rule: "True_"
+} | {
+    rule: "False_"
+} | {
+    rule: "CanReachLocation",
+    args: {
+        location_name: string,
+        parent_region_name: string
+        skip_indirect_connection: boolean
+    }
+} | {
+    rule: "HasStartWeapon",
+    args: {
+        weapon: string
+    }
+}
 
 const CandyBox2BaseId = 7665000;
 
@@ -79,26 +129,29 @@ function coreReachable(archipelagoData: ArchipelagoData, loadedDataPackage: Trac
 }
 
 function coreEvaluate(archipelagoData: ArchipelagoData, loadedDataPackage: TrackerDataPackage, expression: TrackerRuleExpression) {
-    switch (expression[0]) {
-        case "constant":
-            return expression[1];
-        case "item": {
-            const [, item, count] = expression;
-            if (item == CandyBox2BaseId + 62) {
+    switch (expression.rule) {
+        case "False_":
+            return false;
+        case "True_":
+            return true;
+        case "Has": {
+            const {item_name: itemName, count} = expression.args;
+
+            if (itemName == "Progressive Weapon") {
                 // Special case Progressive Weapon
                 // This check becomes false if progressive weapons aren't enabled
                 if (!archipelagoData.progressiveWeaponsOn) return false;
             }
-            return archipelagoData.claimedItemCount(item) >= count;
+            return archipelagoData.claimedItemCount(itemName) >= count;
         }
-        case "room":
-            const [, room] = expression;
-            return coreReachable(archipelagoData, loadedDataPackage, room);
-        case "location":
-            const [, locationId] = expression;
-            return archipelagoData.checkedLocations.includes(locationId);
-        case "count":
-            const [, item, inequality, count] = expression;
+        case "CanReachRegion":
+            const {region_name: room} = expression.args;
+            return coreReachable(archipelagoData, loadedDataPackage, Object.entries(loadedDataPackage.regions).find(([id, name]) => name == room)![0] as ArchipelagoRoom);
+        case "CanReachLocation":
+            const {location_name: location} = expression.args;
+            return archipelagoData.checkedLocations.includes(Number(Object.entries(loadedDataPackage.locations).find(([id, name]) => name == location)[0])!);
+        case "HasCount":
+            const {item, inequality, required: count} = expression.args;
             const itemCount =
                 item == "lollipop" ? archipelagoData.claimedItemCount(CandyBox2BaseId + 1) + archipelagoData.claimedItemCount(CandyBox2BaseId + 50) * 3:
                 item == "chocolate" ? archipelagoData.claimedItemCount(CandyBox2BaseId + 2) + archipelagoData.claimedItemCount(CandyBox2BaseId + 45) * 4 + archipelagoData.claimedItemCount(CandyBox2BaseId + 51) * 3 :
@@ -118,15 +171,16 @@ function coreEvaluate(archipelagoData: ArchipelagoData, loadedDataPackage: Track
                 default:
                     return false;
             }
-        case "startWeapon":
-            const [, weaponItem] = expression;
-            return archipelagoData.startingWeapon == weaponItem - CandyBox2BaseId;
-        case "and":
-            return coreEvaluate(archipelagoData, loadedDataPackage, expression[1]) && coreEvaluate(archipelagoData, loadedDataPackage, expression[2]);
-        case "or":
-            return coreEvaluate(archipelagoData, loadedDataPackage, expression[1]) || coreEvaluate(archipelagoData, loadedDataPackage, expression[2]);
-        case "not":
-            return !coreEvaluate(archipelagoData, loadedDataPackage, expression[1])
+        case "HasStartWeapon":
+            const {weapon} = expression.args;
+            return archipelagoData.startingWeapon == Number(Object.entries(loadedDataPackage.items).find(([id, name]) => name == weapon)[0])! - CandyBox2BaseId;
+        case "And":
+            return expression.children.every(expr => coreEvaluate(archipelagoData, loadedDataPackage, expr));
+        case "Or":
+            return expression.children.some(expr => coreEvaluate(archipelagoData, loadedDataPackage, expr));
+        default:
+            const rule = (expression as {rule: string}).rule;
+            throw new Error(`Unhandled expression rule ${rule}`);
     }
 }
 
