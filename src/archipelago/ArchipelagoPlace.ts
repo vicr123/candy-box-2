@@ -54,6 +54,8 @@ export class ArchipelagoPlace extends Place {
 
     private hintError = "";
 
+    private copyIndex = -1;
+
     private tabs: {text: string, page: ArchipelagoPlacePage}[] = [
         {
             text: "apConnectionTab",
@@ -381,6 +383,7 @@ export class ArchipelagoPlace extends Place {
         this.renderArea.addTooltip("hintSetNoPriorityTooltip", `${Database.getText("apHintSetNoPriorityDescription")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("apHintSetNoPriorityDescription")}</i>` : ""}`);
         this.renderArea.addTooltip("hintSetPriorityTooltip", `${Database.getText("apHintSetPriorityDescription")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("apHintSetPriorityDescription")}</i>` : ""}`);
         this.renderArea.addTooltip("hintSetAvoidTooltip", `${Database.getText("apHintSetAvoidDescription")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("apHintSetAvoidDescription")}</i>` : ""}`);
+        this.renderArea.addTooltip("hintCopyTooltip", `${Database.getText("apHintCopyDescription")}${Database.isTranslated() ? `<br><br><i>${Database.getTranslatedText("apHintCopyDescription")}</i>` : ""}`);
 
         const drawHint = (hint: Hint, x: number, y: number, width: number, index: number) => {
 
@@ -403,53 +406,81 @@ export class ArchipelagoPlace extends Place {
                     break;
             }
 
-            this.renderArea.drawString("|", 0, y + 1);
-            this.renderArea.drawScrollingString(hint.item.receiver.alias, 2,  y + 1, 14);
-            this.renderArea.drawString("|", 16,  y + 1);
-            this.renderArea.drawScrollingString(hint.item.name, 18,  y + 1, 14);
-            this.renderArea.drawString("|", 31,  y + 1);
-            this.renderArea.drawScrollingString(hint.item.sender.name, 33,  y + 1, 14);
-            this.renderArea.drawString("|", 47,  y + 1);
-            if (hint.entrance == "Vanilla") {
-                this.renderArea.drawScrollingString(hint.item.locationName, 49,  y + 1, 30);
+            if (this.copyIndex == index) {
+                this.renderArea.drawString(Database.getTranslatedTextWithFallback("apHintCopyOkDescription"), 0, y + 1);
             } else {
-                this.renderArea.drawScrollingString(`${hint.item.locationName} (${hint.entrance})`, 49,  y + 1, 30);
-            }
-            this.renderArea.drawString("|", 78,  y + 1);
-            this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback(hintStatus), 80,  y + 1, 15);
-            this.renderArea.drawString("|", 99,  y + 1);
-
-            if (hint.status == hintStatuses.priority) {
-                this.renderArea.addColor(80, 94, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
-            } else if (hint.status == hintStatuses.avoid) {
-                this.renderArea.addColor(80, 94, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
-            }
-
-            if (hint.item.receiver.slot == Archipelago.client.players.self.slot && hint.item.receiver.team == Archipelago.client.players.self.team) {
-                this.renderArea.addColor(1, 15, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_SELF));
-
-                if (!hint.found) {
-                    this.renderArea.addAsciiRealButton("i", 95, y + 1, `hintSetNoPriority-${index}`);
-                    this.renderArea.addAsciiRealButton("!", 96, y + 1, `hintSetPriority-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
-                    this.renderArea.addAsciiRealButton("X", 97, y + 1, `hintSetAvoid-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
-
-                    this.renderArea.addLinkCall(`.hintSetNoPriority-${index}`, new CallbackCollection(() => {
-                        hint.updateStatus(hintStatuses.noPriority);
-                    }))
-                    this.renderArea.addLinkCall(`.hintSetPriority-${index}`, new CallbackCollection(() => {
-                        hint.updateStatus(hintStatuses.priority);
-                    }))
-                    this.renderArea.addLinkCall(`.hintSetAvoid-${index}`, new CallbackCollection(() => {
-                        hint.updateStatus(hintStatuses.avoid);
-                    }))
-                    this.renderArea.addLinkOnHoverShowTooltip(`.hintSetNoPriority-${index}`, ".hintSetNoPriorityTooltip");
-                    this.renderArea.addLinkOnHoverShowTooltip(`.hintSetPriority-${index}`, ".hintSetPriorityTooltip");
-                    this.renderArea.addLinkOnHoverShowTooltip(`.hintSetAvoid-${index}`, ".hintSetAvoidTooltip");
+                this.renderArea.drawString("|", 0, y + 1);
+                this.renderArea.drawScrollingString(hint.item.receiver.alias, 2, y + 1, 14);
+                this.renderArea.drawString("|", 16, y + 1);
+                this.renderArea.drawScrollingString(hint.item.name, 18, y + 1, 14);
+                this.renderArea.drawString("|", 31, y + 1);
+                this.renderArea.drawScrollingString(hint.item.sender.name, 33, y + 1, 14);
+                this.renderArea.drawString("|", 47, y + 1);
+                if (hint.entrance == "Vanilla") {
+                    this.renderArea.drawScrollingString(hint.item.locationName, 49, y + 1, 30);
+                } else {
+                    this.renderArea.drawScrollingString(`${hint.item.locationName} (${hint.entrance})`, 49, y + 1, 30);
                 }
-            }
+                this.renderArea.drawString("|", 78, y + 1);
+                this.renderArea.drawScrollingString(Database.getTranslatedTextWithFallback(hintStatus), 80, y + 1, 15);
+                this.renderArea.drawString("|", 99, y + 1);
 
-            if (hint.item.sender.slot == Archipelago.client.players.self.slot && hint.item.sender.team == Archipelago.client.players.self.team) {
-                this.renderArea.addColor(33, 47, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_SELF));
+                if (hint.status == hintStatuses.priority) {
+                    this.renderArea.addColor(80, 94, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
+                } else if (hint.status == hintStatuses.avoid) {
+                    this.renderArea.addColor(80, 94, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
+                }
+
+                if (hint.item.receiver.slot == Archipelago.client.players.self.slot && hint.item.receiver.team == Archipelago.client.players.self.team) {
+                    this.renderArea.addColor(1, 15, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_SELF));
+
+                    this.renderArea.addAsciiRealButton("C", 95, y + 1, `hintCopy-${index}`);
+                    this.renderArea.addLinkCall(`.hintCopy-${index}`, new CallbackCollection(async () => {
+                        let locationName: string;
+                        if (hint.entrance == "Vanilla") {
+                            locationName = hint.item.locationName;
+                        } else {
+                            locationName = `${hint.item.locationName} (${hint.entrance})`;
+                        }
+                        const hintText = `[Hint]: ${hint.item.receiver.alias}'s ${hint.item.name} is at ${locationName} in ${hint.item.sender.alias}'s World.`;
+                        await navigator.clipboard.writeText(hintText);
+
+                        this.copyIndex = index;
+                        this.update();
+
+                        window.setTimeout(() => {
+                            if (this.copyIndex == index) {
+                                this.copyIndex = -1;
+                                this.update();
+                            }
+                        }, 2000);
+                    }));
+
+                    this.renderArea.addLinkOnHoverShowTooltip(`.hintCopy-${index}`, ".hintCopyTooltip");
+
+                    if (!hint.found) {
+                        this.renderArea.addAsciiRealButton("i", 96, y + 1, `hintSetNoPriority-${index}`);
+                        this.renderArea.addAsciiRealButton("!", 97, y + 1, `hintSetPriority-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_PRIORITY));
+                        this.renderArea.addAsciiRealButton("X", 98, y + 1, `hintSetAvoid-${index}`, "", false, -1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_AVOID));
+
+                        this.renderArea.addLinkCall(`.hintSetNoPriority-${index}`, new CallbackCollection(() => {
+                            hint.updateStatus(hintStatuses.noPriority);
+                        }))
+                        this.renderArea.addLinkCall(`.hintSetPriority-${index}`, new CallbackCollection(() => {
+                            hint.updateStatus(hintStatuses.priority);
+                        }))
+                        this.renderArea.addLinkCall(`.hintSetAvoid-${index}`, new CallbackCollection(() => {
+                            hint.updateStatus(hintStatuses.avoid);
+                        }))
+                        this.renderArea.addLinkOnHoverShowTooltip(`.hintSetNoPriority-${index}`, ".hintSetNoPriorityTooltip");
+                        this.renderArea.addLinkOnHoverShowTooltip(`.hintSetPriority-${index}`, ".hintSetPriorityTooltip");
+                        this.renderArea.addLinkOnHoverShowTooltip(`.hintSetAvoid-${index}`, ".hintSetAvoidTooltip");
+                    }
+                }
+
+                if (hint.item.sender.slot == Archipelago.client.players.self.slot && hint.item.sender.team == Archipelago.client.players.self.team) {
+                    this.renderArea.addColor(33, 47, y + 1, new Color(ColorType.ARCHIPELAGO_HINT_CLIENT_SELF));
+                }
             }
         }
 

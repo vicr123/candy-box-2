@@ -525,5 +525,7 @@
     "apHintSetPriorityDescription": "Set as Priority",
     "apHintSetAvoidDescription": "Set as Avoid",
     "apHintRequestNewHint": "Request New Hint",
-    "apHintRequestNewHintPrompt": "Enter an item to hint for:"
+    "apHintRequestNewHintPrompt": "Enter an item to hint for:",
+    "apHintCopyDescription": "Copy Hint",
+    "apHintCopyOkDescription": "Hint copied to clipboard"
 }
