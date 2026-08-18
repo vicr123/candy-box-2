@@ -172,11 +172,22 @@ export class Inventory extends Place{
     private drawGridItem(gridItem: GridItem, x: number, y: number){
         // Draw the ascii art
         this.renderArea.drawArray(Database.getAscii(gridItem.getAscii()), x + gridItem.getPosition().x * 23 + Math.floor(23/2 - Database.getAsciiWidth(gridItem.getAscii())/2), y + gridItem.getPosition().y * 12 + Math.floor(11/2 - Database.getAsciiHeight(gridItem.getAscii())/2), null, gridItem.getSavingName() + "OnHover");
-        
-        // Add the tooltip
-        this.renderArea.addTooltip(gridItem.getSavingName() + "Tooltip",
-                                   "<b>" + Database.getText(gridItem.getDatabaseName()) + "</b><br/>" + Database.getText(gridItem.getDatabaseDescriptionName()) + (Database.getTranslatedText(gridItem.getDatabaseDescriptionName()) != ""? "<br/><br/><i><b>" + Database.getTranslatedText(gridItem.getDatabaseName()) + "</b><br/>" + Database.getTranslatedText(gridItem.getDatabaseDescriptionName()) + "</i>" : ""));
-        
+
+        if (gridItem.getSavingName() == "gridItemPossessedMainMap") {
+            const description = Database.getText(gridItem.getDatabaseDescriptionName()) + "\n" + Database.getText("progressiveWorldMapTooltip", {maps: Archipelago.itemCount("PROGRESSIVE_WORLD_MAP")});
+            const translatedDescription = (Database.getTranslatedText(gridItem.getDatabaseDescriptionName()) != ""? "<br/><br/><i><b>" + Database.getTranslatedText(gridItem.getDatabaseName()) + "</b><br/>" + Database.getTranslatedText(gridItem.getDatabaseDescriptionName()) + "\n" + Database.getTranslatedText("progressiveWorldMapTooltip", {maps: Archipelago.itemCount("PROGRESSIVE_WORLD_MAP")}) + "</i>" : "");
+
+            // Add the tooltip
+            this.renderArea.addTooltip(gridItem.getSavingName() + "Tooltip",
+                "<b>" + Database.getText(gridItem.getDatabaseName()) + "</b><br/>" + description + translatedDescription);
+
+        } else {
+            // Add the tooltip
+            this.renderArea.addTooltip(gridItem.getSavingName() + "Tooltip",
+                                       "<b>" + Database.getText(gridItem.getDatabaseName()) + "</b><br/>" + Database.getText(gridItem.getDatabaseDescriptionName()) + (Database.getTranslatedText(gridItem.getDatabaseDescriptionName()) != ""? "<br/><br/><i><b>" + Database.getTranslatedText(gridItem.getDatabaseName()) + "</b><br/>" + Database.getTranslatedText(gridItem.getDatabaseDescriptionName()) + "</i>" : ""));
+        }
+
+
         // Add the link
         this.renderArea.addLinkOnHoverShowTooltip("." + gridItem.getSavingName() + "OnHover", "." + gridItem.getSavingName() + "Tooltip");
     }

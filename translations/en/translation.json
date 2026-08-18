@@ -529,5 +529,6 @@
     "apHintCopyDescription": "Copy Hint",
     "apHintCopyOkDescription": "Hint copied to clipboard",
     "talkingCandyNotReady": "I can't open this box yet! You still need to",
-    "talkingCandyDieTrapRoomRequirement": "die to the Castle Trap Room at least once"
+    "talkingCandyDieTrapRoomRequirement": "die to the Castle Trap Room at least once",
+    "progressiveWorldMapTooltip": "Progressive World Maps: {{maps}}"
 }
