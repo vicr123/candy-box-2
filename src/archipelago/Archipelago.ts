@@ -44,6 +44,8 @@ export const candyCalorieExchangeRate = 57.8;
 let interruptionElement: HTMLPreElement | undefined;
 let terminalInterrupt = false;
 
+export type GoalConditions = "PLAY_STONES" | "DIE_TO_CASTLE_TRAP_ROOM";
+
 interface ArchipelagoSlotData {
     uuid: string;
     entranceInformation: EntrancePairing[];
@@ -70,6 +72,7 @@ interface ArchipelagoSlotData {
         weapon: number;
         grimoires: number;
     }
+    goalConditions: GoalConditions[]
 }
 
 function createObservable<T>(initialValue: T, eventEmitter: EventEmitter<ArchipelagoEventTypes>, event: ArchipelagoEventTypes) {

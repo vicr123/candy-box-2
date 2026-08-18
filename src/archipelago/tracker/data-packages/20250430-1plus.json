@@ -1,5 +1,5 @@
 {
-  "expectedClientVersion": "20260210-1+",
+  "expectedClientVersion": "20260816-1+",
   "locations": {
     "1": "Candy Box: HP Bar Unlock",
     "2": "Candy Box: Throw 1630 candies",
@@ -272,14 +272,6 @@
             }
           },
           {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
-            }
-          },
-          {
             "rule": "Has",
             "options": [],
             "filtered_resolution": false,
@@ -360,14 +352,6 @@
             }
           },
           {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
-            }
-          },
-          {
             "rule": "Has",
             "options": [],
             "filtered_resolution": false,
@@ -419,14 +403,6 @@
               "item": "lollipop",
               "required": 9,
               "inequality": 3
-            }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
             }
           },
           {
@@ -499,14 +475,6 @@
               "item": "lollipop",
               "required": 9,
               "inequality": 3
-            }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
             }
           },
           {
@@ -2864,14 +2832,6 @@
                     }
                   },
                   {
-                    "rule": "CanReachRegion",
-                    "options": [],
-                    "filtered_resolution": false,
-                    "args": {
-                      "region_name": "World Map: The Lollipop Farm"
-                    }
-                  },
-                  {
                     "rule": "Has",
                     "options": [],
                     "filtered_resolution": false,
@@ -4152,14 +4112,6 @@
                     }
                   },
                   {
-                    "rule": "CanReachRegion",
-                    "options": [],
-                    "filtered_resolution": false,
-                    "args": {
-                      "region_name": "World Map: The Lollipop Farm"
-                    }
-                  },
-                  {
                     "rule": "Has",
                     "options": [],
                     "filtered_resolution": false,
@@ -4352,14 +4304,6 @@
                   "item": "lollipop",
                   "required": 9,
                   "inequality": 3
-                }
-              },
-              {
-                "rule": "CanReachRegion",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "region_name": "World Map: The Lollipop Farm"
                 }
               },
               {
@@ -4745,14 +4689,6 @@
             }
           },
           {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
-            }
-          },
-          {
             "rule": "Has",
             "options": [],
             "filtered_resolution": false,
@@ -4794,14 +4730,6 @@
               "item": "lollipop",
               "required": 9,
               "inequality": 3
-            }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
             }
           },
           {
@@ -4865,14 +4793,6 @@
             }
           },
           {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
-            }
-          },
-          {
             "rule": "Has",
             "options": [],
             "filtered_resolution": false,
@@ -4925,14 +4845,6 @@
             }
           },
           {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
-            }
-          },
-          {
             "rule": "Has",
             "options": [],
             "filtered_resolution": false,
@@ -4974,14 +4886,6 @@
               "item": "lollipop",
               "required": 9,
               "inequality": 3
-            }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
             }
           },
           {
@@ -5157,14 +5061,6 @@
               "item": "lollipop",
               "required": 9,
               "inequality": 3
-            }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
             }
           },
           {
@@ -5507,14 +5403,6 @@
                     }
                   },
                   {
-                    "rule": "CanReachRegion",
-                    "options": [],
-                    "filtered_resolution": false,
-                    "args": {
-                      "region_name": "World Map: The Lollipop Farm"
-                    }
-                  },
-                  {
                     "rule": "Has",
                     "options": [],
                     "filtered_resolution": false,
@@ -5816,14 +5704,6 @@
                     }
                   },
                   {
-                    "rule": "CanReachRegion",
-                    "options": [],
-                    "filtered_resolution": false,
-                    "args": {
-                      "region_name": "World Map: The Lollipop Farm"
-                    }
-                  },
-                  {
                     "rule": "Has",
                     "options": [],
                     "filtered_resolution": false,
@@ -6114,14 +5994,6 @@
                       "item": "lollipop",
                       "required": 9,
                       "inequality": 3
-                    }
-                  },
-                  {
-                    "rule": "CanReachRegion",
-                    "options": [],
-                    "filtered_resolution": false,
-                    "args": {
-                      "region_name": "World Map: The Lollipop Farm"
                     }
                   },
                   {
@@ -6523,14 +6395,6 @@
                       "item": "lollipop",
                       "required": 9,
                       "inequality": 3
-                    }
-                  },
-                  {
-                    "rule": "CanReachRegion",
-                    "options": [],
-                    "filtered_resolution": false,
-                    "args": {
-                      "region_name": "World Map: The Lollipop Farm"
                     }
                   },
                   {
@@ -6986,14 +6850,6 @@
                     }
                   },
                   {
-                    "rule": "CanReachRegion",
-                    "options": [],
-                    "filtered_resolution": false,
-                    "args": {
-                      "region_name": "World Map: The Lollipop Farm"
-                    }
-                  },
-                  {
                     "rule": "Has",
                     "options": [],
                     "filtered_resolution": false,
@@ -7294,14 +7150,6 @@
             "args": {
               "region_name": "World Map: The Lollipop Farm"
             }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
-            }
           }
         ]
       },
@@ -7318,14 +7166,6 @@
               "item": "lollipop",
               "required": 9,
               "inequality": 3
-            }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
             }
           },
           {
@@ -7360,14 +7200,6 @@
             "args": {
               "region_name": "World Map: The Lollipop Farm"
             }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
-            }
           }
         ]
       },
@@ -7384,14 +7216,6 @@
               "item": "lollipop",
               "required": 9,
               "inequality": 3
-            }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
             }
           },
           {
@@ -7426,14 +7250,6 @@
             "args": {
               "region_name": "World Map: The Lollipop Farm"
             }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
-            }
           }
         ]
       },
@@ -7450,14 +7266,6 @@
               "item": "lollipop",
               "required": 9,
               "inequality": 3
-            }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
             }
           },
           {
@@ -7492,14 +7300,6 @@
             "args": {
               "region_name": "World Map: The Lollipop Farm"
             }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
-            }
           }
         ]
       },
@@ -7516,14 +7316,6 @@
               "item": "lollipop",
               "required": 9,
               "inequality": 3
-            }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
             }
           },
           {
@@ -7576,14 +7368,6 @@
               "item": "lollipop",
               "required": 9,
               "inequality": 3
-            }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
             }
           },
           {
@@ -7662,14 +7446,6 @@
             }
           },
           {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
-            }
-          },
-          {
             "rule": "Has",
             "options": [],
             "filtered_resolution": false,
@@ -7711,14 +7487,6 @@
               "item": "lollipop",
               "required": 9,
               "inequality": 3
-            }
-          },
-          {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
             }
           },
           {
@@ -8285,14 +8053,6 @@
             }
           },
           {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
-            }
-          },
-          {
             "rule": "Has",
             "options": [],
             "filtered_resolution": false,
@@ -8338,14 +8098,6 @@
             }
           },
           {
-            "rule": "CanReachRegion",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "region_name": "World Map: The Lollipop Farm"
-            }
-          },
-          {
             "rule": "Has",
             "options": [],
             "filtered_resolution": false,
@@ -8377,64 +8129,74 @@
     }
   },
   "goal": {
-    "rule": "And",
-    "options": [],
-    "filtered_resolution": false,
-    "children": [
-      {
-        "rule": "CanReachRegion",
-        "options": [],
-        "filtered_resolution": false,
-        "args": {
-          "region_name": "The Castle: The Tower"
+    "PLAY_STONES": {
+      "rule": "And",
+      "options": [],
+      "filtered_resolution": false,
+      "children": [
+        {
+          "rule": "CanReachRegion",
+          "options": [],
+          "filtered_resolution": false,
+          "args": {
+            "region_name": "The Castle: The Tower"
+          }
+        },
+        {
+          "rule": "Has",
+          "options": [],
+          "filtered_resolution": false,
+          "args": {
+            "item_name": "P Stone",
+            "count": 1
+          }
+        },
+        {
+          "rule": "Has",
+          "options": [],
+          "filtered_resolution": false,
+          "args": {
+            "item_name": "L Stone",
+            "count": 1
+          }
+        },
+        {
+          "rule": "Has",
+          "options": [],
+          "filtered_resolution": false,
+          "args": {
+            "item_name": "A Stone",
+            "count": 1
+          }
+        },
+        {
+          "rule": "Has",
+          "options": [],
+          "filtered_resolution": false,
+          "args": {
+            "item_name": "Y Stone",
+            "count": 1
+          }
+        },
+        {
+          "rule": "Has",
+          "options": [],
+          "filtered_resolution": false,
+          "args": {
+            "item_name": "Locked Candy Box",
+            "count": 1
+          }
         }
-      },
-      {
-        "rule": "Has",
-        "options": [],
-        "filtered_resolution": false,
-        "args": {
-          "item_name": "P Stone",
-          "count": 1
-        }
-      },
-      {
-        "rule": "Has",
-        "options": [],
-        "filtered_resolution": false,
-        "args": {
-          "item_name": "L Stone",
-          "count": 1
-        }
-      },
-      {
-        "rule": "Has",
-        "options": [],
-        "filtered_resolution": false,
-        "args": {
-          "item_name": "A Stone",
-          "count": 1
-        }
-      },
-      {
-        "rule": "Has",
-        "options": [],
-        "filtered_resolution": false,
-        "args": {
-          "item_name": "Y Stone",
-          "count": 1
-        }
-      },
-      {
-        "rule": "Has",
-        "options": [],
-        "filtered_resolution": false,
-        "args": {
-          "item_name": "Locked Candy Box",
-          "count": 1
-        }
+      ]
+    },
+    "DIE_TO_CASTLE_TRAP_ROOM": {
+      "rule": "CanReachRegion",
+      "options": [],
+      "filtered_resolution": false,
+      "args": {
+        "region_name": "Quest: The Castle Trap Room"
       }
-    ]
+    }
   },
   "items": {
     "7665000": "Candy",

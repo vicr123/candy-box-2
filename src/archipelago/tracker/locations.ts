@@ -2,7 +2,7 @@ import {useEffect, useMemo, useState} from "react";
 import {ArchipelagoData} from "./useArchipelagoData";
 import {TrackerDataPackageManager} from "./dataPackage";
 
-export function useLocationTracker({missingLocations}: ArchipelagoData, datapackage: TrackerDataPackageManager) {
+export function useLocationTracker({missingLocations, goalConditions}: ArchipelagoData, datapackage: TrackerDataPackageManager) {
     const availableLocations = useMemo(() => {
         return missingLocations
             .filter(location => datapackage.evaluateRule(datapackage.loadedDataPackage.rules.locations[location]))
@@ -18,11 +18,16 @@ export function useLocationTracker({missingLocations}: ArchipelagoData, datapack
 
     const isGoMode = useMemo(() => {
         if (datapackage.loadedDataPackage) {
-            return datapackage.evaluateRule(datapackage.loadedDataPackage.goal);
+            for (const goalCondition of goalConditions) {
+                if (!datapackage.evaluateRule(datapackage.loadedDataPackage.goal[goalCondition])) {
+                    return false;
+                }
+            }
+            return true;
         } else {
             return false;
         }
-    }, [missingLocations]);
+    }, [missingLocations, goalConditions]);
 
     return {
         availableLocations,

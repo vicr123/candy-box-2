@@ -10,6 +10,9 @@ import {QuestEntityMovement} from "./QuestEntityMovement";
 import {Database} from "./Database";
 import {CallbackCollection} from "./CallbackCollection";
 import {Wall} from "./Wall";
+import {Saving} from "./Saving";
+
+Saving.registerNumber("castleRoomDiedTimes", 0);
 
 export class CastleRoom1 extends Quest{
     // Constructor
@@ -67,6 +70,7 @@ export class CastleRoom1 extends Quest{
         if(this.getQuestEnded() == false){
             // Test if the player is dead, if so end the quest (he won) and return
             if(this.getGame().getPlayer().shouldDie()){
+                Saving.saveNumber("castleRoomDiedTimes", Saving.loadNumber("castleRoomDiedTimes") + 1);
                 this.endQuest(true); // true because we always win
                 return;
             }

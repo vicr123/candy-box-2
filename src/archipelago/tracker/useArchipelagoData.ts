@@ -1,5 +1,5 @@
 import {useCallback, useEffect, useMemo, useState} from "react";
-import {Archipelago, ArchipelagoEntrance} from "../Archipelago";
+import {Archipelago, ArchipelagoEntrance, GoalConditions} from "../Archipelago";
 import {Item} from "archipelago.js";
 
 export function useArchipelagoData() {
@@ -11,6 +11,7 @@ export function useArchipelagoData() {
     const [archipelagoEntranceRandomisation, setArchipelagoEntranceRandomisation] = useState<[ArchipelagoEntrance, ArchipelagoEntrance][]>([])
     const [archipelagoProgressiveWeaponsOn, setArchipelagoProgressiveWeaponsOn] = useState(false);
     const [archipelagoStartingWeapon, setArchipelagoStartingWeapon] = useState<number>(0)
+    const [archipelagoGoalConditions, setArchipelagoGoalConditions] = useState<GoalConditions[]>([]);
 
     const updateArchipelagoData = useCallback(() => {
         setAllArchipelagoLocations(Archipelago.client.room.allLocations)
@@ -20,6 +21,7 @@ export function useArchipelagoData() {
         setArchipelagoEntranceRandomisation(Archipelago.slotData?.entranceInformation ?? [])
         setArchipelagoProgressiveWeaponsOn(Archipelago.slotData?.defaults?.weapon === -1)
         setArchipelagoStartingWeapon(Archipelago.slotData?.defaults?.weapon)
+        setArchipelagoGoalConditions(Archipelago.slotData?.goalConditions ?? [])
     }, []);
 
     useEffect(() => {
@@ -68,6 +70,10 @@ export function useArchipelagoData() {
         return syncWithArchipelago ? archipelagoStartingWeapon : false;
     }, [syncWithArchipelago, archipelagoStartingWeapon]);
 
+    const goalConditions = useMemo(() => {
+        return syncWithArchipelago ? archipelagoGoalConditions : [];
+    }, [syncWithArchipelago, archipelagoGoalConditions]);
+
     const locationName = useCallback((location: number) => {
         return Archipelago.client.package.findPackage("Candy Box 2").reverseLocationTable[location];
     }, []);
@@ -90,7 +96,8 @@ export function useArchipelagoData() {
         claimedItemCount,
         entranceRandomisationData,
         progressiveWeaponsOn,
-        startingWeapon
+        startingWeapon,
+        goalConditions
     }
 }
 

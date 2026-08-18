@@ -2,7 +2,7 @@ import {useCallback, useEffect, useState} from "react";
 
 import _20250430_1plus from "./data-packages/20250430-1plus.json"
 import {ArchipelagoData} from "./useArchipelagoData";
-import {ArchipelagoEntrance} from "../Archipelago";
+import {ArchipelagoEntrance, GoalConditions} from "../Archipelago";
 
 type ArchipelagoRoom = ArchipelagoEntrance | "VILLAGE" | "WORLD_MAP";
 
@@ -12,7 +12,7 @@ interface TrackerDataPackage {
     locationParents: Record<string, ArchipelagoEntrance>
     roomExits: Record<ArchipelagoRoom, ArchipelagoEntrance[]>
     rules: TrackerRulesDataPackage;
-    goal: TrackerRuleExpression;
+    goal: Record<GoalConditions, TrackerRuleExpression>;
     items: Record<string, string>;
     regions: Record<ArchipelagoRoom, string>;
 }

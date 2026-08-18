@@ -527,5 +527,7 @@
     "apHintRequestNewHint": "Request New Hint",
     "apHintRequestNewHintPrompt": "Enter an item to hint for:",
     "apHintCopyDescription": "Copy Hint",
-    "apHintCopyOkDescription": "Hint copied to clipboard"
+    "apHintCopyOkDescription": "Hint copied to clipboard",
+    "talkingCandyNotReady": "I can't open this box yet! You still need to",
+    "talkingCandyDieTrapRoomRequirement": "die to the Castle Trap Room at least once"
 }

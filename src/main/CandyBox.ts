@@ -71,14 +71,17 @@ export class CandyBox extends Place{
             else
                 this.renderArea.drawArray(Database.getAscii("general/box"), 68, 4);
         }
-        
+
+        // If we don't need the PLAY stones, the talking candy is always available once we have the locked candy box.
+        let haveTalkingCandy = Archipelago.slotData.goalConditions.includes("PLAY_STONES") ? Saving.loadBool("gridItemPossessedTalkingCandy") : Archipelago.itemCount("LOCKED_CANDY_BOX") != 0;
+
         // If we possess the talking candy
-        if(Saving.loadBool("gridItemPossessedTalkingCandy") == true){
+        if(haveTalkingCandy){
             // Draw the ascii art
             this.renderArea.drawArray(Database.getAscii("gridItems/talkingCandy"), 68, 37);
             
             // If we don't have the box yet
-            if(Archipelago.itemCount("LOCKED_CANDY_BOX") == 0){
+            if(Archipelago.itemCount("LOCKED_CANDY_BOX") == 0 && Archipelago.slotData.goalConditions.includes("PLAY_STONES")){
                 // Draw the speech
                 this.renderArea.drawSpeech(Database.getText("talkingCandySpeechNoBox"), 30, 72, 98, "candyBoxTalkingCandySpeech", Database.getTranslatedText("talkingCandySpeechNoBox"));
             }
@@ -98,11 +101,29 @@ export class CandyBox extends Place{
                 }
                 // Else, the box is still closed
                 else{
-                    // Draw the speech
-                    this.renderArea.drawSpeech(Database.getText("talkingCandySpeech1"), 30, 72, 98, "candyBoxTalkingCandySpeech", Database.getTranslatedText("talkingCandySpeech1"));
-                    // Add the button
-                    this.renderArea.addAsciiRealButton(Database.getText("talkingCandyButton"), 80, 37, "candyBoxTalkingCandyButton", Database.getTranslatedText("talkingCandyButton"));
-                    this.renderArea.addLinkCall(".candyBoxTalkingCandyButton", new CallbackCollection(this.openBox.bind(this)));
+                    // Determine what else we need to do to goal
+                    const goalSpeeches = [];
+                    const goalTranslatedSpeeches = [];
+
+                    // Don't check for the PLAY stones here. For the player to get here in the first place, they have to have already placed the PLAY stones.
+                    if (Archipelago.slotData.goalConditions.includes("DIE_TO_CASTLE_TRAP_ROOM") && Saving.loadNumber("castleRoomDiedTimes") == 0) {
+                        goalSpeeches.push(`${Database.getText("talkingCandyDieTrapRoomRequirement")}`);
+                        goalTranslatedSpeeches.push(`${Database.getTranslatedText("talkingCandyDieTrapRoomRequirement")}`);
+                    }
+
+                    if (goalSpeeches.length == 0) {
+                        // There is nothing more to do. The player can goal.
+                        // Draw the speech
+                        this.renderArea.drawSpeech(Database.getText("talkingCandySpeech1"), 30, 72, 98, "candyBoxTalkingCandySpeech", Database.getTranslatedText("talkingCandySpeech1"));
+                        // Add the button
+                        this.renderArea.addAsciiRealButton(Database.getText("talkingCandyButton"), 80, 37, "candyBoxTalkingCandyButton", Database.getTranslatedText("talkingCandyButton"));
+                        this.renderArea.addLinkCall(".candyBoxTalkingCandyButton", new CallbackCollection(this.openBox.bind(this)));
+                    } else {
+                        const text = [Database.getText("talkingCandyNotReady"), "", goalSpeeches.join(", ")];
+                        const translatedText = [Database.getTranslatedText("talkingCandyNotReady"), "", goalTranslatedSpeeches.join(", ")];
+                        this.renderArea.drawSpeech(text.join(" "), 30, 72, 98, "candyBoxTalkingCandySpeech", !Database.getText("talkingCandyDieTrapRoomRequirement") && translatedText.join(" "));
+                    }
+
                 }
             }
         }
