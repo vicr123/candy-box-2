@@ -44,7 +44,7 @@ export const candyCalorieExchangeRate = 57.8;
 let interruptionElement: HTMLPreElement | undefined;
 let terminalInterrupt = false;
 
-export type GoalConditions = "PLAY_STONES" | "DIE_TO_CASTLE_TRAP_ROOM";
+export type GoalConditions = "PLAY_STONES" | "DIE_TO_CASTLE_TRAP_ROOM" | "SWIM_3000_METERS";
 
 interface ArchipelagoSlotData {
     uuid: string;

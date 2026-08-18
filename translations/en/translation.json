@@ -530,5 +530,8 @@
     "apHintCopyOkDescription": "Hint copied to clipboard",
     "talkingCandyNotReady": "I can't open this box yet! You still need to",
     "talkingCandyDieTrapRoomRequirement": "die to the Castle Trap Room at least once",
-    "progressiveWorldMapTooltip": "Progressive World Maps: {{maps}}"
+    "progressiveWorldMapTooltip": "Progressive World Maps: {{maps}}",
+    "swimProgress": "You swam {{distance}}m!",
+    "swimRecord": "Your high score is {{distance}}m",
+    "talkingCandySwim3000Requirement": "swim at least 3000m in the sea (your record is {{record}})"
 }

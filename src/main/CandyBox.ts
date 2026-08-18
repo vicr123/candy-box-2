@@ -111,6 +111,12 @@ export class CandyBox extends Place{
                         goalTranslatedSpeeches.push(`${Database.getTranslatedText("talkingCandyDieTrapRoomRequirement")}`);
                     }
 
+                    if (Archipelago.slotData.goalConditions.includes("SWIM_3000_METERS") && Saving.loadNumber("theSeaMaxDistance") < 3000) {
+                        const record = Saving.loadNumber("theSeaMaxDistance");
+                        goalSpeeches.push(`${Database.getText("talkingCandySwim3000Requirement", {record: record})}`);
+                        goalTranslatedSpeeches.push(`${Database.getTranslatedText("talkingCandySwim3000Requirement", {record: record})}`);
+                    }
+
                     if (goalSpeeches.length == 0) {
                         // There is nothing more to do. The player can goal.
                         // Draw the speech

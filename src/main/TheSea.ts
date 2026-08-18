@@ -30,6 +30,10 @@ import {PlayerCharacterType} from "./PlayerCharacterType";
 import {TheSeaPatternLevel_Level0} from "./TheSeaPatternLevel_Level0";
 import {Keyboard} from "./Keyboard";
 import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
+import {Database} from "./Database";
+import {Archipelago} from "../archipelago/Archipelago";
+
+Saving.registerNumber("theSeaMaxDistance", 0);
 
 export class TheSea extends Quest{
     // Floors
@@ -239,6 +243,9 @@ export class TheSea extends Quest{
         this.drawEntities();
         this.drawAroundQuest();
         this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestKeeping", "THE_SEA");
+        if (Archipelago.slotData.goalConditions.includes("SWIM_3000_METERS")) {
+            this.getRenderArea().drawString(`${Database.getTranslatedTextWithFallback("swimProgress", {distance: this.distance})}   ${Database.getTranslatedTextWithFallback("swimRecord", {distance: Saving.loadNumber("theSeaMaxDistance")})}`, 0, this.getRealQuestSize().y);
+        }
         this.postDraw();
     }
     
@@ -474,6 +481,9 @@ export class TheSea extends Quest{
             
             // Increase the distance
             this.distance += -scrollingXOffset;
+            if (Saving.loadNumber("theSeaMaxDistance") < this.distance) {
+                Saving.saveNumber("theSeaMaxDistance", this.distance);
+            }
             
             // Scroll entities
             this.forceMovingAllEntities(new Pos(scrollingXOffset, 0));
