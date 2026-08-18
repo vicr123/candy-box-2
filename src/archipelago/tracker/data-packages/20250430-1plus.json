@@ -8190,12 +8190,62 @@
       ]
     },
     "DIE_TO_CASTLE_TRAP_ROOM": {
-      "rule": "CanReachRegion",
+      "rule": "And",
       "options": [],
       "filtered_resolution": false,
-      "args": {
-        "region_name": "Quest: The Castle Trap Room"
-      }
+      "children": [
+        {
+          "rule": "CanReachRegion",
+          "options": [],
+          "filtered_resolution": false,
+          "args": {
+            "region_name": "Quest: The Castle Trap Room"
+          }
+        },
+        {
+          "rule": "Has",
+          "options": [],
+          "filtered_resolution": false,
+          "args": {
+            "item_name": "Locked Candy Box",
+            "count": 1
+          }
+        }
+      ]
+    },
+    "SWIM_3000_METERS": {
+      "rule": "And",
+      "options": [],
+      "filtered_resolution": false,
+      "children": [
+        {
+          "rule": "CanReachRegion",
+          "options": [],
+          "filtered_resolution": false,
+          "args": {
+            "region_name": "Quest: The Sea"
+          }
+        },
+        {
+          "rule": "CanReachLocation",
+          "options": [],
+          "filtered_resolution": false,
+          "args": {
+            "location_name": "The Sea: Get Purple Fin",
+            "parent_region_name": "",
+            "skip_indirect_connection": false
+          }
+        },
+        {
+          "rule": "Has",
+          "options": [],
+          "filtered_resolution": false,
+          "args": {
+            "item_name": "Locked Candy Box",
+            "count": 1
+          }
+        }
+      ]
     }
   },
   "items": {
