@@ -29,11 +29,95 @@ import {Sponge} from "./Sponge";
 import {PlayerCharacterType} from "./PlayerCharacterType";
 import {TheSeaPatternLevel_Level0} from "./TheSeaPatternLevel_Level0";
 import {Keyboard} from "./Keyboard";
-import {ScoutKeys} from "../archipelago/ArchipelagoLocation";
+import {ArchipelagoLocation, ScoutKeys} from "../archipelago/ArchipelagoLocation";
 import {Database} from "./Database";
 import {Archipelago} from "../archipelago/Archipelago";
+import {Algo} from "./Algo";
 
 Saving.registerNumber("theSeaMaxDistance", 0);
+
+const TheSeaChecks = [
+    [50, "THE_SEA_EXTRA_1"],
+    [100, "THE_SEA_EXTRA_2"],
+    [150, "THE_SEA_EXTRA_3"],
+    [200, "THE_SEA_EXTRA_4"],
+    [250, "THE_SEA_EXTRA_5"],
+    [300, "THE_SEA_EXTRA_6"],
+    [350, "THE_SEA_EXTRA_7"],
+    [400, "THE_SEA_EXTRA_8"],
+    [450, "THE_SEA_EXTRA_9"],
+    [500, "THE_SEA_EXTRA_10"],
+    [550, "THE_SEA_EXTRA_11"],
+    [600, "THE_SEA_EXTRA_12"],
+    [650, "THE_SEA_EXTRA_13"],
+    [700, "THE_SEA_EXTRA_14"],
+    [750, "THE_SEA_EXTRA_15"],
+    [800, "THE_SEA_EXTRA_16"],
+    [850, "THE_SEA_EXTRA_17"],
+    [900, "THE_SEA_EXTRA_18"],
+    [950, "THE_SEA_EXTRA_19"],
+    [1000, "THE_SEA_EXTRA_20"],
+    [1050, "THE_SEA_EXTRA_21"],
+    [1100, "THE_SEA_EXTRA_22"],
+    [1150, "THE_SEA_EXTRA_23"],
+    [1200, "THE_SEA_EXTRA_24"],
+    [1250, "THE_SEA_EXTRA_25"],
+    [1300, "THE_SEA_EXTRA_26"],
+    [1350, "THE_SEA_EXTRA_27"],
+    [1400, "THE_SEA_EXTRA_28"],
+    [1450, "THE_SEA_EXTRA_29"],
+    [1500, "THE_SEA_EXTRA_30"],
+    [1550, "THE_SEA_EXTRA_31"],
+    [1600, "THE_SEA_EXTRA_32"],
+    [1650, "THE_SEA_EXTRA_33"],
+    [1700, "THE_SEA_EXTRA_34"],
+    [1750, "THE_SEA_EXTRA_35"],
+    [1800, "THE_SEA_EXTRA_36"],
+    [1850, "THE_SEA_EXTRA_37"],
+    [1900, "THE_SEA_EXTRA_38"],
+    [1950, "THE_SEA_EXTRA_39"],
+    [2000, "THE_SEA_EXTRA_40"],
+    [2050, "THE_SEA_EXTRA_41"],
+    [2100, "THE_SEA_EXTRA_42"],
+    [2150, "THE_SEA_EXTRA_43"],
+    [2200, "THE_SEA_EXTRA_44"],
+    [2250, "THE_SEA_EXTRA_45"],
+    [2300, "THE_SEA_EXTRA_46"],
+    [2350, "THE_SEA_EXTRA_47"],
+    [2400, "THE_SEA_EXTRA_48"],
+    [2450, "THE_SEA_EXTRA_49"],
+    [2500, "THE_SEA_EXTRA_50"],
+    [2550, "THE_SEA_EXTRA_51"],
+    [2600, "THE_SEA_EXTRA_52"],
+    [2650, "THE_SEA_EXTRA_53"],
+    [2700, "THE_SEA_EXTRA_54"],
+    [2750, "THE_SEA_EXTRA_55"],
+    [2800, "THE_SEA_EXTRA_56"],
+    [2850, "THE_SEA_EXTRA_57"],
+    [2900, "THE_SEA_EXTRA_58"],
+    [2950, "THE_SEA_EXTRA_59"],
+    [3000, "THE_SEA_EXTRA_60"],
+    [3050, "THE_SEA_EXTRA_61"],
+    [3100, "THE_SEA_EXTRA_62"],
+    [3150, "THE_SEA_EXTRA_63"],
+    [3200, "THE_SEA_EXTRA_64"],
+    [3250, "THE_SEA_EXTRA_65"],
+    [3300, "THE_SEA_EXTRA_66"],
+    [3350, "THE_SEA_EXTRA_67"],
+    [3400, "THE_SEA_EXTRA_68"],
+    [3450, "THE_SEA_EXTRA_69"],
+    [3500, "THE_SEA_EXTRA_70"],
+    [3550, "THE_SEA_EXTRA_71"],
+    [3600, "THE_SEA_EXTRA_72"],
+    [3650, "THE_SEA_EXTRA_73"],
+    [3700, "THE_SEA_EXTRA_74"],
+    [3750, "THE_SEA_EXTRA_75"],
+    [3800, "THE_SEA_EXTRA_76"],
+    [3850, "THE_SEA_EXTRA_77"],
+    [3900, "THE_SEA_EXTRA_78"],
+    [3950, "THE_SEA_EXTRA_79"],
+    [4000, "THE_SEA_EXTRA_80"],
+] satisfies [number, keyof typeof ArchipelagoLocation][]
 
 export class TheSea extends Quest{
     // Floors
@@ -243,8 +327,25 @@ export class TheSea extends Quest{
         this.drawEntities();
         this.drawAroundQuest();
         this.addExitQuestButton(new CallbackCollection(this.endQuest.bind(this, true), this.getGame().goToMainMap.bind(this.getGame())), "buttonExitQuestKeeping", "THE_SEA");
-        if (Archipelago.slotData.goalConditions.includes("SWIM_3000_METERS")) {
+
+        let nextSeaCheck: [number, keyof typeof ArchipelagoLocation] = undefined;
+        let hasSeaChecks = false;
+        for (const [requirement, location] of TheSeaChecks) {
+            if (Archipelago.hasLocation(location)) {
+                hasSeaChecks = true;
+                if (!Archipelago.isChecked(location)) {
+                    nextSeaCheck = [requirement, location];
+                    break;
+                }
+            }
+        }
+
+        if (Archipelago.slotData.goalConditions.includes("SWIM_3000_METERS") || hasSeaChecks) {
             this.getRenderArea().drawString(`${Database.getTranslatedTextWithFallback("swimProgress", {distance: this.distance})}   ${Database.getTranslatedTextWithFallback("swimRecord", {distance: Saving.loadNumber("theSeaMaxDistance")})}`, 0, this.getRealQuestSize().y);
+
+            if (nextSeaCheck) {
+                this.getRenderArea().drawString(`Next check at ${Algo.numberToStringButNicely(nextSeaCheck[0])}m`, 50, this.getRealQuestSize().y);
+            }
         }
         this.postDraw();
     }
@@ -483,6 +584,11 @@ export class TheSea extends Quest{
             this.distance += -scrollingXOffset;
             if (Saving.loadNumber("theSeaMaxDistance") < this.distance) {
                 Saving.saveNumber("theSeaMaxDistance", this.distance);
+            }
+
+            const locationToCheck = TheSeaChecks.find(([requirement]) => requirement == this.distance);
+            if (locationToCheck && Archipelago.hasLocation(locationToCheck[1])) {
+                Archipelago.check(locationToCheck[1]);
             }
             
             // Scroll entities

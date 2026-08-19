@@ -88,11 +88,94 @@
     "4903": "Castle Bakehouse: Bake Pain au Chocolat 4",
     "4904": "Castle Bakehouse: Bake Pain au Chocolat 5",
     "500": "The Mountains: Pogo Stick",
-    "5000": "Lollipop Farm: Planted 30000 Lollipops",
-    "5001": "Lollipop Farm: Planted 40000 Lollipops",
-    "5002": "Lollipop Farm: Planted 50000 Lollipops",
-    "5003": "Lollipop Farm: Planted 60000 Lollipops",
-    "5004": "Lollipop Farm: Planted 70000 Lollipops"
+    "100000": "Lollipop Farm: Planted 30000 Lollipops",
+    "100001": "Lollipop Farm: Planted 40000 Lollipops",
+    "100002": "Lollipop Farm: Planted 50000 Lollipops",
+    "100003": "Lollipop Farm: Planted 60000 Lollipops",
+    "100004": "Lollipop Farm: Planted 70000 Lollipops",
+    "100005": "Lollipop Farm: Planted 80000 Lollipops",
+    "100006": "Lollipop Farm: Planted 90000 Lollipops",
+    "100007": "Lollipop Farm: Planted 100000 Lollipops",
+    "101000": "The Sea: Travel 50m",
+    "101001": "The Sea: Travel 100m",
+    "101002": "The Sea: Travel 150m",
+    "101003": "The Sea: Travel 200m",
+    "101004": "The Sea: Travel 250m",
+    "101005": "The Sea: Travel 300m",
+    "101006": "The Sea: Travel 350m",
+    "101007": "The Sea: Travel 400m",
+    "101008": "The Sea: Travel 450m",
+    "101009": "The Sea: Travel 500m",
+    "101010": "The Sea: Travel 550m",
+    "101011": "The Sea: Travel 600m",
+    "101012": "The Sea: Travel 650m",
+    "101013": "The Sea: Travel 700m",
+    "101014": "The Sea: Travel 750m",
+    "101015": "The Sea: Travel 800m",
+    "101016": "The Sea: Travel 850m",
+    "101017": "The Sea: Travel 900m",
+    "101018": "The Sea: Travel 950m",
+    "101019": "The Sea: Travel 1000m",
+    "101020": "The Sea: Travel 1050m",
+    "101021": "The Sea: Travel 1100m",
+    "101022": "The Sea: Travel 1150m",
+    "101023": "The Sea: Travel 1200m",
+    "101024": "The Sea: Travel 1250m",
+    "101025": "The Sea: Travel 1300m",
+    "101026": "The Sea: Travel 1350m",
+    "101027": "The Sea: Travel 1400m",
+    "101028": "The Sea: Travel 1450m",
+    "101029": "The Sea: Travel 1500m",
+    "101030": "The Sea: Travel 1550m",
+    "101031": "The Sea: Travel 1600m",
+    "101032": "The Sea: Travel 1650m",
+    "101033": "The Sea: Travel 1700m",
+    "101034": "The Sea: Travel 1750m",
+    "101035": "The Sea: Travel 1800m",
+    "101036": "The Sea: Travel 1850m",
+    "101037": "The Sea: Travel 1900m",
+    "101038": "The Sea: Travel 1950m",
+    "101039": "The Sea: Travel 2000m",
+    "101040": "The Sea: Travel 2050m",
+    "101041": "The Sea: Travel 2100m",
+    "101042": "The Sea: Travel 2150m",
+    "101043": "The Sea: Travel 2200m",
+    "101044": "The Sea: Travel 2250m",
+    "101045": "The Sea: Travel 2300m",
+    "101046": "The Sea: Travel 2350m",
+    "101047": "The Sea: Travel 2400m",
+    "101048": "The Sea: Travel 2450m",
+    "101049": "The Sea: Travel 2500m",
+    "101050": "The Sea: Travel 2550m",
+    "101051": "The Sea: Travel 2600m",
+    "101052": "The Sea: Travel 2650m",
+    "101053": "The Sea: Travel 2700m",
+    "101054": "The Sea: Travel 2750m",
+    "101055": "The Sea: Travel 2800m",
+    "101056": "The Sea: Travel 2850m",
+    "101057": "The Sea: Travel 2900m",
+    "101058": "The Sea: Travel 2950m",
+    "101059": "The Sea: Travel 3000m",
+    "101060": "The Sea: Travel 3050m",
+    "101061": "The Sea: Travel 3100m",
+    "101062": "The Sea: Travel 3150m",
+    "101063": "The Sea: Travel 3200m",
+    "101064": "The Sea: Travel 3250m",
+    "101065": "The Sea: Travel 3300m",
+    "101066": "The Sea: Travel 3350m",
+    "101067": "The Sea: Travel 3400m",
+    "101068": "The Sea: Travel 3450m",
+    "101069": "The Sea: Travel 3500m",
+    "101070": "The Sea: Travel 3550m",
+    "101071": "The Sea: Travel 3600m",
+    "101072": "The Sea: Travel 3650m",
+    "101073": "The Sea: Travel 3700m",
+    "101074": "The Sea: Travel 3750m",
+    "101075": "The Sea: Travel 3800m",
+    "101076": "The Sea: Travel 3850m",
+    "101077": "The Sea: Travel 3900m",
+    "101078": "The Sea: Travel 3950m",
+    "101079": "The Sea: Travel 4000m"
   },
   "locationParents": {
     "2600": "VILLAGE_FORGE",
@@ -148,11 +231,14 @@
     "4001": "THE_XINOPHERYDON",
     "3900": "THE_TEAPOT",
     "4100": "THE_LEDGE_ROOM",
-    "5000": "LOLLIPOP_FARM",
-    "5001": "LOLLIPOP_FARM",
-    "5002": "LOLLIPOP_FARM",
-    "5003": "LOLLIPOP_FARM",
-    "5004": "LOLLIPOP_FARM",
+    "100000": "LOLLIPOP_FARM",
+    "100001": "LOLLIPOP_FARM",
+    "100002": "LOLLIPOP_FARM",
+    "100003": "LOLLIPOP_FARM",
+    "100004": "LOLLIPOP_FARM",
+    "100005": "LOLLIPOP_FARM",
+    "100006": "LOLLIPOP_FARM",
+    "100007": "LOLLIPOP_FARM",
     "2300": "HELL",
     "2400": "THE_DEVELOPER",
     "4500": "THE_SEA",
@@ -160,6 +246,86 @@
     "4502": "THE_SEA",
     "4503": "THE_SEA",
     "4504": "THE_SEA",
+    "101000": "THE_SEA",
+    "101001": "THE_SEA",
+    "101002": "THE_SEA",
+    "101003": "THE_SEA",
+    "101004": "THE_SEA",
+    "101005": "THE_SEA",
+    "101006": "THE_SEA",
+    "101007": "THE_SEA",
+    "101008": "THE_SEA",
+    "101009": "THE_SEA",
+    "101010": "THE_SEA",
+    "101011": "THE_SEA",
+    "101012": "THE_SEA",
+    "101013": "THE_SEA",
+    "101014": "THE_SEA",
+    "101015": "THE_SEA",
+    "101016": "THE_SEA",
+    "101017": "THE_SEA",
+    "101018": "THE_SEA",
+    "101019": "THE_SEA",
+    "101020": "THE_SEA",
+    "101021": "THE_SEA",
+    "101022": "THE_SEA",
+    "101023": "THE_SEA",
+    "101024": "THE_SEA",
+    "101025": "THE_SEA",
+    "101026": "THE_SEA",
+    "101027": "THE_SEA",
+    "101028": "THE_SEA",
+    "101029": "THE_SEA",
+    "101030": "THE_SEA",
+    "101031": "THE_SEA",
+    "101032": "THE_SEA",
+    "101033": "THE_SEA",
+    "101034": "THE_SEA",
+    "101035": "THE_SEA",
+    "101036": "THE_SEA",
+    "101037": "THE_SEA",
+    "101038": "THE_SEA",
+    "101039": "THE_SEA",
+    "101040": "THE_SEA",
+    "101041": "THE_SEA",
+    "101042": "THE_SEA",
+    "101043": "THE_SEA",
+    "101044": "THE_SEA",
+    "101045": "THE_SEA",
+    "101046": "THE_SEA",
+    "101047": "THE_SEA",
+    "101048": "THE_SEA",
+    "101049": "THE_SEA",
+    "101050": "THE_SEA",
+    "101051": "THE_SEA",
+    "101052": "THE_SEA",
+    "101053": "THE_SEA",
+    "101054": "THE_SEA",
+    "101055": "THE_SEA",
+    "101056": "THE_SEA",
+    "101057": "THE_SEA",
+    "101058": "THE_SEA",
+    "101059": "THE_SEA",
+    "101060": "THE_SEA",
+    "101061": "THE_SEA",
+    "101062": "THE_SEA",
+    "101063": "THE_SEA",
+    "101064": "THE_SEA",
+    "101065": "THE_SEA",
+    "101066": "THE_SEA",
+    "101067": "THE_SEA",
+    "101068": "THE_SEA",
+    "101069": "THE_SEA",
+    "101070": "THE_SEA",
+    "101071": "THE_SEA",
+    "101072": "THE_SEA",
+    "101073": "THE_SEA",
+    "101074": "THE_SEA",
+    "101075": "THE_SEA",
+    "101076": "THE_SEA",
+    "101077": "THE_SEA",
+    "101078": "THE_SEA",
+    "101079": "THE_SEA",
     "2500": "LIGHTHOUSE",
     "4800": "THE_X_POTION",
     "4900": "CASTLE_BAKEHOUSE",
@@ -4665,7 +4831,7 @@
           }
         ]
       },
-      "5000": {
+      "100000": {
         "rule": "And",
         "options": [],
         "filtered_resolution": false,
@@ -4717,7 +4883,7 @@
           }
         ]
       },
-      "5001": {
+      "100001": {
         "rule": "And",
         "options": [],
         "filtered_resolution": false,
@@ -4769,7 +4935,7 @@
           }
         ]
       },
-      "5002": {
+      "100002": {
         "rule": "And",
         "options": [],
         "filtered_resolution": false,
@@ -4821,7 +4987,7 @@
           }
         ]
       },
-      "5003": {
+      "100003": {
         "rule": "And",
         "options": [],
         "filtered_resolution": false,
@@ -4873,7 +5039,163 @@
           }
         ]
       },
-      "5004": {
+      "100004": {
+        "rule": "And",
+        "options": [],
+        "filtered_resolution": false,
+        "children": [
+          {
+            "rule": "HasCount",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item": "lollipop",
+              "required": 9,
+              "inequality": 3
+            }
+          },
+          {
+            "rule": "CanReachRegion",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "region_name": "World Map: The Lollipop Farm"
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Pitchfork",
+              "count": 1
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Shell Powder",
+              "count": 1
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Green Fin",
+              "count": 1
+            }
+          }
+        ]
+      },
+      "100005": {
+        "rule": "And",
+        "options": [],
+        "filtered_resolution": false,
+        "children": [
+          {
+            "rule": "HasCount",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item": "lollipop",
+              "required": 9,
+              "inequality": 3
+            }
+          },
+          {
+            "rule": "CanReachRegion",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "region_name": "World Map: The Lollipop Farm"
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Pitchfork",
+              "count": 1
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Shell Powder",
+              "count": 1
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Green Fin",
+              "count": 1
+            }
+          }
+        ]
+      },
+      "100006": {
+        "rule": "And",
+        "options": [],
+        "filtered_resolution": false,
+        "children": [
+          {
+            "rule": "HasCount",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item": "lollipop",
+              "required": 9,
+              "inequality": 3
+            }
+          },
+          {
+            "rule": "CanReachRegion",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "region_name": "World Map: The Lollipop Farm"
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Pitchfork",
+              "count": 1
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Shell Powder",
+              "count": 1
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Green Fin",
+              "count": 1
+            }
+          }
+        ]
+      },
+      "100007": {
         "rule": "And",
         "options": [],
         "filtered_resolution": false,
@@ -7060,6 +7382,2552 @@
             }
           }
         ]
+      },
+      "101000": {
+        "rule": "And",
+        "options": [],
+        "filtered_resolution": false,
+        "children": [
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "False_",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {}
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Summoning Tribal Spear",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 8
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Summoning Tribal Spear"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Giant Spoon",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 9
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Giant Spoon"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Monkey Wizard Staff",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 6
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Enchanted Monkey Wizard Staff"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Giant Spoon of Doom",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 11
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Giant Spoon of Doom"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Scythe",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 10
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Scythe"
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Red Enchanted Gloves",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Octopus King Crown with Jaspers",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Monkey Wizard Staff",
+                  "count": 1
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "False_",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {}
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Lightweight Body Armour",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Knight Body Armour",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Knight Body Armour",
+                  "count": 1
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "And",
+                "options": [],
+                "filtered_resolution": false,
+                "children": [
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Sorceress' Cauldron",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "HasCount",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item": "lollipop",
+                      "required": 9,
+                      "inequality": 3
+                    }
+                  },
+                  {
+                    "rule": "CanReachRegion",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "region_name": "World Map: The Lollipop Farm"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Pitchfork",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Shell Powder",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Green Fin",
+                      "count": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Pink Enchanted Gloves",
+                  "count": 1
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "101001": {
+        "rule": "And",
+        "options": [],
+        "filtered_resolution": false,
+        "children": [
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "False_",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {}
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Summoning Tribal Spear",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 8
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Summoning Tribal Spear"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Giant Spoon",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 9
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Giant Spoon"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Monkey Wizard Staff",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 6
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Enchanted Monkey Wizard Staff"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Giant Spoon of Doom",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 11
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Giant Spoon of Doom"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Scythe",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 10
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Scythe"
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Red Enchanted Gloves",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Octopus King Crown with Jaspers",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Monkey Wizard Staff",
+                  "count": 1
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "False_",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {}
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Lightweight Body Armour",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Knight Body Armour",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Knight Body Armour",
+                  "count": 1
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "And",
+                "options": [],
+                "filtered_resolution": false,
+                "children": [
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Sorceress' Cauldron",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "HasCount",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item": "lollipop",
+                      "required": 9,
+                      "inequality": 3
+                    }
+                  },
+                  {
+                    "rule": "CanReachRegion",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "region_name": "World Map: The Lollipop Farm"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Pitchfork",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Shell Powder",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Green Fin",
+                      "count": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Pink Enchanted Gloves",
+                  "count": 1
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "101002": {
+        "rule": "And",
+        "options": [],
+        "filtered_resolution": false,
+        "children": [
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "False_",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {}
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Summoning Tribal Spear",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 8
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Summoning Tribal Spear"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Giant Spoon",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 9
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Giant Spoon"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Monkey Wizard Staff",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 6
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Enchanted Monkey Wizard Staff"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Giant Spoon of Doom",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 11
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Giant Spoon of Doom"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Scythe",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 10
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Scythe"
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Red Enchanted Gloves",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Octopus King Crown with Jaspers",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Monkey Wizard Staff",
+                  "count": 1
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "False_",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {}
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Lightweight Body Armour",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Knight Body Armour",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Knight Body Armour",
+                  "count": 1
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "And",
+                "options": [],
+                "filtered_resolution": false,
+                "children": [
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Sorceress' Cauldron",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "HasCount",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item": "lollipop",
+                      "required": 9,
+                      "inequality": 3
+                    }
+                  },
+                  {
+                    "rule": "CanReachRegion",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "region_name": "World Map: The Lollipop Farm"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Pitchfork",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Shell Powder",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Green Fin",
+                      "count": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Pink Enchanted Gloves",
+                  "count": 1
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "101003": {
+        "rule": "And",
+        "options": [],
+        "filtered_resolution": false,
+        "children": [
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "False_",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {}
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Summoning Tribal Spear",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 8
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Summoning Tribal Spear"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Giant Spoon",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 9
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Giant Spoon"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Monkey Wizard Staff",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 6
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Enchanted Monkey Wizard Staff"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Giant Spoon of Doom",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 11
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Giant Spoon of Doom"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Scythe",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 10
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Scythe"
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Red Enchanted Gloves",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Octopus King Crown with Jaspers",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Monkey Wizard Staff",
+                  "count": 1
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "False_",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {}
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Lightweight Body Armour",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Knight Body Armour",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Knight Body Armour",
+                  "count": 1
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "And",
+                "options": [],
+                "filtered_resolution": false,
+                "children": [
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Sorceress' Cauldron",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "HasCount",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item": "lollipop",
+                      "required": 9,
+                      "inequality": 3
+                    }
+                  },
+                  {
+                    "rule": "CanReachRegion",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "region_name": "World Map: The Lollipop Farm"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Pitchfork",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Shell Powder",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Green Fin",
+                      "count": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Pink Enchanted Gloves",
+                  "count": 1
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "101004": {
+        "rule": "And",
+        "options": [],
+        "filtered_resolution": false,
+        "children": [
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "False_",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {}
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Summoning Tribal Spear",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 8
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Summoning Tribal Spear"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Giant Spoon",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 9
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Giant Spoon"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Monkey Wizard Staff",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 6
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Enchanted Monkey Wizard Staff"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Giant Spoon of Doom",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 11
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Giant Spoon of Doom"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Scythe",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 10
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Scythe"
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Red Enchanted Gloves",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Octopus King Crown with Jaspers",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Monkey Wizard Staff",
+                  "count": 1
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "False_",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {}
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Lightweight Body Armour",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Knight Body Armour",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Knight Body Armour",
+                  "count": 1
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "And",
+                "options": [],
+                "filtered_resolution": false,
+                "children": [
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Sorceress' Cauldron",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "HasCount",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item": "lollipop",
+                      "required": 9,
+                      "inequality": 3
+                    }
+                  },
+                  {
+                    "rule": "CanReachRegion",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "region_name": "World Map: The Lollipop Farm"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Pitchfork",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Shell Powder",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Green Fin",
+                      "count": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Pink Enchanted Gloves",
+                  "count": 1
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "101005": {
+        "rule": "And",
+        "options": [],
+        "filtered_resolution": false,
+        "children": [
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "False_",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {}
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Summoning Tribal Spear",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 8
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Summoning Tribal Spear"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Giant Spoon",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 9
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Giant Spoon"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Monkey Wizard Staff",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 6
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Enchanted Monkey Wizard Staff"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Giant Spoon of Doom",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 11
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Giant Spoon of Doom"
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Scythe",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Progressive Weapon",
+                  "count": 10
+                }
+              },
+              {
+                "rule": "HasStartWeapon",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "weapon": "Scythe"
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Red Enchanted Gloves",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Octopus King Crown with Jaspers",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Monkey Wizard Staff",
+                  "count": 1
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "False_",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {}
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Lightweight Body Armour",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Knight Body Armour",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Enchanted Knight Body Armour",
+                  "count": 1
+                }
+              }
+            ]
+          },
+          {
+            "rule": "Or",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "And",
+                "options": [],
+                "filtered_resolution": false,
+                "children": [
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Sorceress' Cauldron",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "HasCount",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item": "lollipop",
+                      "required": 9,
+                      "inequality": 3
+                    }
+                  },
+                  {
+                    "rule": "CanReachRegion",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "region_name": "World Map: The Lollipop Farm"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Pitchfork",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Shell Powder",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Green Fin",
+                      "count": 1
+                    }
+                  }
+                ]
+              },
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Pink Enchanted Gloves",
+                  "count": 1
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "101006": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101007": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101008": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101009": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101010": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101011": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101012": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101013": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101014": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101015": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101016": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101017": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101018": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Green Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101019": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101020": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101021": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101022": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101023": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101024": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101025": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101026": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101027": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101028": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101029": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101030": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101031": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101032": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101033": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101034": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101035": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101036": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101037": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101038": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101039": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101040": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101041": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101042": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101043": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101044": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101045": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101046": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101047": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101048": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101049": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101050": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101051": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101052": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101053": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101054": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101055": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101056": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101057": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101058": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101059": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101060": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101061": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101062": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101063": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101064": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101065": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101066": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101067": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101068": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101069": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101070": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101071": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101072": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101073": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101074": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101075": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101076": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101077": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101078": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
+      },
+      "101079": {
+        "rule": "CanReachLocation",
+        "options": [],
+        "filtered_resolution": false,
+        "args": {
+          "location_name": "The Sea: Get Purple Fin",
+          "parent_region_name": "",
+          "skip_indirect_connection": false
+        }
       },
       "2500": {
         "rule": "CanReachRegion",

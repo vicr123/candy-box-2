@@ -52,6 +52,9 @@ const LollipopFarmChecks = [
     [50000, "LOLLIPOP_FARM_EXTRA_3"],
     [60000, "LOLLIPOP_FARM_EXTRA_4"],
     [70000, "LOLLIPOP_FARM_EXTRA_5"],
+    [80000, "LOLLIPOP_FARM_EXTRA_6"],
+    [90000, "LOLLIPOP_FARM_EXTRA_7"],
+    [100000, "LOLLIPOP_FARM_EXTRA_8"],
 ] satisfies [number, keyof typeof ArchipelagoLocation][]
 
 export class LollipopFarm extends Place{
