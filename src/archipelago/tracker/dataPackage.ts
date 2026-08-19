@@ -149,7 +149,8 @@ function coreEvaluate(archipelagoData: ArchipelagoData, loadedDataPackage: Track
             return coreReachable(archipelagoData, loadedDataPackage, Object.entries(loadedDataPackage.regions).find(([id, name]) => name == room)![0] as ArchipelagoRoom);
         case "CanReachLocation":
             const {location_name: location} = expression.args;
-            return archipelagoData.checkedLocations.includes(Number(Object.entries(loadedDataPackage.locations).find(([id, name]) => name == location)[0])!);
+            const locationId = Object.entries(loadedDataPackage.locations).find(([id, name]) => name == location)[0];
+            return coreEvaluate(archipelagoData, loadedDataPackage, loadedDataPackage.rules.locations[locationId])
         case "HasCount":
             const {item, inequality, required: count} = expression.args;
             const itemCount =

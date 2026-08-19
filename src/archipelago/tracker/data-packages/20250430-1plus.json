@@ -15,6 +15,7 @@
     "201": "Fifth House: Lollipop in bookshelf",
     "202": "Fifth House: Lollipop under rug",
     "300": "Cellar Quest: Quest Cleared",
+    "500": "The Mountains: Pogo Stick",
     "1100": "Desert Quest: Quest Cleared",
     "1101": "Desert Quest: Get Desert Bird Feather",
     "1200": "Bridge Quest: Troll Defeated",
@@ -87,7 +88,7 @@
     "4902": "Castle Bakehouse: Bake Pain au Chocolat 3",
     "4903": "Castle Bakehouse: Bake Pain au Chocolat 4",
     "4904": "Castle Bakehouse: Bake Pain au Chocolat 5",
-    "500": "The Mountains: Pogo Stick",
+    "5000": "The Tower: Take the Talking Candy",
     "100000": "Lollipop Farm: Planted 30000 Lollipops",
     "100001": "Lollipop Farm: Planted 40000 Lollipops",
     "100002": "Lollipop Farm: Planted 50000 Lollipops",
@@ -227,6 +228,7 @@
     "4300": "CASTLE_DARK_ROOM",
     "1600": "THE_GIANT_NOUGAT_MONSTER",
     "2100": "THE_CASTLE_EGG_ROOM",
+    "5000": "TOWER",
     "4000": "THE_XINOPHERYDON",
     "4001": "THE_XINOPHERYDON",
     "3900": "THE_TEAPOT",
@@ -4197,6 +4199,49 @@
             "filtered_resolution": false,
             "args": {
               "weapon": "Nothing (Weapon)"
+            }
+          }
+        ]
+      },
+      "5000": {
+        "rule": "And",
+        "options": [],
+        "filtered_resolution": false,
+        "children": [
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "P Stone",
+              "count": 1
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "L Stone",
+              "count": 1
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "A Stone",
+              "count": 1
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Y Stone",
+              "count": 1
             }
           }
         ]
@@ -11003,46 +11048,11 @@
       "filtered_resolution": false,
       "children": [
         {
-          "rule": "CanReachRegion",
-          "options": [],
-          "filtered_resolution": false,
-          "args": {
-            "region_name": "The Castle: The Tower"
-          }
-        },
-        {
           "rule": "Has",
           "options": [],
           "filtered_resolution": false,
           "args": {
-            "item_name": "P Stone",
-            "count": 1
-          }
-        },
-        {
-          "rule": "Has",
-          "options": [],
-          "filtered_resolution": false,
-          "args": {
-            "item_name": "L Stone",
-            "count": 1
-          }
-        },
-        {
-          "rule": "Has",
-          "options": [],
-          "filtered_resolution": false,
-          "args": {
-            "item_name": "A Stone",
-            "count": 1
-          }
-        },
-        {
-          "rule": "Has",
-          "options": [],
-          "filtered_resolution": false,
-          "args": {
-            "item_name": "Y Stone",
+            "item_name": "Talking Candy",
             "count": 1
           }
         },
@@ -11190,7 +11200,8 @@
     "7665070": "Thorns Shield Spell",
     "7665071": "Obsidian Wall Spell",
     "7665072": "Black Demons Spell",
-    "7665073": "Font Trap"
+    "7665073": "Font Trap",
+    "7665074": "Talking Candy"
   },
   "regions": {
     "THE_CELLAR": "Quest: The Cellar",

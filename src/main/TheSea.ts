@@ -341,10 +341,10 @@ export class TheSea extends Quest{
         }
 
         if (Archipelago.slotData.goalConditions.includes("SWIM_3000_METERS") || hasSeaChecks) {
-            this.getRenderArea().drawString(`${Database.getTranslatedTextWithFallback("swimProgress", {distance: this.distance})}   ${Database.getTranslatedTextWithFallback("swimRecord", {distance: Saving.loadNumber("theSeaMaxDistance")})}`, 0, this.getRealQuestSize().y);
+            this.getRenderArea().drawString(`${Database.getTranslatedTextWithFallback("swimProgress", {distance: this.distance})}   ${Database.getTranslatedTextWithFallback("swimRecord", {distance: Saving.loadNumber("theSeaMaxDistance")})}`, 0, this.getRealQuestPosition().y + this.getRealQuestDrawingSize().y - 1);
 
             if (nextSeaCheck) {
-                this.getRenderArea().drawString(`Next check at ${Algo.numberToStringButNicely(nextSeaCheck[0])}m`, 50, this.getRealQuestSize().y);
+                this.getRenderArea().drawString(`Next check at ${Algo.numberToStringButNicely(nextSeaCheck[0])}m`, 50, this.getRealQuestPosition().y + this.getRealQuestDrawingSize().y - 1);
             }
         }
         this.postDraw();

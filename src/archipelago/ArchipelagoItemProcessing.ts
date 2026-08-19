@@ -279,5 +279,8 @@ export function grantArchipelagoItem(game: Game, itemKey: keyof typeof Archipela
         case "FONT_TRAP":
             game.activateTrap(itemKey);
             break;
+        case "TALKING_CANDY":
+            game.gainItem("gridItemPossessedTalkingCandy")
+            break;
     }
 }

@@ -8,6 +8,7 @@ import {Database} from "./Database";
 import {CallbackCollection} from "./CallbackCollection";
 import {Pos} from "./Pos";
 import {Archipelago} from "../archipelago/Archipelago";
+import {ArchipelagoNotification} from "../archipelago/ArchipelagoNotificationTray";
 
 Saving.registerBool("castleTowerFirstVisitDone", false); // True if we already visited the tower at least once
 
@@ -18,7 +19,7 @@ Saving.registerBool("castleTowerAStoneDone", false);
 Saving.registerBool("castleTowerYStoneDone", false);
 
 // Another one
-Saving.registerBool("castleTowerTookTalkingCandy", false);
+Saving.registerApLocation("castleTowerTookTalkingCandy", "TALKING_CANDY");
 
 export class CastleTower extends CastleRoom{
     // The render area
@@ -51,6 +52,11 @@ export class CastleTower extends CastleRoom{
         else{
             this.cutSceneTimer = this.cutSceneMaxTimer;
         }
+
+        Archipelago.client.messages.on("itemSent", () => {
+            this.update();
+            this.getGame().updatePlace();
+        })
         
         this.renderArea.resize(100, 38);
         this.update();
