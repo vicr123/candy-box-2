@@ -27,8 +27,6 @@ Saving.registerApLocation("theHoleFirstChestFound", "HEART_PENDANT_ACQUIRED");
 Saving.registerApLocation("theHoleSecondChestFound", "DESERT_FORTRESS_KEY_ACQUIRED");
 Saving.registerApLocation("theHoleThirdChestFound", "BLACK_MAGIC_GRIMOIRE_ACQUIRED");
 Saving.registerApLocation("theHoleFourthChestFound", "HOLE_CHOCOLATE_BAR_4");
-Saving.registerApLocation("theHoleThirdChestFound_1", "BLACK_MAGIC_GRIMOIRE_ACQUIRED_OBSIDIAN_WALL");
-Saving.registerApLocation("theHoleThirdChestFound_2", "BLACK_MAGIC_GRIMOIRE_ACQUIRED_BLACK_DEMONS");
 
 export class TheHole extends Quest{
     // Variables which store the open states of the chests for the current quest
@@ -452,12 +450,7 @@ export class TheHole extends Quest{
     private openThirdChest(): void{
         this.thirdChestOpened = true;
 
-        if (Archipelago.isGrimoireOption("GRIMOIRE")) {
-            this.foundGridOrEqItem(new QuestItemFound(this, "theHoleThirdChestFound", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED"))}!`, this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED")));
-        } else {
-            this.foundGridOrEqItem(new QuestItemFound(this, "theHoleThirdChestFound_1", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED_OBSIDIAN_WALL"))}!`, this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED_OBSIDIAN_WALL")));
-            this.foundGridOrEqItem(new QuestItemFound(this, "theHoleThirdChestFound_2", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED_BLACK_DEMONS"))}!`, this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED_BLACK_DEMONS")));
-        }
+        this.foundGridOrEqItem(new QuestItemFound(this, "theHoleThirdChestFound", `You opened a chest and found ${itemName(this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED"))}!`, this.itemScoutResults.findItem("BLACK_MAGIC_GRIMOIRE_ACQUIRED")));
     }
     
     private moveHorizontally(): void{

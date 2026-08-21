@@ -77,13 +77,7 @@ export class SorceressHut extends Place{
         // If we have enough lollipops
         if(this.getGame().getLollipops().getCurrent() >= 5000){
             this.getGame().getLollipops().add(-5000); // We spend the lollipops
-            if (Archipelago.isGrimoireOption("GRIMOIRE")) {
-                Archipelago.check("SORCERESS_HUT_BEGINNER_GRIMOIRE");
-            } else {
-                Archipelago.check("SORCERESS_HUT_BEGINNERS_GRIMOIRE_TELEPORT");
-                Archipelago.check("SORCERESS_HUT_BEGINNERS_GRIMOIRE_FIREBALL");
-                Archipelago.check("SORCERESS_HUT_BEGINNERS_GRIMOIRE_ACID_RAIN");
-            }
+            Archipelago.check("SORCERESS_HUT_BEGINNER_GRIMOIRE");
             this.currentSpeech = "sorceressHutBoughtSpeech"; // We set the speech
             // We update
             this.update();
@@ -95,12 +89,7 @@ export class SorceressHut extends Place{
         // If we have enough lollipops
         if(this.getGame().getLollipops().getCurrent() >= 20000){
             this.getGame().getLollipops().add(-20000); // We spend the lollipops
-            if (Archipelago.isGrimoireOption("GRIMOIRE")) {
-                Archipelago.check("SORCERESS_HUT_ADVANCED_GRIMOIRE");
-            } else {
-                Archipelago.check("SORCERESS_HUT_ADVANCED_GRIMOIRE_ERASE_MAGIC");
-                Archipelago.check("SORCERESS_HUT_ADVANCED_GRIMOIRE_THORNS_SHIELD");
-            }
+            Archipelago.check("SORCERESS_HUT_ADVANCED_GRIMOIRE");
             this.currentSpeech = "sorceressHutBoughtSpeech"; // We set the speech
             // We update
             this.update();
@@ -133,13 +122,8 @@ export class SorceressHut extends Place{
     }
     
     private clickedGrimoire(): void{
-        if (Archipelago.slotData.defaults.grimoires == 0 || Archipelago.slotData.defaults.grimoires == 1) {
-            this.selectedItem = [this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNER_GRIMOIRE")];
-            this.currentSpeech = "sorceressHutClickedSpeech";
-        } else if (Archipelago.slotData.defaults.grimoires == 2) {
-            this.selectedItem = [this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNERS_GRIMOIRE_ACID_RAIN"), this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNERS_GRIMOIRE_FIREBALL"), this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNERS_GRIMOIRE_TELEPORT")];
-            this.currentSpeech = "sorceressHutClickedSpeechThreeInOne";
-        }
+        this.selectedItem = [this.itemScoutResults.findItem("SORCERESS_HUT_BEGINNER_GRIMOIRE")];
+        this.currentSpeech = "sorceressHutClickedSpeech";
 
         this.selectedPrice = 5000;
         
@@ -150,13 +134,8 @@ export class SorceressHut extends Place{
     }
     
     private clickedGrimoire2(): void{
-        if (Archipelago.slotData.defaults.grimoires == 0 || Archipelago.slotData.defaults.grimoires == 1) {
-            this.selectedItem = [this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE")];
-            this.currentSpeech = "sorceressHutClickedSpeech";
-        } else if (Archipelago.slotData.defaults.grimoires == 2) {
-            this.selectedItem = [this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE_ERASE_MAGIC"), this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE_THORNS_SHIELD")];
-            this.currentSpeech = "sorceressHutClickedSpeechTwoInOne";
-        }
+        this.selectedItem = [this.itemScoutResults.findItem("SORCERESS_HUT_ADVANCED_GRIMOIRE")];
+        this.currentSpeech = "sorceressHutClickedSpeech";
 
         this.selectedPrice = 20000;
         
@@ -289,13 +268,8 @@ export class SorceressHut extends Place{
         // Draw the ascii art
         this.renderArea.drawArray(Database.getAscii("places/sorceressHut/shelves"), x, y);
 
-        const haveBeginnersGrimoire = Archipelago.isGrimoireOption("GRIMOIRE") ?
-            Archipelago.isChecked("SORCERESS_HUT_BEGINNER_GRIMOIRE") :
-            (Archipelago.isChecked("SORCERESS_HUT_BEGINNERS_GRIMOIRE_ACID_RAIN") && Archipelago.isChecked("SORCERESS_HUT_BEGINNERS_GRIMOIRE_FIREBALL") && Archipelago.isChecked("SORCERESS_HUT_BEGINNERS_GRIMOIRE_TELEPORT"))
-
-        const haveAdvancedGrimoire = Archipelago.isGrimoireOption("GRIMOIRE") ?
-            Archipelago.isChecked("SORCERESS_HUT_ADVANCED_GRIMOIRE") :
-            (Archipelago.isChecked("SORCERESS_HUT_ADVANCED_GRIMOIRE_THORNS_SHIELD") && Archipelago.isChecked("SORCERESS_HUT_ADVANCED_GRIMOIRE_ERASE_MAGIC"))
+        const haveBeginnersGrimoire = Archipelago.isChecked("SORCERESS_HUT_BEGINNER_GRIMOIRE");
+        const haveAdvancedGrimoire = Archipelago.isChecked("SORCERESS_HUT_ADVANCED_GRIMOIRE");
         
         // If we didn't take the lollipop yet
         if(Saving.loadBool("sorceressHutTookLollipop") == false){
