@@ -533,5 +533,5 @@
     "progressiveWorldMapTooltip": "Progressive World Maps: {{maps}}",
     "swimProgress": "You swam {{distance}}m!",
     "swimRecord": "Your high score is {{distance}}m",
-    "talkingCandySwim3000Requirement": "swim at least 3000m in the sea (your record is {{record}})"
+    "talkingCandySwim3000Requirement": "swim at least 3000m in the sea (your record is {{record}}m)"
 }
