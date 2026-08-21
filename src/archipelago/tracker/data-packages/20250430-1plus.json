@@ -2207,6 +2207,15 @@
             "args": {
               "weapon": "Scythe"
             }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Purple Fin",
+              "count": 1
+            }
           }
         ]
       },
@@ -2402,6 +2411,15 @@
             "args": {
               "weapon": "Scythe"
             }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Purple Fin",
+              "count": 1
+            }
           }
         ]
       },
@@ -2424,246 +2442,253 @@
         "args": {}
       },
       "1900": {
-        "rule": "And",
+        "rule": "Or",
         "options": [],
         "filtered_resolution": false,
         "children": [
+          {
+            "rule": "And",
+            "options": [],
+            "filtered_resolution": false,
+            "children": [
+              {
+                "rule": "Has",
+                "options": [],
+                "filtered_resolution": false,
+                "args": {
+                  "item_name": "Sorceress' Cauldron",
+                  "count": 1
+                }
+              },
+              {
+                "rule": "Or",
+                "options": [],
+                "filtered_resolution": false,
+                "children": [
+                  {
+                    "rule": "False_",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {}
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Troll's Bludgeon",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Weapon",
+                      "count": 4
+                    }
+                  },
+                  {
+                    "rule": "HasStartWeapon",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "weapon": "Troll's Bludgeon"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Summoning Tribal Spear",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Weapon",
+                      "count": 8
+                    }
+                  },
+                  {
+                    "rule": "HasStartWeapon",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "weapon": "Summoning Tribal Spear"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Giant Spoon",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Weapon",
+                      "count": 9
+                    }
+                  },
+                  {
+                    "rule": "HasStartWeapon",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "weapon": "Giant Spoon"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Enchanted Monkey Wizard Staff",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Weapon",
+                      "count": 6
+                    }
+                  },
+                  {
+                    "rule": "HasStartWeapon",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "weapon": "Enchanted Monkey Wizard Staff"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Giant Spoon of Doom",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Weapon",
+                      "count": 11
+                    }
+                  },
+                  {
+                    "rule": "HasStartWeapon",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "weapon": "Giant Spoon of Doom"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Scythe",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Weapon",
+                      "count": 10
+                    }
+                  },
+                  {
+                    "rule": "HasStartWeapon",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "weapon": "Scythe"
+                    }
+                  }
+                ]
+              },
+              {
+                "rule": "Or",
+                "options": [],
+                "filtered_resolution": false,
+                "children": [
+                  {
+                    "rule": "False_",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {}
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Lightweight Body Armour",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Knight Body Armour",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Enchanted Knight Body Armour",
+                      "count": 1
+                    }
+                  }
+                ]
+              }
+            ]
+          },
           {
             "rule": "Has",
             "options": [],
             "filtered_resolution": false,
             "args": {
-              "item_name": "Sorceress' Cauldron",
+              "item_name": "Purple Fin",
               "count": 1
             }
-          },
-          {
-            "rule": "Or",
-            "options": [],
-            "filtered_resolution": false,
-            "children": [
-              {
-                "rule": "False_",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {}
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Troll's Bludgeon",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Progressive Weapon",
-                  "count": 4
-                }
-              },
-              {
-                "rule": "HasStartWeapon",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "weapon": "Troll's Bludgeon"
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Summoning Tribal Spear",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Progressive Weapon",
-                  "count": 8
-                }
-              },
-              {
-                "rule": "HasStartWeapon",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "weapon": "Summoning Tribal Spear"
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Giant Spoon",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Progressive Weapon",
-                  "count": 9
-                }
-              },
-              {
-                "rule": "HasStartWeapon",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "weapon": "Giant Spoon"
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Enchanted Monkey Wizard Staff",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Progressive Weapon",
-                  "count": 6
-                }
-              },
-              {
-                "rule": "HasStartWeapon",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "weapon": "Enchanted Monkey Wizard Staff"
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Giant Spoon of Doom",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Progressive Weapon",
-                  "count": 11
-                }
-              },
-              {
-                "rule": "HasStartWeapon",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "weapon": "Giant Spoon of Doom"
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Scythe",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Progressive Weapon",
-                  "count": 10
-                }
-              },
-              {
-                "rule": "HasStartWeapon",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "weapon": "Scythe"
-                }
-              }
-            ]
-          },
-          {
-            "rule": "Or",
-            "options": [],
-            "filtered_resolution": false,
-            "children": [
-              {
-                "rule": "False_",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {}
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Lightweight Body Armour",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Knight Body Armour",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Enchanted Knight Body Armour",
-                  "count": 1
-                }
-              }
-            ]
           }
         ]
       },
       "2000": {
-        "rule": "And",
+        "rule": "Or",
         "options": [],
         "filtered_resolution": false,
         "children": [
           {
-            "rule": "Has",
-            "options": [],
-            "filtered_resolution": false,
-            "args": {
-              "item_name": "Boots of Introspection",
-              "count": 1
-            }
-          },
-          {
-            "rule": "Or",
+            "rule": "And",
             "options": [],
             "filtered_resolution": false,
             "children": [
@@ -2672,27 +2697,261 @@
                 "options": [],
                 "filtered_resolution": false,
                 "args": {
-                  "item_name": "Beginners' Grimoire",
+                  "item_name": "Boots of Introspection",
                   "count": 1
                 }
+              },
+              {
+                "rule": "Or",
+                "options": [],
+                "filtered_resolution": false,
+                "children": [
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Beginners' Grimoire",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Grimoire",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Teleport Spell",
+                      "count": 1
+                    }
+                  }
+                ]
               },
               {
                 "rule": "Has",
                 "options": [],
                 "filtered_resolution": false,
                 "args": {
-                  "item_name": "Progressive Grimoire",
+                  "item_name": "Octopus King Crown with Jaspers",
                   "count": 1
                 }
               },
               {
-                "rule": "Has",
+                "rule": "Or",
                 "options": [],
                 "filtered_resolution": false,
-                "args": {
-                  "item_name": "Teleport Spell",
-                  "count": 1
-                }
+                "children": [
+                  {
+                    "rule": "False_",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {}
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Troll's Bludgeon",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Weapon",
+                      "count": 4
+                    }
+                  },
+                  {
+                    "rule": "HasStartWeapon",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "weapon": "Troll's Bludgeon"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Summoning Tribal Spear",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Weapon",
+                      "count": 8
+                    }
+                  },
+                  {
+                    "rule": "HasStartWeapon",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "weapon": "Summoning Tribal Spear"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Giant Spoon",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Weapon",
+                      "count": 9
+                    }
+                  },
+                  {
+                    "rule": "HasStartWeapon",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "weapon": "Giant Spoon"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Enchanted Monkey Wizard Staff",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Weapon",
+                      "count": 6
+                    }
+                  },
+                  {
+                    "rule": "HasStartWeapon",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "weapon": "Enchanted Monkey Wizard Staff"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Giant Spoon of Doom",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Weapon",
+                      "count": 11
+                    }
+                  },
+                  {
+                    "rule": "HasStartWeapon",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "weapon": "Giant Spoon of Doom"
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Scythe",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Progressive Weapon",
+                      "count": 10
+                    }
+                  },
+                  {
+                    "rule": "HasStartWeapon",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "weapon": "Scythe"
+                    }
+                  }
+                ]
+              },
+              {
+                "rule": "Or",
+                "options": [],
+                "filtered_resolution": false,
+                "children": [
+                  {
+                    "rule": "False_",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {}
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Lightweight Body Armour",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Knight Body Armour",
+                      "count": 1
+                    }
+                  },
+                  {
+                    "rule": "Has",
+                    "options": [],
+                    "filtered_resolution": false,
+                    "args": {
+                      "item_name": "Enchanted Knight Body Armour",
+                      "count": 1
+                    }
+                  }
+                ]
               }
             ]
           },
@@ -2701,218 +2960,9 @@
             "options": [],
             "filtered_resolution": false,
             "args": {
-              "item_name": "Octopus King Crown with Jaspers",
+              "item_name": "Purple Fin",
               "count": 1
             }
-          },
-          {
-            "rule": "Or",
-            "options": [],
-            "filtered_resolution": false,
-            "children": [
-              {
-                "rule": "False_",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {}
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Troll's Bludgeon",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Progressive Weapon",
-                  "count": 4
-                }
-              },
-              {
-                "rule": "HasStartWeapon",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "weapon": "Troll's Bludgeon"
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Summoning Tribal Spear",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Progressive Weapon",
-                  "count": 8
-                }
-              },
-              {
-                "rule": "HasStartWeapon",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "weapon": "Summoning Tribal Spear"
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Giant Spoon",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Progressive Weapon",
-                  "count": 9
-                }
-              },
-              {
-                "rule": "HasStartWeapon",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "weapon": "Giant Spoon"
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Enchanted Monkey Wizard Staff",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Progressive Weapon",
-                  "count": 6
-                }
-              },
-              {
-                "rule": "HasStartWeapon",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "weapon": "Enchanted Monkey Wizard Staff"
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Giant Spoon of Doom",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Progressive Weapon",
-                  "count": 11
-                }
-              },
-              {
-                "rule": "HasStartWeapon",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "weapon": "Giant Spoon of Doom"
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Scythe",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Progressive Weapon",
-                  "count": 10
-                }
-              },
-              {
-                "rule": "HasStartWeapon",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "weapon": "Scythe"
-                }
-              }
-            ]
-          },
-          {
-            "rule": "Or",
-            "options": [],
-            "filtered_resolution": false,
-            "children": [
-              {
-                "rule": "False_",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {}
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Lightweight Body Armour",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Knight Body Armour",
-                  "count": 1
-                }
-              },
-              {
-                "rule": "Has",
-                "options": [],
-                "filtered_resolution": false,
-                "args": {
-                  "item_name": "Enchanted Knight Body Armour",
-                  "count": 1
-                }
-              }
-            ]
           }
         ]
       },
@@ -14801,6 +14851,15 @@
             "filtered_resolution": false,
             "args": {
               "item_name": "Unicorn Horn",
+              "count": 1
+            }
+          },
+          {
+            "rule": "Has",
+            "options": [],
+            "filtered_resolution": false,
+            "args": {
+              "item_name": "Sponge",
               "count": 1
             }
           }
