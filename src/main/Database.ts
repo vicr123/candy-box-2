@@ -89,8 +89,8 @@ export module Database{
         } else {
             const selectedItem = Array.isArray(item) ? item[0] : item;
             return getText(currency == "candies" ? "buyCandies" : "buyLollipops", {
-                item: selectedItem.name,
-                player: selectedItem.receiver.alias,
+                item: selectedItem.name.slice(0, 30),
+                player: selectedItem.receiver.alias.slice(0, 30),
                 count: price
             });
         }
